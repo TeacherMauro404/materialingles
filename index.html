@@ -118,9 +118,19 @@ main{max-width:1100px;margin:0 auto;padding:36px 16px 80px}
 .vcard{background:#fff;border:1px solid var(--border);border-radius:var(--r);
   padding:0;overflow:hidden;box-shadow:var(--shadow);margin-bottom:20px}
 .vcard-head{padding:14px 18px;border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  cursor:pointer;user-select:none;transition:background .15s;cursor:pointer;user-select:none;transition:background .15s}
+.vcard-head:hover{background:#f8fafc}
+.vcard-head:hover{background:#f8fafc}
 .vcard-head h3{font-family:'Playfair Display',serif;font-size:15px;color:var(--navy)}
-.vcard-body{padding:16px 18px}
+.vcard-body{padding:16px 18px;display:none}.vcard.open .vcard-body{display:block}
+.vtoggle{font-size:13px;color:var(--muted);transition:transform .2s;flex-shrink:0;margin-left:8px}
+.vcard.open .vtoggle{transform:rotate(180deg)}
+.vclick{font-size:11px;color:var(--teal);font-weight:600}
+.vcard.open .vcard-body{display:block}
+.vtoggle{font-size:13px;color:var(--muted);transition:transform .2s;flex-shrink:0;margin-left:auto}
+.vcard.open .vtoggle{transform:rotate(180deg)}
+.vclick{font-size:11px;color:var(--teal);font-weight:600}
 .vex{background:#f0faf5;border-left:4px solid var(--green);padding:10px 14px;
   border-radius:0 8px 8px 0;margin-bottom:14px;font-size:13px}
 .vex .ve-label{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
@@ -2356,6 +2366,10 @@ const V2=[
 // ══════════════════════════════════════════
 // RENDER VOCAB
 // ══════════════════════════════════════════
+function toggleVocab(el){
+  var card=el.closest('.vcard');
+  card.classList.toggle('open');
+}
 function renderVocab(data,containerId){
   const c=document.getElementById(containerId);
   if(!c)return;
@@ -2379,10 +2393,14 @@ function renderVocab(data,containerId){
     </div>`;
     sets.forEach(v=>{
       html+=`<div class="vcard">
-        <div class="vcard-head">
+        <div class="vcard-head" onclick="toggleVocab(this)">
           <div>
             <h3>Vocabulary ${v.id}: ${v.title}</h3>
             <div style="font-size:12px;color:var(--muted);margin-top:3px">${v.es} · ${v.words.length} palabras</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+            <span class="vclick">Clic para ver ▼</span>
+            <span class="vtoggle">▼</span>
           </div>
         </div>
         <div class="vcard-body">
@@ -3697,143 +3715,407 @@ Right now, I am ___. In class, we are ___. My teacher is ___.</p></div>
 
 <!-- GUÍAS AVANZADAS -->
 <template id="adv-g01">
-<div class="mbadge">⭐ Nivel Avanzado</div>
-<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>El presente simple es el tiempo verbal más usado en inglés. Dominar sus reglas es esencial para avanzar.</p></div>
-<div class="hl">📌 Conjugación completa, regla 3ª persona, do/does neg. y preguntas.</div>
-<h2>Simple Present — Más allá de To Be</h2>
-<div class="gb"><strong>La regla más importante:</strong><br>
-<span class="fm">He / She / It + verbo + S</span><br>
-I play → He play<strong>s</strong> / We study → She studi<strong>es</strong> / They go → He go<strong>es</strong></div>
-<table><tr><th>Regla</th><th>Cuándo</th><th>Ejemplos</th></tr>
-<tr><td>+ s</td><td>Mayoría de verbos</td><td>work→works, play→plays</td></tr>
-<tr><td>+ es</td><td>-s,-sh,-ch,-x,-o</td><td>teach→teaches, go→goes</td></tr>
-<tr><td>y→ies</td><td>Consonante + y</td><td>study→studies, try→tries</td></tr>
-<tr><td>Irregulares</td><td>have, be</td><td>have→has, be→is</td></tr></table>
-<h2>Negative: don't / doesn't + verb base</h2>
-<p><em>I don't live in Santiago. / She doesn't work on Sundays.</em><br>
-⚠️ <span class="wrong">She doesn't works.</span> → <span class="correct">She doesn't work.</span></p>
-<h2>Questions: Do / Does + subject + verb?</h2>
-<p><em>Do you play football? Yes, I do. / No, I don't.</em><br>
-<em>Does she speak English? Yes, she does. / No, she doesn't.</em></p>
-<div class="exb"><div class="ext"><span class="exn">1</span> Conjugate in 3rd person</div>
-<ol><li>I play → She ___</li><li>We study → He ___</li><li>They go → She ___</li><li>I teach → She ___</li><li>You have → He ___</li><li>They watch → He ___</li></ol></div>
-<div class="exb"><div class="ext"><span class="exn">2</span> Make negative and question</div>
-<ol><li>She works at the port. → Neg: ___ / Q: ___?</li><li>They study navigation. → Neg: ___ / Q: ___?</li><li>He lives in Valparaíso. → Neg: ___ / Q: ___?</li></ol></div>
-<div class="exb"><div class="ext"><span class="exn">3</span> Describe a sailor's daily routine (6 sentences)</div>
-<p>Use: wake up, check, repair, eat, communicate, sleep</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
-<p>Act.1: plays / studies / goes / teaches / has / watches</p>
-<p>Act.2: She doesn't work. / Does she work? | They don't study. / Do they study? | He doesn't live. / Does he live?</p></div>
-</template>
+<div class="mbadge">⭐ Nivel Avanzado A2</div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Dominar el Presente Simple con do/does: reglas de conjugacion, verbos estativos vs dinamicos, y uso en textos profesionales. OA6 — A2.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Master Present Simple with do/does: conjugation rules, stative vs dynamic verbs, and use in professional texts. A2 level.</div>
+
+<h2>What You Already Know — and What You Don't</h2>
+<p>You know that Present Simple describes habits and routines. But there is a deeper layer: some verbs in English <strong>can NEVER go in Present Continuous</strong>, even when you are talking about "right now". These are called <strong>stative verbs</strong> — verbs of state, not action.</p>
+<div class="gb"><strong>Dynamic verbs</strong> (action verbs — can use Continuous):
+<p>play, run, eat, study, work, swim, dance, write, read, travel...</p>
+<p><em>I am playing football. / She is eating lunch. / They are studying now.</em> ✓</p>
+<strong>Stative verbs</strong> (state verbs — NEVER use Continuous):
+<table><tr><th>Category</th><th>Verbs</th><th>Correct</th><th>Incorrect</th></tr>
+<tr><td>Mental states</td><td>know, believe, understand, remember, forget, think*</td><td class="eg">I know the answer.</td><td><span class="wrong">I am knowing.</span></td></tr>
+<tr><td>Emotions</td><td>love, hate, like, want, need, prefer, wish</td><td class="eg">She loves the sea.</td><td><span class="wrong">She is loving.</span></td></tr>
+<tr><td>Senses</td><td>see, hear, smell, taste, feel*</td><td class="eg">It smells fresh.</td><td><span class="wrong">It is smelling.</span></td></tr>
+<tr><td>Possession</td><td>have*, own, belong, contain, consist</td><td class="eg">He owns a boat.</td><td><span class="wrong">He is owning.</span></td></tr>
+<tr><td>Being</td><td>be, exist, seem, appear, mean, cost</td><td class="eg">This costs a lot.</td><td><span class="wrong">This is costing.</span></td></tr></table>
+<p>* Some verbs have TWO meanings — one stative, one dynamic. <em>I think you are right</em> (stative = opinion) vs <em>I am thinking about it</em> (dynamic = active process).</p></div>
+
+<h2>The 3rd Person Rule — Why It Exists</h2>
+<p>The -s/-es/-ies ending in 3rd person singular is one of the oldest features of English grammar, surviving from Old English. Many students make errors here because Spanish doesn't change verb endings for 3rd person in present tense in the same way.</p>
+<div class="gb"><strong>Full paradigm with STATIVE verb "know":</strong>
+<table><tr><th>Affirmative</th><th>Negative</th><th>Question</th></tr>
+<tr><td>I know / You know</td><td>I don't know / You don't know</td><td>Do I know? / Do you know?</td></tr>
+<tr><td>He know<strong>s</strong> / She know<strong>s</strong></td><td>He doesn't know / She doesn't know</td><td>Does he know? / Does she know?</td></tr>
+<tr><td>We know / They know</td><td>We don't know / They don't know</td><td>Do we know? / Do they know?</td></tr></table>
+<p>Note: in negatives and questions, <strong>doesn't / does</strong> carries the -s — so the main verb returns to base form:</p>
+<p><span class="wrong">She doesn't knows.</span> → <span class="correct">She doesn't know.</span></p>
+<p><span class="wrong">Does he works here?</span> → <span class="correct">Does he work here?</span></p></div>
+
+<div class="exb"><div class="ext"><span class="exn">1</span> Stative or Dynamic? — Classify these verbs</div>
+<p>Write S (stative) or D (dynamic) for each verb. Then write one correct example sentence:</p>
+<ol><li>believe → ___ | Example: ___</li>
+<li>run → ___ | Example: ___</li>
+<li>own → ___ | Example: ___</li>
+<li>eat → ___ | Example: ___</li>
+<li>understand → ___ | Example: ___</li>
+<li>prefer → ___ | Example: ___</li>
+<li>navigate → ___ | Example: ___</li>
+<li>seem → ___ | Example: ___</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">2</span> Advanced Error Correction — find ALL errors</div>
+<p>Each sentence may have one or more errors. Identify and fix them:</p>
+<ol><li>She don't knows the answer. →</li>
+<li>Does the ship belongs to the company? →</li>
+<li>He is understanding the grammar now. →</li>
+<li>I am wanting a coffee right now. →</li>
+<li>They doesn't believe in climate change. →</li>
+<li>The officer know three languages. →</li>
+<li>Does she owns a boat? →</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">3</span> Simple or Continuous? — Justify your answer</div>
+<p>Choose the correct form AND explain WHY (stative / habit / now):</p>
+<ol><li>The captain ___ (know) this route very well. → Form: ___ / Reason: ___</li>
+<li>Look! The engineer ___ (repair) the engine. → Form: ___ / Reason: ___</li>
+<li>I ___ (think) this exercise is difficult. → Form: ___ / Reason: ___</li>
+<li>She ___ (think) about her future career right now. → Form: ___ / Reason: ___</li>
+<li>The Pacific Ocean ___ (contain) millions of species. → Form: ___ / Reason: ___</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">4</span> Translation Challenge — advanced sentences</div>
+<p>Translate, paying special attention to stative verbs and 3rd person:</p>
+<ol><li>¿Sabes cuántos idiomas habla el capitán? →</li>
+<li>Ella no entiende por qué el mar es tan importante para Chile. →</li>
+<li>Los marineros no necesitan un GPS — conocen las rutas de memoria. →</li>
+<li>¿Crees que la inteligencia artificial reemplazará a los marineros? →</li>
+<li>El barco contiene 2.000 contenedores y pesa más de 50.000 toneladas. →</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">5</span> Professional Writing Challenge</div>
+<p>Write a factual paragraph (12-15 sentences) about THE PORT OF VALPARAÍSO using only Present Simple. Include:</p>
+<ul><li>What the port does (exports, imports) — use stative verbs</li>
+<li>How many ships arrive per year (approximate)</li>
+<li>Which products Chile exports</li>
+<li>Why the port matters for Chile's economy</li>
+<li>What maritime professionals do there</li></ul>
+<p>Underline every 3rd person verb form in your paragraph.</p></div></template>
 
 <template id="adv-g02">
-<div class="mbadge">⭐ Nivel Avanzado</div>
-<div class="hl">📌 Object Pronouns: me, you, him, her, it, us, them</div>
-<table><tr><th>Sujeto</th><th>Objeto</th><th>Español</th><th>Ejemplo</th></tr>
-<tr><td>I</td><td>me</td><td>me/a mí</td><td class="eg">Help me! She calls me.</td></tr>
-<tr><td>You</td><td>you</td><td>te/a ti</td><td class="eg">I see you. Can I help you?</td></tr>
-<tr><td>He</td><td>him</td><td>lo/a él</td><td class="eg">I know him. She called him.</td></tr>
-<tr><td>She</td><td>her</td><td>la/a ella</td><td class="eg">Tell her the truth.</td></tr>
-<tr><td>It</td><td>it</td><td>lo/la (cosa)</td><td class="eg">I love it! Fix it now.</td></tr>
-<tr><td>We</td><td>us</td><td>nos/a nosotros</td><td class="eg">Join us! He helped us.</td></tr>
-<tr><td>They</td><td>them</td><td>los/a ellos</td><td class="eg">I see them. Call them.</td></tr></table>
-<div class="mkb"><div class="mkt">⚠️ Error muy frecuente</div>
-<p><span class="wrong">Me and Carlos are friends.</span> → <span class="correct">Carlos and I are friends.</span></p>
-<p>"Me" solo se usa como objeto, nunca como sujeto.</p></div>
-<div class="exb"><div class="ext"><span class="exn">1</span> Sujeto (S) u Objeto (O)</div>
-<ol><li>She called me at night. ___</li><li>The captain told them to stop. ___</li><li>They arrived early. ___</li><li>Can you help us? ___</li></ol></div>
-<div class="exb"><div class="ext"><span class="exn">2</span> Replace with object pronoun</div>
-<ol><li>I love [the sea]. → I love ___.</li><li>She called [Carlos]. → She called ___.</li><li>Help [Ana and me]! → Help ___!</li><li>The engineer fixed [the engine]. → fixed ___.</li></ol></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
-<p>Act.1: O / O / S / O</p><p>Act.2: it / him / us / it</p></div>
-</template>
+<div class="mbadge">⭐ Nivel Avanzado A2</div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar pronombres objeto en todas sus formas, posiciones y contextos. Distinguirlos de pronombres sujeto y posesivos. OA6 — A2.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use object pronouns in all forms, positions and contexts. Distinguish them from subject and possessive pronouns. A2 level.</div>
+
+<h2>The Three Pronoun Systems — How They Relate</h2>
+<p>English has three parallel systems of pronouns. Confusing them is one of the most common errors at A2 level, even among advanced learners. Understanding <em>why</em> each exists will help you use them correctly.</p>
+<div class="gb"><table><tr><th>Person</th><th>Subject (does the action)</th><th>Object (receives the action)</th><th>Possessive adj (before noun)</th></tr>
+<tr><td>1st singular</td><td><strong>I</strong></td><td><strong>me</strong></td><td><strong>my</strong></td></tr>
+<tr><td>2nd singular</td><td><strong>you</strong></td><td><strong>you</strong></td><td><strong>your</strong></td></tr>
+<tr><td>3rd m.</td><td><strong>he</strong></td><td><strong>him</strong></td><td><strong>his</strong></td></tr>
+<tr><td>3rd f.</td><td><strong>she</strong></td><td><strong>her</strong></td><td><strong>her</strong></td></tr>
+<tr><td>3rd neuter</td><td><strong>it</strong></td><td><strong>it</strong></td><td><strong>its</strong></td></tr>
+<tr><td>1st plural</td><td><strong>we</strong></td><td><strong>us</strong></td><td><strong>our</strong></td></tr>
+<tr><td>3rd plural</td><td><strong>they</strong></td><td><strong>them</strong></td><td><strong>their</strong></td></tr></table></div>
+
+<h2>When Do We Use Object Pronouns?</h2>
+<div class="gb"><p>Object pronouns replace nouns that receive the action — they come AFTER the verb or preposition:</p>
+<p>The captain called <strong>the crew</strong>. → The captain called <strong>them</strong>.</p>
+<p>She gave the map to <strong>the navigator</strong>. → She gave it to <strong>him</strong>.</p>
+<p>Can you help <strong>Ana and me</strong>? → Can you help <strong>us</strong>?</p>
+<br>
+<strong>After prepositions — always object form:</strong>
+<p>The report is for <strong>him</strong>. (NOT: for he) / She sailed with <strong>us</strong>. (NOT: with we)</p>
+<p>Look at <strong>them</strong>! / Listen to <strong>her</strong>. / It belongs to <strong>me</strong>.</p>
+<br>
+<strong>The "me and him" problem:</strong>
+<p><span class="wrong">Me and Carlos are friends.</span> → <span class="correct">Carlos and I are friends.</span> (subject position)</p>
+<p><span class="wrong">She called Carlos and I.</span> → <span class="correct">She called Carlos and me.</span> (object position)</p>
+<p><em>Test: remove the other person. "She called I" → wrong. "She called me" → correct.</em></p></div>
+
+<h2>Her — The Tricky One</h2>
+<div class="gb"><p>"Her" is both an object pronoun AND a possessive adjective:</p>
+<p><em>I called <strong>her</strong>.</em> → object pronoun (her = she, receives action)</p>
+<p><em><strong>Her</strong> name is Ana.</em> → possessive adjective (before noun)</p>
+<p>How to distinguish: if "her" is followed by a noun → possessive. If it follows a verb → object pronoun.</p></div>
+
+<div class="exb"><div class="ext"><span class="exn">1</span> Replace the underlined noun with the correct pronoun</div>
+<ol><li>The engineer repairs <u>the engine</u> every day. → ___</li>
+<li>The captain gave the order to <u>the crew</u>. → ___</li>
+<li>Can you help <u>my sister and me</u>? → ___</li>
+<li>I sent the report to <u>the director</u>. (female) → ___</li>
+<li>The sailor found <u>the broken compass</u>. → ___</li>
+<li>She always listens to <u>her grandfather</u>. → ___</li>
+<li>Tell <u>Diego and Sofia</u> about the trip. → ___</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">2</span> Subject, Object or Possessive? — Classify and explain</div>
+<ol><li>"<u>Her</u> experience at sea is remarkable." → Type: ___ | Why: ___</li>
+<li>"The captain thanked <u>her</u> personally." → Type: ___ | Why: ___</li>
+<li>"<u>They</u> arrived at the port at dawn." → Type: ___ | Why: ___</li>
+<li>"The message was sent to <u>them</u>." → Type: ___ | Why: ___</li>
+<li>"<u>Their</u> navigational skills are exceptional." → Type: ___ | Why: ___</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">3</span> Find and correct ALL errors</div>
+<ol><li>Me and my brother study navigation. →</li>
+<li>The captain talked to she about the route. →</li>
+<li>Can you give the map to he? →</li>
+<li>They respect we because of our experience. →</li>
+<li>The ship belongs to they — it's their vessel. →</li>
+<li>Between you and I, the route is dangerous. →</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">4</span> Complete this professional email with correct pronouns</div>
+<p><em>Dear Captain Rodriguez,<br>
+I am writing to ___ (you/your) regarding the cargo manifest. My colleague Ana and ___ (I/me) reviewed ___ (it/its) this morning. We found an error in ___ (it/its) data. Could you send ___ (us/we) the corrected version? Ana will process ___ (it/its) immediately. Please contact ___ (her/she) directly if you need more information. Thank you for ___ (your/you) cooperation.</em></p></div>
+
+<div class="exb"><div class="ext"><span class="exn">5</span> Writing Challenge: A day at sea told through pronouns</div>
+<p>Write a narrative paragraph (10-12 sentences) about a day on a cargo ship. Every sentence must contain at least one object pronoun. Underline each one and identify its antecedent.</p>
+<p><em>Example: The first officer briefed <u>us</u> (= the crew) at 6 AM. He showed <u>us</u> the weather forecast...</em></p></div></template>
 
 <template id="adv-g03">
-<div class="mbadge">⭐ Nivel Avanzado</div>
-<div class="hl">📌 Articles: a, an, the — todas las reglas</div>
-<table><tr><th>Artículo</th><th>Se usa ante…</th><th>Ejemplos</th></tr>
-<tr><td><strong>A</strong></td><td>Sonido consonántico</td><td>a ship, a captain, a useful tool</td></tr>
-<tr><td><strong>AN</strong></td><td>Sonido vocálico</td><td>an ocean, an engineer, an hour</td></tr></table>
-<div class="tip"><div class="tt">💡 Por SONIDO, no por letra</div>
-<p>"an hour" → H muda → sonido vocálico → AN<br>"a university" → suena "iú" → consonántico → A</p></div>
-<table><tr><th>THE</th><th>Ejemplo</th></tr>
-<tr><td>Algo ya mencionado</td><td class="eg">I saw a ship. The ship was huge.</td></tr>
-<tr><td>Único en el mundo</td><td class="eg">The sun. The Pacific Ocean.</td></tr>
-<tr><td>Instrumento musical</td><td class="eg">She plays the guitar.</td></tr></table>
-<table><tr><th>Zero Article (sin artículo)</th><th>Ejemplo</th></tr>
-<tr><td>Nombres/ciudades</td><td class="eg">Carlos, Valparaíso, Chile</td></tr>
-<tr><td>Plural general</td><td class="eg">Ships carry cargo.</td></tr>
-<tr><td>Idiomas/deportes</td><td class="eg">I study English. He plays football.</td></tr></table>
-<div class="exb"><div class="ext"><span class="exn">1</span> Complete with a / an / the / — (nothing)</div>
-<ol><li>I am ___ student at Instituto Marítimo.</li><li>___ Pacific Ocean is the largest ocean.</li><li>She plays ___ piano and loves ___ music.</li><li>He is ___ engineer. He fixes ___ engines.</li><li>I saw ___ whale. ___ whale was enormous.</li><li>They study ___ English and ___ navigation.</li><li>It was ___ honest mistake by ___ young officer.</li></ol></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
-<p>a / The / the, — / an, the / a, The / —, — / an, a</p></div>
-</template>
+<div class="mbadge">⭐ Nivel Avanzado A2</div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Dominar el sistema de articulos en ingles: indefinidos (a/an), definido (the) y articulo cero. Aplicar en textos academicos y profesionales. OA6 — A2.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Master the English article system: indefinite (a/an), definite (the) and zero article. Apply in academic and professional texts. A2 level.</div>
+
+<h2>Why Articles Are Difficult — and Why They Matter</h2>
+<p>Spanish has a full article system too (el/la/los/las/un/una), but the rules differ from English in important ways. Many languages — Russian, Chinese, Japanese, Arabic — have NO articles at all. This makes English articles genuinely challenging. Here is the complete system:</p>
+
+<div class="gb"><strong>A / AN — The Indefinite Article</strong>
+<p>Use when: (1) you mention something for the FIRST TIME, (2) you classify something, (3) "one" would also work</p>
+<p><em>I saw <strong>a</strong> ship in the port. / She is <strong>an</strong> engineer. / He has <strong>a</strong> new job.</em></p>
+<br>
+<strong>A vs AN — The SOUND rule (not the letter rule):</strong>
+<table><tr><th>A + consonant SOUND</th><th>AN + vowel SOUND</th></tr>
+<tr><td>a ship / a university (sounds like "yoo") / a European / a useful tool / a one-way street ("won")</td><td>an ocean / an engineer / an hour (H is silent) / an MBA / an honest person ("on-est")</td></tr></table>
+<p>⚠️ "An hour" — H is silent, so it sounds like "an our". This is one of the most tested items in English exams.</p></div>
+
+<div class="gb"><strong>THE — The Definite Article</strong>
+<p>Use THE when BOTH speaker and listener know WHICH specific thing is being discussed:</p>
+<table><tr><th>Rule</th><th>Example</th></tr>
+<tr><td>Already mentioned (second mention)</td><td class="eg">I saw a whale. <strong>The</strong> whale was enormous.</td></tr>
+<tr><td>Unique in context / world</td><td class="eg"><strong>The</strong> sun / <strong>the</strong> moon / <strong>the</strong> Pacific Ocean / <strong>the</strong> captain (of this ship)</td></tr>
+<tr><td>Geographic: rivers, oceans, mountain ranges, deserts, groups of islands</td><td class="eg"><strong>the</strong> Nile / <strong>the</strong> Andes / <strong>the</strong> Sahara / <strong>the</strong> Caribbean</td></tr>
+<tr><td>Superlatives</td><td class="eg"><strong>The</strong> largest ocean / <strong>the</strong> best captain</td></tr>
+<tr><td>Musical instruments</td><td class="eg">She plays <strong>the</strong> guitar.</td></tr>
+<tr><td>Shared knowledge in context</td><td class="eg">Please close <strong>the</strong> door. (we both know which one)</td></tr></table></div>
+
+<div class="gb"><strong>ZERO ARTICLE (Ø) — No article at all</strong>
+<table><tr><th>Rule</th><th>Example</th></tr>
+<tr><td>Plural general statements</td><td class="eg">Ø Ships carry Ø cargo around the world.</td></tr>
+<tr><td>Uncountable general statements</td><td class="eg">Ø Water covers 70% of the Earth. / She loves Ø music.</td></tr>
+<tr><td>Proper names (people, cities, countries*)</td><td class="eg">Ø Carlos / Ø Valparaíso / Ø Chile / Ø France</td></tr>
+<tr><td>Languages, subjects, sports</td><td class="eg">I study Ø English. / He plays Ø football.</td></tr>
+<tr><td>Meals, transport (general)</td><td class="eg">Ø Breakfast is ready. / She travels by Ø ship.</td></tr></table>
+<p>* Exceptions: THE United States / THE United Kingdom / THE Netherlands / THE Philippines (plural or "united" in name)</p></div>
+
+<div class="exb"><div class="ext"><span class="exn">1</span> A, An, The, or Ø? — Justify each answer</div>
+<ol><li>___ Pacific Ocean is ___ largest ocean on Earth. | Reason: ___</li>
+<li>I saw ___ unusual ship yesterday. ___ ship had a red hull. | Reason: ___</li>
+<li>She plays ___ violin in ___ school orchestra. | Reason: ___</li>
+<li>___ English is ___ official language of ___ international maritime communication. | Reason: ___</li>
+<li>He is ___ honest officer with ___ excellent record. | Reason: ___</li>
+<li>___ sailors need ___ courage and ___ patience to work at sea. | Reason: ___</li>
+<li>___ Andes are ___ longest mountain range in ___ world. | Reason: ___</li>
+<li>She took ___ MBA after ___ university. Now she is ___ director. | Reason: ___</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">2</span> Advanced Error Correction</div>
+<p>Each sentence has at least one article error. Find and fix all of them:</p>
+<ol><li>I play the football every Saturdays. →</li>
+<li>The life at sea can be the lonely. →</li>
+<li>She is an university professor of a marine biology. →</li>
+<li>The captain gave a order to a crew. →</li>
+<li>Pacific Ocean is deeper than Atlantic. →</li>
+<li>He has an one-year contract on the ship. →</li>
+<li>The English is useful for the maritime professionals. →</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">3</span> Fill the gaps in this professional text</div>
+<p>"___ Port of Valparaíso is ___ most important port in Chile. It handles over 1.2 million TEUs (___ unit for measuring container cargo) per year. ___ port was established in ___ 16th century when ___ Spanish conquistadors arrived. Today, ___ ships from ___ Asia, ___ Europe and ___ Americas pass through every week. ___ cargo typically includes ___ copper, ___ fruit and ___ wine, which are Chile's main exports. ___ workers at ___ port start their shifts at ___ dawn."</p></div>
+
+<div class="exb"><div class="ext"><span class="exn">4</span> Academic Writing Challenge</div>
+<p>Write a 12-sentence paragraph about THE OCEAN AND CHILE'S ECONOMY. You must correctly use: a (×3), an (×2), the (×5), and zero article (×4). After writing, circle each article and label it: A / AN / THE / Ø. Exchange with a classmate and check each other's work.</p></div></template>
 
 <template id="adv-g04">
-<div class="mbadge">⭐ Nivel Avanzado</div>
-<div class="hl">📌 There is / There are = "Hay" en inglés</div>
-<div class="gb"><span class="fm">There is + singular → There is a ship.</span><br>
-<span class="fm">There are + plural → There are many sailors.</span></div>
-<table><tr><th>Forma</th><th>Singular</th><th>Plural</th></tr>
-<tr><td>Afirmativa</td><td>There is a boat.</td><td>There are three boats.</td></tr>
-<tr><td>Contracción</td><td>There's a boat.</td><td>—</td></tr>
-<tr><td>Negativa</td><td>There isn't a boat.</td><td>There aren't any boats.</td></tr>
-<tr><td>Interrogativa</td><td>Is there a boat?</td><td>Are there any boats?</td></tr>
-<tr><td>Respuesta</td><td>Yes, there is. / No, there isn't.</td><td>Yes, there are. / No, there aren't.</td></tr></table>
-<div class="exb"><div class="ext"><span class="exn">1</span> Complete with there is / there are</div>
-<ol><li>___ a big crane at the port.</li><li>___ twenty students in our class.</li><li>___ a storm approaching.</li><li>___ many opportunities in maritime.</li><li>___ a problem with the engine.</li></ol></div>
-<div class="exb"><div class="ext"><span class="exn">2</span> Describe the port of Valparaíso</div>
-<p>Write 6 sentences using there is / there are about what exists at the port.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas — Act.1</div>
-<p>There is / There are / There is / There are / There is</p></div>
-</template>
+<div class="mbadge">⭐ Nivel Avanzado A2</div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar there is/are con some/any y quantifiers para describir existencia y cantidad en contextos variados. OA6 — A2.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use there is/are with some/any and quantifiers to describe existence and quantity in varied contexts. A2 level.</div>
+
+<h2>There is / There are — Beyond the Basics</h2>
+<p>"There is/are" is not a translation of "hay" — it is a grammatical construction that introduces the EXISTENCE of something in a location or context. Understanding this distinction helps you use it naturally.</p>
+<div class="gb"><strong>The agreement rule:</strong>
+<table><tr><th>Form</th><th>When</th><th>Example</th></tr>
+<tr><td>There IS / There's</td><td>Singular noun / uncountable</td><td class="eg">There's a ship in the bay. / There is fog this morning.</td></tr>
+<tr><td>There ARE / There're</td><td>Plural noun</td><td class="eg">There are 200 containers on the ship.</td></tr>
+<tr><td>There ISN'T</td><td>Negative singular</td><td class="eg">There isn't a doctor on board.</td></tr>
+<tr><td>There AREN'T</td><td>Negative plural</td><td class="eg">There aren't any passengers today.</td></tr>
+<tr><td>Is there?</td><td>Question singular</td><td class="eg">Is there a radio in the cabin?</td></tr>
+<tr><td>Are there?</td><td>Question plural</td><td class="eg">Are there any sailors available?</td></tr></table></div>
+
+<div class="gb"><strong>SOME vs ANY — The Key Distinction:</strong>
+<p><strong>SOME</strong> = affirmative sentences / offers / requests (you expect yes)</p>
+<p><em>There are <strong>some</strong> problems with the engine. / Would you like <strong>some</strong> coffee?</em></p>
+<p><strong>ANY</strong> = negative sentences / questions (open expectation)</p>
+<p><em>There aren't <strong>any</strong> problems. / Are there <strong>any</strong> passengers?</em></p>
+<p><strong>Exception:</strong> In offers and requests, we use SOME even in questions:</p>
+<p><em>Could I have <strong>some</strong> water? / Would you like <strong>some</strong> help?</em></p></div>
+
+<div class="gb"><strong>Quantifiers — Precise quantity:</strong>
+<table><tr><th>Quantifier</th><th>Use with</th><th>Example</th></tr>
+<tr><td>many</td><td>countable plural</td><td class="eg">There are many ships in the port.</td></tr>
+<tr><td>much</td><td>uncountable</td><td class="eg">There isn't much fuel left.</td></tr>
+<tr><td>a lot of / lots of</td><td>both</td><td class="eg">There's a lot of cargo to unload.</td></tr>
+<tr><td>a few</td><td>countable plural (positive)</td><td class="eg">There are a few sailors available.</td></tr>
+<tr><td>few</td><td>countable plural (negative sense)</td><td class="eg">There are few opportunities in this port.</td></tr>
+<tr><td>a little</td><td>uncountable (positive)</td><td class="eg">There's a little time before departure.</td></tr>
+<tr><td>little</td><td>uncountable (negative sense)</td><td class="eg">There's little hope of finding the signal.</td></tr></table></div>
+
+<div class="exb"><div class="ext"><span class="exn">1</span> Complete with There is / There are / There isn't / There aren't</div>
+<ol><li>___ over 400 students at our school.</li>
+<li>___ a storm approaching from the north — we must change course.</li>
+<li>___ any passengers on this cargo ship — only crew.</li>
+<li>___ several species of dolphins in the waters near Valparaíso.</li>
+<li>___ enough fuel for the journey? Yes, ___ plenty.</li>
+<li>___ a problem with the navigation system. We need a technician.</li>
+<li>___ much we can do without the correct equipment.</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">2</span> SOME or ANY?</div>
+<ol><li>There are ___ excellent maritime schools in Chile.</li>
+<li>There aren't ___ available cabins on this vessel.</li>
+<li>Is there ___ possibility of delaying the departure?</li>
+<li>Would you like ___ information about the route?</li>
+<li>There's ___ fog this morning — the captain is cautious.</li>
+<li>Are there ___ experienced engineers on the crew?</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">3</span> Many / Much / A few / A little — choose and justify</div>
+<ol><li>There isn't ___ time before the ship departs. | Reason: ___</li>
+<li>There are ___ problems, but nothing we can't fix. | Reason: ___</li>
+<li>There's ___ information about this route — it's classified. | Reason: ___</li>
+<li>There are ___ excellent navigators in Chile. | Reason: ___</li>
+<li>There's still ___ hope that they will find the signal. | Reason: ___</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">4</span> Describe a ship using There is/are (8 sentences)</div>
+<p>Imagine you are describing the interior of a cargo ship to someone who has never seen one. Use there is/there are with quantifiers in every sentence.</p>
+<p><em>There is a large bridge at the top of the ship where... There are several... There isn't any... There are a few...</em></p></div>
+
+<div class="exb"><div class="ext"><span class="exn">5</span> Spot the errors — some are subtle</div>
+<ol><li>There is a lot of containers in the hold. →</li>
+<li>Are there some problems with the engine? (expecting yes) →</li>
+<li>There aren't much time before departure. →</li>
+<li>There's few sailors who speak three languages. →</li>
+<li>Is there any good news? Yes, there are. →</li></ol></div></template>
 
 <template id="adv-g05">
-<div class="mbadge">⭐ Nivel Avanzado</div>
-<div class="hl">📌 CAN — Modal verb of ability and permission</div>
-<table><tr><th>Forma</th><th>Ejemplo</th><th>Español</th></tr>
-<tr><td>Afirmativa</td><td class="eg">I can navigate a ship.</td><td>Puedo navegar.</td></tr>
-<tr><td>Negativa</td><td class="eg">He can't speak French.</td><td>No puede.</td></tr>
-<tr><td>Interrogativa</td><td class="eg">Can you read a map?</td><td>¿Puedes?</td></tr>
-<tr><td>Respuesta</td><td class="eg">Yes, I can. / No, I can't.</td><td>Sí/No.</td></tr></table>
-<h2>Maritime Skills</h2>
-<table><tr><th>Skill</th><th>Español</th></tr>
-<tr><td>navigate a ship</td><td>navegar un barco</td></tr>
-<tr><td>read nautical charts</td><td>leer cartas náuticas</td></tr>
-<tr><td>use a compass</td><td>usar una brújula</td></tr>
-<tr><td>send a distress signal</td><td>enviar señal de socorro</td></tr>
-<tr><td>repair an engine</td><td>reparar un motor</td></tr>
-<tr><td>communicate in English</td><td>comunicarse en inglés</td></tr></table>
-<div class="exb"><div class="ext"><span class="exn">1</span> Complete with can or can't</div>
-<ol><li>A good captain ___ navigate in any weather. (yes)</li><li>Fish ___ breathe underwater. (yes) They ___ survive on land. (no)</li><li>She ___ read nautical charts very well. (yes)</li><li>___ you swim? Yes, I ___. (yes)</li></ol></div>
-<div class="exb"><div class="ext"><span class="exn">2</span> Write about YOUR abilities</div>
-<p>Write 8 sentences: 4 things you CAN do + 4 you CAN'T do yet.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas — Act.1</div>
-<p>can / can, can't / can / Can, can</p></div>
-</template>
+<div class="mbadge">⭐ Nivel Avanzado A2</div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Distinguir los tres usos de CAN (habilidad, permiso, posibilidad) y compararlo con COULD en contextos formales y profesionales. OA6 — A2.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Distinguish the three uses of CAN (ability, permission, possibility) and compare with COULD in formal and professional contexts. A2 level.</div>
+
+<h2>CAN Has Three Meanings — Do You Know All Three?</h2>
+<p>Most learners know CAN only as "ability" (I can swim). But CAN is more versatile. Native speakers use it for three different purposes, and context determines the meaning.</p>
+
+<div class="gb"><strong>Use 1 — ABILITY (habilidad): "I know how to..."</strong>
+<p>Describes a skill or capacity:</p>
+<p><em>She <strong>can</strong> navigate using traditional charts — she learned from her grandfather.</em></p>
+<p><em>A marine engineer <strong>can</strong> diagnose engine problems by sound alone.</em></p>
+
+<strong>Use 2 — PERMISSION (permiso): "Is it allowed?"</strong>
+<p>Asking or giving permission (informal):</p>
+<p><em><strong>Can</strong> I use the radio? / You <strong>can</strong> leave early today.</em></p>
+<p>Note: MAY is more formal for permission: <em>May I enter the bridge?</em></p>
+
+<strong>Use 3 — POSSIBILITY (posibilidad): "It is possible that..."</strong>
+<p>Expressing what is theoretically possible:</p>
+<p><em>The crossing <strong>can</strong> take up to 14 days, depending on weather.</em></p>
+<p><em>Storms <strong>can</strong> appear without warning in this region.</em></p></div>
+
+<div class="gb"><strong>COULD — The Polite and Past Form</strong>
+<table><tr><th>COULD for...</th><th>Example</th></tr>
+<tr><td>Past ability (I was able to)</td><td class="eg">When I was young, I could run very fast.</td></tr>
+<tr><td>Polite request (more formal than can)</td><td class="eg">Could you please send me the report?</td></tr>
+<tr><td>Possibility (more tentative than can)</td><td class="eg">That could be a serious problem.</td></tr>
+<tr><td>Conditional (hypothetical)</td><td class="eg">If I had more time, I could study Japanese.</td></tr></table>
+<p><strong>CAN vs COULD for requests:</strong></p>
+<p><em>Can you help me?</em> → informal, direct</p>
+<p><em>Could you help me?</em> → more polite, professional</p>
+<p><em>Could you please help me?</em> → formal, professional context</p></div>
+
+<div class="exb"><div class="ext"><span class="exn">1</span> Identify the use: Ability (A), Permission (P), or Possibility (Po)?</div>
+<ol><li>"Storms can form very quickly in the Pacific." → ___</li>
+<li>"Can I speak to the captain, please?" → ___</li>
+<li>"She can repair a diesel engine in under 3 hours." → ___</li>
+<li>"This route can be dangerous in winter months." → ___</li>
+<li>"You can take the day off — you've worked hard." → ___</li>
+<li>"He can speak five languages fluently." → ___</li>
+<li>"Can I see your identification, please?" → ___</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">2</span> CAN or COULD? Choose and explain the difference in register/meaning</div>
+<ol><li>"___ you pass me the chart, please?" (polite request, formal context) →</li>
+<li>"When she was a cadet, she ___ navigate without GPS." (past ability) →</li>
+<li>"___ this be the problem? It seems possible." (tentative possibility) →</li>
+<li>"___ I ask you a question?" (informal, direct) →</li>
+<li>"If we left now, we ___ arrive before the storm." (conditional) →</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">3</span> Rewrite using a more formal register (COULD)</div>
+<ol><li>"Can you send me the document?" → ___</li>
+<li>"Can I use your computer?" → ___</li>
+<li>"Can you explain this again?" → ___</li>
+<li>"Can we reschedule the meeting?" → ___</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">4</span> Write a formal request email using CAN and COULD correctly</div>
+<p>Write an email (8-10 sentences) from a maritime student to a port authority, requesting a visit. Use:</p>
+<ul><li>Could you... (polite requests)</li>
+<li>Can we... (ability/permission)</li>
+<li>The visit could... (possibility)</li>
+<li>Students can... (ability of the group)</li></ul></div>
+
+<div class="exb"><div class="ext"><span class="exn">5</span> Maritime Safety Challenge</div>
+<p>Write 10 sentences about SAFETY RULES ON A SHIP using CAN and CAN'T for permission/prohibition:</p>
+<p><em>Passengers can use the deck during daytime but can't go to the bridge without permission. Crew members can...</em></p></div></template>
 
 <template id="adv-g06">
-<div class="mbadge">⭐ Nivel Avanzado — A2+</div>
-<div class="hl">📌 Past Simple of To Be: WAS / WERE</div>
-<div class="gb"><strong>WAS = I, He, She, It (singular)</strong><br>
-<strong>WERE = You, We, They (plural)</strong><br><br>
-<em>I was a cadet in 2020.</em> / <em>They were in Valparaíso last summer.</em></div>
-<table><tr><th>Pronombre</th><th>Afirmativa</th><th>Negativa</th></tr>
-<tr><td>I</td><td>I was</td><td>I wasn't</td></tr>
-<tr><td>You</td><td>You were</td><td>You weren't</td></tr>
-<tr><td>He/She/It</td><td>He/She/It was</td><td>He/She/It wasn't</td></tr>
-<tr><td>We/They</td><td>We/They were</td><td>We/They weren't</td></tr></table>
-<table><tr><th>Preguntas</th><th>Respuestas</th></tr>
-<tr><td>Were you a student?</td><td>Yes, I was. / No, I wasn't.</td></tr>
-<tr><td>Was she the captain?</td><td>Yes, she was. / No, she wasn't.</td></tr></table>
-<div class="exb"><div class="ext"><span class="exn">1</span> Complete with WAS or WERE</div>
-<ol><li>Valparaíso ___ very important in the 19th century.</li><li>The crew ___ tired after the storm.</li><li>I ___ nervous on my first day at school.</li><li>The ship ___ in the port last night.</li><li>The sailors ___ from different countries.</li></ol></div>
-<div class="exb"><div class="ext"><span class="exn">2</span> Write 6 sentences about the past using WAS/WERE</div>
-<p>Ideas: your first day at IMV, last year, when you were young, famous historical moments.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas — Act.1</div>
-<p>was / were / was / was / were</p></div>
-</template>
+<div class="mbadge">⭐ Nivel Avanzado A2+</div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar was/were en todos sus contextos: narración historica, autobiografia y descripcion de estados pasados. Distinguirlo de otros tiempos pasados. OA6 — A2+.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use was/were in all contexts: historical narrative, autobiography and past state descriptions. Distinguish from other past tenses. A2+ level.</div>
+
+<h2>Was/Were — The Foundation of Narrating the Past</h2>
+<p>Before you can tell any story in English, you need to master WAS and WERE. They are the past tense of TO BE, and they appear in virtually every narrative text. They also form the base for the Past Continuous tense (was/were + -ing) which you will study next.</p>
+
+<div class="gb"><strong>Complete paradigm:</strong>
+<table><tr><th>Subject</th><th>Affirmative</th><th>Negative</th><th>Question</th></tr>
+<tr><td>I</td><td>I was</td><td>I wasn't (was not)</td><td>Was I?</td></tr>
+<tr><td>You</td><td>You were</td><td>You weren't (were not)</td><td>Were you?</td></tr>
+<tr><td>He/She/It</td><td>He/She/It was</td><td>He/She/It wasn't</td><td>Was he/she/it?</td></tr>
+<tr><td>We</td><td>We were</td><td>We weren't</td><td>Were we?</td></tr>
+<tr><td>They</td><td>They were</td><td>They weren't</td><td>Were they?</td></tr></table></div>
+
+<div class="gb"><strong>What did people USE was/were for in the past?</strong>
+<table><tr><th>Use</th><th>Past Example</th><th>Present Comparison</th></tr>
+<tr><td>Identity</td><td class="eg">He was the captain of the vessel.</td><td class="eg">He is the captain.</td></tr>
+<tr><td>Description</td><td class="eg">The ship was old but reliable.</td><td class="eg">The ship is modern.</td></tr>
+<tr><td>Location</td><td class="eg">The crew were in the engine room.</td><td class="eg">They are on the deck.</td></tr>
+<tr><td>Emotional state</td><td class="eg">Everyone was nervous during the storm.</td><td class="eg">We are calm now.</td></tr>
+<tr><td>Historical fact</td><td class="eg">Valparaíso was the most important Pacific port in the 1800s.</td><td class="eg">It is still important.</td></tr>
+<tr><td>Age (past)</td><td class="eg">She was 22 when she got her first command.</td><td class="eg">She is 45 now.</td></tr></table></div>
+
+<div class="gb"><strong>Time expressions for was/were:</strong>
+<p>yesterday / last night / last week / last month / last year / in 1985 / in the 19th century / when I was young / ago / at that time / then / at that moment</p></div>
+
+<div class="exb"><div class="ext"><span class="exn">1</span> Complete with WAS or WERE — include historical context</div>
+<ol><li>The port of Valparaíso ___ crucial for trade in the 19th century.</li>
+<li>Charles Darwin ___ in Valparaíso in 1834. He ___ 25 years old.</li>
+<li>The sailors ___ exhausted after three weeks at sea.</li>
+<li>___ the voyage dangerous? Yes, it ___. The weather ___ terrible.</li>
+<li>The first ships to circle the globe ___ small and fragile by modern standards.</li>
+<li>I ___ born in Valparaíso. My parents ___ both from the coast.</li>
+<li>The navigation instruments ___ primitive, but the sailors ___ skilled.</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">2</span> Error Correction — was/were errors often appear in sequence</div>
+<ol><li>The crew was tired and they was hungry. →</li>
+<li>Were the captain on the bridge? Yes, he were. →</li>
+<li>She weren't a sailor — she was a marine biologist. →</li>
+<li>The ship were enormous — it were the largest in the fleet. →</li>
+<li>Was they ready to depart? No, they wasn't. →</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">3</span> Transform to the past</div>
+<p>Rewrite each sentence changing it to past tense. Change the time expression too:</p>
+<ol><li>The captain is on the bridge right now. → Yesterday, ___</li>
+<li>The sailors are nervous because of the weather. → Last night, ___</li>
+<li>Valparaíso is a UNESCO World Heritage city. → Since 2003, it ___</li>
+<li>The voyage is dangerous in winter. → In 1850, ___</li>
+<li>I am 15 years old and I am in 2° Medio. → When I was 10, ___</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">4</span> Historical narrative writing — The Golden Age of Valparaíso</div>
+<p>Write a paragraph (12-15 sentences) about Valparaíso in the 19th century using WAS and WERE throughout. Research or imagine these details:</p>
+<ul><li>What the city was like (size, importance, character)</li>
+<li>Who was there (nationalities, traders, sailors)</li>
+<li>What the port was known for</li>
+<li>Why it was important and what changed (Panama Canal)</li></ul>
+<p>Use at least 8 was/were forms. Underline them all.</p></div></template>
 
 <!-- LECTURAS AVANZADAS (resumen compacto) -->
 <template id="adv-r01">
@@ -4314,220 +4596,532 @@ I play → He play<strong>s</strong> / We study → She studi<strong>es</strong>
 
 <!-- ══ ADVANCED TEMPLATES (7-16) ══ -->
 <template id="adv-g07">
-<div class="mbadge">Avanzado A2</div>
-<div class="hl">📌 <strong>Objetivo (ES):</strong> Formar y usar el pasado simple con verbos regulares: afirmativo, negativo (didn't) e interrogativo (did). OA6 — A2.</div>
-<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Form and use Past Simple with regular verbs in affirmative, negative and question forms. A2 level.</div>
-<h2>Past Simple — Regular Verbs</h2>
-<div class="gb"><span class="fm">Affirmative: verb + ED &nbsp;|&nbsp; Negative: didn't + base &nbsp;|&nbsp; Question: Did + subject + base?</span></div>
-<table><tr><th>Rule</th><th>Infinitive</th><th>Past</th></tr>
-<tr><td>Most verbs: +ed</td><td>work, play, visit</td><td>worked, played, visited</td></tr>
-<tr><td>Ending -e: +d</td><td>live, love, use</td><td>lived, loved, used</td></tr>
-<tr><td>Consonant +y: ied</td><td>study, try, carry</td><td>studied, tried, carried</td></tr>
-<tr><td>Short CVC: double+ed</td><td>stop, plan, drop</td><td>stopped, planned, dropped</td></tr></table>
-<div class="mkb"><div class="mkt">Error critico</div>
-<p><span class="wrong">She didn't studied.</span> → <span class="correct">She didn't study.</span></p></div>
-<p><strong>Time expressions:</strong> yesterday / last night / last week / last year / ago / when I was young</p>
-<div class="exb"><div class="ext"><span class="exn">1</span> Write the past form</div>
-<p>work: <span class="blank"></span> study: <span class="blank"></span> travel: <span class="blank"></span> stop: <span class="blank"></span> live: <span class="blank"></span></p></div>
-<div class="exb"><div class="ext"><span class="exn">2</span> Complete (neg or affirmative)</div>
-<ol><li>The sailors ___ (work) 12-hour shifts last week.</li><li>She ___ (not study) yesterday.</li><li>We ___ (visit) the port last Saturday.</li><li>___ you ___ (travel) by ship? Yes, I ___.</li></ol></div>
-<div class="exb"><div class="ext"><span class="exn">3</span> Write 8 sentences about last weekend</div></div>
-<div class="ak2"><div class="akt">Act.1: worked / studied / travelled / stopped / lived &nbsp;|&nbsp; Act.2: worked / didn't study / visited / Did you travel? Yes I did.</div></div>
-</template>
+<div class="mbadge">⭐ Nivel Avanzado A2</div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Dominar el Pasado Simple con verbos regulares: ortografia, negacion, interrogacion y uso narrativo en textos extendidos. OA6 — A2.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Master Past Simple with regular verbs: spelling, negation, questions and narrative use in extended texts. A2 level.</div>
+
+<h2>The Logic of Past Simple — Why -ED?</h2>
+<p>The Past Simple -ED ending is one of the most consistent rules in English: ONE ending for ALL subjects, ALL genders, ALL numbers. This is far simpler than Spanish where you need six different endings (hablé, hablaste, habló, hablamos, hablaron...). Once you learn the -ED rules, you can form the past of thousands of verbs.</p>
+
+<div class="gb"><strong>The four spelling rules for -ED:</strong>
+<table><tr><th>Rule</th><th>Condition</th><th>Examples</th></tr>
+<tr><td>1. Simply add -ED</td><td>Most verbs</td><td>work → worked / play → played / visit → visited / listen → listened</td></tr>
+<tr><td>2. Add -D only</td><td>Verb ends in -E</td><td>live → lived / love → loved / use → used / dance → danced</td></tr>
+<tr><td>3. Double consonant + ED</td><td>Short verb (CVC pattern: consonant-vowel-consonant)</td><td>stop → stopped / plan → planned / drop → dropped / jog → jogged</td></tr>
+<tr><td>4. Change Y to I + ED</td><td>Consonant + Y ending</td><td>study → studied / try → tried / carry → carried / worry → worried</td></tr></table>
+<p>⚠️ Exception to rule 3: Do NOT double W, X, or Y: <em>show → showed / fix → fixed / play → played</em></p>
+<p>⚠️ Exception to rule 4: Vowel + Y simply adds -ED: <em>play → played / stay → stayed / enjoy → enjoyed</em></p></div>
+
+<div class="gb"><strong>Negative and Questions — DID does the heavy lifting:</strong>
+<p>In Past Simple negatives and questions, the auxiliary DID carries all the meaning. The main verb returns to BASE FORM:</p>
+<p><span class="wrong">She didn't studied.</span> → <span class="correct">She didn't study.</span></p>
+<p><span class="wrong">Did he worked?</span> → <span class="correct">Did he work?</span></p>
+<br>
+<strong>Full paradigm with "study":</strong>
+<table><tr><th>Affirmative</th><th>Negative</th><th>Question</th></tr>
+<tr><td>I studied / She studied</td><td>I didn't study / She didn't study</td><td>Did I study? / Did she study?</td></tr>
+<tr><td>They studied / We studied</td><td>They didn't study / We didn't study</td><td>Did they study? / Did we study?</td></tr></table></div>
+
+<div class="exb"><div class="ext"><span class="exn">1</span> Apply the correct spelling rule — state WHICH rule</div>
+<p>travel (rule ___): ___ | stop (rule ___): ___ | study (rule ___): ___<br>
+live (rule ___): ___ | work (rule ___): ___ | carry (rule ___): ___<br>
+plan (rule ___): ___ | dance (rule ___): ___ | enjoy (rule ___): ___<br>
+drop (rule ___): ___ | try (rule ___): ___ | stay (rule ___): ___</p></div>
+
+<div class="exb"><div class="ext"><span class="exn">2</span> Complete the text with correct Past Simple forms</div>
+<p>"Last summer, my family ___ (travel) to the Atacama Desert. We ___ (arrive) after a 20-hour bus journey. My father ___ (plan) the trip for months. We ___ (stay) in a small hostel. Every morning, we ___ (walk) to the observation point. My sister ___ (photograph) the stars. On the last day, it ___ (rain) — unusual for the Atacama. We ___ (not want) to leave. The trip ___ (change) my perspective completely."</p></div>
+
+<div class="exb"><div class="ext"><span class="exn">3</span> Write the question form, then answer truthfully</div>
+<ol><li>you / study English / yesterday → Did ___ ? Yes/No, I ___</li>
+<li>your parents / work / last weekend → Did ___ ? ___</li>
+<li>it / rain / this morning → Did ___ ? ___</li>
+<li>you / enjoy / the last English class → Did ___ ? ___</li>
+<li>your teacher / explain / the grammar clearly → Did ___ ? ___</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">4</span> Error analysis — some errors are tricky</div>
+<ol><li>She worried about the exam last night. (correct?) →</li>
+<li>He stoped the engine immediately. →</li>
+<li>They didn't arrived on time. →</li>
+<li>We enjoied the voyage very much. →</li>
+<li>Did she studied all night? →</li>
+<li>He tryed to communicate by radio. →</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">5</span> Narrative challenge: A historic maritime event</div>
+<p>Write 15 sentences in Past Simple narrating the FIRST VOYAGE AROUND CAPE HORN (or another historic maritime event). Use at least 10 different regular verbs in past simple. Vary between affirmative, negative and question forms.</p>
+<p><em>In 1616, Dutch sailors... They planned... The voyage lasted... The crew suffered... They didn't know whether...</em></p></div></template>
 
 <template id="adv-g08">
-<div class="mbadge">Avanzado A2</div>
-<div class="hl">📌 <strong>Objetivo (ES):</strong> Reconocer y usar los 50 verbos irregulares mas frecuentes en contexto narrativo. OA6 — A2.</div>
-<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Recognise and use the 50 most common irregular verbs in narrative contexts. A2 level.</div>
-<h2>Essential Irregular Verbs</h2>
-<table><tr><th>Infinitive</th><th>Past</th><th>Espanol</th><th>Infinitive</th><th>Past</th><th>Espanol</th></tr>
-<tr><td>be</td><td>was/were</td><td>ser/estar</td><td>have</td><td>had</td><td>tener</td></tr>
-<tr><td>go</td><td>went</td><td>ir</td><td>come</td><td>came</td><td>venir</td></tr>
-<tr><td>get</td><td>got</td><td>obtener</td><td>give</td><td>gave</td><td>dar</td></tr>
-<tr><td>make</td><td>made</td><td>hacer</td><td>take</td><td>took</td><td>tomar</td></tr>
-<tr><td>see</td><td>saw</td><td>ver</td><td>know</td><td>knew</td><td>saber</td></tr>
-<tr><td>say</td><td>said</td><td>decir</td><td>tell</td><td>told</td><td>contar</td></tr>
-<tr><td>feel</td><td>felt</td><td>sentir</td><td>find</td><td>found</td><td>encontrar</td></tr>
-<tr><td>write</td><td>wrote</td><td>escribir</td><td>read</td><td>read</td><td>leer</td></tr>
-<tr><td>eat</td><td>ate</td><td>comer</td><td>drink</td><td>drank</td><td>beber</td></tr>
-<tr><td>sleep</td><td>slept</td><td>dormir</td><td>run</td><td>ran</td><td>correr</td></tr>
-<tr><td>swim</td><td>swam</td><td>nadar</td><td>buy</td><td>bought</td><td>comprar</td></tr>
-<tr><td>win</td><td>won</td><td>ganar</td><td>lose</td><td>lost</td><td>perder</td></tr>
-<tr><td>hear</td><td>heard</td><td>escuchar</td><td>speak</td><td>spoke</td><td>hablar</td></tr>
-<tr><td>meet</td><td>met</td><td>conocer</td><td>send</td><td>sent</td><td>enviar</td></tr>
-<tr><td>build</td><td>built</td><td>construir</td><td>begin</td><td>began</td><td>comenzar</td></tr>
-<tr><td>break</td><td>broke</td><td>romper</td><td>drive</td><td>drove</td><td>conducir</td></tr>
-<tr><td>fly</td><td>flew</td><td>volar</td><td>catch</td><td>caught</td><td>atrapar</td></tr>
-<tr><td>teach</td><td>taught</td><td>ensenar</td><td>bring</td><td>brought</td><td>traer</td></tr>
-<tr><td>cut</td><td>cut</td><td>cortar</td><td>put</td><td>put</td><td>poner</td></tr>
-<tr><td>sing</td><td>sang</td><td>cantar</td><td>think</td><td>thought</td><td>pensar</td></tr></table>
-<div class="exb"><div class="ext"><span class="exn">1</span> Write the past form</div>
-<p>go: <span class="blank"></span> see: <span class="blank"></span> make: <span class="blank"></span> eat: <span class="blank"></span> write: <span class="blank"></span> sleep: <span class="blank"></span> buy: <span class="blank"></span> swim: <span class="blank"></span></p></div>
-<div class="exb"><div class="ext"><span class="exn">2</span> Write a maritime story using 10 irregular past verbs (8-10 sentences)</div></div>
-</template>
+<div class="mbadge">⭐ Nivel Avanzado A2</div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Reconocer patrones en verbos irregulares, producirlos automaticamente y usarlos en textos narrativos extendidos y desafiantes. OA6 — A2.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Recognise patterns in irregular verbs, produce them automatically and use them in extended, challenging narrative texts. A2 level.</div>
+
+<h2>Why Irregular Verbs Are Irregular — and How to Learn Them</h2>
+<p>Irregular verbs are not random. Most of them are OLD English words that changed according to a vowel-change system (called "ablaut") that predates modern English grammar. Understanding this gives you patterns you can use:</p>
+
+<div class="gb"><strong>Pattern Groups — Learn by family, not by list:</strong>
+<table><tr><th>Pattern</th><th>Infinitive → Past</th><th>Memory tip</th></tr>
+<tr><td>A → O</td><td>come→came, run→ran, drink→drank, sing→sang, swim→swam, ring→rang, begin→began</td><td>Vowel drops to A in past</td></tr>
+<tr><td>No change</td><td>cut→cut, put→put, hit→hit, let→let, set→set, hurt→hurt, read→read*</td><td>Same form — check context</td></tr>
+<tr><td>-D/-T ending</td><td>hear→heard, feel→felt, mean→meant, sleep→slept, keep→kept, leave→left, build→built, send→sent, spend→spent</td><td>End changes to -d or -t</td></tr>
+<tr><td>-OUght/-aught</td><td>buy→bought, think→thought, catch→caught, teach→taught, bring→brought, fight→fought</td><td>The "ough" family</td></tr>
+<tr><td>Vowel shift E→A/O</td><td>break→broke, speak→spoke, steal→stole, drive→drove, write→wrote, ride→rode, give→gave, take→took</td><td>E changes in middle</td></tr>
+<tr><td>Totally different</td><td>go→went, be→was/were, do→did, have→had, say→said, make→made</td><td>The most common verbs — memorize</td></tr></table>
+<p>* "read" — same spelling, DIFFERENT pronunciation: present = "reed" / past = "red"</p></div>
+
+<div class="exb"><div class="ext"><span class="exn">1</span> Group these verbs by pattern — don't look at the table above</div>
+<p>Classify: swim, think, cut, speak, go, sleep, bring, run, write, buy, put, drive, catch, feel, make</p>
+<p>A→O group: ___ | No-change group: ___ | -D/-T group: ___ | -ought group: ___ | Vowel shift group: ___ | Totally different: ___</p></div>
+
+<div class="exb"><div class="ext"><span class="exn">2</span> Speed test — write past form, no looking</div>
+<p>go: ___ | see: ___ | make: ___ | eat: ___ | write: ___ | sleep: ___ | buy: ___ | swim: ___ | think: ___ | speak: ___ | bring: ___ | catch: ___ | drive: ___ | feel: ___ | run: ___</p></div>
+
+<div class="exb"><div class="ext"><span class="exn">3</span> Complete this maritime logbook entry</div>
+<p>"Day 14 at sea. The captain ___ (wake) at 04:00. She ___ (go) to the bridge and ___ (check) the radar. The first officer ___ (give) her the weather report — it ___ (be) not good. We ___ (see) the storm on the radar at 05:30. She ___ (make) the decision to change course. The crew ___ (feel) anxious. By 10:00, the storm ___ (hit) us. We ___ (fight) the waves for 6 hours. Finally, we ___ (find) calmer waters. Everyone ___ (sleep) that night — exhausted but safe."</p></div>
+
+<div class="exb"><div class="ext"><span class="exn">4</span> Reverse challenge — write the infinitive</div>
+<p>What is the infinitive of these past forms?</p>
+<p>taught: ___ | drove: ___ | felt: ___ | fought: ___ | meant: ___ | stole: ___ | rang: ___ | kept: ___ | rode: ___ | built: ___</p></div>
+
+<div class="exb"><div class="ext"><span class="exn">5</span> Narrative writing — A storm at sea (first person)</div>
+<p>Write 15 sentences in the first person narrating a dramatic event at sea. Use 12 different irregular verbs in past tense. Mix affirmative, negative and question forms:</p>
+<p><em>I woke up at 3 AM. I heard a strange sound. I went to the deck and saw... I didn't know what to do. The captain came... She made the decision to...</em></p></div></template>
 
 <template id="adv-g09">
-<div class="mbadge">Avanzado A2</div>
-<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar el pasado continuo para acciones en progreso en el pasado, con when y while. OA6 — A2.</div>
-<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use Past Continuous for actions in progress in the past, with when and while interruptions. A2 level.</div>
-<h2>Past Continuous</h2>
-<div class="gb"><span class="fm">Subject + was/were + verb-ING</span>
-<p>I was sleeping. / They were navigating. / She was studying at 10 PM.</p></div>
-<h2>With When and While</h2>
-<div class="gb"><span class="fm">I was sleeping WHEN the alarm rang.</span> (Past Continuous + when + Past Simple)
-<span class="fm">The storm started WHILE we were sailing.</span> (Past Simple + while + Past Continuous)</div>
-<div class="exb"><div class="ext"><span class="exn">1</span> Complete with Past Continuous</div>
-<ol><li>At midnight, the crew ___ (monitor) the radar.</li><li>She ___ (study) when the phone rang.</li><li>What ___ you ___ (do) at 8 PM last night?</li><li>The captain ___ (not sleep) — he ___ (check) the weather.</li></ol></div>
-<div class="exb"><div class="ext"><span class="exn">2</span> Join with WHEN or WHILE</div>
-<ol><li>I / study / the lights went out →</li><li>She / sleep / the ship arrived →</li><li>The crew / work / the storm hit →</li></ol></div>
-<div class="ak2"><div class="akt">Act.1: were monitoring / was studying / were you doing / wasn't sleeping, was checking</div></div>
-</template>
+<div class="mbadge">⭐ Nivel Avanzado A2</div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar el Pasado Continuo para narrar acciones simultaneas e interrupciones. Combinar con Pasado Simple para crear textos narrativos con profundidad temporal. OA6 — A2.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use Past Continuous to narrate simultaneous actions and interruptions. Combine with Past Simple to create temporally rich narrative texts. A2 level.</div>
+
+<h2>Past Continuous — The Cinematic Tense</h2>
+<p>Think of Past Continuous as the "background camera" of storytelling. When you write a story, Past Continuous describes what was happening in the background — the ongoing scene. Past Simple then introduces sudden events that interrupt that background. This combination creates dynamic, layered narratives that feel natural in English.</p>
+
+<div class="gb"><strong>Structure:</strong> <span class="fm">Subject + was/were + verb-ING</span>
+<table><tr><th>Use</th><th>Example</th><th>Meaning</th></tr>
+<tr><td>Background action</td><td class="eg">The sailors <strong>were working</strong> on deck when the storm hit.</td><td>ongoing → suddenly interrupted</td></tr>
+<tr><td>Two simultaneous actions</td><td class="eg">While the captain <strong>was steering</strong>, the engineer <strong>was checking</strong> the engine.</td><td>both happening at same time</td></tr>
+<tr><td>Setting a scene</td><td class="eg">It <strong>was raining</strong> heavily. The wind <strong>was howling</strong>. The ship <strong>was moving</strong> slowly through the fog.</td><td>atmosphere/setting in past</td></tr>
+<tr><td>Interrupted action</td><td class="eg">She <strong>was sleeping</strong> when the alarm <strong>rang</strong>.</td><td>continuous → Past Simple interrupts</td></tr></table></div>
+
+<div class="gb"><strong>WHEN vs WHILE — subtle but important:</strong>
+<p><strong>WHEN</strong> + Past Simple = the interruption: <em>"I was sleeping <strong>when</strong> the alarm <strong>rang</strong>."</em></p>
+<p><strong>WHILE</strong> + Past Continuous = the background: <em>"<strong>While</strong> I <strong>was sleeping</strong>, the alarm rang."</em></p>
+<p>Both sentences describe the same event — the difference is emphasis. WHEN focuses on the interruption; WHILE focuses on the ongoing action.</p>
+<br>
+<strong>Also possible: two Past Continuous with WHILE (simultaneous):</strong>
+<p><em>While the captain <strong>was navigating</strong>, the crew <strong>were sleeping</strong>.</em></p></div>
+
+<div class="exb"><div class="ext"><span class="exn">1</span> Identify the tense and explain the relationship</div>
+<ol><li>"The engineer was repairing the engine when the alarm sounded." → Background: ___ | Interruption: ___ | Relationship: ___</li>
+<li>"While the storm was raging, the crew were securing the cargo." → Action 1: ___ | Action 2: ___ | Relationship: ___</li>
+<li>"She was studying the charts when she noticed the error." → Background: ___ | Discovery: ___ | Relationship: ___</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">2</span> Combine the sentences using WHEN or WHILE</div>
+<ol><li>I / study / the ship arrived → While I ___ , the ship ___</li>
+<li>She / sleep / the phone rang → She ___ when ___</li>
+<li>The crew / work / the captain / inspect the deck → While the crew ___ , the captain ___</li>
+<li>It / snow / the port workers / unload the cargo → While it ___ , the workers ___</li>
+<li>He / read the report / he / discover the mistake → He ___ when ___</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">3</span> Scene-setting — use 5 Past Continuous sentences to set the scene</div>
+<p>Describe what was happening on a ship at midnight before a storm arrived. Use Past Continuous for all sentences:</p>
+<p><em>At midnight, the sea was calm. Some sailors were sleeping... The officer on watch was checking... The stars were shining... The engines were humming quietly... The cook was preparing...</em></p></div>
+
+<div class="exb"><div class="ext"><span class="exn">4</span> Error Analysis</div>
+<ol><li>I was sleep when the storm started. →</li>
+<li>She was study while he worked on deck. →</li>
+<li>They were work when the captain was arriving. →</li>
+<li>While he was swim, a dolphin appeared. →</li>
+<li>The ship was sinking when the rescue team were arrive. →</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">5</span> Extended narrative challenge</div>
+<p>Write a suspenseful story (15-20 sentences) about an emergency at sea. Requirements:</p>
+<ul><li>At least 6 Past Continuous sentences (background/simultaneous)</li>
+<li>At least 6 Past Simple sentences (events/interruptions)</li>
+<li>At least 3 WHEN or WHILE connectors</li>
+<li>Include dialogue (use said, asked, shouted, replied)</li>
+<li>Clear beginning, crisis and resolution</li></ul></div></template>
 
 <template id="adv-g10">
-<div class="mbadge">Avanzado A2</div>
-<div class="hl">📌 <strong>Objetivo (ES):</strong> Formar y usar adjetivos comparativos para comparar dos personas, lugares o cosas. OA6 — A2.</div>
-<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Form and use comparative adjectives to compare two people, places or things. A2 level.</div>
-<h2>Comparative Adjectives</h2>
-<table><tr><th>Type</th><th>Rule</th><th>Example</th></tr>
-<tr><td>Short (1 syllable)</td><td>adj + er + than</td><td>big → bigger than / fast → faster than</td></tr>
-<tr><td>Ending -y</td><td>y → ier + than</td><td>heavy → heavier / easy → easier</td></tr>
-<tr><td>Long (2+ syllables)</td><td>more + adj + than</td><td>more expensive / more dangerous</td></tr>
-<tr><td>Irregular</td><td>—</td><td>good→better / bad→worse / far→farther</td></tr></table>
-<div class="exb"><div class="ext"><span class="exn">1</span> Write the comparative</div>
-<p>big: <span class="blank"></span> expensive: <span class="blank"></span> fast: <span class="blank"></span> good: <span class="blank"></span> heavy: <span class="blank"></span></p></div>
-<div class="exb"><div class="ext"><span class="exn">2</span> Write 6 comparative sentences about maritime vs land life</div></div>
-<div class="ak2"><div class="akt">Act.1: bigger than / more expensive than / faster than / better than / heavier than</div></div>
-</template>
+<div class="mbadge">⭐ Nivel Avanzado A2</div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar todas las estructuras comparativas incluyendo as...as, less than y comparativos de superioridad e igualdad en textos argumentativos. OA6 — A2.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use all comparative structures including as...as, less than and comparatives of superiority and equality in argumentative texts. A2 level.</div>
+
+<h2>The Complete Comparative System</h2>
+<p>Most students only learn "bigger than" — but English has THREE types of comparison. Knowing all three allows you to express nuance and argue convincingly.</p>
+
+<div class="gb"><strong>Type 1 — Superiority (A is more than B):</strong>
+<table><tr><th>Adjective type</th><th>Rule</th><th>Examples</th></tr>
+<tr><td>1 syllable</td><td>+ er + than</td><td>fast→faster than / big→bigger than / deep→deeper than</td></tr>
+<tr><td>2 syllables ending -y</td><td>y→ier + than</td><td>heavy→heavier than / easy→easier than / busy→busier than</td></tr>
+<tr><td>2+ syllables</td><td>more + adj + than</td><td>more dangerous / more experienced / more efficient</td></tr>
+<tr><td>Irregular</td><td>memorize</td><td>good→better than / bad→worse than / far→farther than / many→more than</td></tr></table>
+
+<strong>Type 2 — Equality (A = B):</strong>
+<p>as + adjective + as: <em>The Pacific is <strong>as important as</strong> the Atlantic for global trade.</em></p>
+<p>Negative: not as + adj + as: <em>A small boat is <strong>not as safe as</strong> a large vessel.</em></p>
+
+<strong>Type 3 — Inferiority (A is less than B):</strong>
+<p>less + adjective + than: <em>Sailing is <strong>less dangerous than</strong> most people think.</em></p>
+<p>Not as...as is often preferred in spoken English.</p></div>
+
+<div class="gb"><strong>Modifying comparatives — intensifiers:</strong>
+<p>much / far / a lot + comparative: <em>The cargo ship is <strong>much larger than</strong> the fishing boat.</em></p>
+<p>a bit / slightly + comparative: <em>The second route is <strong>slightly shorter than</strong> the first.</em></p>
+<p>twice / three times as...as: <em>The Pacific is <strong>twice as large as</strong> the Atlantic.</em></p></div>
+
+<div class="exb"><div class="ext"><span class="exn">1</span> Write the correct comparative form — label the type (S/E/I)</div>
+<ol><li>The new ship is ___ (fast) the old one. Type: ___</li>
+<li>This route is not ___ (dangerous) ___ the northern one. Type: ___</li>
+<li>Diesel engines are ___ (efficient) steam engines. Type: ___</li>
+<li>A navigator's job is ___ (complex) most people realize. Type: ___</li>
+<li>The crew's experience is ___ (good) it was 5 years ago. Type: ___</li>
+<li>Working nights is ___ (bad) working days, in my opinion. Type: ___</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">2</span> Rewrite using as...as or not as...as</div>
+<ol><li>The Pacific is bigger than the Atlantic. → The Atlantic is ___</li>
+<li>A cargo ship is slower than a cruise ship. → A cruise ship is ___</li>
+<li>English is as important as navigation for a maritime career. → Navigation is ___</li>
+<li>Modern ships are much safer than 19th-century vessels. → 19th-century vessels were ___</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">3</span> Complete the comparative analysis</div>
+<p>Compare: MARITIME CAREER vs OFFICE JOB — write 8 comparative sentences using all three types (superiority, equality, inferiority):</p>
+<p><em>A maritime career is more adventurous than an office job. However, office work is... Maritime salaries are as... The working hours are not as...</em></p></div>
+
+<div class="exb"><div class="ext"><span class="exn">4</span> Argumentative paragraph challenge</div>
+<p>Write a 12-sentence paragraph arguing that ENGLISH IS THE MOST IMPORTANT SUBJECT for maritime students. Use at least 6 different comparative structures. Include comparisons with other subjects, other countries, past vs present importance.</p></div></template>
 
 <template id="adv-g11">
-<div class="mbadge">Avanzado A2</div>
-<div class="hl">📌 <strong>Objetivo (ES):</strong> Formar y usar adjetivos superlativos. Distinguirlos de los comparativos. OA6 — A2.</div>
-<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Form and use superlative adjectives and distinguish them from comparatives. A2 level.</div>
-<h2>Superlative Adjectives</h2>
-<table><tr><th>Type</th><th>Rule</th><th>Example</th></tr>
-<tr><td>Short</td><td>the + adj + est</td><td>the biggest / the fastest</td></tr>
-<tr><td>-y ending</td><td>the + y→iest</td><td>the heaviest / the easiest</td></tr>
-<tr><td>Long</td><td>the most + adj</td><td>the most important / the most dangerous</td></tr>
-<tr><td>Irregular</td><td>—</td><td>the best / the worst / the farthest</td></tr></table>
-<div class="gb"><p>The Pacific is <em>larger than</em> the Atlantic. (comparative — comparing 2)<br>
-The Pacific is <em>the largest</em> ocean in the world. (superlative — comparing all)</p></div>
-<div class="exb"><div class="ext"><span class="exn">1</span> Write the superlative</div>
-<p>big: <span class="blank"></span> important: <span class="blank"></span> good: <span class="blank"></span> deep: <span class="blank"></span> bad: <span class="blank"></span></p></div>
-<div class="exb"><div class="ext"><span class="exn">2</span> Write 6 superlative sentences about Chile and the sea</div></div>
-<div class="ak2"><div class="akt">Act.1: the biggest / the most important / the best / the deepest / the worst</div></div>
-</template>
+<div class="mbadge">⭐ Nivel Avanzado A2</div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar superlativos con precisión incluyendo modificadores, frases comparativas complejas y en textos informativos sobre Chile y el mar. OA6 — A2.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use superlatives with precision including modifiers, complex comparative phrases and in informational texts about Chile and the sea. A2 level.</div>
+
+<h2>Superlatives — Expressing Extremes</h2>
+<p>A superlative compares one thing against ALL others in its group. It requires THE and typically ends a sentence with a prepositional phrase: "the deepest OCEAN in THE WORLD / the best STUDENT in THE CLASS"</p>
+
+<div class="gb"><strong>Formation:</strong>
+<table><tr><th>Type</th><th>Rule</th><th>Examples</th></tr>
+<tr><td>1 syllable</td><td>the + adj + est</td><td>the deepest / the fastest / the largest / the coldest</td></tr>
+<tr><td>1 syllable ending CVC</td><td>the + double + est</td><td>the biggest / the thinnest / the wettest</td></tr>
+<tr><td>2 syllables ending -y</td><td>the + y→iest</td><td>the heaviest / the easiest / the busiest</td></tr>
+<tr><td>2+ syllables</td><td>the most + adj</td><td>the most important / the most experienced / the most dangerous</td></tr>
+<tr><td>Irregular</td><td>memorize</td><td>the best / the worst / the farthest / the most / the least</td></tr></table>
+
+<strong>Superlative + prepositional phrase:</strong>
+<p><em>The Pacific is the deepest ocean <strong>in the world</strong>. / She is the most experienced officer <strong>on the ship</strong>. / This is the coldest winter <strong>in 50 years</strong>.</em></p>
+
+<strong>Superlative with EVER (personal experience):</strong>
+<p><em>This is the most interesting book I have <strong>ever</strong> read. / That was the worst storm I had <strong>ever</strong> seen.</em></p></div>
+
+<div class="gb"><strong>Comparative vs Superlative — when to use which:</strong>
+<p>Comparative: comparing TWO things → <em>The Pacific is deeper <strong>than</strong> the Atlantic.</em></p>
+<p>Superlative: comparing ONE to ALL others → <em>The Pacific is the deepest ocean <strong>in the world</strong>.</em></p>
+<p><span class="wrong">The Pacific is the deeper of the three oceans.</span> → Comparing 3 → must use superlative: <span class="correct">the deepest of the three.</span></p></div>
+
+<div class="exb"><div class="ext"><span class="exn">1</span> Write the superlative form and use it in a sentence</div>
+<ol><li>important → ___ | Sentence about English: ___</li>
+<li>long → ___ | Sentence about Chile: ___</li>
+<li>deep → ___ | Sentence about the ocean: ___</li>
+<li>good → ___ | Sentence about your school: ___</li>
+<li>dangerous → ___ | Sentence about maritime work: ___</li>
+<li>fast → ___ | Sentence about a ship: ___</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">2</span> Comparative or Superlative? Justify your choice</div>
+<ol><li>The Pacific is ___ (deep) ocean in the world. →</li>
+<li>The Pacific is ___ (deep) than the Atlantic. →</li>
+<li>Of all the crew members, she is ___ (experienced). →</li>
+<li>Her report is ___ (detailed) than his. →</li>
+<li>Navigation is one of ___ (difficult) skills to master at sea. →</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">3</span> Write 8 superlative facts about Chile</div>
+<p>Research or use your knowledge to write factual sentences using superlatives:</p>
+<p><em>Chile is the longest country in the world. The Atacama Desert is... Valparaíso has... The Andes are... Chilean copper is... The Pacific coast of Chile is...</em></p></div>
+
+<div class="exb"><div class="ext"><span class="exn">4</span> Opinion writing challenge</div>
+<p>Write a paragraph (10-12 sentences) titled "THE MOST IMPORTANT SKILLS FOR A MARITIME CAREER". Use at least 6 superlatives and explain why you chose each ranking. Argue convincingly.</p></div></template>
 
 <template id="adv-g12">
-<div class="mbadge">Avanzado A2</div>
-<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar preposiciones de lugar para describir la ubicacion de personas y objetos. OA8 — A2.</div>
-<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use prepositions of place to describe the location of people and objects. A2 level.</div>
-<h2>Prepositions of Place</h2>
-<table><tr><th>Preposicion</th><th>Uso</th><th>Ejemplo</th></tr>
-<tr><td>in</td><td>dentro de</td><td class="eg">The captain is in the bridge.</td></tr>
-<tr><td>on</td><td>sobre superficie</td><td class="eg">The map is on the table.</td></tr>
-<tr><td>at</td><td>en un punto</td><td class="eg">We are at the port.</td></tr>
-<tr><td>next to</td><td>al lado de</td><td class="eg">The engine room is next to the hold.</td></tr>
-<tr><td>between</td><td>entre dos</td><td class="eg">Valparaiso is between the hills and the sea.</td></tr>
-<tr><td>behind</td><td>detras de</td><td class="eg">The dock is behind the warehouse.</td></tr>
-<tr><td>in front of</td><td>frente a</td><td class="eg">There is a ship in front of the pier.</td></tr>
-<tr><td>opposite</td><td>enfrente de</td><td class="eg">The school is opposite the park.</td></tr>
-<tr><td>above / below</td><td>encima / debajo</td><td class="eg">The deck is above the engine room.</td></tr>
-<tr><td>near</td><td>cerca de</td><td class="eg">My school is near the port.</td></tr></table>
-<div class="exb"><div class="ext"><span class="exn">1</span> Complete with the correct preposition</div>
-<ol><li>The compass is ___ the bridge, ___ the captain's desk.</li><li>Valparaiso is ___ the Pacific coast, ___ the hills and the ocean.</li><li>My school is ___ the port.</li></ol></div>
-<div class="exb"><div class="ext"><span class="exn">2</span> Describe your classroom using 6 prepositions of place</div></div>
-<div class="ak2"><div class="akt">Act.1: on, next to / on, between / near</div></div>
-</template>
+<div class="mbadge">⭐ Nivel Avanzado A2</div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Dominar preposiciones de lugar, tiempo y movimiento en textos descriptivos y profesionales. Aplicar en descripciones espaciales complejas. OA8 — A2.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Master prepositions of place, time and movement in descriptive and professional texts. Apply in complex spatial descriptions. A2 level.</div>
+
+<h2>Prepositions — The Most Difficult Word Class in English</h2>
+<p>There are no perfect rules for English prepositions — they must often be memorized in phrases. However, understanding the spatial logic behind IN / ON / AT helps you make educated choices. These three prepositions work on a scale from "volume" to "surface" to "point":</p>
+
+<div class="gb"><strong>IN / ON / AT — The spatial logic:</strong>
+<table><tr><th>Preposition</th><th>Concept</th><th>Place examples</th><th>Time examples</th></tr>
+<tr><td><strong>IN</strong></td><td>Inside / enclosed space / volume</td><td>in the engine room / in Valparaíso / in Chile / in the sea / in the cabin</td><td>in January / in 2020 / in the morning / in winter</td></tr>
+<tr><td><strong>ON</strong></td><td>Surface / line / transport vehicles</td><td>on the deck / on the ship / on the coast / on the map / on the island</td><td>on Monday / on March 18th / on my birthday</td></tr>
+<tr><td><strong>AT</strong></td><td>Specific point / address / event</td><td>at the port / at school / at sea (on voyage) / at the station / at the door</td><td>at 8 AM / at noon / at midnight / at Christmas</td></tr></table>
+
+<strong>Extended prepositions of place:</strong>
+<table><tr><th>Preposition</th><th>Meaning</th><th>Maritime example</th></tr>
+<tr><td>above / below</td><td>higher/lower level</td><td class="eg">The bridge is above the main deck. The hull is below the waterline.</td></tr>
+<tr><td>next to / beside</td><td>immediately adjacent</td><td class="eg">The lifeboat is next to the emergency station.</td></tr>
+<tr><td>between</td><td>in the middle of two</td><td class="eg">Valparaíso is between Santiago and the sea.</td></tr>
+<tr><td>among</td><td>surrounded by many</td><td class="eg">The island is among dozens of rocks.</td></tr>
+<tr><td>opposite / facing</td><td>directly across</td><td class="eg">The office is opposite the main dock.</td></tr>
+<tr><td>along</td><td>following a line</td><td class="eg">Shipping lanes run along the coast.</td></tr>
+<tr><td>through</td><td>from one side to other</td><td class="eg">The ship passed through the canal.</td></tr>
+<tr><td>towards</td><td>in the direction of</td><td class="eg">The vessel was heading towards the port.</td></tr>
+<tr><td>beyond</td><td>further than</td><td class="eg">Beyond the horizon, we saw lights.</td></tr></table></div>
+
+<div class="exb"><div class="ext"><span class="exn">1</span> IN, ON, or AT? — Justify each choice</div>
+<ol><li>The captain is ___ the bridge right now. | Reason: ___</li>
+<li>We are ___ sea — there is no land visible. | Reason: ___</li>
+<li>The cargo is stored ___ the hold below deck. | Reason: ___</li>
+<li>The ship departs ___ 6 AM ___ Tuesday. | Reason: ___</li>
+<li>She was born ___ 1999 ___ Valparaíso. | Reason: ___</li>
+<li>___ winter, the ocean ___ this region is very rough. | Reason: ___</li>
+<li>There is a crack ___ the hull ___ the waterline. | Reason: ___</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">2</span> Choose the best preposition and explain why the others don't work</div>
+<ol><li>The map is ___ (on/in/at) the wall of the navigation room.</li>
+<li>She trained ___ (on/in/at) the Naval Academy in Valparaíso.</li>
+<li>The fishing boats anchored ___ (on/at/in) the small bay.</li>
+<li>The route passes ___ (through/across/over) the Panama Canal.</li>
+<li>He has worked ___ (in/on/at) ships for 20 years.</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">3</span> Describe a ship from top to bottom</div>
+<p>Write 10 sentences describing the different levels and rooms of a large cargo ship using a variety of prepositions. Use a diagram or your imagination:</p>
+<p><em>At the very top is the navigation bridge. Below the bridge, there is... On the main deck, you can find... Between the cargo hold and the engine room...</em></p></div>
+
+<div class="exb"><div class="ext"><span class="exn">4</span> Writing challenge: Port directions</div>
+<p>Write a set of directions (10 sentences) guiding someone from Valparaíso's main plaza to the port entrance. Use: along, through, past, at, on the left/right, between, opposite, towards, next to.</p></div></template>
 
 <template id="adv-g13">
-<div class="mbadge">Avanzado A2+</div>
-<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar should, must, have to y sus negativos para consejo, obligacion y prohibicion. OA6 — A2+.</div>
-<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use should, must, have to and negatives for advice, obligation and prohibition. A2+ level.</div>
-<h2>Modal Verbs — Should / Must / Have to</h2>
-<table><tr><th>Modal</th><th>Uso</th><th>Ejemplo</th></tr>
-<tr><td>should</td><td>Consejo</td><td class="eg">You should study English every day.</td></tr>
-<tr><td>shouldn't</td><td>Consejo negativo</td><td class="eg">You shouldn't skip classes.</td></tr>
-<tr><td>must</td><td>Obligacion (regla/ley)</td><td class="eg">Sailors must wear a life jacket.</td></tr>
-<tr><td>mustn't</td><td>Prohibicion fuerte</td><td class="eg">You mustn't use phones on the bridge.</td></tr>
-<tr><td>have to</td><td>Obligacion externa</td><td class="eg">I have to wear a uniform.</td></tr>
-<tr><td>don't have to</td><td>No es necesario</td><td class="eg">You don't have to work on Sundays.</td></tr></table>
-<div class="tip"><div class="tt">Diferencia clave</div>
-<p><strong>mustn't</strong> = prohibido. <strong>don't have to</strong> = no es necesario (pero puedes si quieres).</p></div>
-<div class="exb"><div class="ext"><span class="exn">1</span> Choose the correct modal</div>
-<ol><li>You ___ wear a life jacket on deck. It's the law. (should / must)</li><li>You ___ smoke in the engine room. (mustn't / don't have to)</li><li>You ___ study tonight — no exam tomorrow. (mustn't / don't have to)</li><li>You ___ check the weather before sailing. (should / mustn't)</li></ol></div>
-<div class="exb"><div class="ext"><span class="exn">2</span> Write 8 rules for a safe ship using modals</div></div>
-<div class="ak2"><div class="akt">Act.1: must / mustn't / don't have to / should</div></div>
-</template>
+<div class="mbadge">⭐ Nivel Avanzado A2+</div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Dominar el sistema de verbos modales de obligacion, consejo y prohibicion con precision de registro. Aplicar en textos normativos y de asesoramiento profesional. OA6 — A2+.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Master the modal verb system for obligation, advice and prohibition with register precision. Apply in normative and professional advisory texts. A2+ level.</div>
+
+<h2>The Modal Verb System — Degrees of Obligation</h2>
+<p>English uses modal verbs to express different DEGREES of obligation and recommendation. The choice of modal changes the meaning significantly — and using the wrong one can cause misunderstandings in professional contexts.</p>
+
+<div class="gb"><strong>The full spectrum — from strong to weak:</strong>
+<table><tr><th>Modal</th><th>Strength</th><th>Meaning</th><th>Example</th></tr>
+<tr><td>MUST / HAVE TO</td><td>💪💪💪 Strong</td><td>Obligation — no choice</td><td class="eg">You must wear a life jacket on deck. (rule/law)</td></tr>
+<tr><td>SHOULD</td><td>💪💪 Medium</td><td>Advice — strong recommendation</td><td class="eg">You should study English every day.</td></tr>
+<tr><td>COULD / MIGHT</td><td>💪 Weak</td><td>Suggestion — one option</td><td class="eg">You could take an online course.</td></tr>
+<tr><td>MUSTN'T</td><td>🚫🚫🚫 Strong prohibition</td><td>Forbidden — do not do this</td><td class="eg">You mustn't smoke in the engine room.</td></tr>
+<tr><td>SHOULDN'T</td><td>🚫🚫 Advice against</td><td>Not recommended</td><td class="eg">You shouldn't work without sleep.</td></tr>
+<tr><td>DON'T HAVE TO</td><td>Not necessary</td><td>No obligation — optional</td><td class="eg">You don't have to wear a tie at sea.</td></tr></table>
+
+<strong>MUST vs HAVE TO — a subtle distinction:</strong>
+<p><strong>MUST</strong> = internal obligation / the speaker feels it's necessary: <em>"I must call my family — I miss them."</em></p>
+<p><strong>HAVE TO</strong> = external obligation / rule from outside: <em>"I have to pass the exam to get the certificate."</em></p>
+<p>In practice, both are often interchangeable.</p>
+
+<strong>MUSTN'T vs DON'T HAVE TO — critical distinction:</strong>
+<p><strong>MUSTN'T</strong> = PROHIBITED — you cannot do this: <em>"You mustn't enter the bridge without permission."</em></p>
+<p><strong>DON'T HAVE TO</strong> = NOT NECESSARY — but you can if you want: <em>"You don't have to work overtime — it's optional."</em></p></div>
+
+<div class="exb"><div class="ext"><span class="exn">1</span> Choose the correct modal and justify your choice</div>
+<ol><li>"All crew members ___ (must/should/could) wear safety boots on deck at all times — it's the law." | Register: ___</li>
+<li>"You ___ (mustn't/don't have to) bring your own equipment — the company provides everything." | Meaning: ___</li>
+<li>"If you want to improve your English, you ___ (must/should/could) practice speaking every day." | Strength: ___</li>
+<li>"You ___ (mustn't/shouldn't/don't have to) use your personal phone while on watch — it's dangerous." | Register: ___</li>
+<li>"Students ___ (have to/should/could) complete the navigation module before taking the exam." | Type: ___</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">2</span> MUSTN'T or DON'T HAVE TO? — these are often confused</div>
+<ol><li>"You ___ bring your own equipment. (it's provided for you)" →</li>
+<li>"You ___ share your password. (it's a security rule)" →</li>
+<li>"You ___ wear a uniform on weekends. (it's not required)" →</li>
+<li>"You ___ navigate without checking the weather first. (it's prohibited)" →</li>
+<li>"You ___ speak English at home, but it helps. (it's optional)" →</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">3</span> Write a Safety Manual for New Crew Members</div>
+<p>Write 12 rules using different modals. Include: 4 strong obligations (must/have to), 3 prohibitions (mustn't), 2 optional things (don't have to), 2 recommendations (should), 1 suggestion (could).</p>
+<p><em>All crew members must report to the captain on their first day. You must never... You should... You don't have to... You could...</em></p></div>
+
+<div class="exb"><div class="ext"><span class="exn">4</span> Advisory letter — formal register</div>
+<p>Write a formal letter (10-12 sentences) from the Head of Department to first-year maritime students, advising them on how to succeed in their studies. Use a range of modals with appropriate formal register:</p>
+<p><em>Dear Students, To succeed in your maritime training, you must... You should also... You don't have to... However, you must never... We strongly recommend that you... Could you also consider...</em></p></div></template>
 
 <template id="adv-g14">
-<div class="mbadge">Avanzado A2+</div>
-<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar todas las palabras interrogativas en distintos tiempos verbales para obtener informacion especifica. OA3 — A2+.</div>
-<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use all WH-question words in different verb tenses to request specific information. A2+ level.</div>
-<h2>WH-Questions — Full Review</h2>
-<table><tr><th>Question word</th><th>Asks about</th><th>Present</th><th>Past</th></tr>
-<tr><td>What</td><td>cosa/accion</td><td>What do you study?</td><td>What did you do?</td></tr>
-<tr><td>Who</td><td>persona</td><td>Who is the captain?</td><td>Who called?</td></tr>
-<tr><td>Where</td><td>lugar</td><td>Where do you live?</td><td>Where did they go?</td></tr>
-<tr><td>When</td><td>tiempo</td><td>When does class start?</td><td>When did it happen?</td></tr>
-<tr><td>Why</td><td>razon</td><td>Why do you study English?</td><td>Why did she leave?</td></tr>
-<tr><td>How</td><td>manera</td><td>How do you feel?</td><td>How did it work?</td></tr>
-<tr><td>How many</td><td>cantidad (contable)</td><td>How many students?</td><td>How many ships arrived?</td></tr>
-<tr><td>How much</td><td>cantidad (incontable)</td><td>How much does it cost?</td><td>How much did it rain?</td></tr>
-<tr><td>How often</td><td>frecuencia</td><td>How often do you sail?</td><td>How often did they meet?</td></tr>
-<tr><td>How long</td><td>duracion</td><td>How long does it take?</td><td>How long did you wait?</td></tr>
-<tr><td>Whose</td><td>posesion</td><td>Whose bag is this?</td><td>Whose ship was that?</td></tr>
-<tr><td>Which</td><td>eleccion</td><td>Which route do you prefer?</td><td>Which ship arrived first?</td></tr></table>
-<div class="exb"><div class="ext"><span class="exn">1</span> Write the WH-question for each answer</div>
-<ol><li>___ ? — I study marine navigation.</li><li>___ ? — Because I want to work on ships.</li><li>___ ? — The voyage takes 14 days.</li><li>___ ? — There are 25 students in my class.</li><li>___ ? — We left at 6 AM yesterday.</li></ol></div>
-<div class="exb"><div class="ext"><span class="exn">2</span> Interview a classmate using 8 different WH-questions</div></div>
-<div class="ak2"><div class="akt">Act.1: What do you study? / Why do you study it? / How long does the voyage take? / How many students? / When did you leave?</div></div>
-</template>
+<div class="mbadge">⭐ Nivel Avanzado A2+</div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Dominar la formacion de preguntas WH- en todos los tiempos verbales, incluyendo preguntas sobre el sujeto y preguntas indirectas. OA3 — A2+.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Master WH-question formation in all verb tenses including subject questions and indirect questions. A2+ level.</div>
+
+<h2>WH-Questions — The Mechanics of English Questions</h2>
+<p>English question formation follows a strict word order that differs significantly from Spanish. In Spanish, you can often just raise your intonation: "¿Ella trabaja aquí?" — in English, the word order must change. Understanding the inversion rule is essential for natural, correct questions.</p>
+
+<div class="gb"><strong>Standard WH-question structure:</strong>
+<span class="fm">WH-word + auxiliary + subject + main verb?</span>
+<table><tr><th>Tense</th><th>Auxiliary</th><th>Example</th></tr>
+<tr><td>Present Simple</td><td>do/does</td><td class="eg">Where does she work? / What do they study?</td></tr>
+<tr><td>Past Simple</td><td>did</td><td class="eg">Why did he leave? / When did it happen?</td></tr>
+<tr><td>Present Continuous</td><td>am/is/are</td><td class="eg">What is she doing? / Where are they going?</td></tr>
+<tr><td>To Be (simple)</td><td>to be itself</td><td class="eg">Where is the captain? / Who are the crew?</td></tr>
+<tr><td>With modal</td><td>modal</td><td class="eg">What can you do? / Where should we go?</td></tr></table></div>
+
+<div class="gb"><strong>Subject questions — NO auxiliary needed:</strong>
+<p>When WHO or WHAT asks about the SUBJECT (not the object), there is no auxiliary:</p>
+<p>Object question (normal): "Who did she call?" → She called SOMEONE — we ask about the object.</p>
+<p>Subject question: "Who called her?" → SOMEONE called — we ask about the subject.</p>
+<p>Compare: <em>What does the engine do?</em> (object) vs <em>What happened?</em> (subject)</p>
+<p><em>Who trained the navigator?</em> (subject) vs <em>Who did the navigator train?</em> (object)</p></div>
+
+<div class="gb"><strong>Indirect questions — embedding questions in sentences:</strong>
+<p>When you embed a question inside another sentence, it LOSES the inverted word order:</p>
+<p>Direct: "Where is the port?" → Indirect: "Could you tell me <strong>where the port is</strong>?"</p>
+<p>Direct: "What time does the ship leave?" → Indirect: "Do you know <strong>what time the ship leaves</strong>?"</p>
+<p>This is the professional register used in formal communication at sea.</p></div>
+
+<div class="exb"><div class="ext"><span class="exn">1</span> Write the WH-question — identify subject vs object questions</div>
+<ol><li>The ship left Valparaíso yesterday. → When ___? | Type: ___</li>
+<li>Someone sent the emergency signal. → Who ___? | Type: ___ (subject!)</li>
+<li>She called the engineer. → Who did she ___? | Type: ___</li>
+<li>The voyage takes 14 days. → How long ___? | Type: ___</li>
+<li>The storm caused the delay. → What ___? | Type: ___ (subject!)</li>
+<li>She is studying navigation. → What ___? | Type: ___</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">2</span> Correct the question formation errors</div>
+<ol><li>Where she works? →</li>
+<li>What did he said to the captain? →</li>
+<li>Who does called the emergency? (subject question) →</li>
+<li>How long the voyage takes? →</li>
+<li>Why is he study navigation? →</li>
+<li>What happened? (this one is correct — explain why) →</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">3</span> Transform to indirect questions (formal register)</div>
+<ol><li>"Where is the navigation office?" → Could you tell me ___?</li>
+<li>"What time does the ship depart?" → Do you know ___?</li>
+<li>"How long does the training take?" → I'd like to know ___.</li>
+<li>"Who is in charge of cargo?" → Could you tell me ___?</li>
+<li>"Why was the departure delayed?" → Do you have any idea ___?</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">4</span> Maritime interview — write the questions</div>
+<p>You are interviewing a retired captain for a school magazine. Write 10 different WH-questions using at least 8 different question words. Use different tenses (present, past, modal):</p>
+<p><em>How long were you a captain? / What was the most dangerous situation you experienced? / Why did you choose a maritime career?...</em></p></div></template>
 
 <template id="adv-g15">
-<div class="mbadge">Avanzado A2+</div>
-<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar conectores y conjunciones para escribir textos coherentes y bien estructurados. OA4 — A2+.</div>
-<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use connectors and conjunctions to write coherent and well-structured texts. A2+ level.</div>
-<h2>Connectors and Conjunctions</h2>
-<table><tr><th>Funcion</th><th>Conectores</th><th>Ejemplo</th></tr>
-<tr><td>Adicion</td><td>and, also, in addition, furthermore</td><td class="eg">I study English and navigation. I also learn meteorology.</td></tr>
-<tr><td>Contraste</td><td>but, however, although, even though</td><td class="eg">The sea is beautiful, but it can be dangerous.</td></tr>
-<tr><td>Causa</td><td>because, since, as, due to</td><td class="eg">I study hard because I want to succeed.</td></tr>
-<tr><td>Resultado</td><td>so, therefore, as a result, consequently</td><td class="eg">The weather was bad, so we postponed the voyage.</td></tr>
-<tr><td>Secuencia</td><td>first, then, after that, next, finally</td><td class="eg">First check the weather. Then start the engine. Finally, leave.</td></tr>
-<tr><td>Tiempo</td><td>when, while, before, after, until</td><td class="eg">I will call you when we arrive.</td></tr>
-<tr><td>Condicion</td><td>if, unless, as long as</td><td class="eg">I will succeed if I study hard.</td></tr></table>
-<div class="exb"><div class="ext"><span class="exn">1</span> Join with the given connector</div>
-<ol><li>I love the sea. I am afraid of storms. (although) →</li><li>She studied hard. She passed. (as a result) →</li><li>Check radar. Start engine. Leave port. (first, then, finally) →</li><li>I will work on ships. I finish my studies. (as soon as) →</li></ol></div>
-<div class="exb"><div class="ext"><span class="exn">2</span> Write a paragraph about your future career using at least 8 different connectors. Underline each one.</div></div>
-</template>
+<div class="mbadge">⭐ Nivel Avanzado A2+</div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar conectores y conjunciones con precision semantica para construir textos argumentativos, narrativos y descriptivos coherentes. OA4 — A2+.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use connectors and conjunctions with semantic precision to build coherent argumentative, narrative and descriptive texts. A2+ level.</div>
+
+<h2>Beyond "And" and "But" — The Full Connector System</h2>
+<p>Many students use only "and", "but" and "because". This makes texts feel repetitive and simple. The real challenge of connectors is understanding their PRECISE meaning — not all contrast connectors work the same way, and not all addition connectors can replace each other.</p>
+
+<div class="gb"><strong>Contrast connectors — subtle differences:</strong>
+<table><tr><th>Connector</th><th>Precise meaning</th><th>Example</th></tr>
+<tr><td>but</td><td>simple contrast</td><td class="eg">The sea is beautiful, <strong>but</strong> it can be dangerous.</td></tr>
+<tr><td>however</td><td>formal contrast / unexpected</td><td class="eg">The storm was forecast. <strong>However</strong>, we were still surprised by its intensity.</td></tr>
+<tr><td>although / even though</td><td>concession — despite the fact that</td><td class="eg"><strong>Although</strong> she had no GPS, she navigated perfectly.</td></tr>
+<tr><td>despite / in spite of</td><td>concession + noun/gerund</td><td class="eg"><strong>Despite the storm</strong>, the ship arrived on time.</td></tr>
+<tr><td>nevertheless / nonetheless</td><td>formal — despite what was said</td><td class="eg">The conditions were terrible. <strong>Nevertheless</strong>, the crew remained calm.</td></tr>
+<tr><td>on the other hand</td><td>presenting the opposite perspective</td><td class="eg">Maritime work is demanding. <strong>On the other hand</strong>, it is extraordinarily rewarding.</td></tr></table>
+
+<strong>Cause and result — precise usage:</strong>
+<table><tr><th>Connector</th><th>Position</th><th>Example</th></tr>
+<tr><td>because</td><td>before cause (subordinate)</td><td class="eg">The ship stopped <strong>because</strong> the engine failed.</td></tr>
+<tr><td>since / as</td><td>beginning of sentence (more formal)</td><td class="eg"><strong>Since</strong> the engine failed, they called for help.</td></tr>
+<tr><td>so</td><td>before result (coordinate)</td><td class="eg">The engine failed, <strong>so</strong> they stopped.</td></tr>
+<tr><td>therefore / consequently</td><td>formal result</td><td class="eg">The engine failed. <strong>Therefore</strong>, they called for assistance.</td></tr>
+<tr><td>due to / owing to</td><td>before noun/gerund (formal)</td><td class="eg"><strong>Due to</strong> the engine failure, the voyage was delayed.</td></tr>
+<tr><td>as a result</td><td>formal result</td><td class="eg">The engine failed. <strong>As a result</strong>, they requested a tow.</td></tr></table></div>
+
+<div class="exb"><div class="ext"><span class="exn">1</span> Choose the most precise connector — explain why the others don't work</div>
+<ol><li>"___ (Although/However/Despite) the fog was thick, the captain navigated safely." → Best: ___ | Why not the others: ___</li>
+<li>"The route was dangerous. ___ (But/Nevertheless/So), they decided to continue." → Best: ___ | Register: ___</li>
+<li>"The storm damaged the hull. ___ (Therefore/Although/Despite), the ship was delayed for repairs." → Best: ___ | Why: ___</li>
+<li>"___ (Because/Due to/Since) the poor weather conditions, all departures were cancelled." → Best: ___ | Why: ___</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">2</span> Connector chains — rewrite without "and" or "but"</div>
+<p>Rewrite using more sophisticated connectors from above:</p>
+<ol><li>"The voyage was long and the crew was tired, but they arrived safely." → ___</li>
+<li>"The storm was bad and there was damage, but the captain was calm." → ___</li>
+<li>"She studied for years and she knows a lot, but she is still learning." → ___</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">3</span> Error analysis — wrong connectors</div>
+<ol><li>"Although it rained, so we cancelled the trip." →</li>
+<li>"Despite she studied hard, she failed. " →</li>
+<li>"Due to the captain worked hard, the voyage was safe." →</li>
+<li>"However she is young, she is very experienced." →</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">4</span> Argumentative essay challenge</div>
+<p>Write a 15-sentence essay arguing for or against this statement: <em>"Maritime careers are the best career choice for young Chileans."</em></p>
+<p>Requirements:</p>
+<ul><li>Use at least 10 DIFFERENT connectors (none repeated)</li>
+<li>Include contrast, cause, result, addition and sequence</li>
+<li>After writing, circle each connector and label its function</li>
+<li>Exchange with a classmate and check for connector accuracy</li></ul></div></template>
 
 <template id="adv-g16">
-<div class="mbadge">Avanzado A2+</div>
-<div class="hl">📌 <strong>Objetivo (ES):</strong> Comprender y usar el presente perfecto (have/has + participio) con ever, never, already y yet. Distinguirlo del pasado simple. OA6 — A2+.</div>
-<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Understand and use Present Perfect (have/has + past participle) with ever, never, already and yet. Distinguish from Past Simple. A2+ level.</div>
-<h2>Present Perfect</h2>
-<div class="gb"><span class="fm">Subject + have/has + past participle</span>
-<p>I have visited 5 countries. / She has sailed the Pacific. / They have finished training.</p></div>
-<table><tr><th>Forma</th><th>Ejemplo</th></tr>
-<tr><td>Afirmativa</td><td class="eg">I have studied English for three years.</td></tr>
-<tr><td>Negativa</td><td class="eg">He hasn't sailed internationally yet.</td></tr>
-<tr><td>Pregunta</td><td class="eg">Have you ever been on a ship?</td></tr>
-<tr><td>Respuesta</td><td class="eg">Yes, I have. / No, I haven't.</td></tr></table>
-<h2>Key Words</h2>
-<table><tr><th>Palabra</th><th>Uso</th><th>Ejemplo</th></tr>
-<tr><td>ever</td><td>preguntas</td><td class="eg">Have you ever seen a whale?</td></tr>
-<tr><td>never</td><td>negativas</td><td class="eg">I have never been to Asia.</td></tr>
-<tr><td>already</td><td>afirmativa</td><td class="eg">I have already finished my homework.</td></tr>
-<tr><td>yet</td><td>neg/preg (final)</td><td class="eg">I haven't eaten yet. Have you finished yet?</td></tr></table>
-<h2>Present Perfect vs Past Simple</h2>
+<div class="mbadge">⭐ Nivel Avanzado A2+</div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Dominar el Presente Perfecto (have/has + participio pasado) en todos sus usos: experiencia, cambio y relacion con el presente. Distinguirlo del Pasado Simple con precision. OA6 — A2+.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Master Present Perfect (have/has + past participle) in all its uses: experience, change and connection to the present. Distinguish from Past Simple with precision. A2+ level.</div>
+
+<h2>Present Perfect — The Tense That Connects Past to Present</h2>
+<p>Present Perfect is one of the most misunderstood tenses because Spanish speakers translate it as "Pretérito Perfecto" — but the uses are different. In Spanish, "He comido" can simply mean "I ate (today)". In English, Present Perfect always maintains a connection to the present — it is never purely about the past.</p>
+
+<div class="gb"><strong>Structure:</strong> <span class="fm">Subject + have/has + past participle</span>
+<table><tr><th>Subject</th><th>Auxiliary</th><th>Example</th></tr>
+<tr><td>I / You / We / They</td><td>have ('ve)</td><td class="eg">I've visited 12 countries. / They have finished.</td></tr>
+<tr><td>He / She / It</td><td>has ('s)</td><td class="eg">She's worked here for 10 years. / It has changed.</td></tr>
+<tr><td>Negative</td><td>haven't / hasn't</td><td class="eg">I haven't finished yet. / She hasn't arrived.</td></tr>
+<tr><td>Question</td><td>Have...? / Has...?</td><td class="eg">Have you ever sailed? / Has he completed it?</td></tr></table></div>
+
+<div class="gb"><strong>The THREE uses of Present Perfect:</strong>
+<p><strong>Use 1 — EXPERIENCE:</strong> Have you ever done something in your life? (no specific time)</p>
+<p><em>I have visited Patagonia. / She has never sailed internationally. / Have you ever seen a whale?</em></p>
+
+<p><strong>Use 2 — RECENT EVENTS with present relevance:</strong> Something happened recently and it matters NOW</p>
+<p><em>The ship has arrived. (= it's here now) / He has broken his leg. (= he can't work now)</em></p>
+
+<p><strong>Use 3 — UNFINISHED situations:</strong> Started in the past, continues NOW (with for/since)</p>
+<p><em>She has worked here for 10 years. (= she still works here) / I have lived in Valparaíso since 2015.</em></p>
+
+<strong>KEY WORDS:</strong>
+<table><tr><th>Word</th><th>Use with</th><th>Example</th></tr>
+<tr><td>ever</td><td>questions (experience)</td><td class="eg">Have you ever sailed overnight?</td></tr>
+<tr><td>never</td><td>negative experience</td><td class="eg">I've never piloted a ship.</td></tr>
+<tr><td>already</td><td>affirmative (sooner than expected)</td><td class="eg">She has already passed the exam!</td></tr>
+<tr><td>yet</td><td>negative/questions (expected but not done)</td><td class="eg">He hasn't graduated yet. / Has she arrived yet?</td></tr>
+<tr><td>just</td><td>very recently</td><td class="eg">The ship has just left the port.</td></tr>
+<tr><td>for</td><td>duration (how long)</td><td class="eg">He has worked here for 5 years.</td></tr>
+<tr><td>since</td><td>starting point</td><td class="eg">She has studied English since 2019.</td></tr></table></div>
+
+<div class="gb"><strong>Present Perfect vs Past Simple — the critical distinction:</strong>
 <table><tr><th>Present Perfect</th><th>Past Simple</th></tr>
-<tr><td>Sin tiempo especifico: I have visited Peru.</td><td>Con tiempo especifico: I visited Peru last year.</td></tr></table>
-<div class="exb"><div class="ext"><span class="exn">1</span> Complete with have/has + past participle</div>
-<ol><li>She ___ (visit) Rotterdam twice.</li><li>I ___ (never / sail) internationally. Not yet!</li><li>___ you ever ___ (work) on a cargo ship?</li><li>He ___ (already / finish) his exams.</li></ol></div>
-<div class="exb"><div class="ext"><span class="exn">2</span> Present Perfect or Past Simple?</div>
-<ol><li>I ___ (see) a blue whale. It was amazing. (specific time: last July)</li><li>I ___ (see) a blue whale before. (no specific time)</li><li>She ___ (work) at the port since 2020. (still working)</li><li>She ___ (work) at the port last summer. (finished)</li></ol></div>
-<div class="ak2"><div class="akt">Act.1: has visited / have never sailed / Have you ever worked? / has already finished | Act.2: saw / have seen / has worked / worked</div></div>
-</template>
+<tr><td>No specific time / or time unknown</td><td>Specific time stated or implied</td></tr>
+<tr><td class="eg">I have visited Santiago.</td><td class="eg">I visited Santiago <strong>last year</strong>.</td></tr>
+<tr><td class="eg">She has worked at sea.</td><td class="eg">She worked at sea <strong>from 2010 to 2015</strong>.</td></tr>
+<tr><td class="eg">He has eaten.</td><td class="eg">He ate at <strong>noon</strong>.</td></tr>
+<tr><td>The person may still be there</td><td>The event is clearly finished</td></tr>
+<tr><td class="eg">She has lived in Chile. (maybe still does)</td><td class="eg">She lived in Chile. (she left)</td></tr></table></div>
+
+<div class="exb"><div class="ext"><span class="exn">1</span> Identify the use: Experience (E), Recent (R), or Unfinished (U)?</div>
+<ol><li>"The captain has navigated this route hundreds of times." → ___</li>
+<li>"The engineer has just repaired the engine — we can depart now." → ___</li>
+<li>"She has worked for this company for 15 years." → ___</li>
+<li>"Have you ever crossed the equator?" → ___</li>
+<li>"I have lived in Valparaíso since I was born." → ___</li>
+<li>"The ship has already passed the checkpoint." → ___</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">2</span> Present Perfect or Past Simple? — Justify your answer</div>
+<ol><li>"She ___ (work) at sea for 10 years now — she loves it." | Why PP: ___</li>
+<li>"She ___ (work) at sea from 2008 to 2015, then retired." | Why PS: ___</li>
+<li>"I ___ (visit) the port of Rotterdam. It was magnificent." (no time given, experience) | ___</li>
+<li>"I ___ (visit) the port of Rotterdam in 2019." | ___</li>
+<li>"The crew ___ (just / finish) unloading the cargo." | ___</li>
+<li>"___ you ever ___ (be) to sea for more than 30 days?" | ___</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">3</span> Complete with FOR or SINCE</div>
+<ol><li>She has been captain ___ 2015.</li>
+<li>The ship has been at sea ___ three weeks.</li>
+<li>He has studied navigation ___ he was 16.</li>
+<li>They have worked together ___ five years.</li>
+<li>The port has existed ___ the 16th century.</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">4</span> Error correction — these mistakes appear in advanced learner writing</div>
+<ol><li>I have seen her yesterday. →</li>
+<li>She has worked here since three years. →</li>
+<li>Has he finished the report yet? No, he didn't. →</li>
+<li>I never have travelled by ship. →</li>
+<li>The ship has just left. (correct? justify) →</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">5</span> Life experience interview — write and conduct</div>
+<p>Write 10 Have you ever...? questions about maritime experiences, travel, language and school life. Then interview a classmate and write a paragraph summarizing their answers using Present Perfect and Past Simple appropriately:</p>
+<p><em>Have you ever...? Have you ever...? How long have you...?</em></p>
+<p>Report: <em>"[Name] has lived in Valparaíso since... She has never sailed, but she visited... She has studied English for... Last year she..."</em></p></div></template>
 -e 
 </body>
 </html>
