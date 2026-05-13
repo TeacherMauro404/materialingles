@@ -219,6 +219,15 @@ main{max-width:1100px;margin:0 auto;padding:36px 16px 80px}
 .mb td.eg{font-style:italic;color:var(--teal)}
 .mbadge{display:inline-block;background:linear-gradient(135deg,#8a6500,#c49a20);color:#fff;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:12px;margin-bottom:12px}
 .empty{text-align:center;padding:40px 20px;color:var(--muted)}
+.tbtn.tlec{border-color:#7a1a1a;color:#7a1a1a}
+.tbtn.tlec.active{background:#7a1a1a;border-color:#7a1a1a}
+.adv-subbtn{padding:8px 20px;border-radius:20px;border:2px solid #8a6500;background:#fff;color:#8a6500;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .18s;margin-bottom:8px}
+.adv-subbtn:hover{background:#fdf3e3}
+.adv-subbtn.aav{background:#8a6500;color:#fff}
+.adv-sub{display:none}.adv-sub.vis{display:block}
+.pdf-btn{display:inline-flex;align-items:center;gap:6px;background:#c0392b;color:#fff;border:none;padding:8px 18px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:background .15s;margin-top:12px}
+.pdf-btn:hover{background:#9b2335}
+@media print{.tabs,.tbtn,.adv-subbtn,.btn,.mc,.vclick,.vtoggle,.pdf-btn,header{display:none!important}.sec{display:block!important}.mo{position:relative!important;opacity:1!important;pointer-events:all!important;backdrop-filter:none!important;padding:0!important}.mbox{max-height:none!important;box-shadow:none!important}.mhdr{border-radius:0!important;position:relative!important}body{background:#fff;font-size:13px}main{padding:10px}}
 .empty .ic{font-size:32px;margin-bottom:8px}
 
 /* JUSTIFICATION BOX */
@@ -275,11 +284,18 @@ main{max-width:1100px;margin:0 auto;padding:36px 16px 80px}
     <button class="tbtn tv1"     onclick="show('v1',this)">🔤 Vocabularios 1°</button>
     <button class="tbtn tv2"     onclick="show('v2',this)">🔤 Vocabularios 2°</button>
     <button class="tbtn tex"     onclick="show('ex',this)">⭐ Avanzados</button>
-    <button class="tbtn tpie"    onclick="show('pie',this)">🫶 PIE / DUA</button>
+    <button class="tbtn tpie"    onclick="show('pie',this)">🌟 DUA</button>
+    <button class="tbtn tlec" onclick="show('lec',this)">📕 Lecturas</button>
   </div>
 
 <script>
 /* ─── UI FUNCTIONS — Tab System & Modal ─── */
+function showAdv(id,btn){
+  document.querySelectorAll('.adv-subbtn').forEach(b=>b.classList.remove('aav'));
+  btn.classList.add('aav');
+  document.querySelectorAll('.adv-sub').forEach(s=>s.classList.toggle('vis',s.id===id));
+}
+function dlPDF(){window.print();}
 function show(id,btn){
   document.querySelectorAll('.tbtn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
@@ -581,11 +597,15 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeM();});
 <!-- ═══════════ EXTRAS / AVANZADOS ═══════════ -->
 <div class="sec" id="sec-ex">
   <div class="sh ex">⭐ Material Avanzado &amp; Extras</div>
-  <p style="font-size:13.5px;color:var(--muted);margin-bottom:24px;background:#fff;padding:14px 18px;border-radius:var(--r);border:1px solid var(--border)">
-    <strong style="color:var(--text)">¿Para quién?</strong> Estudiantes que ya dominan los contenidos base y quieren ir más allá. Desafíos opcionales que amplían gramática, vocabulario y comprensión. También son útiles para prepararse para 2° Medio.
+  <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px;background:#fff;padding:14px 18px;border-radius:var(--r);border:1px solid var(--border)">
+    <strong style="color:var(--text)">¿Para quién?</strong> Estudiantes que quieren profundizar o prepararse para el siguiente nivel. Gramática extendida, desafíos de escritura y comprensión avanzada.
   </p>
-
-  <div class="cat">🚀 Guías avanzadas</div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px">
+    <button onclick="showAdv('adv1m',this)" class="adv-subbtn aav">📘 1° Medio</button>
+    <button onclick="showAdv('adv2m',this)" class="adv-subbtn">📗 2° Medio</button>
+  </div>
+  <div id="adv1m" class="adv-sub vis">
+  <div class="cat">🚀 Guías — 1° Medio Avanzado</div>
   <div class="grid">
     <div class="card adv" data-title="Advanced N°1 — Simple Present Tense" data-subtitle="Conjugación completa + do/does" data-content="adv-g01" data-adv="1">
       <span class="ct ca">Avanzado 1</span><h3>Simple Present Tense</h3>
@@ -617,60 +637,84 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeM();});
       <p>Was/were — pasado del verbo To Be. Afirmativo, negativo, preguntas. Contexto histórico marítimo.</p>
       <div class="cfoot"><span class="cdate">📅 A2+</span><button class="btn bo" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-  </div>
+  </div><!-- close g01-g06 grid -->
+
+  <div class="cat">📚 Lecturas avanzadas — 1° Medio</div>
   <div class="grid">
-    <div class="card adv" data-title="Advanced N°7 — Past Simple: Regular Verbs" data-subtitle="Pasado simple con verbos regulares" data-content="adv-g07" data-adv="1">
-      <span class="ct ca">Avanzado 7</span><h3>Past Simple: Regular Verbs</h3>
-      <p>Verbos regulares en pasado: -ed rules. Afirmativo, negativo (didn't) e interrogativo (did).</p>
+    <div class="card adv" data-title="Lectura 1M-A — The Port of Valparaíso" data-subtitle="Historia del puerto · A2" data-content="adv-r01" data-adv="1">
+      <span class="ct cp">Lectura A</span><h3>The Port: Then and Now</h3>
+      <p>Historia del puerto de Valparaíso desde el siglo XIX. Texto histórico-informativo A2.</p>
       <div class="cfoot"><span class="cdate">📅 A2</span><button class="btn bo" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card adv" data-title="Advanced N°8 — Past Simple: Irregular Verbs" data-subtitle="Los verbos irregulares más comunes" data-content="adv-g08" data-adv="1">
+    <div class="card adv" data-title="Lectura 1M-B — A Sailor's Life" data-subtitle="Narración en 1ª persona · A2" data-content="adv-r03" data-adv="1">
+      <span class="ct cp">Lectura B</span><h3>A Sailor's Life</h3>
+      <p>Un marinero describe su vida a bordo. Primera persona, Present Simple A2.</p>
+      <div class="cfoot"><span class="cdate">📅 A2</span><button class="btn bo" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    <div class="card adv" data-title="Lectura 1M-C — Valparaíso: City of Color" data-subtitle="Patrimonio UNESCO · A2+" data-content="adv-r05" data-adv="1">
+      <span class="ct cp">Lectura C</span><h3>Valparaíso: City of Color</h3>
+      <p>Arte urbano, cultura e identidad porteña. Patrimonio UNESCO. A2+.</p>
+      <div class="cfoot"><span class="cdate">📅 A2+</span><button class="btn bo" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+  </div>
+  </div><!-- close adv1m -->
+
+  <div id="adv2m" class="adv-sub">
+  <div class="cat">🚀 Guías avanzadas — 2° Medio</div>
+  <div class="grid">
+    <div class="card adv" data-title="Advanced N°7 — Past Simple: Regular Verbs" data-subtitle="Verbos regulares en pasado" data-content="adv-g07" data-adv="1">
+      <span class="ct ca">Avanzado 7</span><h3>Past Simple: Regular Verbs</h3>
+      <p>-ED rules (4 tipos), negativa con didn't, preguntas con did. Narrativa marítima.</p>
+      <div class="cfoot"><span class="cdate">📅 A2</span><button class="btn bo" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    <div class="card adv" data-title="Advanced N°8 — Past Simple: Irregular Verbs" data-subtitle="Los 50 verbos irregulares esenciales" data-content="adv-g08" data-adv="1">
       <span class="ct ca">Avanzado 8</span><h3>Past Simple: Irregular Verbs</h3>
-      <p>50 verbos irregulares esenciales. Listas, patrones y ejercicios de uso en contexto marítimo.</p>
+      <p>50 verbos irregulares por patrones. go→went, see→saw, make→made. Historia marítima.</p>
       <div class="cfoot"><span class="cdate">📅 A2</span><button class="btn bo" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
     <div class="card adv" data-title="Advanced N°9 — Past Continuous" data-subtitle="Acciones en progreso en el pasado" data-content="adv-g09" data-adv="1">
       <span class="ct ca">Avanzado 9</span><h3>Past Continuous</h3>
-      <p>Was/were + verb-ing. Acciones en progreso interrumpidas. Narración de eventos pasados.</p>
+      <p>Was/were + -ing. Narración cinematográfica. When/while para interrupciones.</p>
       <div class="cfoot"><span class="cdate">📅 A2</span><button class="btn bo" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card adv" data-title="Advanced N°10 — Comparative Adjectives" data-subtitle="Comparar personas, lugares y cosas" data-content="adv-g10" data-adv="1">
+    <div class="card adv" data-title="Advanced N°10 — Comparative Adjectives" data-subtitle="Comparar con más, igual y menos" data-content="adv-g10" data-adv="1">
       <span class="ct ca">Avanzado 10</span><h3>Comparative Adjectives</h3>
-      <p>Bigger than, more expensive than, better than. Reglas de formación y uso en contexto.</p>
+      <p>Bigger than / more important / as...as / less than. Los 3 tipos de comparación.</p>
       <div class="cfoot"><span class="cdate">📅 A2</span><button class="btn bo" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
     <div class="card adv" data-title="Advanced N°11 — Superlative Adjectives" data-subtitle="El más grande, el mejor, el peor" data-content="adv-g11" data-adv="1">
       <span class="ct ca">Avanzado 11</span><h3>Superlative Adjectives</h3>
-      <p>The biggest, the most important, the best. Formación y uso. Comparatives vs Superlatives.</p>
+      <p>The biggest, the most important, the best. Comparativo vs Superlativo.</p>
       <div class="cfoot"><span class="cdate">📅 A2</span><button class="btn bo" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card adv" data-title="Advanced N°12 — Prepositions of Place" data-subtitle="In, on, at, next to, between, behind..." data-content="adv-g12" data-adv="1">
+    <div class="card adv" data-title="Advanced N°12 — Prepositions of Place" data-subtitle="In, on, at, next to, between, beyond..." data-content="adv-g12" data-adv="1">
       <span class="ct ca">Avanzado 12</span><h3>Prepositions of Place</h3>
-      <p>In/on/at, next to, behind, between, opposite, above, below. Ubicar personas y objetos.</p>
+      <p>Lógica espacial de IN/ON/AT. 10 preposiciones extendidas. Descripción de navíos.</p>
       <div class="cfoot"><span class="cdate">📅 A2</span><button class="btn bo" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card adv" data-title="Advanced N°13 — Modal Verbs: Should / Must" data-subtitle="Obligación, consejo y necesidad" data-content="adv-g13" data-adv="1">
-      <span class="ct ca">Avanzado 13</span><h3>Should / Must</h3>
-      <p>Should (consejo), Must/Have to (obligación), Mustn't/Don't have to (prohibición/innecesario).</p>
+    <div class="card adv" data-title="Advanced N°13 — Should / Must / Have to" data-subtitle="Obligación, consejo y prohibición" data-content="adv-g13" data-adv="1">
+      <span class="ct ca">Avanzado 13</span><h3>Should / Must / Have to</h3>
+      <p>Espectro de modalidad. Must vs have to. Mustn't vs don't have to. Normas navales.</p>
       <div class="cfoot"><span class="cdate">📅 A2+</span><button class="btn bo" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card adv" data-title="Advanced N°14 — WH-Questions: Full Review" data-subtitle="Preguntas con qué, quién, dónde, cuándo, por qué, cómo" data-content="adv-g14" data-adv="1">
+    <div class="card adv" data-title="Advanced N°14 — WH-Questions: Full Review" data-subtitle="Preguntas WH- en todos los tiempos verbales" data-content="adv-g14" data-adv="1">
       <span class="ct ca">Avanzado 14</span><h3>WH-Questions — Full Review</h3>
-      <p>What, Who, Where, When, Why, How, How much/many, How often, How long. En todos los tiempos.</p>
+      <p>What/Who/Where/When/Why/How. Preguntas de sujeto, objeto e indirectas.</p>
       <div class="cfoot"><span class="cdate">📅 A2+</span><button class="btn bo" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card adv" data-title="Advanced N°15 — Connectors and Conjunctions" data-subtitle="Conectores para textos coherentes" data-content="adv-g15" data-adv="1">
-      <span class="ct ca">Avanzado 15</span><h3>Connectors &amp; Conjunctions</h3>
-      <p>And, but, or, so, because, however, although, first/then/finally. Escritura coherente.</p>
+    <div class="card adv" data-title="Advanced N°15 — Connectors and Conjunctions" data-subtitle="Conectores para textos coherentes y argumentativos" data-content="adv-g15" data-adv="1">
+      <span class="ct ca">Avanzado 15</span><h3>Connectors and Conjunctions</h3>
+      <p>Although, however, therefore, due to. Diferencias semánticas precisas entre conectores.</p>
       <div class="cfoot"><span class="cdate">📅 A2+</span><button class="btn bo" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card adv" data-title="Advanced N°16 — Present Perfect: Introduction" data-subtitle="Have/has + past participle — introducción" data-content="adv-g16" data-adv="1">
-      <span class="ct ca">Avanzado 16</span><h3>Present Perfect — Intro</h3>
-      <p>Have/has + past participle. Ever/never, already/yet. Diferencias con Past Simple.</p>
+    <div class="card adv" data-title="Advanced N°16 — Present Perfect: Introduction" data-subtitle="Have/has + past participle — 3 usos" data-content="adv-g16" data-adv="1">
+      <span class="ct ca">Avanzado 16</span><h3>Present Perfect</h3>
+      <p>Have/has + participio pasado. Ever/never/already/yet/for/since. vs Past Simple.</p>
       <div class="cfoot"><span class="cdate">📅 A2+</span><button class="btn bo" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
   </div>
-  <div class="cat">📚 Lecturas avanzadas</div>
+
+  <div class="cat">📚 Lecturas — 2° Medio Avanzado</div>
   <div class="grid">
     <div class="card adv" data-title="Adv. Reading N°1 — The Port of Valparaíso: Then and Now" data-subtitle="Historia del puerto — nivel A2" data-content="adv-r01" data-adv="1">
       <span class="ct cp">Lectura A1</span><h3>The Port: Then and Now</h3>
@@ -698,11 +742,13 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeM();});
       <div class="cfoot"><span class="cdate">📅 Nivel A2+</span><button class="btn bo" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
   </div>
-</div>
+  </div><!-- close lecturas 2M grid -->
+  </div><!-- close adv2m -->
+</div><!-- close sec-ex -->
 
-<!-- ═══════════ PIE / DUA ═══════════ -->
+<!-- ═══════════ DUA ═══════════ -->
 <div class="sec" id="sec-pie">
-  <div class="sh" style="border-color:#1a6a8a">🫶 PIE — Material de Apoyo</div>
+  <div class="sh" style="border-color:#1a6a8a">🌟 DUA — Material de Apoyo</div>
 
   <div style="background:linear-gradient(135deg,#0b3d52,#1a6a8a);color:#fff;border-radius:10px;padding:18px 22px;margin-bottom:24px">
     <h3 style="font-family:'Playfair Display',serif;font-size:16px;margin-bottom:8px">Material de Apoyo en Inglés</h3>
@@ -805,6 +851,80 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeM();});
     </div>
   </div>
 </div>
+
+<!-- ═══════════ LECTURAS (CON LICENCIA) ═══════════ -->
+<div class="sec" id="sec-lec">
+  <div class="sh" style="border-color:#7a1a1a">📕 Lecturas — Trabajo en Casa</div>
+
+  <div style="background:linear-gradient(135deg,#4a0a0a,#7a1a1a);color:#fff;border-radius:10px;padding:18px 22px;margin-bottom:24px">
+    <h3 style="font-family:'Playfair Display',serif;font-size:17px;margin-bottom:10px">📌 Instrucciones para el estudiante</h3>
+    <ol style="font-size:13px;line-height:2;color:rgba(255,255,255,.9);margin-left:18px">
+      <li>Lee el texto con calma al menos <strong>dos veces</strong> antes de responder.</li>
+      <li>Escribe todas las respuestas en tu <strong>cuaderno</strong> con fecha y título.</li>
+      <li>Si hay palabras que no entiendes, búscalas en un diccionario antes de responder.</li>
+      <li>Puedes imprimir esta página usando el botón <strong>🖨️ Descargar PDF</strong>.</li>
+      <li>Al volver al colegio, entrega tu cuaderno al profesor para revisión.</li>
+    </ol>
+    <button onclick="dlPDF()" class="pdf-btn" style="margin-top:10px">🖨️ Imprimir / Descargar PDF</button>
+  </div>
+
+  <div class="cat" style="color:#7a1a1a">📘 Lecturas — 1° Medio</div>
+  <div class="grid">
+    <div class="card" style="border-color:#e8c0c0" data-title="Lectura 1M N°1 — The Sea and Its Wonders" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-1m-01">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Licencia · 1° M</span>
+      <h3>The Sea and Its Wonders</h3>
+      <p>El océano Pacífico y su importancia. Vocabulario, comprensión y actividades de escritura. Nivel A1.</p>
+      <div class="cfoot"><span class="cdate">📅 Unidad 1 · A1</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver lectura</button></div>
+    </div>
+    <div class="card" style="border-color:#e8c0c0" data-title="Lectura 1M N°2 — A Day in Valparaíso" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-1m-02">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Licencia · 1° M</span>
+      <h3>A Day in Valparaíso</h3>
+      <p>Rutina diaria de Matías, estudiante marítimo. Presente simple, vocabulario y escritura. A1+.</p>
+      <div class="cfoot"><span class="cdate">📅 Unidad 1 · A1+</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver lectura</button></div>
+    </div>
+    <div class="card" style="border-color:#e8c0c0" data-title="Lectura 1M N°3 — Jobs at Sea" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-1m-03">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Licencia · 1° M</span>
+      <h3>Jobs at Sea</h3>
+      <p>Profesiones marítimas: capitán, oficial, ingeniero y marinero. Vocabulario técnico A1+.</p>
+      <div class="cfoot"><span class="cdate">📅 Unidad 1 · A1+</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver lectura</button></div>
+    </div>
+    <div class="card" style="border-color:#e8c0c0" data-title="Lectura 1M N°4 — My Family Tree" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-1m-04">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Licencia · 1° M</span>
+      <h3>My Family Tree</h3>
+      <p>Árbol genealógico de Camila. Vocabulario de familia, To Be, posesivos y apostrophe. A1+.</p>
+      <div class="cfoot"><span class="cdate">📅 Unidad 2 · A1+</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver lectura</button></div>
+    </div>
+  </div>
+
+  <div class="cat" style="color:#7a1a1a">📗 Lecturas — 2° Medio</div>
+  <div class="grid">
+    <div class="card" style="border-color:#e8c0c0" data-title="Lectura 2M N°1 — Camila's Hobbies and Free Time" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-2m-01">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Licencia · 2° M</span>
+      <h3>Camila's Hobbies</h3>
+      <p>Camila describe sus pasatiempos, música y rutina. CAN, Present Simple y Continuous. A2.</p>
+      <div class="cfoot"><span class="cdate">📅 Unidad 1 · A2</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver lectura</button></div>
+    </div>
+    <div class="card" style="border-color:#e8c0c0" data-title="Lectura 2M N°2 — The Maritime Life" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-2m-02">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Licencia · 2° M</span>
+      <h3>The Maritime Life</h3>
+      <p>Habilidades de un oficial naval. CAN, Present Continuous y vocabulario profesional. A2.</p>
+      <div class="cfoot"><span class="cdate">📅 Unidad 1 · A2</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver lectura</button></div>
+    </div>
+    <div class="card" style="border-color:#e8c0c0" data-title="Lectura 2M N°3 — My Future Plans" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-2m-03">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Licencia · 2° M</span>
+      <h3>My Future Plans</h3>
+      <p>Andrés y sus metas profesionales. Will, Going To, Future Continuous y opiniones. A2.</p>
+      <div class="cfoot"><span class="cdate">📅 Unidad 2 · A2</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver lectura</button></div>
+    </div>
+    <div class="card" style="border-color:#e8c0c0" data-title="Lectura 2M N°4 — A Survey About Preferences" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-2m-04">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Licencia · 2° M</span>
+      <h3>A Survey About Preferences</h3>
+      <p>Datos de encuesta escolar. Interpretar estadísticas y emitir opiniones justificadas. A2.</p>
+      <div class="cfoot"><span class="cdate">📅 Unidad 2 · A2</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver lectura</button></div>
+    </div>
+  </div>
+</div>
+
 
 <!-- MODAL -->
 <div class="mo" id="moOverlay" onclick="closeMO(event)">
@@ -2491,15 +2611,7 @@ function renderVocab(data,containerId){
   });
   let html='';
   Object.entries(weeks).forEach(([wk,sets])=>{
-    html+=`<div class="week-header">
-      <div>
-        <div style="display:flex;align-items:center;gap:10px">
-          <span class="week-num">📅 ${wk}</span>
-          <span class="week-title">${sets.map(s=>s.title).join(' · ')}</span>
-        </div>
-        <div class="week-sub">${sets.length} vocabulario(s) · ${sets.reduce((a,s)=>a+s.words.length,0)} palabras</div>
-      </div>
-    </div>`;
+
     sets.forEach(v=>{
       html+=`<div class="vcard">
         <div class="vcard-head" onclick="toggleVocab(this)">
@@ -2560,6 +2672,12 @@ renderVocab(V2,'vocab2-container');
 // ══════════════════════════════════════════
 // MODAL SYSTEM
 // ══════════════════════════════════════════
+function showAdv(id,btn){
+  document.querySelectorAll('.adv-subbtn').forEach(b=>b.classList.remove('aav'));
+  btn.classList.add('aav');
+  document.querySelectorAll('.adv-sub').forEach(s=>s.classList.toggle('vis',s.id===id));
+}
+function dlPDF(){window.print();}
 function show(id,btn){
   document.querySelectorAll('.tbtn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
@@ -6016,6 +6134,506 @@ In my free time, I usually <span style="border-bottom:2px solid #1a6a8a;display:
 I can play the <span style="border-bottom:2px solid #1a6a8a;display:inline-block;min-width:100px;margin:0 5px"></span>. / I can't play any instrument.<br>
 My favorite sport is <span style="border-bottom:2px solid #1a6a8a;display:inline-block;min-width:120px;margin:0 5px"></span>.<br>
 My favorite music is <span style="border-bottom:2px solid #1a6a8a;display:inline-block;min-width:120px;margin:0 5px"></span>.</div></div>
+</template>
+
+
+<!-- ══ LECTURAS CON LICENCIA — TEMPLATES ══ -->
+
+<template id="lec-1m-01">
+<div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:8px">📕 TRABAJO EN CASA — LECTURA AUTOINSTRUCCIONAL</div>
+<p style="font-size:13px;color:#4a0a0a;margin:0 0 6px 0"><strong>Instrucciones:</strong> Lee el texto dos veces. Luego responde todas las actividades en tu cuaderno. Escribe la fecha y el título antes de comenzar.</p>
+<p style="font-size:13px;color:#4a0a0a;margin:0"><strong>Al volver al colegio:</strong> Entrega tu cuaderno al profesor con las actividades completas.</p></div>
+<button onclick="dlPDF()" class="pdf-btn">🖨️ Imprimir / Descargar PDF</button>
+
+<h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 The Sea and Its Wonders</h2>
+<p style="font-size:14px;line-height:1.9;margin-bottom:16px">The sea is one of the most fascinating places on Earth. It covers more than 70% of our planet and is home to millions of living creatures. The Pacific Ocean, which surrounds Valparaíso, is the largest and deepest ocean in the world.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:16px">Sailors and fishermen have depended on the sea for thousands of years. Today, the maritime industry is very important for Chile's economy. Ships carry goods from port to port. Fish provide food for millions of people. The ocean also offers opportunities for tourism, science, and exploration.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:16px">However, the sea faces serious problems. Pollution, plastic waste, and climate change are threatening marine life. Many species of fish, dolphins, and whales are in danger. We all have a responsibility to protect our oceans for future generations.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:20px">Here in Valparaíso, the sea is not just a resource — it is part of our identity. From the colourful hills that overlook the bay to the sailors who work in the port every day, the ocean is in our hearts.</p>
+
+<div style="background:#f9e8e8;border:2px solid #c08080;border-radius:10px;padding:16px;margin-bottom:16px">
+<div style="font-size:12px;font-weight:700;color:#7a1a1a;margin-bottom:10px">📚 VOCABULARIO — Busca estas palabras en el texto</div>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="background:#7a1a1a;color:#fff"><th style="padding:7px">Inglés</th><th style="padding:7px">Español</th><th style="padding:7px">En qué párrafo</th></tr>
+<tr style="border-bottom:1px solid #e0b0b0"><td style="padding:7px">fascinating</td><td style="padding:7px">fascinante</td><td style="padding:7px">Párrafo 1</td></tr>
+<tr style="border-bottom:1px solid #e0b0b0;background:#fff8f8"><td style="padding:7px">creatures</td><td style="padding:7px">criaturas / seres vivos</td><td style="padding:7px">Párrafo 1</td></tr>
+<tr style="border-bottom:1px solid #e0b0b0"><td style="padding:7px">surrounds</td><td style="padding:7px">rodea</td><td style="padding:7px">Párrafo 1</td></tr>
+<tr style="border-bottom:1px solid #e0b0b0;background:#fff8f8"><td style="padding:7px">industry</td><td style="padding:7px">industria</td><td style="padding:7px">Párrafo 2</td></tr>
+<tr style="border-bottom:1px solid #e0b0b0"><td style="padding:7px">pollution</td><td style="padding:7px">contaminación</td><td style="padding:7px">Párrafo 3</td></tr>
+<tr style="border-bottom:1px solid #e0b0b0;background:#fff8f8"><td style="padding:7px">threatening</td><td style="padding:7px">amenazando</td><td style="padding:7px">Párrafo 3</td></tr>
+<tr style="background:#fff8f8"><td style="padding:7px">identity</td><td style="padding:7px">identidad</td><td style="padding:7px">Párrafo 4</td></tr></table></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 1 — Comprensión literal ✏️ Escribe en tu cuaderno</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>What percentage of the Earth does the sea cover?</li>
+<li>What is the name of the ocean near Valparaíso?</li>
+<li>Name THREE ways the sea is important for Chile.</li>
+<li>Name THREE problems the ocean faces today.</li>
+<li>Why is the sea important for Valparaíso specifically?</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 2 — Verdadero o Falso ✏️ Escribe V o F y corrige los falsos</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>The sea covers 50% of the Earth. ___</li>
+<li>The Pacific Ocean is the largest in the world. ___</li>
+<li>Ships carry tourists from port to port. ___</li>
+<li>Whales and dolphins are in danger. ___</li>
+<li>The sea is an important part of Valparaíso's identity. ___</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 3 — Vocabulario en acción ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:10px">Usa las palabras del vocabulario para completar las oraciones:</p>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>The Pacific Ocean ___ Valparaíso on the coast of Chile.</li>
+<li>___ from factories and ships is killing marine life.</li>
+<li>The sea is part of Valparaíso's cultural ___.</li>
+<li>Sailors and fish are ___ creatures of the sea.</li></ol>
+<div style="background:#fdf0f0;border-radius:6px;padding:8px 12px;margin-top:8px;font-size:12px;color:#7a1a1a"><strong>Respuestas:</strong> surrounds · Pollution · identity · fascinating</div></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 4 — Gramática en el texto ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Busca en el texto y copia en tu cuaderno:</p>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>3 ejemplos de verbos en Presente Simple (ej: covers, is, have)</li>
+<li>2 sustantivos plurales (ej: sailors)</li>
+<li>2 adjetivos (ej: largest)</li>
+<li>Un ejemplo de There is / There are</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 5 — Pensamiento crítico ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>Why does the text say the sea is "part of our identity" in Valparaíso? Write 2-3 sentences.</li>
+<li>What can YOU do to protect the ocean? Write 3 actions.</li>
+<li>Do you think the maritime career is important for Chile? Why? Write 4-5 sentences in English.</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 6 — Producción escrita ✍️</div>
+<p style="font-size:13px;color:#555;margin-bottom:10px">Escribe un párrafo de 6-8 oraciones en inglés usando el siguiente marco:</p>
+<p style="font-size:14px;font-style:italic;color:#555;line-height:2">The sea is ___ for Chile because ___. The Pacific Ocean is ___. In Valparaíso, the sea ___. I think the maritime industry ___. My favorite fact about the ocean is ___. I believe we should ___ to protect it.</p></div>
+</template>
+
+<template id="lec-1m-02">
+<div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">📕 TRABAJO EN CASA — LEE Y RESPONDE EN TU CUADERNO</div>
+<p style="font-size:13px;color:#4a0a0a;margin:0">Lee el texto dos veces. Busca en el diccionario las palabras que no entiendas. Escribe todas las respuestas en tu cuaderno con fecha y título.</p></div>
+<button onclick="dlPDF()" class="pdf-btn">🖨️ Imprimir / Descargar PDF</button>
+
+<h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 A Day in Valparaíso</h2>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">My name is Matías González. I am 15 years old and I am a first-year student at a maritime technical school in Valparaíso. Every morning I wake up at 6:30. I wash my face, brush my teeth, and get dressed in my uniform. My mother makes tea and toast for breakfast. We eat together before I leave the house.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">At 7:15, I leave my house in Cerro Alegre. I walk down the hill towards the port. The walk takes 20 minutes, but I love it. The bay is quiet and beautiful in the morning. The water is dark grey and blue, and the ships are already moving.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">Classes start at 8:00. In the morning, we study Mathematics, Spanish, History, and English. In the afternoon, we have technical classes: Maritime Safety, Navigation, and Marine Biology. My teacher of English is strict but funny. He always uses real maritime examples.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:20px">At 13:00, I eat lunch with my friends. After school at 16:00, I walk home. I do my homework first, then help my mother with chores. In the evening, I sometimes read about navigation. My dream is to be a merchant marine navigation officer.</p>
+
+<div style="background:#f9e8e8;border:2px solid #c08080;border-radius:10px;padding:14px;margin-bottom:16px">
+<div style="font-size:12px;font-weight:700;color:#7a1a1a;margin-bottom:8px">📚 VOCABULARIO CLAVE</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:13px">
+<div>wake up = despertar | brush teeth = cepillarse | leave = salir | walk = caminar</div>
+<div>strict = estricto | chores = quehaceres | dream = sueño | merchant marine = marina mercante</div></div></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 1 — Comprensión literal ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>What time does Matías wake up?</li>
+<li>Where does he live?</li>
+<li>How long does the walk to school take?</li>
+<li>Name THREE subjects he studies in the morning.</li>
+<li>What time does he have lunch?</li>
+<li>What is Matías's dream for the future?</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 2 — Verdadero (V) o Falso (F) ✏️ — Corrige los falsos</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>Matías is 16 years old. ___</li>
+<li>He has breakfast alone. ___</li>
+<li>The walk to school is beautiful. ___</li>
+<li>He studies Navigation in the morning. ___</li>
+<li>His English teacher is boring. ___</li>
+<li>After school he watches TV first. ___</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 3 — Presente Simple en el texto ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">El texto usa Presente Simple para rutinas. Copia del texto:</p>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>5 verbos en Presente Simple (ej: wake up, brush...)</li>
+<li>2 oraciones con adverbios de frecuencia (always, sometimes...)</li>
+<li>La hora que usa Matías para cada actividad del día</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 4 — Compara con tu rutina ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Escribe 5 oraciones comparando la rutina de Matías con la tuya:</p>
+<p style="font-size:14px;font-style:italic;color:#555;line-height:2">Matías wakes up at 6:30. I wake up at ___. / Matías walks to school. I ___. / We both ___.</p></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 5 — Preguntas y respuestas ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Escribe la pregunta en inglés para cada respuesta:</p>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>___ ? — He wakes up at 6:30.</li>
+<li>___ ? — He walks to school.</li>
+<li>___ ? — He eats lunch at 13:00.</li>
+<li>___ ? — He wants to be a navigation officer.</li>
+<li>___ ? — His school is in Valparaíso.</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 6 — Escritura ✍️ (8-10 oraciones)</div>
+<p style="font-size:13px;color:#555;margin-bottom:10px">Escribe tu propia rutina diaria completa en inglés. Incluye: mañana, tarde y noche. Usa adverbios de frecuencia en al menos 3 oraciones.</p>
+<p style="font-size:14px;font-style:italic;color:#555;line-height:2">Every day I wake up at ___. First, I ___. Then ___. At school I ___. After school I always ___. In the evening I sometimes ___.</p></div>
+</template>
+
+<template id="lec-1m-03">
+<div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">📕 TRABAJO EN CASA — LEE Y RESPONDE EN TU CUADERNO</div>
+<p style="font-size:13px;color:#4a0a0a;margin:0">Lee el texto dos veces. Responde en inglés siempre que sea posible.</p></div>
+<button onclick="dlPDF()" class="pdf-btn">🖨️ Imprimir / Descargar PDF</button>
+
+<h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 Jobs at Sea</h2>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px"><strong>The Captain</strong> is the absolute leader of the ship. He or she is responsible for the vessel, the crew, the cargo, and the safety of everyone on board. Captains must speak English fluently — all international maritime communication is in English. Without English, a captain cannot work on international routes.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px"><strong>The First Officer</strong> is the captain's second in command. He or she is responsible for navigation, planning routes, and monitoring the weather. When the captain rests, the first officer commands the ship.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px"><strong>The Marine Engineer</strong> is responsible for all engines and mechanical systems on board. Without a good engineer, the ship cannot move. They repair problems at sea, sometimes in very difficult conditions.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px"><strong>The Sailor</strong> maintains the ship, assists the officers with navigation, and loads and unloads cargo. It is a physically demanding job that requires teamwork and discipline.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:20px"><strong>The Port Worker</strong> operates cranes, organizes containers, and ensures that the port runs efficiently. The port of Valparaíso handles millions of tonnes of cargo each year. Without port workers, international trade would stop.</p>
+
+<div style="background:#f9e8e8;border:2px solid #c08080;border-radius:10px;padding:14px;margin-bottom:16px">
+<div style="font-size:12px;font-weight:700;color:#7a1a1a;margin-bottom:8px">📚 VOCABULARIO PROFESIONAL</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:13px">
+<div>vessel = buque/embarcación | crew = tripulación | cargo = carga | fluently = con fluidez</div>
+<div>navigation = navegación | engine = motor | maintains = mantiene | crane = grúa</div></div></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 1 — Une el trabajo con su descripción ✏️</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px">
+<div><p>1. The Captain</p><p>2. The First Officer</p><p>3. The Marine Engineer</p><p>4. The Sailor</p><p>5. The Port Worker</p></div>
+<div style="color:#555"><p>a. Operates cranes and organizes containers.</p><p>b. Repairs engines and mechanical systems.</p><p>c. Is the absolute leader of the ship.</p><p>d. Plans routes and monitors weather.</p><p>e. Maintains the ship and loads cargo.</p></div></div>
+<div style="background:#fdf0f0;border-radius:6px;padding:8px 12px;margin-top:8px;font-size:12px;color:#7a1a1a"><strong>Respuestas:</strong> 1-c · 2-d · 3-b · 4-e · 5-a</div></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 2 — Comprensión ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>Why must captains speak English fluently?</li>
+<li>What does the First Officer do when the captain rests?</li>
+<li>Why is the Marine Engineer so important?</li>
+<li>What skills does a sailor need?</li>
+<li>Why are port workers essential for international trade?</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 3 — Verbo TO BE en el texto ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Copia del texto 5 oraciones con el verbo TO BE (is/are/am). Escribe también su traducción.</p></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 4 — Opinión personal ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>Which maritime job interests you most? Why? (3 sentences)</li>
+<li>Why is English important for maritime careers in Chile? (3-4 sentences)</li>
+<li>Do you want to work at sea in the future? Explain in 4-5 sentences in English.</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 5 — Escritura ✍️</div>
+<p style="font-size:13px;color:#555;margin-bottom:10px">Escribe una descripción de 8-10 oraciones sobre el trabajo que te gustaría tener en el futuro. Usa: to be, can, adjetivos, y el vocabulario del texto.</p>
+<p style="font-size:14px;font-style:italic;color:#555;line-height:2">In the future, I want to be a ___. A ___ is responsible for ___. He/She must ___. This job is ___ because ___. I think I can ___ because ___.</p></div>
+</template>
+
+<template id="lec-1m-04">
+<div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">📕 TRABAJO EN CASA — LEE Y RESPONDE EN TU CUADERNO</div>
+<p style="font-size:13px;color:#4a0a0a;margin:0">Lee el texto y responde todas las actividades. Presta atención especial a los posesivos y el apóstrofe.</p></div>
+<button onclick="dlPDF()" class="pdf-btn">🖨️ Imprimir / Descargar PDF</button>
+
+<h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 My Family Tree — Camila's Story</h2>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">My name is Camila Rojas. I am 14 years old and I am a student at Instituto Marítimo de Valparaíso. Today I want to describe my family tree.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">My grandparents' names are Juan and Rosa. They are my father's parents. My grandfather Juan is 72 years old. He is a retired sailor. His stories about the sea are incredible. My grandmother Rosa is 68. She's a fantastic cook. Their house is near the port.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">My parents are Pedro and María. My father's job is mechanic — he works at the port. He has 15 years of experience. My mother is a teacher. She has 30 students in her class. They have three children: my brother Diego, my sister Valentina, and me.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:20px">Diego is my older brother. He is 17. He has my father's eyes — they are brown. He has a guitar and plays it every day. Valentina is my younger sister. She is 9 years old. She has long hair. I have a pet — a cat named Pelusa. Pelusa's fur is white and orange. I love my family very much!</p>
+
+<div style="background:#f9e8e8;border:2px solid #c08080;border-radius:10px;padding:14px;margin-bottom:16px">
+<div style="font-size:12px;font-weight:700;color:#7a1a1a;margin-bottom:8px">📚 GRAMÁTICA EN EL TEXTO — Apóstrofe 's</div>
+<p style="font-size:13px;margin:4px 0"><strong>Posesión:</strong> My father's job = El trabajo de mi padre</p>
+<p style="font-size:13px;margin:4px 0"><strong>Posesión plural:</strong> My grandparents' names = Los nombres de mis abuelos</p>
+<p style="font-size:13px;margin:4px 0"><strong>Contracción (is):</strong> She's = She is / He's = He is</p></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 1 — Comprensión ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>How old are Camila's grandparents?</li>
+<li>What is Camila's father's job?</li>
+<li>How many children do Pedro and María have?</li>
+<li>What does Diego have that he plays every day?</li>
+<li>Describe Pelusa (color and name).</li>
+<li>Where do the grandparents live?</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 2 — Apóstrofe: Posesión (P) o Contracción (C) ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>"My father's job is mechanic." → ___</li>
+<li>"She's a fantastic cook." → ___</li>
+<li>"Pelusa's fur is white and orange." → ___</li>
+<li>"He's 17 years old." → ___</li>
+<li>"My grandparents' names are Juan and Rosa." → ___</li></ol>
+<div style="background:#fdf0f0;border-radius:6px;padding:8px 12px;margin-top:8px;font-size:12px;color:#7a1a1a"><strong>Respuestas:</strong> P · C · P · C · P</div></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 3 — Have / Has en el texto ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Busca en el texto 5 ejemplos de have/has. Copia la oración completa y explica QUIÉN tiene QUÉ.</p></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 4 — Relaciones familiares ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>Who is Juan to Camila? → He is her ___.</li>
+<li>Who is Valentina to Diego? → She is his ___.</li>
+<li>Who are Pedro and María to Camila? → They are her ___.</li>
+<li>Who is Pelusa to Camila? → Pelusa is her ___.</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 5 — Escritura: Tu árbol familiar ✍️</div>
+<p style="font-size:13px;color:#555;margin-bottom:10px">Escribe una descripción de TU familia. Mínimo 10 oraciones. Usa: have/has, apóstrofe 's, posesivos (my/his/her), To Be y adjetivos.</p>
+<p style="font-size:14px;font-style:italic;color:#555;line-height:2">My name is ___. I have ___ people in my family. My father's name is ___. He is ___. My mother has ___. My ___'s job is ___.</p></div>
+</template>
+
+<template id="lec-2m-01">
+<div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">📕 TRABAJO EN CASA — LEE Y RESPONDE EN TU CUADERNO</div>
+<p style="font-size:13px;color:#4a0a0a;margin:0">Lee el texto con atención. Presta atención al uso de CAN, Present Simple y Present Continuous. Responde en inglés.</p></div>
+<button onclick="dlPDF()" class="pdf-btn">🖨️ Imprimir / Descargar PDF</button>
+
+<h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 Camila's Hobbies and Free Time</h2>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">Hi! My name is Camila. I am 15 years old and I am a student at a maritime technical school in Valparaíso, Chile. I have many hobbies. I love listening to music, especially K-pop and rock. I can play the guitar and I am learning to play the piano. I usually practice the guitar after school for about 30 minutes.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">I also enjoy playing sports. I play volleyball on Mondays and Wednesdays. I can swim very well because my father taught me when I was little. I sometimes go swimming at the beach on weekends.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">My brother Diego is 17 years old. He likes playing video games and watching movies. He can't play any instrument, but he is very good at drawing. He always draws anime characters. He doesn't like sports much, but he sometimes plays football with his friends.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">My best friend Sofía loves dancing. She can dance hip-hop and she is currently learning to dance salsa. She often watches dance videos on YouTube. She doesn't like playing sports, but she enjoys going for walks.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:20px">Right now, I am sitting in my room. I am listening to my favourite K-pop band and I am doing my English homework. My brother is playing video games in the living room and my mother is cooking dinner. I feel happy because tomorrow is Saturday!</p>
+
+<div style="background:#f9e8e8;border:2px solid #c08080;border-radius:10px;padding:14px;margin-bottom:16px">
+<div style="font-size:12px;font-weight:700;color:#7a1a1a;margin-bottom:8px">📚 GRAMÁTICA — 3 tiempos en el texto</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:12px">
+<div style="background:#e8f5ec;border-radius:6px;padding:8px"><strong style="color:#2d9e6a">Present Simple</strong><br>Hábitos/rutinas<br><em>I play volleyball...</em></div>
+<div style="background:#e8ecff;border-radius:6px;padding:8px"><strong style="color:#7a7acc">CAN / CAN'T</strong><br>Habilidades<br><em>I can play guitar...</em></div>
+<div style="background:#fef0e0;border-radius:6px;padding:8px"><strong style="color:#d4a843">Present Continuous</strong><br>Ahora mismo<br><em>I am listening...</em></div></div></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 1 — Comprensión ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>What kind of music does Camila like?</li>
+<li>Can Camila play the piano? What is she doing about it?</li>
+<li>How often does she practice the guitar?</li>
+<li>What sport does she play twice a week?</li>
+<li>What is Diego good at?</li>
+<li>What two things can Sofía do?</li>
+<li>What is Camila doing RIGHT NOW?</li>
+<li>Why is Camila happy?</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 2 — CAN / CAN'T: Camila y Diego ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Copia y completa la tabla en tu cuaderno:</p>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="background:#7a1a1a;color:#fff"><th style="padding:7px">Habilidad</th><th style="padding:7px">Camila</th><th style="padding:7px">Diego</th></tr>
+<tr style="border-bottom:1px solid #e0b0b0"><td style="padding:7px">play the guitar</td><td style="padding:7px"></td><td style="padding:7px"></td></tr>
+<tr style="border-bottom:1px solid #e0b0b0;background:#fff8f8"><td style="padding:7px">swim</td><td style="padding:7px"></td><td style="padding:7px"></td></tr>
+<tr style="border-bottom:1px solid #e0b0b0"><td style="padding:7px">play volleyball</td><td style="padding:7px"></td><td style="padding:7px"></td></tr>
+<tr style="background:#fff8f8"><td style="padding:7px">draw</td><td style="padding:7px"></td><td style="padding:7px"></td></tr></table></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 3 — Simple vs Continuous ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Clasifica estas oraciones del texto: escribe PS (Present Simple) o PC (Present Continuous)</p>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>"I play volleyball on Mondays." ___</li>
+<li>"I am listening to my favourite K-pop band." ___</li>
+<li>"She is currently learning to dance salsa." ___</li>
+<li>"He always draws anime characters." ___</li>
+<li>"My mother is cooking dinner." ___</li>
+<li>"I usually practice the guitar after school." ___</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 4 — Adverbios de frecuencia ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Busca en el texto todos los adverbios de frecuencia (always, usually, often, sometimes...). Copia la oración completa y clasifica: ¿qué tan frecuente es?</p></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 5 — Verdadero (V) o Falso (F) ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>Camila is 16 years old. ___</li>
+<li>Camila can play the guitar. ___</li>
+<li>Diego likes sports a lot. ___</li>
+<li>Sofía can dance hip-hop. ___</li>
+<li>Camila never goes swimming. ___</li>
+<li>Camila's mother is currently cooking. ___</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 6 — Escritura: Mis pasatiempos ✍️</div>
+<p style="font-size:13px;color:#555;margin-bottom:10px">Escribe un párrafo de 10-12 oraciones sobre TUS pasatiempos. Usa CAN/CAN'T, Present Simple con adverbios de frecuencia y al menos 2 oraciones en Present Continuous (qué estás haciendo ahora).</p>
+<p style="font-size:14px;font-style:italic;color:#555;line-height:2">I love ___. I can ___ but I can't ___. I usually ___ on ___. I sometimes ___. Right now, I am ___ and ___.</p></div>
+</template>
+
+<template id="lec-2m-02">
+<div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">📕 TRABAJO EN CASA — LEE Y RESPONDE EN TU CUADERNO</div>
+<p style="font-size:13px;color:#4a0a0a;margin:0">Texto sobre habilidades marítimas. Identifica los usos de CAN y los tiempos verbales.</p></div>
+<button onclick="dlPDF()" class="pdf-btn">🖨️ Imprimir / Descargar PDF</button>
+
+<h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 The Maritime Life: Skills and Abilities</h2>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">My name is Officer Fernández. I am 28 years old and I work on a container ship that sails between Valparaíso, Panama, and Rotterdam. I love my job because it combines technical skills, language, and adventure.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">I can navigate using GPS and traditional charts. I can read weather reports in English and communicate with port authorities around the world. Right now, our ship is crossing the Pacific Ocean. I am monitoring the weather radar and updating the ship's log.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">My colleague Ana is the ship's engineer. She can repair engines and diagnose mechanical problems very quickly. At this moment, she is checking the engine room — a routine inspection that she does every four hours. She is also learning to use new software for engine monitoring.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">Our cadet Luis is 20 years old. He can speak English and Spanish, but he can't speak Japanese yet — he is learning. Right now, he is helping the navigator and taking notes about our position.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:20px">Life at sea requires constant learning. We always study new technology, new regulations, and new languages. English is essential — without it, we cannot communicate internationally. If you want to work at sea, start practising now!</p>
+
+<div style="background:#f9e8e8;border:2px solid #c08080;border-radius:10px;padding:14px;margin-bottom:16px">
+<div style="font-size:12px;font-weight:700;color:#7a1a1a;margin-bottom:8px">📚 VOCABULARIO TÉCNICO</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:12px">
+<div>container ship = buque portacontenedores | chart = carta náutica | radar = radar | log = bitácora</div>
+<div>engine room = sala de máquinas | cadet = guardiamarina | diagnose = diagnosticar | regulations = reglamentos</div></div></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 1 — Comprensión ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>What route does Officer Fernández's ship sail?</li>
+<li>What can he do with English?</li>
+<li>What is he doing right now?</li>
+<li>What can Ana do? What is she doing at this moment?</li>
+<li>What languages can Luis speak? What can't he do yet?</li>
+<li>Why is English essential at sea?</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 2 — CAN / CAN'T en el texto ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Completa la tabla con información del texto:</p>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="background:#7a1a1a;color:#fff"><th style="padding:7px">Persona</th><th style="padding:7px">CAN do</th><th style="padding:7px">CAN'T do</th></tr>
+<tr style="border-bottom:1px solid #e0b0b0"><td style="padding:7px">Officer Fernández</td><td style="padding:7px"></td><td style="padding:7px"></td></tr>
+<tr style="border-bottom:1px solid #e0b0b0;background:#fff8f8"><td style="padding:7px">Ana</td><td style="padding:7px"></td><td style="padding:7px"></td></tr>
+<tr><td style="padding:7px">Luis</td><td style="padding:7px"></td><td style="padding:7px"></td></tr></table></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 3 — Simple vs Continuous ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Clasifica estas oraciones del texto:</p>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>"I work on a container ship." → ___</li>
+<li>"I am monitoring the weather radar." → ___</li>
+<li>"She is checking the engine room." → ___</li>
+<li>"We always study new technology." → ___</li>
+<li>"He is helping the navigator." → ___</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 4 — Opinión ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>Do you agree that "English is essential for maritime work"? Explain in 3-4 sentences.</li>
+<li>Which maritime professional in the text would you like to be? Why? (4 sentences)</li>
+<li>The text says life at sea requires "constant learning". Do you agree? (3 sentences)</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 5 — Escritura: Mis habilidades ✍️</div>
+<p style="font-size:13px;color:#555;margin-bottom:10px">Escribe 10-12 oraciones sobre TUS habilidades. Usa CAN/CAN'T, Present Simple para rutinas y Present Continuous para lo que estás haciendo ahora.</p>
+<p style="font-size:14px;font-style:italic;color:#555;line-height:2">I can ___ and ___. I can't ___ yet, but I am learning. I usually ___ after school. Right now, I am ___ because ___. In the future, I want to learn to ___.</p></div>
+</template>
+
+<template id="lec-2m-03">
+<div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">📕 TRABAJO EN CASA — LEE Y RESPONDE EN TU CUADERNO</div>
+<p style="font-size:13px;color:#4a0a0a;margin:0">Presta atención especial a los tiempos de futuro: WILL, GOING TO y WILL BE + ING.</p></div>
+<button onclick="dlPDF()" class="pdf-btn">🖨️ Imprimir / Descargar PDF</button>
+
+<h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 My Future Plans</h2>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">My name is Andrés Muñoz. I am 16 years old and I am in my second year at Instituto Marítimo. Today I want to write about my future plans and dreams.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">I think I am going to study marine navigation after I finish school. In my opinion, navigation officers have one of the most exciting jobs in the world. I love learning about navigation, and I believe I will be good at it.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">This time next year, I will be doing my first onboard practice. I am really nervous but also excited. I hate waiting — I would rather be doing things than studying them! But I understand that theory is important. So I am going to work harder this semester, especially in English.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">My long-term plan: In ten years, I will be sailing an international route — probably between South America and Asia. I prefer working at sea to working on land because every day is different. I believe the maritime industry will keep growing, and I want to be part of that future.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:20px">I won't give up on my dreams. I know it will be hard, but I am going to prove that students from Valparaíso can reach the top of the maritime world.</p>
+
+<div style="background:#f9e8e8;border:2px solid #c08080;border-radius:10px;padding:14px;margin-bottom:16px">
+<div style="font-size:12px;font-weight:700;color:#7a1a1a;margin-bottom:8px">📚 TIEMPOS DE FUTURO EN EL TEXTO</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:12px">
+<div style="background:#e8f5ec;border-radius:6px;padding:8px"><strong style="color:#2d9e6a">GOING TO</strong><br>Plan decidido<br><em>I am going to study...</em></div>
+<div style="background:#e8ecff;border-radius:6px;padding:8px"><strong style="color:#7a7acc">WILL</strong><br>Predicción/promesa<br><em>I will be good at it.</em></div>
+<div style="background:#fef0e0;border-radius:6px;padding:8px"><strong style="color:#d4a843">WILL BE -ING</strong><br>En progreso en futuro<br><em>I will be sailing...</em></div></div></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 1 — Comprensión ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>What is Andrés going to study after school?</li>
+<li>What will he be doing this time next year?</li>
+<li>Why does he want to study English harder?</li>
+<li>What does he prefer and why?</li>
+<li>What does he predict for the maritime industry?</li>
+<li>What promise does he make at the end?</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 2 — Clasifica los tiempos de futuro ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Copia estas oraciones y escribe: WILL, GOING TO o WILL BE + ING</p>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>"I am going to study marine navigation." ___</li>
+<li>"I will be doing my first onboard practice." ___</li>
+<li>"I believe I will be good at it." ___</li>
+<li>"I am going to work harder this semester." ___</li>
+<li>"I will be sailing an international route." ___</li>
+<li>"I won't give up on my dreams." ___</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 3 — Expresiones de opinión ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Encuentra en el texto 4 expresiones de opinión (I think / In my opinion / I believe / I prefer). Copia la oración completa.</p></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 4 — Análisis personal ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>Do you identify with Andrés? What do you have in common? (3 sentences)</li>
+<li>Do you agree that "English is especially important for maritime careers"? Why? (3-4 sentences)</li>
+<li>What do you think about the maritime industry's future? (3 sentences using WILL)</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 5 — Escritura: Mis planes futuros ✍️</div>
+<p style="font-size:13px;color:#555;margin-bottom:10px">Escribe un párrafo de 10-12 oraciones sobre TUS planes futuros. Usa: GOING TO (3 planes), WILL (3 predicciones/promesas), WILL BE + ING (2 acciones en futuro), opiniones.</p>
+<p style="font-size:14px;font-style:italic;color:#555;line-height:2">I am going to ___. I also plan to ___. In my opinion, ___. In five years, I will be ___. I believe I will ___. I won't ___.</p></div>
+</template>
+
+<template id="lec-2m-04">
+<div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">📕 TRABAJO EN CASA — LEE Y RESPONDE EN TU CUADERNO</div>
+<p style="font-size:13px;color:#4a0a0a;margin:0">Texto con datos estadísticos. Aprende a interpretar porcentajes y emitir opiniones justificadas en inglés.</p></div>
+<button onclick="dlPDF()" class="pdf-btn">🖨️ Imprimir / Descargar PDF</button>
+
+<h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 A Survey About Student Preferences</h2>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">Last month, 120 students at Instituto Marítimo answered a survey about their preferences, plans and opinions. The results were surprising and revealing.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">When asked about free time, 78% of students said they love listening to music. Football was the most popular sport, with 65% saying they enjoy playing it regularly. Only 23% said they like reading books for pleasure, though 71% agreed that reading is important for their future career.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">Regarding future plans, 82% of students said they are going to work in the maritime sector. 61% want to work on ships internationally, while 21% prefer port operations. Interestingly, 94% believe that English will be essential in their professional lives, and 88% think that technology will change their industry significantly.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">On opinions about school, 79% think Instituto Marítimo is preparing them well for the future. However, 67% would prefer to have more practical classes at sea.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:20px">The survey also asked about habits: 45% always do their homework, 38% usually study English outside of class, and 12% never study on weekends. What about you — where do you fit in these statistics?</p>
+
+<div style="background:#f9e8e8;border:2px solid #c08080;border-radius:10px;padding:14px;margin-bottom:16px">
+<div style="font-size:12px;font-weight:700;color:#7a1a1a;margin-bottom:8px">📚 VOCABULARIO — ESTADÍSTICAS</div>
+<div style="font-size:13px">survey = encuesta | results = resultados | regarding = respecto a | significantly = significativamente | interestingly = curiosamente | habits = hábitos</div></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 1 — Datos numéricos ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Copia en tu cuaderno: ¿Qué porcentaje...?</p>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>...loves listening to music? ___</li>
+<li>...plays football regularly? ___</li>
+<li>...plans to work in the maritime sector? ___</li>
+<li>...believes English will be essential? ___</li>
+<li>...always does their homework? ___</li>
+<li>...thinks the school prepares them well? ___</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 2 — Tiempos de futuro en el texto ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Encuentra en el texto y copia:</p>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>2 ejemplos de GOING TO</li>
+<li>2 ejemplos de WILL</li>
+<li>1 ejemplo de preferencia (would prefer)</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 3 — ¿Y tú? Ubícate en la encuesta ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Para cada estadística, escribe si perteneces al grupo mayoritario o minoritario y por qué:</p>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>78% love music. I ___ because ___.</li>
+<li>82% are going to work in maritime. I ___ because ___.</li>
+<li>94% believe English will be essential. I ___ because ___.</li>
+<li>45% always do homework. I ___ because ___.</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 4 — Opinión justificada ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Elige 3 resultados de la encuesta y escribe tu opinión sobre cada uno (3-4 oraciones por resultado). Usa: I think / In my opinion / I agree/disagree because.</p></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 5 — Tu propia encuesta ✍️</div>
+<p style="font-size:13px;color:#555;margin-bottom:10px">Diseña 5 preguntas nuevas que agregarías a esta encuesta. Luego escribe las respuestas que TÚ darías, usando going to, will y expresiones de opinión.</p>
+<p style="font-size:14px;font-style:italic;color:#555">My question: Do you ___? My answer: In my opinion, I ___ because ___. I am going to ___ and I believe ___.</p></div>
 </template>
 </body>
 </html>
