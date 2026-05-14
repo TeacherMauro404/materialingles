@@ -227,6 +227,38 @@ main{max-width:1100px;margin:0 auto;padding:36px 16px 80px}
 .adv-sub{display:none}.adv-sub.vis{display:block}
 .pdf-btn{display:inline-flex;align-items:center;gap:6px;background:#c0392b;color:#fff;border:none;padding:8px 18px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:background .15s;margin-top:12px}
 .pdf-btn:hover{background:#9b2335}
+/* ─── PRONUNCIACIÓN ─── */
+.tbtn.tpro{border-color:#b04020;color:#b04020}
+.tbtn.tpro.active{background:#b04020;border-color:#b04020;color:#fff}
+.sh.prv::before{background:#b04020}
+.pro-subbtn{padding:8px 20px;border-radius:20px;border:2px solid #b04020;background:#fff;color:#b04020;
+  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .18s;margin-bottom:8px}
+.pro-subbtn:hover{background:#fdf2ee}
+.pro-subbtn.pav{background:#b04020;color:#fff}
+.pro-sub{display:none}.pro-sub.vis{display:block}
+.cpro{background:#fdf2ee;color:#b04020}
+.pbox{background:linear-gradient(135deg,#6a2010,#b04020);color:#fff;border-radius:var(--r);padding:20px 24px;margin-bottom:28px}
+.pbox h3{font-family:'Playfair Display',serif;font-size:17px;margin-bottom:10px}
+.pbox p{font-size:13px;line-height:1.7;color:rgba(255,255,255,.85);margin-bottom:8px}
+.pbox p:last-child{margin-bottom:0}
+.ptag{display:inline-block;background:rgba(255,255,255,.2);font-size:11px;font-weight:600;padding:3px 10px;border-radius:12px;margin:3px 3px 3px 0}
+.phoneme{display:inline-block;background:var(--navy);color:#fff;font-family:'Courier New',monospace;font-size:14px;padding:2px 8px;border-radius:4px;margin:2px}
+.sound-row{display:grid;grid-template-columns:80px 1fr 1fr;gap:8px;align-items:start;padding:8px 10px;border-radius:8px;background:#f8fafc;border:1px solid var(--border);margin-bottom:6px}
+.sound-sym{font-size:20px;font-weight:700;color:#b04020;font-family:'Courier New',monospace;text-align:center}
+.sound-tip{font-size:12px;color:var(--teal);font-style:italic}
+.pair-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin:10px 0}
+.pair-item{background:#f8fafc;border:1px solid var(--border);border-radius:8px;padding:8px 12px;text-align:center}
+.pair-words{font-size:15px;font-weight:700;color:var(--navy)}
+.pair-ipa{font-size:11px;color:var(--muted);font-family:'Courier New',monospace}
+.step-box{display:flex;gap:12px;align-items:flex-start;padding:10px;background:#f8fafc;border-radius:8px;border:1px solid var(--border);margin-bottom:8px}
+.step-num{background:var(--navy);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+.tip-list{list-style:none;padding:0}
+.tip-list li{padding:7px 10px;border-left:3px solid #b04020;background:#fdf2ee;border-radius:0 6px 6px 0;margin-bottom:6px;font-size:13px}
+.app-card{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;background:#fff;border:1px solid var(--border);border-radius:8px;margin-bottom:8px}
+.app-icon{font-size:24px;flex-shrink:0}
+.app-name{font-weight:700;font-size:13px;color:var(--navy)}
+.app-desc{font-size:12px;color:var(--muted);margin-top:2px}
+.app-free{font-size:10px;font-weight:700;background:#e6f4f7;color:var(--teal);padding:2px 7px;border-radius:10px;display:inline-block;margin-top:3px}
 @media print{.tabs,.tbtn,.adv-subbtn,.btn,.mc,.vclick,.vtoggle,.pdf-btn,header{display:none!important}.sec{display:block!important}.mo{position:relative!important;opacity:1!important;pointer-events:all!important;backdrop-filter:none!important;padding:0!important}.mbox{max-height:none!important;box-shadow:none!important}.mhdr{border-radius:0!important;position:relative!important}body{background:#fff;font-size:13px}main{padding:10px}}
 .empty .ic{font-size:32px;margin-bottom:8px}
 
@@ -285,7 +317,8 @@ main{max-width:1100px;margin:0 auto;padding:36px 16px 80px}
     <button class="tbtn tv2"     onclick="show('v2',this)">🔤 Vocabularios 2°</button>
     <button class="tbtn tex"     onclick="show('ex',this)">⭐ Avanzados</button>
     <button class="tbtn tpie"    onclick="show('pie',this)">🌟 DUA</button>
-    <button class="tbtn tlec" onclick="show('lec',this)">📕 Lecturas</button>
+    <button class="tbtn tlec" onclick="show('lec',this)">🏠 Guías Domiciliarias</button>
+    <button class="tbtn tpro" onclick="show('pro',this)">🗣️ Pronunciación</button>
   </div>
 
 <script>
@@ -295,7 +328,46 @@ function showAdv(id,btn){
   btn.classList.add('aav');
   document.querySelectorAll('.adv-sub').forEach(s=>s.classList.toggle('vis',s.id===id));
 }
-function dlPDF(){window.print();}
+function printGuide(tid, ttl) {
+  var tmpl = document.getElementById(tid);
+  if (!tmpl) return;
+  var body = tmpl.innerHTML;
+  var w = window.open('', '_blank');
+  w.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>' + ttl + '</title><style>' +
+    'body{font-family:Arial,sans-serif;font-size:11.5pt;margin:18mm 20mm;color:#111;line-height:1.6}' +
+    'h1{font-size:17pt;color:#1a6a8a;border-bottom:3px solid #1a6a8a;padding-bottom:6px;margin-bottom:14px}' +
+    'h2{font-size:14pt;color:#1a6a8a;border-bottom:2px solid #cce4f0;padding-bottom:4px;margin-top:20px}' +
+    'h3{font-size:12pt;color:#0b3d52;margin-top:14px}' +
+    'table{width:100%;border-collapse:collapse;margin:10px 0;font-size:10.5pt}' +
+    'th{background:#1a6a8a;color:#fff;padding:7px 9px;text-align:left}' +
+    'td{padding:7px 9px;border-bottom:1px solid #ddd;vertical-align:top}' +
+    'tr:nth-child(even){background:#f8fafc}' +
+    'ol,ul{margin:6px 0;padding-left:22px;line-height:2.4}' +
+    'li{margin-bottom:2px}' +
+    '.pdf-btn,.btn,button{display:none!important}' +
+    'div[style*="border-left:4px solid #7a1a1a"]{border-left:4px solid #1a6a8a!important;background:#e8f4fb!important;padding:10px 14px;border-radius:4px;margin-bottom:12px;font-size:10.5pt}' +
+    'div[style*="background:#f9e8e8"]{background:#f0f8ff!important;border:1px solid #aad4e8!important;padding:10px 14px;border-radius:4px;margin:10px 0}' +
+    'div[style*="border:2px solid #e0b0b0"]{border:1.5px solid #aaa!important;border-radius:4px;padding:12px 14px;margin:10px 0;page-break-inside:avoid}' +
+    'div[style*="font-size:13px;font-weight:700;color:#7a1a1a"]{font-weight:700;color:#1a6a8a;font-size:11pt;margin-bottom:8px;border-bottom:1px solid #cce4f0;padding-bottom:4px}' +
+    'div[style*="font-size:13px;color:#555"]{font-size:10.5pt;color:#444;margin-bottom:8px;font-style:italic}' +
+    'span[style*="border-bottom:2px solid #1a6a8a"]{border-bottom:1.5px solid #aaa!important;display:inline-block;min-width:150px}' +
+    'span[style*="border-bottom:3px solid"]{border-bottom:1.5px solid #aaa!important;display:inline-block;min-width:120px}' +
+    'div[style*="background:#fdf0f0"]{background:#e8f4fb!important;border-left:4px solid #1a6a8a!important}' +
+    '@page{margin:18mm 20mm;size:A4}' +
+    '.school-header{text-align:center;border-bottom:2px solid #1a6a8a;padding-bottom:10px;margin-bottom:20px}' +
+    '.school-header p{margin:2px 0;font-size:10pt;color:#555}' +
+    '.answer-key{background:#f0f8e8;border:1.5px solid #2d9e6a;border-radius:4px;padding:8px 12px;margin-top:8px;font-size:10pt}' +
+    '</style></head><body>' +
+    '<div class="school-header">' +
+    '<p style="font-size:9pt;color:#777">Instituto Marítimo de Valparaíso — Departamento de Inglés</p>' +
+    '<h1 style="font-size:16pt;margin:6px 0">' + ttl + '</h1>' +
+    '<p style="font-size:9pt;color:#777">Nombre: _________________________ &nbsp;&nbsp; Curso: _______ &nbsp;&nbsp; Fecha: _______</p>' +
+    '</div>' +
+    body + '</body></html>');
+  w.document.close();
+  setTimeout(function(){ w.focus(); w.print(); }, 400);
+}
+function dlPDF(){printGuide('','Guía');}
 function show(id,btn){
   document.querySelectorAll('.tbtn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
@@ -324,6 +396,7 @@ function closeMO(e){
   if(e.target===document.getElementById('moOverlay'))closeM();
 }
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeM();});
+function showPro(id,btn){document.querySelectorAll('.pro-subbtn').forEach(b=>b.classList.remove('pav'));btn.classList.add('pav');document.querySelectorAll('.pro-sub').forEach(s=>s.classList.toggle('vis',s.id===id));}
 </script>
 
 <!-- ═══════════ 1° MEDIO ═══════════ -->
@@ -854,7 +927,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeM();});
 
 <!-- ═══════════ LECTURAS (CON LICENCIA) ═══════════ -->
 <div class="sec" id="sec-lec">
-  <div class="sh" style="border-color:#7a1a1a">📕 Lecturas — Trabajo en Casa</div>
+  <div class="sh" style="border-color:#7a1a1a">🏠 Guías Domiciliarias</div>
 
   <div style="background:linear-gradient(135deg,#4a0a0a,#7a1a1a);color:#fff;border-radius:10px;padding:18px 22px;margin-bottom:24px">
     <h3 style="font-family:'Playfair Display',serif;font-size:17px;margin-bottom:10px">📌 Instrucciones para el estudiante</h3>
@@ -862,13 +935,13 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeM();});
       <li>Lee el texto con calma al menos <strong>dos veces</strong> antes de responder.</li>
       <li>Escribe todas las respuestas en tu <strong>cuaderno</strong> con fecha y título.</li>
       <li>Si hay palabras que no entiendes, búscalas en un diccionario antes de responder.</li>
-      <li>Puedes imprimir esta página usando el botón <strong>🖨️ Descargar PDF</strong>.</li>
+      <li>Cada guía tiene un botón <strong>🖨️ Imprimir guía como PDF</strong> que abre solo esa guía formateada para imprimir en A4 y llevar a casa.</li>
       <li>Al volver al colegio, entrega tu cuaderno al profesor para revisión.</li>
     </ol>
-    <button onclick="dlPDF()" class="pdf-btn" style="margin-top:10px">🖨️ Imprimir / Descargar PDF</button>
+    
   </div>
 
-  <div class="cat" style="color:#7a1a1a">📘 Lecturas — 1° Medio</div>
+  <div class="cat" style="color:#7a1a1a">📘 Guías Domiciliarias — 1° Medio</div>
   <div class="grid">
     <div class="card" style="border-color:#e8c0c0" data-title="Lectura 1M N°1 — The Sea and Its Wonders" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-1m-01">
       <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Licencia · 1° M</span>
@@ -894,9 +967,21 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeM();});
       <p>Árbol genealógico de Camila. Vocabulario de familia, To Be, posesivos y apostrophe. A1+.</p>
       <div class="cfoot"><span class="cdate">📅 Unidad 2 · A1+</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver lectura</button></div>
     </div>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía Dom. 1M N°5 — Classroom Objects" data-subtitle="Objetos del aula y la mochila" data-content="lec-1m-05">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Domiciliaria · 1° M</span>
+      <h3>Classroom Objects</h3>
+      <p>Objetos del aula y la mochila con This/That/Have. Vocabulario, comprensión y escritura. A1+.</p>
+      <div class="cfoot"><span class="cdate">📅 Unidad 2 · A1+</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+    </div>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía Dom. 1M N°6 — Days, Months & Numbers" data-subtitle="Días, meses y números 1-100" data-content="lec-1m-06">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Domiciliaria · 1° M</span>
+      <h3>Days, Months &amp; Numbers</h3>
+      <p>Días de la semana, meses del año y números del 1 al 100. Oraciones y ejercicios. A1.</p>
+      <div class="cfoot"><span class="cdate">📅 Unidad 1 · A1</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+    </div>
   </div>
 
-  <div class="cat" style="color:#7a1a1a">📗 Lecturas — 2° Medio</div>
+  <div class="cat" style="color:#7a1a1a">📗 Guías Domiciliarias — 2° Medio</div>
   <div class="grid">
     <div class="card" style="border-color:#e8c0c0" data-title="Lectura 2M N°1 — Camila's Hobbies and Free Time" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-2m-01">
       <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Licencia · 2° M</span>
@@ -922,9 +1007,183 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeM();});
       <p>Datos de encuesta escolar. Interpretar estadísticas y emitir opiniones justificadas. A2.</p>
       <div class="cfoot"><span class="cdate">📅 Unidad 2 · A2</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver lectura</button></div>
     </div>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía Dom. 2M N°5 — Feelings: Extended Practice" data-subtitle="Sentimientos y emociones — ampliado" data-content="lec-2m-05">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Domiciliaria · 2° M</span>
+      <h3>Feelings — Extended Practice</h3>
+      <p>30 emociones en contexto, when/because, situaciones cotidianas y escritura personal. A2.</p>
+      <div class="cfoot"><span class="cdate">📅 Unidad 1 · A2</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+    </div>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía Dom. 2M N°6 — Sports and Music Around the World" data-subtitle="Deportes y música global" data-content="lec-2m-06">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Domiciliaria · 2° M</span>
+      <h3>Sports &amp; Music Around the World</h3>
+      <p>Deportes globales (PLAY/GO/DO), géneros musicales, instrumentos. Reading + actividades. A2.</p>
+      <div class="cfoot"><span class="cdate">📅 Unidad 1 · A2</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+    </div>
   </div>
 </div>
 
+
+<!-- ═══════════ PRONUNCIACIÓN ═══════════ -->
+<div class="sec" id="sec-pro">
+  <div class="sh prv">🗣️ Pronunciación y Expresión Oral</div>
+
+  <div class="pbox">
+    <h3>¿Por qué la pronunciación es más que "hablar con acento"?</h3>
+    <p>La investigación en adquisición de segundas lenguas confirma que el miedo a hablar es el mayor obstáculo para el desarrollo oral (Krashen, 1982). El <em>Filtro Afectivo</em> bloquea la adquisición cuando el aprendiz experimenta ansiedad, baja autoestima o desmotivación — bajar ese filtro es tan importante como conocer la gramática.</p>
+    <p>La teoría del <em>Output</em> (Swain, 1985) demuestra que hablar activa procesos mentales que la sola lectura no logra: notar los propios vacíos, buscar precisión y automatizar estructuras. Según MacIntyre et al. (1998), la <em>Willingness to Communicate</em> (WTC) es el predictor más fuerte del éxito oral en L2, y se cultiva con exposición gradual y ambiente seguro.</p>
+    <p>Estos materiales combinan evidencia científica con técnicas prácticas para desarrollar confianza y claridad al hablar inglés.</p>
+    <div style="margin-top:10px">
+      <span class="ptag">Krashen — Filtro Afectivo</span>
+      <span class="ptag">Swain — Output Hypothesis</span>
+      <span class="ptag">MacIntyre — WTC</span>
+      <span class="ptag">Shadowing</span>
+      <span class="ptag">Minimal Pairs</span>
+      <span class="ptag">Phonemic Awareness</span>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px">
+    <button onclick="showPro('pro1m',this)" class="pro-subbtn pav">📘 1° Medio</button>
+    <button onclick="showPro('pro2m',this)" class="pro-subbtn">📗 2° Medio</button>
+  </div>
+
+  <!-- 1° MEDIO -->
+  <div id="pro1m" class="pro-sub vis">
+    <div class="cat">🔊 Sonidos del Inglés</div>
+    <div class="grid">
+      <div class="card" data-title="Los Sonidos que no Existen en Español" data-subtitle="6 fonemas esenciales para hispanohablantes · Nivel A1" data-content="pro-1m-s01">
+        <span class="ct cpro">Fonética</span><h3>Sounds Spanish Doesn't Have</h3>
+        <p>El inglés tiene ~44 fonemas; el español ~24. Domina los 6 que más cuestan con técnicas articulatorias paso a paso.</p>
+        <div class="cfoot"><span class="cdate">🎯 A1–A1+</span><button class="btn" style="background:#b04020" onclick="openM(this.closest('.card'))">Ver material</button></div>
+      </div>
+      <div class="card" data-title="El Ritmo del Inglés: Stress-Timed" data-subtitle="Por qué el inglés suena tan diferente al español" data-content="pro-1m-s02">
+        <span class="ct cpro">Ritmo</span><h3>Rhythm &amp; Word Stress</h3>
+        <p>El español es silábico; el inglés es acentual. Aprende a identificar y marcar el acento correcto de las palabras.</p>
+        <div class="cfoot"><span class="cdate">🎯 A1</span><button class="btn" style="background:#b04020" onclick="openM(this.closest('.card'))">Ver material</button></div>
+      </div>
+      <div class="card" data-title="Vocales Largas vs. Cortas — Minimal Pairs" data-subtitle="ship vs sheep · bit vs beat · full vs fool" data-content="pro-1m-s03">
+        <span class="ct cpro">Vocales</span><h3>Long vs. Short Vowels</h3>
+        <p>La duración vocálica cambia el significado en inglés. 5 pares clave con ejercicios de escucha y producción.</p>
+        <div class="cfoot"><span class="cdate">🎯 A1–A2</span><button class="btn" style="background:#b04020" onclick="openM(this.closest('.card'))">Ver material</button></div>
+      </div>
+    </div>
+    <div class="cat">🫀 Vencer el Miedo a Hablar</div>
+    <div class="grid">
+      <div class="card" data-title="El Filtro Afectivo — Por qué te da miedo hablar" data-subtitle="Krashen (1982) — Cómo la ansiedad bloquea el aprendizaje" data-content="pro-1m-m01">
+        <span class="ct cpro">Psicología L2</span><h3>¿Por qué me da miedo hablar?</h3>
+        <p>La ciencia explica por qué la ansiedad bloquea el habla en inglés — y qué puedes hacer exactamente para vencerla.</p>
+        <div class="cfoot"><span class="cdate">🧠 Krashen 1982</span><button class="btn" style="background:#b04020" onclick="openM(this.closest('.card'))">Ver material</button></div>
+      </div>
+      <div class="card" data-title="El Error como Maestro" data-subtitle="Mentalidad de crecimiento aplicada al inglés oral" data-content="pro-1m-m02">
+        <span class="ct cpro">Mentalidad</span><h3>El Error es tu Maestro</h3>
+        <p>Cada error es evidencia de que tu cerebro está procesando. Cómo cambiar tu relación con los errores en inglés.</p>
+        <div class="cfoot"><span class="cdate">🌱 Growth Mindset</span><button class="btn" style="background:#b04020" onclick="openM(this.closest('.card'))">Ver material</button></div>
+      </div>
+      <div class="card" data-title="10 Tips para Hablar sin Vergüenza" data-subtitle="Estrategias prácticas antes, durante y después de hablar" data-content="pro-1m-m03">
+        <span class="ct cpro">Estrategias</span><h3>10 Tips Anti-Vergüenza</h3>
+        <p>Técnicas concretas que puedes aplicar antes, durante y después de hablar inglés en clase o en tu vida.</p>
+        <div class="cfoot"><span class="cdate">💪 Práctica</span><button class="btn" style="background:#b04020" onclick="openM(this.closest('.card'))">Ver material</button></div>
+      </div>
+    </div>
+    <div class="cat">🎧 Técnicas de Práctica</div>
+    <div class="grid">
+      <div class="card" data-title="Shadowing — La Técnica de los Intérpretes" data-subtitle="Imitar en tiempo real para mejorar pronunciación y fluidez" data-content="pro-1m-t01">
+        <span class="ct cpro">Técnica</span><h3>Shadowing</h3>
+        <p>La técnica más efectiva para mejorar pronunciación, ritmo y entonación. Paso a paso con recursos gratuitos.</p>
+        <div class="cfoot"><span class="cdate">🎙️ Desde casa</span><button class="btn" style="background:#b04020" onclick="openM(this.closest('.card'))">Ver material</button></div>
+      </div>
+      <div class="card" data-title="Grábate y Escúchate — El Espejo Sonoro" data-subtitle="Por qué grabarse es la herramienta más honesta de mejora" data-content="pro-1m-t02">
+        <span class="ct cpro">Técnica</span><h3>Grábate y Escúchate</h3>
+        <p>Grabarse es la herramienta más honesta de autoevaluación. Cómo hacerlo sin morir de vergüenza y mejorar rápido.</p>
+        <div class="cfoot"><span class="cdate">📱 Hoy mismo</span><button class="btn" style="background:#b04020" onclick="openM(this.closest('.card'))">Ver material</button></div>
+      </div>
+      <div class="card" data-title="Apps y Recursos Gratuitos para Pronunciación" data-subtitle="Las mejores herramientas digitales para practicar en casa" data-content="pro-1m-t03">
+        <span class="ct cpro">Recursos</span><h3>Apps &amp; Recursos Gratis</h3>
+        <p>Las mejores apps, canales de YouTube y herramientas online para practicar pronunciación desde tu celular.</p>
+        <div class="cfoot"><span class="cdate">📲 100% gratis</span><button class="btn" style="background:#b04020" onclick="openM(this.closest('.card'))">Ver material</button></div>
+      </div>
+    </div>
+    <div class="cat">🗣️ Actividades de Expresión Oral</div>
+    <div class="grid">
+      <div class="card" data-title="6 Actividades Orales para 1° Medio" data-subtitle="Desde saludos hasta descripciones — en clase o en casa" data-content="pro-1m-a01">
+        <span class="ct cpro">Actividades</span><h3>Oral Activities — 1° Medio</h3>
+        <p>6 actividades estructuradas: chain description, picture talk, two truths and a lie, hot seat y más.</p>
+        <div class="cfoot"><span class="cdate">👥 En clase</span><button class="btn" style="background:#b04020" onclick="openM(this.closest('.card'))">Ver material</button></div>
+      </div>
+      <div class="card" data-title="Show &amp; Tell Marítimo" data-subtitle="Presenta algo relacionado con el mundo naval — 1 minuto" data-content="pro-1m-a02">
+        <span class="ct cpro">Actividad</span><h3>Show &amp; Tell</h3>
+        <p>Presenta un objeto, imagen o dato del mundo marítimo durante 1 minuto. Plantilla de preparación y rúbrica incluidas.</p>
+        <div class="cfoot"><span class="cdate">⏱️ 1 minuto</span><button class="btn" style="background:#b04020" onclick="openM(this.closest('.card'))">Ver material</button></div>
+      </div>
+    </div>
+  </div><!-- close pro1m -->
+
+  <!-- 2° MEDIO -->
+  <div id="pro2m" class="pro-sub">
+    <div class="cat">🔊 Pronunciación Avanzada</div>
+    <div class="grid">
+      <div class="card" data-title="Connected Speech — Cómo Hablan los Nativos de Verdad" data-subtitle="Linking, reduction, elision y assimilation · A2" data-content="pro-2m-s01">
+        <span class="ct cpro">Connected Speech</span><h3>How Natives Really Talk</h3>
+        <p>Los nativos no dicen "I want to go" — dicen "I wanna go". Los 4 procesos del habla conectada con práctica.</p>
+        <div class="cfoot"><span class="cdate">🎯 A2</span><button class="btn" style="background:#b04020" onclick="openM(this.closest('.card'))">Ver material</button></div>
+      </div>
+      <div class="card" data-title="Entonación — Sube, Baja, Pregunta" data-subtitle="Rising and falling intonation · preguntas vs afirmaciones" data-content="pro-2m-s02">
+        <span class="ct cpro">Entonación</span><h3>Intonation Patterns</h3>
+        <p>La entonación incorrecta puede hacerte sonar rudo o confuso. Domina los patrones esenciales de pregunta y afirmación.</p>
+        <div class="cfoot"><span class="cdate">🎯 A2</span><button class="btn" style="background:#b04020" onclick="openM(this.closest('.card'))">Ver material</button></div>
+      </div>
+      <div class="card" data-title="El Schwa /ə/ — El Sonido Más Frecuente del Inglés" data-subtitle="El sonido que los hispanohablantes más ignoramos" data-content="pro-2m-s03">
+        <span class="ct cpro">Fonética</span><h3>The Schwa /ə/</h3>
+        <p>El schwa es el sonido más frecuente del inglés. Sin él, tu inglés suena robótico. Aprende a usarlo naturalmente.</p>
+        <div class="cfoot"><span class="cdate">🔊 Fonética A2</span><button class="btn" style="background:#b04020" onclick="openM(this.closest('.card'))">Ver material</button></div>
+      </div>
+      <div class="card" data-title="Word Stress en Palabras Largas" data-subtitle="Reglas de acento para palabras de 2, 3 y 4+ sílabas" data-content="pro-2m-s04">
+        <span class="ct cpro">Word Stress</span><h3>Stress in Long Words</h3>
+        <p>¿PREsent o preSENT? ¿PHOtograph o phoTOgraphy? Las reglas del acento léxico con patrones claros y ejemplos.</p>
+        <div class="cfoot"><span class="cdate">🎯 A2+</span><button class="btn" style="background:#b04020" onclick="openM(this.closest('.card'))">Ver material</button></div>
+      </div>
+    </div>
+    <div class="cat">🫀 Confianza y Comunicación Real</div>
+    <div class="grid">
+      <div class="card" data-title="Willingness to Communicate (WTC)" data-subtitle="MacIntyre et al. (1998) — La disposición real a hablar" data-content="pro-2m-m01">
+        <span class="ct cpro">Psicología L2</span><h3>¿Quieres Comunicarte?</h3>
+        <p>La WTC es el predictor más fuerte del éxito oral en L2. Qué factores la aumentan y cómo trabajarlos tú mismo.</p>
+        <div class="cfoot"><span class="cdate">🧠 MacIntyre 1998</span><button class="btn" style="background:#b04020" onclick="openM(this.closest('.card'))">Ver material</button></div>
+      </div>
+      <div class="card" data-title="Estrategias de Comunicación" data-subtitle="Qué hacer cuando no sabes una palabra en inglés" data-content="pro-2m-m02">
+        <span class="ct cpro">Estrategias</span><h3>Communication Strategies</h3>
+        <p>Circunlocución, paráfrasis, pedir clarificación. Cómo mantener la conversación aunque no sepas todo el vocabulario.</p>
+        <div class="cfoot"><span class="cdate">💬 Comunicación real</span><button class="btn" style="background:#b04020" onclick="openM(this.closest('.card'))">Ver material</button></div>
+      </div>
+      <div class="card" data-title="Inglés Marítimo — La Lengua de la Navegación" data-subtitle="Por qué el inglés es el idioma oficial del mar" data-content="pro-2m-m03">
+        <span class="ct cpro">Contexto</span><h3>Maritime English</h3>
+        <p>El inglés es el idioma oficial de la navegación (IMO/SOLAS). Situaciones reales de comunicación a bordo y en puerto.</p>
+        <div class="cfoot"><span class="cdate">⚓ Profesional</span><button class="btn" style="background:#b04020" onclick="openM(this.closest('.card'))">Ver material</button></div>
+      </div>
+    </div>
+    <div class="cat">🎧 Técnicas Avanzadas</div>
+    <div class="grid">
+      <div class="card" data-title="Shadowing Avanzado + Dicto-gloss" data-subtitle="Técnicas de nivel intermedio-avanzado para autonomía" data-content="pro-2m-t01">
+        <span class="ct cpro">Técnica</span><h3>Advanced Shadowing</h3>
+        <p>Shadowing con transcripción anotada, dicto-gloss y backward building. El arsenal completo del aprendiz autónomo.</p>
+        <div class="cfoot"><span class="cdate">🎯 A2+</span><button class="btn" style="background:#b04020" onclick="openM(this.closest('.card'))">Ver material</button></div>
+      </div>
+    </div>
+    <div class="cat">🗣️ Actividades Orales Avanzadas</div>
+    <div class="grid">
+      <div class="card" data-title="6 Actividades Orales para 2° Medio" data-subtitle="Debates, role play marítimo y presentaciones breves" data-content="pro-2m-a01">
+        <span class="ct cpro">Actividades</span><h3>Oral Activities — 2° Medio</h3>
+        <p>Debates estructurados, role play de radio marítima, círculos de opinión y presentaciones de 2 minutos.</p>
+        <div class="cfoot"><span class="cdate">👥 En clase</span><button class="btn" style="background:#b04020" onclick="openM(this.closest('.card'))">Ver material</button></div>
+      </div>
+      <div class="card" data-title="One-Minute Talk — My Future Maritime Career" data-subtitle="Presentación oral preparada con plantilla y rúbrica" data-content="pro-2m-a02">
+        <span class="ct cpro">Actividad</span><h3>One-Minute Talk</h3>
+        <p>Prepara y presenta un discurso de 1 minuto sobre tu carrera marítima. Plantilla, ejemplos y rúbrica de 10 puntos.</p>
+        <div class="cfoot"><span class="cdate">⏱️ 1 minuto</span><button class="btn" style="background:#b04020" onclick="openM(this.closest('.card'))">Ver material</button></div>
+      </div>
+    </div>
+  </div><!-- close pro2m -->
+</div><!-- close sec-pro -->
 
 <!-- MODAL -->
 <div class="mo" id="moOverlay" onclick="closeMO(event)">
@@ -2677,7 +2936,46 @@ function showAdv(id,btn){
   btn.classList.add('aav');
   document.querySelectorAll('.adv-sub').forEach(s=>s.classList.toggle('vis',s.id===id));
 }
-function dlPDF(){window.print();}
+function printGuide(tid, ttl) {
+  var tmpl = document.getElementById(tid);
+  if (!tmpl) return;
+  var body = tmpl.innerHTML;
+  var w = window.open('', '_blank');
+  w.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>' + ttl + '</title><style>' +
+    'body{font-family:Arial,sans-serif;font-size:11.5pt;margin:18mm 20mm;color:#111;line-height:1.6}' +
+    'h1{font-size:17pt;color:#1a6a8a;border-bottom:3px solid #1a6a8a;padding-bottom:6px;margin-bottom:14px}' +
+    'h2{font-size:14pt;color:#1a6a8a;border-bottom:2px solid #cce4f0;padding-bottom:4px;margin-top:20px}' +
+    'h3{font-size:12pt;color:#0b3d52;margin-top:14px}' +
+    'table{width:100%;border-collapse:collapse;margin:10px 0;font-size:10.5pt}' +
+    'th{background:#1a6a8a;color:#fff;padding:7px 9px;text-align:left}' +
+    'td{padding:7px 9px;border-bottom:1px solid #ddd;vertical-align:top}' +
+    'tr:nth-child(even){background:#f8fafc}' +
+    'ol,ul{margin:6px 0;padding-left:22px;line-height:2.4}' +
+    'li{margin-bottom:2px}' +
+    '.pdf-btn,.btn,button{display:none!important}' +
+    'div[style*="border-left:4px solid #7a1a1a"]{border-left:4px solid #1a6a8a!important;background:#e8f4fb!important;padding:10px 14px;border-radius:4px;margin-bottom:12px;font-size:10.5pt}' +
+    'div[style*="background:#f9e8e8"]{background:#f0f8ff!important;border:1px solid #aad4e8!important;padding:10px 14px;border-radius:4px;margin:10px 0}' +
+    'div[style*="border:2px solid #e0b0b0"]{border:1.5px solid #aaa!important;border-radius:4px;padding:12px 14px;margin:10px 0;page-break-inside:avoid}' +
+    'div[style*="font-size:13px;font-weight:700;color:#7a1a1a"]{font-weight:700;color:#1a6a8a;font-size:11pt;margin-bottom:8px;border-bottom:1px solid #cce4f0;padding-bottom:4px}' +
+    'div[style*="font-size:13px;color:#555"]{font-size:10.5pt;color:#444;margin-bottom:8px;font-style:italic}' +
+    'span[style*="border-bottom:2px solid #1a6a8a"]{border-bottom:1.5px solid #aaa!important;display:inline-block;min-width:150px}' +
+    'span[style*="border-bottom:3px solid"]{border-bottom:1.5px solid #aaa!important;display:inline-block;min-width:120px}' +
+    'div[style*="background:#fdf0f0"]{background:#e8f4fb!important;border-left:4px solid #1a6a8a!important}' +
+    '@page{margin:18mm 20mm;size:A4}' +
+    '.school-header{text-align:center;border-bottom:2px solid #1a6a8a;padding-bottom:10px;margin-bottom:20px}' +
+    '.school-header p{margin:2px 0;font-size:10pt;color:#555}' +
+    '.answer-key{background:#f0f8e8;border:1.5px solid #2d9e6a;border-radius:4px;padding:8px 12px;margin-top:8px;font-size:10pt}' +
+    '</style></head><body>' +
+    '<div class="school-header">' +
+    '<p style="font-size:9pt;color:#777">Instituto Marítimo de Valparaíso — Departamento de Inglés</p>' +
+    '<h1 style="font-size:16pt;margin:6px 0">' + ttl + '</h1>' +
+    '<p style="font-size:9pt;color:#777">Nombre: _________________________ &nbsp;&nbsp; Curso: _______ &nbsp;&nbsp; Fecha: _______</p>' +
+    '</div>' +
+    body + '</body></html>');
+  w.document.close();
+  setTimeout(function(){ w.focus(); w.print(); }, 400);
+}
+function dlPDF(){printGuide('','Guía');}
 function show(id,btn){
   document.querySelectorAll('.tbtn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
@@ -6141,10 +6439,10 @@ My favorite music is <span style="border-bottom:2px solid #1a6a8a;display:inline
 
 <template id="lec-1m-01">
 <div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
-<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:8px">📕 TRABAJO EN CASA — LECTURA AUTOINSTRUCCIONAL</div>
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:8px">🏠 GUÍA DOMICILIARIA — AUTOINSTRUCCIONAL</div>
 <p style="font-size:13px;color:#4a0a0a;margin:0 0 6px 0"><strong>Instrucciones:</strong> Lee el texto dos veces. Luego responde todas las actividades en tu cuaderno. Escribe la fecha y el título antes de comenzar.</p>
 <p style="font-size:13px;color:#4a0a0a;margin:0"><strong>Al volver al colegio:</strong> Entrega tu cuaderno al profesor con las actividades completas.</p></div>
-<button onclick="dlPDF()" class="pdf-btn">🖨️ Imprimir / Descargar PDF</button>
+<button onclick="printGuide('lec-1m-01','The Sea and Its Wonders — 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
 
 <h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 The Sea and Its Wonders</h2>
 <p style="font-size:14px;line-height:1.9;margin-bottom:16px">The sea is one of the most fascinating places on Earth. It covers more than 70% of our planet and is home to millions of living creatures. The Pacific Ocean, which surrounds Valparaíso, is the largest and deepest ocean in the world.</p>
@@ -6216,9 +6514,9 @@ My favorite music is <span style="border-bottom:2px solid #1a6a8a;display:inline
 
 <template id="lec-1m-02">
 <div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
-<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">📕 TRABAJO EN CASA — LEE Y RESPONDE EN TU CUADERNO</div>
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA DOMICILIARIA — LEE Y RESPONDE EN TU CUADERNO</div>
 <p style="font-size:13px;color:#4a0a0a;margin:0">Lee el texto dos veces. Busca en el diccionario las palabras que no entiendas. Escribe todas las respuestas en tu cuaderno con fecha y título.</p></div>
-<button onclick="dlPDF()" class="pdf-btn">🖨️ Imprimir / Descargar PDF</button>
+<button onclick="printGuide('lec-1m-02','A Day in Valparaíso — 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
 
 <h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 A Day in Valparaíso</h2>
 <p style="font-size:14px;line-height:1.9;margin-bottom:14px">My name is Matías González. I am 15 years old and I am a first-year student at a maritime technical school in Valparaíso. Every morning I wake up at 6:30. I wash my face, brush my teeth, and get dressed in my uniform. My mother makes tea and toast for breakfast. We eat together before I leave the house.</p>
@@ -6283,9 +6581,9 @@ My favorite music is <span style="border-bottom:2px solid #1a6a8a;display:inline
 
 <template id="lec-1m-03">
 <div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
-<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">📕 TRABAJO EN CASA — LEE Y RESPONDE EN TU CUADERNO</div>
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA DOMICILIARIA — LEE Y RESPONDE EN TU CUADERNO</div>
 <p style="font-size:13px;color:#4a0a0a;margin:0">Lee el texto dos veces. Responde en inglés siempre que sea posible.</p></div>
-<button onclick="dlPDF()" class="pdf-btn">🖨️ Imprimir / Descargar PDF</button>
+<button onclick="printGuide('lec-1m-03','Jobs at Sea — 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
 
 <h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 Jobs at Sea</h2>
 <p style="font-size:14px;line-height:1.9;margin-bottom:14px"><strong>The Captain</strong> is the absolute leader of the ship. He or she is responsible for the vessel, the crew, the cargo, and the safety of everyone on board. Captains must speak English fluently — all international maritime communication is in English. Without English, a captain cannot work on international routes.</p>
@@ -6335,9 +6633,9 @@ My favorite music is <span style="border-bottom:2px solid #1a6a8a;display:inline
 
 <template id="lec-1m-04">
 <div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
-<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">📕 TRABAJO EN CASA — LEE Y RESPONDE EN TU CUADERNO</div>
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA DOMICILIARIA — LEE Y RESPONDE EN TU CUADERNO</div>
 <p style="font-size:13px;color:#4a0a0a;margin:0">Lee el texto y responde todas las actividades. Presta atención especial a los posesivos y el apóstrofe.</p></div>
-<button onclick="dlPDF()" class="pdf-btn">🖨️ Imprimir / Descargar PDF</button>
+<button onclick="printGuide('lec-1m-04','My Family Tree — 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
 
 <h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 My Family Tree — Camila's Story</h2>
 <p style="font-size:14px;line-height:1.9;margin-bottom:14px">My name is Camila Rojas. I am 14 years old and I am a student at Instituto Marítimo de Valparaíso. Today I want to describe my family tree.</p>
@@ -6393,7 +6691,7 @@ My favorite music is <span style="border-bottom:2px solid #1a6a8a;display:inline
 <div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
 <div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">📕 TRABAJO EN CASA — LEE Y RESPONDE EN TU CUADERNO</div>
 <p style="font-size:13px;color:#4a0a0a;margin:0">Lee el texto con atención. Presta atención al uso de CAN, Present Simple y Present Continuous. Responde en inglés.</p></div>
-<button onclick="dlPDF()" class="pdf-btn">🖨️ Imprimir / Descargar PDF</button>
+<button onclick="printGuide('lec-2m-01','Camila's Hobbies — 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
 
 <h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 Camila's Hobbies and Free Time</h2>
 <p style="font-size:14px;line-height:1.9;margin-bottom:14px">Hi! My name is Camila. I am 15 years old and I am a student at a maritime technical school in Valparaíso, Chile. I have many hobbies. I love listening to music, especially K-pop and rock. I can play the guitar and I am learning to play the piano. I usually practice the guitar after school for about 30 minutes.</p>
@@ -6466,7 +6764,7 @@ My favorite music is <span style="border-bottom:2px solid #1a6a8a;display:inline
 <div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
 <div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">📕 TRABAJO EN CASA — LEE Y RESPONDE EN TU CUADERNO</div>
 <p style="font-size:13px;color:#4a0a0a;margin:0">Texto sobre habilidades marítimas. Identifica los usos de CAN y los tiempos verbales.</p></div>
-<button onclick="dlPDF()" class="pdf-btn">🖨️ Imprimir / Descargar PDF</button>
+<button onclick="printGuide('lec-2m-02','The Maritime Life — 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
 
 <h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 The Maritime Life: Skills and Abilities</h2>
 <p style="font-size:14px;line-height:1.9;margin-bottom:14px">My name is Officer Fernández. I am 28 years old and I work on a container ship that sails between Valparaíso, Panama, and Rotterdam. I love my job because it combines technical skills, language, and adventure.</p>
@@ -6527,7 +6825,7 @@ My favorite music is <span style="border-bottom:2px solid #1a6a8a;display:inline
 <div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
 <div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">📕 TRABAJO EN CASA — LEE Y RESPONDE EN TU CUADERNO</div>
 <p style="font-size:13px;color:#4a0a0a;margin:0">Presta atención especial a los tiempos de futuro: WILL, GOING TO y WILL BE + ING.</p></div>
-<button onclick="dlPDF()" class="pdf-btn">🖨️ Imprimir / Descargar PDF</button>
+<button onclick="printGuide('lec-2m-03','My Future Plans — 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
 
 <h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 My Future Plans</h2>
 <p style="font-size:14px;line-height:1.9;margin-bottom:14px">My name is Andrés Muñoz. I am 16 years old and I am in my second year at Instituto Marítimo. Today I want to write about my future plans and dreams.</p>
@@ -6585,7 +6883,7 @@ My favorite music is <span style="border-bottom:2px solid #1a6a8a;display:inline
 <div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
 <div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">📕 TRABAJO EN CASA — LEE Y RESPONDE EN TU CUADERNO</div>
 <p style="font-size:13px;color:#4a0a0a;margin:0">Texto con datos estadísticos. Aprende a interpretar porcentajes y emitir opiniones justificadas en inglés.</p></div>
-<button onclick="dlPDF()" class="pdf-btn">🖨️ Imprimir / Descargar PDF</button>
+<button onclick="printGuide('lec-2m-04','A Survey About Preferences — 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
 
 <h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 A Survey About Student Preferences</h2>
 <p style="font-size:14px;line-height:1.9;margin-bottom:14px">Last month, 120 students at Instituto Marítimo answered a survey about their preferences, plans and opinions. The results were surprising and revealing.</p>
@@ -6635,5 +6933,988 @@ My favorite music is <span style="border-bottom:2px solid #1a6a8a;display:inline
 <p style="font-size:13px;color:#555;margin-bottom:10px">Diseña 5 preguntas nuevas que agregarías a esta encuesta. Luego escribe las respuestas que TÚ darías, usando going to, will y expresiones de opinión.</p>
 <p style="font-size:14px;font-style:italic;color:#555">My question: Do you ___? My answer: In my opinion, I ___ because ___. I am going to ___ and I believe ___.</p></div>
 </template>
+
+<!-- ══ GUÍAS DOMICILIARIAS NUEVAS ══ -->
+
+<template id="lec-1m-05">
+<div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:14px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA DOMICILIARIA — LEE Y RESPONDE EN TU CUADERNO</div>
+<p style="font-size:13px;color:#4a0a0a;margin:0">Lee el vocabulario, copia los ejemplos y responde todas las actividades. Escribe la fecha y el título.</p></div>
+<button onclick="printGuide('lec-1m-05','Classroom Objects — Guía Domiciliaria 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+
+<h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:14px">📖 Classroom Objects — Objetos del Aula</h2>
+
+<h3 style="color:#1a6a8a">Parte 1 — Vocabulario del Aula</h3>
+<table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:16px">
+<tr style="background:#7a1a1a;color:#fff"><th style="padding:8px">Inglés</th><th style="padding:8px">Español</th><th style="padding:8px">Ejemplo</th></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:8px"><strong>backpack</strong></td><td style="padding:8px">mochila</td><td style="padding:8px;font-style:italic;color:#1a6a8a">This is my backpack. It is blue.</td></tr>
+<tr style="border-bottom:1px solid #ddd;background:#fff8f8"><td style="padding:8px"><strong>notebook</strong></td><td style="padding:8px">cuaderno</td><td style="padding:8px;font-style:italic;color:#1a6a8a">My notebook has 100 pages.</td></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:8px"><strong>pencil case</strong></td><td style="padding:8px">estuche</td><td style="padding:8px;font-style:italic;color:#1a6a8a">That is Ana's pencil case. It's red.</td></tr>
+<tr style="border-bottom:1px solid #ddd;background:#fff8f8"><td style="padding:8px"><strong>ruler</strong></td><td style="padding:8px">regla</td><td style="padding:8px;font-style:italic;color:#1a6a8a">Does he have a ruler? Yes, he does.</td></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:8px"><strong>pen / pencil</strong></td><td style="padding:8px">bolígrafo / lápiz</td><td style="padding:8px;font-style:italic;color:#1a6a8a">I have two pens in my bag.</td></tr>
+<tr style="border-bottom:1px solid #ddd;background:#fff8f8"><td style="padding:8px"><strong>desk</strong></td><td style="padding:8px">escritorio / banco</td><td style="padding:8px;font-style:italic;color:#1a6a8a">My desk is near the window.</td></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:8px"><strong>board</strong></td><td style="padding:8px">pizarra</td><td style="padding:8px;font-style:italic;color:#1a6a8a">That is the board at the front.</td></tr>
+<tr style="border-bottom:1px solid #ddd;background:#fff8f8"><td style="padding:8px"><strong>uniform</strong></td><td style="padding:8px">uniforme</td><td style="padding:8px;font-style:italic;color:#1a6a8a">This is my school uniform.</td></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:8px"><strong>phone</strong></td><td style="padding:8px">teléfono</td><td style="padding:8px;font-style:italic;color:#1a6a8a">My phone is in my backpack.</td></tr>
+<tr style="border-bottom:1px solid #ddd;background:#fff8f8"><td style="padding:8px"><strong>book</strong></td><td style="padding:8px">libro</td><td style="padding:8px;font-style:italic;color:#1a6a8a">That book belongs to the teacher.</td></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:8px"><strong>headphones</strong></td><td style="padding:8px">audífonos</td><td style="padding:8px;font-style:italic;color:#1a6a8a">These are my headphones.</td></tr>
+<tr style="background:#fff8f8"><td style="padding:8px"><strong>scissors</strong></td><td style="padding:8px">tijeras</td><td style="padding:8px;font-style:italic;color:#1a6a8a">Do you have scissors? No, I don't.</td></tr></table>
+
+<h3 style="color:#1a6a8a">Parte 2 — This / That / These / Those</h3>
+<table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:16px">
+<tr style="background:#7a1a1a;color:#fff"><th style="padding:8px"></th><th style="padding:8px">Singular</th><th style="padding:8px">Plural</th></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:8px"><strong>CERCA (near)</strong></td><td style="padding:8px"><strong>This</strong> — Este/Esta</td><td style="padding:8px"><strong>These</strong> — Estos/Estas</td></tr>
+<tr style="background:#fff8f8"><td style="padding:8px"><strong>LEJOS (far)</strong></td><td style="padding:8px"><strong>That</strong> — Ese/Aquello</td><td style="padding:8px"><strong>Those</strong> — Esos/Aquellos</td></tr></table>
+<p style="font-size:14px;color:#0b3d52;margin-bottom:16px">
+<strong>This is</strong> my backpack. (cerca, singular) |
+<strong>These are</strong> my pens. (cerca, plural) |
+<strong>That is</strong> the board. (lejos, singular) |
+<strong>Those are</strong> the desks. (lejos, plural)</p>
+
+<h3 style="color:#1a6a8a">Parte 3 — Have / Has</h3>
+<p style="font-size:14px;margin-bottom:10px"><strong>I/You/We/They</strong> → HAVE &nbsp;&nbsp; | &nbsp;&nbsp; <strong>He/She/It</strong> → HAS</p>
+<p style="font-size:14px;font-style:italic;margin-bottom:16px">I have a ruler. / She has a red pencil case. / Do you have scissors? No, I don't. / Does he have a notebook? Yes, he does.</p>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px;margin-bottom:12px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 1 — This / That / These / Those ✏️</div>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>___ is my backpack. It is right here next to me. (cerca, singular)</li>
+<li>___ are the chairs at the back of the room. (lejos, plural)</li>
+<li>___ are my notebooks on my desk. (cerca, plural)</li>
+<li>___ is the teacher's book over there. (lejos, singular)</li>
+<li>___ are my pens. I have five of them. (cerca, plural)</li></ol>
+<div style="background:#fdf0f0;border-radius:6px;padding:7px 11px;margin-top:8px;font-size:12px;color:#7a1a1a"><strong>Respuestas:</strong> This / Those / These / That / These</div></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px;margin-bottom:12px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 2 — Have o Has ✏️</div>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>I ___ a blue backpack with three pockets.</li>
+<li>My teacher ___ many books on her desk.</li>
+<li>Do you ___ a pencil case? Yes, I ___.</li>
+<li>She ___ a ruler but she ___ a calculator.</li>
+<li>We ___ English class every day this week.</li></ol>
+<div style="background:#fdf0f0;border-radius:6px;padding:7px 11px;margin-top:8px;font-size:12px;color:#7a1a1a"><strong>Respuestas:</strong> have / has / have, do / has, doesn't have / have</div></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px;margin-bottom:12px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 3 — Verdadero (V) o Falso (F) ✏️</div>
+<p style="font-size:13px;font-style:italic;color:#555;margin-bottom:8px">Texto: "This is my classroom. It has 28 desks and a large board. These are my classmates — there are 25 of us. My teacher's name is Mr. Rivera. He has a laptop and three books on his desk. Those are my notebooks near the window."</p>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>The classroom has 30 desks. ___</li>
+<li>The teacher's name is Mr. Rivera. ___</li>
+<li>He has only one book. ___</li>
+<li>The notebooks are near the window. ___</li></ol>
+<div style="background:#fdf0f0;border-radius:6px;padding:7px 11px;margin-top:8px;font-size:12px;color:#7a1a1a"><strong>Respuestas:</strong> F / V / F / V</div></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px;margin-bottom:12px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 4 — Preguntas y respuestas ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Escribe la pregunta correcta para cada respuesta:</p>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>___ ? — This is my notebook.</li>
+<li>___ ? — Yes, I have a pencil case. It's green.</li>
+<li>___ ? — Those are the teacher's books.</li>
+<li>___ ? — She has three pens.</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px;margin-bottom:12px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 5 — Traduce al inglés ✏️</div>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>Esta es mi mochila. Tiene cinco bolsillos.</li>
+<li>Esos son los libros del profesor.</li>
+<li>¿Tienes una regla? No, no tengo.</li>
+<li>Mi compañero tiene dos cuadernos y tres bolígrafos.</li></ol>
+<div style="background:#fdf0f0;border-radius:6px;padding:7px 11px;margin-top:8px;font-size:12px;color:#7a1a1a"><strong>Respuestas:</strong> This is my backpack. It has five pockets. / Those are the teacher's books. / Do you have a ruler? No, I don't. / My classmate has two notebooks and three pens.</div></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 6 — Descripción escrita ✍️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Escribe 10 oraciones describiendo lo que hay en tu sala de clases y en tu mochila. Usa: This/That/These/Those + have/has + 's (apóstrofe).</p>
+<p style="font-size:14px;font-style:italic;color:#555;line-height:2">This is my desk. On it I have ___. That is ___. These are ___. My teacher's ___ is ___. My classmate ___ has ___.</p></div>
+</template>
+
+<template id="lec-1m-06">
+<div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:14px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA DOMICILIARIA — LEE Y RESPONDE EN TU CUADERNO</div>
+<p style="font-size:13px;color:#4a0a0a;margin:0">Copia el vocabulario y responde todas las actividades en tu cuaderno.</p></div>
+<button onclick="printGuide('lec-1m-06','Days, Months and Numbers — Guía Domiciliaria 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+
+<h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:14px">📖 Days, Months and Numbers</h2>
+
+<h3 style="color:#1a6a8a">Parte 1 — Days of the Week</h3>
+<table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:16px">
+<tr style="background:#7a1a1a;color:#fff"><th style="padding:7px">Inglés</th><th style="padding:7px">Español</th><th style="padding:7px">Abreviatura</th><th style="padding:7px">Ejemplo</th></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:7px"><strong>Monday</strong></td><td style="padding:7px">Lunes</td><td style="padding:7px">Mon</td><td style="padding:7px;font-style:italic;color:#1a6a8a">I have English on Monday.</td></tr>
+<tr style="border-bottom:1px solid #ddd;background:#fff8f8"><td style="padding:7px"><strong>Tuesday</strong></td><td style="padding:7px">Martes</td><td style="padding:7px">Tue</td><td style="padding:7px;font-style:italic;color:#1a6a8a">She studies maths on Tuesday.</td></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:7px"><strong>Wednesday</strong></td><td style="padding:7px">Miércoles</td><td style="padding:7px">Wed</td><td style="padding:7px;font-style:italic;color:#1a6a8a">We play volleyball on Wednesday.</td></tr>
+<tr style="border-bottom:1px solid #ddd;background:#fff8f8"><td style="padding:7px"><strong>Thursday</strong></td><td style="padding:7px">Jueves</td><td style="padding:7px">Thu</td><td style="padding:7px;font-style:italic;color:#1a6a8a">He trains on Thursday afternoon.</td></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:7px"><strong>Friday</strong></td><td style="padding:7px">Viernes</td><td style="padding:7px">Fri</td><td style="padding:7px;font-style:italic;color:#1a6a8a">Friday is my favourite school day.</td></tr>
+<tr style="border-bottom:1px solid #ddd;background:#fff8f8"><td style="padding:7px"><strong>Saturday</strong></td><td style="padding:7px">Sábado</td><td style="padding:7px">Sat</td><td style="padding:7px;font-style:italic;color:#1a6a8a">I usually sleep late on Saturday.</td></tr>
+<tr style="background:#fff8f8"><td style="padding:7px"><strong>Sunday</strong></td><td style="padding:7px">Domingo</td><td style="padding:7px">Sun</td><td style="padding:7px;font-style:italic;color:#1a6a8a">Sunday is a rest day for my family.</td></tr></table>
+<p style="font-size:13px;color:#555;margin-bottom:16px">⚠️ Days of the week always start with a CAPITAL LETTER in English.</p>
+
+<h3 style="color:#1a6a8a">Parte 2 — Months of the Year</h3>
+<table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:16px">
+<tr style="background:#7a1a1a;color:#fff"><th style="padding:7px">Mes</th><th style="padding:7px">Month</th><th style="padding:7px">Season</th></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:7px">Enero</td><td style="padding:7px"><strong>January</strong></td><td style="padding:7px">Summer ☀️ (en Chile)</td></tr>
+<tr style="border-bottom:1px solid #ddd;background:#fff8f8"><td style="padding:7px">Febrero</td><td style="padding:7px"><strong>February</strong></td><td style="padding:7px">Summer ☀️</td></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:7px">Marzo</td><td style="padding:7px"><strong>March</strong></td><td style="padding:7px">Autumn 🍂</td></tr>
+<tr style="border-bottom:1px solid #ddd;background:#fff8f8"><td style="padding:7px">Abril</td><td style="padding:7px"><strong>April</strong></td><td style="padding:7px">Autumn 🍂</td></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:7px">Mayo</td><td style="padding:7px"><strong>May</strong></td><td style="padding:7px">Autumn 🍂</td></tr>
+<tr style="border-bottom:1px solid #ddd;background:#fff8f8"><td style="padding:7px">Junio</td><td style="padding:7px"><strong>June</strong></td><td style="padding:7px">Winter ❄️</td></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:7px">Julio</td><td style="padding:7px"><strong>July</strong></td><td style="padding:7px">Winter ❄️</td></tr>
+<tr style="border-bottom:1px solid #ddd;background:#fff8f8"><td style="padding:7px">Agosto</td><td style="padding:7px"><strong>August</strong></td><td style="padding:7px">Winter ❄️</td></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:7px">Septiembre</td><td style="padding:7px"><strong>September</strong></td><td style="padding:7px">Spring 🌸</td></tr>
+<tr style="border-bottom:1px solid #ddd;background:#fff8f8"><td style="padding:7px">Octubre</td><td style="padding:7px"><strong>October</strong></td><td style="padding:7px">Spring 🌸</td></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:7px">Noviembre</td><td style="padding:7px"><strong>November</strong></td><td style="padding:7px">Spring 🌸</td></tr>
+<tr style="background:#fff8f8"><td style="padding:7px">Diciembre</td><td style="padding:7px"><strong>December</strong></td><td style="padding:7px">Summer ☀️</td></tr></table>
+
+<h3 style="color:#1a6a8a">Parte 3 — Numbers 1–100</h3>
+<table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:16px">
+<tr style="background:#7a1a1a;color:#fff"><th style="padding:6px">1–10</th><th style="padding:6px">11–20</th><th style="padding:6px">Decenas</th><th style="padding:6px">Compuestos</th></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:6px">1 one / 2 two / 3 three / 4 four / 5 five</td><td style="padding:6px">11 eleven / 12 twelve / 13 thirteen / 14 fourteen / 15 fifteen</td><td style="padding:6px">20 twenty / 30 thirty / 40 forty / 50 fifty</td><td style="padding:6px">21 twenty-one / 35 thirty-five / 48 forty-eight</td></tr>
+<tr style="background:#fff8f8"><td style="padding:6px">6 six / 7 seven / 8 eight / 9 nine / 10 ten</td><td style="padding:6px">16 sixteen / 17 seventeen / 18 eighteen / 19 nineteen / 20 twenty</td><td style="padding:6px">60 sixty / 70 seventy / 80 eighty / 90 ninety / 100 one hundred</td><td style="padding:6px">72 seventy-two / 99 ninety-nine / 100 one hundred</td></tr></table>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px;margin-bottom:12px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 1 — Completa con el día correcto ✏️</div>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>The day after Monday is ___.</li>
+<li>The last school day of the week is ___.</li>
+<li>The day before Sunday is ___.</li>
+<li>What day is today? Today is ___.</li>
+<li>My favourite day of the week is ___ because ___.</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px;margin-bottom:12px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 2 — Meses y estaciones ✏️</div>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>What month is your birthday? My birthday is in ___.</li>
+<li>What season is December in Chile? It is ___.</li>
+<li>Write the 3 winter months in Chile: ___, ___, ___.</li>
+<li>What month do Chilean students start school? They start in ___.</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px;margin-bottom:12px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 3 — Escribe los números en palabras ✏️</div>
+<p style="font-size:14px;line-height:2.8;margin-left:20px">
+15 = ___ &nbsp;&nbsp; 24 = ___ &nbsp;&nbsp; 37 = ___ &nbsp;&nbsp; 56 = ___ &nbsp;&nbsp; 81 = ___ &nbsp;&nbsp; 99 = ___ &nbsp;&nbsp; 100 = ___</p>
+<div style="background:#fdf0f0;border-radius:6px;padding:7px 11px;margin-top:8px;font-size:12px;color:#7a1a1a"><strong>Respuestas:</strong> fifteen / twenty-four / thirty-seven / fifty-six / eighty-one / ninety-nine / one hundred</div></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px;margin-bottom:12px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 4 — Oraciones con fechas ✏️</div>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>My birthday is on ___ (month) ___th (number). (ej: April 15th)</li>
+<li>Chile's independence day is on September ___th.</li>
+<li>I am ___ years old. I was born in ___.</li>
+<li>There are ___ students in my class.</li>
+<li>My school has ___ students approximately.</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px;margin-bottom:12px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 5 — Preguntas personales ✏️</div>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>What day is it today?</li>
+<li>What month is it?</li>
+<li>What season is it in Valparaíso right now?</li>
+<li>How many months are there in a year?</li>
+<li>What is your favourite month? Why?</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 6 — Mi semana ✍️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Escribe qué haces cada día de la semana (7 oraciones, una por día):</p>
+<p style="font-size:14px;font-style:italic;color:#555;line-height:2">On Monday I ___. On Tuesday I ___. On Wednesday I ___. On Thursday I ___. On Friday I ___. On Saturday I ___. On Sunday I ___.</p></div>
+</template>
+
+<template id="lec-2m-05">
+<div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:14px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA DOMICILIARIA — LEE Y RESPONDE EN TU CUADERNO</div>
+<p style="font-size:13px;color:#4a0a0a;margin:0">Trabaja cada sección con calma. Usa el diccionario si necesitas. Responde en inglés siempre que sea posible.</p></div>
+<button onclick="printGuide('lec-2m-05','Feelings: Extended Practice — Guía Domiciliaria 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+
+<h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:14px">📖 Feelings and Emotions — Extended Practice</h2>
+
+<h3 style="color:#1a6a8a">Parte 1 — Vocabulario extendido</h3>
+<table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:16px">
+<tr style="background:#7a1a1a;color:#fff"><th style="padding:7px">Feeling</th><th style="padding:7px">Español</th><th style="padding:7px">Situation example</th></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:7px"><strong>happy / delighted</strong></td><td style="padding:7px">feliz / encantado</td><td style="padding:7px;font-style:italic">You pass an important exam.</td></tr>
+<tr style="border-bottom:1px solid #ddd;background:#fff8f8"><td style="padding:7px"><strong>excited / thrilled</strong></td><td style="padding:7px">emocionado / eufórico</td><td style="padding:7px;font-style:italic">Tomorrow is your birthday party.</td></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:7px"><strong>proud / accomplished</strong></td><td style="padding:7px">orgulloso / realizado</td><td style="padding:7px;font-style:italic">You help your family at home.</td></tr>
+<tr style="border-bottom:1px solid #ddd;background:#fff8f8"><td style="padding:7px"><strong>grateful / thankful</strong></td><td style="padding:7px">agradecido</td><td style="padding:7px;font-style:italic">Your teacher explains patiently.</td></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:7px"><strong>calm / peaceful</strong></td><td style="padding:7px">tranquilo / en paz</td><td style="padding:7px;font-style:italic">You sit by the ocean on a quiet day.</td></tr>
+<tr style="border-bottom:1px solid #ddd;background:#fff8f8"><td style="padding:7px"><strong>motivated / inspired</strong></td><td style="padding:7px">motivado / inspirado</td><td style="padding:7px;font-style:italic">You watch a documentary about the sea.</td></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:7px"><strong>nervous / anxious</strong></td><td style="padding:7px">nervioso / ansioso</td><td style="padding:7px;font-style:italic">You have a big exam tomorrow.</td></tr>
+<tr style="border-bottom:1px solid #ddd;background:#fff8f8"><td style="padding:7px"><strong>worried / concerned</strong></td><td style="padding:7px">preocupado</td><td style="padding:7px;font-style:italic">A friend has not answered your messages.</td></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:7px"><strong>sad / heartbroken</strong></td><td style="padding:7px">triste / desconsolado</td><td style="padding:7px;font-style:italic">A close friend moves to another city.</td></tr>
+<tr style="border-bottom:1px solid #ddd;background:#fff8f8"><td style="padding:7px"><strong>angry / furious</strong></td><td style="padding:7px">enojado / furioso</td><td style="padding:7px;font-style:italic">Someone is unfair to you.</td></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:7px"><strong>frustrated / overwhelmed</strong></td><td style="padding:7px">frustrado / agobiado</td><td style="padding:7px;font-style:italic">Nothing seems to work out today.</td></tr>
+<tr style="border-bottom:1px solid #ddd;background:#fff8f8"><td style="padding:7px"><strong>lonely / isolated</strong></td><td style="padding:7px">solo / aislado</td><td style="padding:7px;font-style:italic">Sailors can feel lonely far from home.</td></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:7px"><strong>confused / lost</strong></td><td style="padding:7px">confundido / perdido</td><td style="padding:7px;font-style:italic">You don't understand a grammar rule.</td></tr>
+<tr style="background:#fff8f8"><td style="padding:7px"><strong>embarrassed / ashamed</strong></td><td style="padding:7px">avergonzado</td><td style="padding:7px;font-style:italic">You make a mistake in front of the class.</td></tr></table>
+
+<h3 style="color:#1a6a8a">Parte 2 — Cómo expresar emociones</h3>
+<p style="font-size:14px;margin-bottom:8px"><strong>Structure 1:</strong> I <em>am / feel</em> + emotion.<br>
+<strong>Structure 2:</strong> I <em>am / feel</em> + emotion + <strong>because</strong> + reason.<br>
+<strong>Structure 3:</strong> I <em>feel</em> + emotion + <strong>when</strong> + situation.<br>
+<strong>Structure 4:</strong> It makes me feel + emotion.</p>
+<p style="font-size:14px;font-style:italic;color:#555;margin-bottom:16px">
+I feel proud <strong>because</strong> I helped my classmate. /
+I feel nervous <strong>when</strong> I have an oral exam. /
+Music makes me feel calm. /
+I feel grateful <strong>when</strong> my family supports me.</p>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px;margin-bottom:12px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 1 — Elige el sentimiento correcto ✏️</div>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>You just won a football match. You feel ___. (frustrated / thrilled)</li>
+<li>You have a big presentation in 10 minutes. You feel ___. (calm / anxious)</li>
+<li>Your friend is sick and doesn't answer your calls. You feel ___. (worried / inspired)</li>
+<li>You understand everything in English class today. You feel ___. (confused / accomplished)</li>
+<li>You spent 3 weeks at sea without your family. You feel ___. (lonely / excited)</li>
+<li>You help a classmate with homework. You feel ___. (frustrated / grateful)</li></ol>
+<div style="background:#fdf0f0;border-radius:6px;padding:7px 11px;margin-top:8px;font-size:12px;color:#7a1a1a"><strong>Respuestas:</strong> thrilled / anxious / worried / accomplished / lonely / grateful</div></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px;margin-bottom:12px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 2 — Completa con WHEN o BECAUSE ✏️</div>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>I feel happy ___ I listen to my favourite music.</li>
+<li>He is frustrated ___ the exercise is too difficult.</li>
+<li>She feels calm ___ she is at the beach.</li>
+<li>I feel motivated ___ my teacher believes in me.</li>
+<li>They are nervous ___ they don't know the answer.</li>
+<li>I feel lonely ___ I am far from home.</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px;margin-bottom:12px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 3 — Situación → Emoción → Oración ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Para cada situación escribe el sentimiento y una oración completa:</p>
+<ol style="font-size:14px;line-height:3;margin-left:20px">
+<li>Your school team wins the inter-school championship. → I feel ___ because ___.</li>
+<li>You forget to do your homework. → I feel ___ when ___.</li>
+<li>A classmate helps you when you don't understand something. → I feel ___ because ___.</li>
+<li>You have to speak in front of the class in English. → I feel ___ when ___.</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px;margin-bottom:12px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 4 — El diario emocional de esta semana ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Escribe una oración sobre cómo te sentiste cada día esta semana:</p>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>On Monday I felt ___ because ___.</li>
+<li>On Tuesday I felt ___ when ___.</li>
+<li>On Wednesday I was ___ because ___.</li>
+<li>On Thursday I felt ___ because ___.</li>
+<li>This weekend I will probably feel ___ because ___.</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px;margin-bottom:12px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 5 — Emociones en el mundo marítimo ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Imagina que eres un marinero o un oficial naval. Responde:</p>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>How do you feel when a storm approaches? (2-3 sentences)</li>
+<li>How do you feel when you arrive at a new port? (2-3 sentences)</li>
+<li>How do you feel after 3 months at sea without seeing your family? (2-3 sentences)</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 6 — Párrafo extendido ✍️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Escribe un párrafo de 10-12 oraciones describiendo tu vida emocional. Incluye: cómo te sientes en el colegio, en casa, con tus amigos, antes y después de las pruebas, cuando logras algo.</p>
+<p style="font-size:14px;font-style:italic;color:#555;line-height:2">At school I generally feel ___. However, when ___, I feel ___. I feel most happy when ___. In difficult moments I tend to feel ___. My friends make me feel ___. When I achieve something, I feel ___.</p></div>
+</template>
+
+<template id="lec-2m-06">
+<div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:14px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA DOMICILIARIA — LEE Y RESPONDE EN TU CUADERNO</div>
+<p style="font-size:13px;color:#4a0a0a;margin:0">Lee el texto y responde todas las actividades. Presta atención a PLAY, GO y DO con deportes.</p></div>
+<button onclick="printGuide('lec-2m-06','Sports and Music Around the World — Guía Domiciliaria 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+
+<h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:14px">📖 Sports and Music Around the World</h2>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">Sport and music are two things that connect people across cultures. Billions of people around the world play sports, watch games, and listen to music every day. Some sports are played in specific countries; others have become global phenomena.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">Football is the most popular sport in the world. Over 250 million people play football in more than 200 countries. In Chile, football is a national passion. Players like Alexis Sánchez have inspired generations of young people. Besides football, Chileans also enjoy going cycling, swimming, and doing gymnastics.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">In the maritime world, sports play an important role. Sailors go swimming to stay fit. Some ports have volleyball courts for crew members. Many sailors play guitar or listen to music to deal with loneliness at sea. Music, especially folk music, connects them to their homeland.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:20px">Music is also a global language. K-pop from South Korea has millions of fans in Chile. Latin music like reggaeton and cumbia crosses borders easily. Classical music is performed in concert halls from Valparaíso to Vienna. And hip-hop, which started in New York, now reaches every corner of the world. Whatever your taste, music makes life richer.</p>
+
+<div style="background:#f9e8e8;border:2px solid #c08080;border-radius:10px;padding:14px;margin-bottom:16px">
+<div style="font-size:12px;font-weight:700;color:#7a1a1a;margin-bottom:8px">📚 REGLA CLAVE — Verbos con deportes</div>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="background:#7a1a1a;color:#fff"><th style="padding:7px">PLAY</th><th style="padding:7px">GO + ING</th><th style="padding:7px">DO</th></tr>
+<tr><td style="padding:7px">football, basketball, tennis, volleyball, chess</td><td style="padding:7px">swimming, cycling, hiking, running, surfing, sailing</td><td style="padding:7px">gymnastics, martial arts, yoga, exercise</td></tr></table>
+<p style="font-size:13px;margin-top:8px;color:#555">Con INSTRUMENTOS siempre usa THE: I play <strong>the</strong> guitar / the piano / the drums.</p></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px;margin-bottom:12px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 1 — Comprensión del texto ✏️</div>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>How many countries have football players?</li>
+<li>What sports do Chileans enjoy besides football?</li>
+<li>Why do sailors play guitar or listen to music?</li>
+<li>Name FOUR music genres mentioned in the text and their origin.</li>
+<li>What does the author mean by "music is a global language"?</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px;margin-bottom:12px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 2 — PLAY, GO o DO ✏️</div>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>Sailors sometimes ___ volleyball at the port.</li>
+<li>She ___ swimming every morning before work.</li>
+<li>He ___ gymnastics three times a week.</li>
+<li>We ___ football every Saturday afternoon.</li>
+<li>I don't ___ cycling much but I love ___ martial arts.</li>
+<li>Can you ___ tennis? Yes, but I prefer ___ surfing.</li></ol>
+<div style="background:#fdf0f0;border-radius:6px;padding:7px 11px;margin-top:8px;font-size:12px;color:#7a1a1a"><strong>Respuestas:</strong> play / goes / does / play / go,do / play,going</div></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px;margin-bottom:12px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 3 — Géneros musicales ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Une el género con su descripción:</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:14px">
+<div><p>1. K-pop</p><p>2. Classical music</p><p>3. Hip-hop</p><p>4. Reggaeton</p><p>5. Cumbia</p></div>
+<div style="color:#555"><p>a. Started in New York.</p><p>b. Popular Latin rhythm from Caribbean.</p><p>c. Performed in concert halls worldwide.</p><p>d. From South Korea, popular in Chile.</p><p>e. Latin rhythm crossing borders.</p></div></div>
+<div style="background:#fdf0f0;border-radius:6px;padding:7px 11px;margin-top:8px;font-size:12px;color:#7a1a1a"><strong>Respuestas:</strong> 1-d / 2-c / 3-a / 4-e / 5-b</div></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px;margin-bottom:12px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 4 — CAN + deportes y música ✏️</div>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>Can you play any sport well? What can you do? (2 sentences)</li>
+<li>Can you play a musical instrument? If not, what would you like to learn? (2 sentences)</li>
+<li>What can sailors do at sea to stay healthy and happy? Write 3 sentences with CAN.</li></ol></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px;margin-bottom:12px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 5 — Gramática: Present Simple con adverbios ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Escribe 6 oraciones sobre tus hábitos deportivos y musicales. Usa un adverbio de frecuencia diferente en cada oración:</p>
+<p style="font-size:14px;font-style:italic;color:#555;line-height:2">I always ___ on Mondays. / I usually ___ on weekends. / I often ___. / I sometimes ___. / I rarely ___. / I never ___.</p></div>
+
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:8px;padding:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 6 — Escritura: Sport and music in my life ✍️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Escribe un párrafo de 12-15 oraciones sobre el deporte y la música en tu vida. Incluye: deportes que practicas (PLAY/GO/DO + frecuencia), instrumentos que tocas o te gustaría tocar, música favorita y por qué, cómo el deporte y la música te hacen sentir, y si crees que son importantes para los marineros.</p>
+<p style="font-size:14px;font-style:italic;color:#555;line-height:2">In my free time I usually ___. I love ___ because ___. I can play the ___ but I can't ___. My favourite music genre is ___ because ___. When I listen to ___, I feel ___. I think sport and music are important for sailors because ___.</p></div>
+</template>
+
+<!-- ═══ TEMPLATES PRONUNCIACIÓN 1° MEDIO ═══ -->
+
+<template id="pro-1m-s01">
+<div class="apo"><div class="at">🔊 Fonética aplicada — A1</div>
+<p>El inglés tiene aproximadamente <strong>44 fonemas</strong>; el español, solo 24. Hay sonidos en inglés que tu boca nunca ha necesitado producir. La buena noticia: con práctica consciente, cualquier persona puede aprenderlos.</p></div>
+<h2>Los 6 Sonidos más Difíciles para Hispanohablantes</h2>
+<div class="sound-row">
+  <div class="sound-sym">/θ/</div>
+  <div><strong>think, three, thank you, birthday, mouth</strong><br>
+  <span class="sound-tip">🔑 Pon la punta de la lengua suavemente entre los dientes y sopla aire. Como una "s" con la lengua afuera.</span><br>
+  <span class="sound-tip">❌ Error común: decir /t/ o /s/ → "sink" en vez de "think"</span></div>
+  <div><em>Practica:</em> "Thanks for thinking of three things."</div>
+</div>
+<div class="sound-row">
+  <div class="sound-sym">/ð/</div>
+  <div><strong>the, this, that, there, other, mother</strong><br>
+  <span class="sound-tip">🔑 Misma posición que /θ/ pero con voz — vibran las cuerdas vocales. Como una "d" suave con lengua afuera.</span><br>
+  <span class="sound-tip">❌ Error común: decir /d/ → "dis" en vez de "this"</span></div>
+  <div><em>Practica:</em> "This is the other one over there."</div>
+</div>
+<div class="sound-row">
+  <div class="sound-sym">/v/</div>
+  <div><strong>very, visit, voice, move, love, have</strong><br>
+  <span class="sound-tip">🔑 Los dientes superiores tocan el labio inferior y soplas. En español /b/ y /v/ son iguales — en inglés son distintos.</span><br>
+  <span class="sound-tip">❌ Error común: decir /b/ → "berry" en vez de "very"</span></div>
+  <div><em>Practica:</em> "Victor's voice is very vivid."</div>
+</div>
+<div class="sound-row">
+  <div class="sound-sym">/æ/</div>
+  <div><strong>cat, bad, map, man, have, back, that</strong><br>
+  <span class="sound-tip">🔑 Abre bien la boca y lleva la lengua hacia adelante. Más ancho que la "a" española.</span><br>
+  <span class="sound-tip">❌ Error común: usar la "a" española → "man" suena como "men"</span></div>
+  <div><em>Practica:</em> "The black cat sat on the mat."</div>
+</div>
+<div class="sound-row">
+  <div class="sound-sym">/ɪ/</div>
+  <div><strong>ship, sit, bit, fill, live (v), it</strong><br>
+  <span class="sound-tip">🔑 Vocal "i" corta y relajada — ni tensa ni larga. La lengua está en posición media.</span><br>
+  <span class="sound-tip">❌ Error crítico: ship → sheep, bit → beat (cambia el significado)</span></div>
+  <div><em>Practica:</em> "The ship is in the middle of the sea."</div>
+</div>
+<div class="sound-row">
+  <div class="sound-sym">-C final</div>
+  <div><strong>want, next, best, first, help, port</strong><br>
+  <span class="sound-tip">🔑 En español las palabras rara vez terminan en consonante. En inglés sí — y esa consonante final cambia el significado.</span><br>
+  <span class="sound-tip">❌ Error: "wan" en vez de "want", "por" en vez de "port"</span></div>
+  <div><em>Practica:</em> "The next port is the best on the coast."</div>
+</div>
+<div class="exb"><div class="ext"><span class="exn">1</span> Practica estas oraciones en voz alta</div>
+<ol class="ex-body" style="margin-left:18px">
+  <li>"<strong>Think</strong> about <strong>three things</strong> you are <strong>thankful</strong> for."</li>
+  <li>"<strong>This</strong> is <strong>the other</strong> ship from <strong>there</strong>."</li>
+  <li>"It's <strong>very</strong> important to <strong>visit</strong> the port."</li>
+  <li>"The <strong>black cat</strong> sat on the <strong>mat</strong>."</li>
+  <li>"The <strong>ship</strong> needs to find the <strong>best</strong> route to the next <strong>port</strong>."</li>
+</ol></div>
+<div class="tip"><div class="tt">💡 Tip de práctica</div>
+<p>Grábate diciendo cada oración y compara con una grabación nativa (usa YouGlish o el diccionario Cambridge). Enfócate en <em>un</em> sonido por semana, no todos a la vez.</p></div>
+</template>
+
+<template id="pro-1m-s02">
+<div class="apo"><div class="at">🎵 Ritmo y acento — A1</div>
+<p>Una de las razones por las que el inglés suena tan diferente al español no es solo el vocabulario — es el <strong>ritmo</strong>. Entender esto cambia completamente cómo suenas cuando hablas.</p></div>
+<h2>Stress-Timed vs. Syllable-Timed</h2>
+<div class="gb"><div class="fm">Español: ca-sa / na-ve-ga-ción / im-por-tan-te</div>
+<p>En español cada sílaba dura aproximadamente lo mismo. Todas son iguales en fuerza.</p>
+<div class="fm">Inglés: NAV·i·ga·tion / IM·por·tant / stu·DENT</div>
+<p>En inglés una sílaba es <strong>fuerte, larga y clara</strong>; el resto es más corto y reducido. El ritmo se basa en los acentos, no en las sílabas.</p></div>
+<h2>¿Cómo saber qué sílaba lleva el acento?</h2>
+<div class="mb"><table>
+<tr><th>Tipo de palabra</th><th>Regla general</th><th>Ejemplos</th></tr>
+<tr><td>2 sílabas (sustantivo)</td><td>Acento en la 1ª</td><td><strong>TEA</strong>cher, <strong>STU</strong>dent, <strong>NUM</strong>ber, <strong>OC</strong>ean</td></tr>
+<tr><td>2 sílabas (verbo)</td><td>Acento en la 2ª</td><td>be<strong>GIN</strong>, re<strong>PEAT</strong>, ar<strong>RIVE</strong></td></tr>
+<tr><td>Terminación -tion/-sion</td><td>Acento en sílaba anterior</td><td>na·vi·<strong>GA</strong>·tion, com·mu·ni·<strong>CA</strong>·tion</td></tr>
+</table></div>
+<div class="exb"><div class="ext"><span class="exn">1</span> Golpea la mesa en la sílaba acentuada</div>
+<div class="ex-body">Palmas o golpe de mesa en la sílaba en mayúscula:
+<ul style="margin-left:18px;margin-top:8px">
+  <li><strong>ENG</strong>·lish — <strong>TEA</strong>·cher — <strong>STU</strong>·dent — <strong>SHI</strong>·pping</li>
+  <li>im·<strong>POR</strong>·tant — be·<strong>CAUSE</strong> — to·<strong>DAY</strong></li>
+  <li>na·vi·<strong>GA</strong>·tion — com·mu·ni·<strong>CA</strong>·tion</li>
+</ul></div></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Palabras marítimas — marca el acento</div>
+<div class="ex-body"><ol style="margin-left:18px">
+  <li>captain → ___</li><li>officer → ___</li><li>navigation → ___</li>
+  <li>important → ___</li><li>engineer → ___</li>
+</ol></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div>
+<p>CAP·tain / OF·fi·cer / na·vi·GA·tion / im·POR·tant / en·gi·NEER</p></div></div>
+<div class="tip"><div class="tt">💡 Tip clave</div>
+<p>Cuando no sabes el acento de una palabra, busca su pronunciación en el diccionario Cambridge online. Siempre aparece la sílaba acentuada marcada. Haz clic en 🔊 para escucharla.</p></div>
+</template>
+
+<template id="pro-1m-s03">
+<div class="apo"><div class="at">🔤 Minimal Pairs — A1/A2</div>
+<p>Los <strong>minimal pairs</strong> son palabras que solo se diferencian en <em>un</em> sonido. Practicarlos entrena el oído y la boca al mismo tiempo.</p></div>
+<h2>Par 1: /ɪ/ (corta, relajada) vs /iː/ (larga, tensa)</h2>
+<div class="pair-grid">
+  <div class="pair-item"><div class="pair-words">ship / sheep</div><div class="pair-ipa">/ʃɪp/ — /ʃiːp/</div></div>
+  <div class="pair-item"><div class="pair-words">bit / beat</div><div class="pair-ipa">/bɪt/ — /biːt/</div></div>
+  <div class="pair-item"><div class="pair-words">fill / feel</div><div class="pair-ipa">/fɪl/ — /fiːl/</div></div>
+  <div class="pair-item"><div class="pair-words">sit / seat</div><div class="pair-ipa">/sɪt/ — /siːt/</div></div>
+  <div class="pair-item"><div class="pair-words">it / eat</div><div class="pair-ipa">/ɪt/ — /iːt/</div></div>
+  <div class="pair-item"><div class="pair-words">live (v) / leave</div><div class="pair-ipa">/lɪv/ — /liːv/</div></div>
+</div>
+<p style="font-size:12px;color:var(--muted)">🔑 Para /iː/ larga: sonríe y tensa la lengua hacia arriba. Para /ɪ/ corta: relaja la boca.</p>
+<h2>Par 2: /ʊ/ (corta) vs /uː/ (larga)</h2>
+<div class="pair-grid">
+  <div class="pair-item"><div class="pair-words">full / fool</div><div class="pair-ipa">/fʊl/ — /fuːl/</div></div>
+  <div class="pair-item"><div class="pair-words">pull / pool</div><div class="pair-ipa">/pʊl/ — /puːl/</div></div>
+  <div class="pair-item"><div class="pair-words">look / Luke</div><div class="pair-ipa">/lʊk/ — /luːk/</div></div>
+</div>
+<h2>Par 3: /e/ vs /æ/</h2>
+<div class="pair-grid">
+  <div class="pair-item"><div class="pair-words">bed / bad</div><div class="pair-ipa">/bed/ — /bæd/</div></div>
+  <div class="pair-item"><div class="pair-words">pen / pan</div><div class="pair-ipa">/pen/ — /pæn/</div></div>
+  <div class="pair-item"><div class="pair-words">men / man</div><div class="pair-ipa">/men/ — /mæn/</div></div>
+  <div class="pair-item"><div class="pair-words">ten / tan</div><div class="pair-ipa">/ten/ — /tæn/</div></div>
+</div>
+<div class="exb"><div class="ext"><span class="exn">1</span> Elige la palabra correcta</div>
+<div class="ex-body"><ol style="margin-left:18px">
+  <li>Don't ___ on the wet deck. (sit / seat)</li>
+  <li>The ___ on the cruise is huge. (ship / sheep)</li>
+  <li>We need a ___ to cook on board. (pan / pen)</li>
+  <li>The ___ tank is ___ after 3 days. (full/fool)</li>
+</ol></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div><p>sit / ship / pan / full</p></div></div>
+<div class="tip"><div class="tt">💡 Cómo practicar minimal pairs</div>
+<p>Busca cualquier par en <strong>YouGlish.com</strong> — escribe la palabra y verás decenas de videos de YouTube con nativos pronunciándola en contexto real.</p></div>
+</template>
+
+<template id="pro-1m-m01">
+<div class="apo"><div class="at">🧠 Psicolingüística — Krashen, 1982</div>
+<p>Si alguna vez supiste la respuesta en clase pero no la dijiste por miedo a equivocarte, no es tu culpa — es tu cerebro haciendo exactamente lo que la ciencia predice.</p></div>
+<h2>¿Qué es el Filtro Afectivo?</h2>
+<p>Stephen Krashen propuso que el cerebro tiene un "filtro" que decide cuánto input lingüístico puede entrar y procesarse. Cuando este filtro está <strong>alto</strong>, el lenguaje no pasa — aunque lo estés escuchando.</p>
+<div class="gb"><div class="fm">INPUT → [FILTRO AFECTIVO] → CEREBRO → ADQUISICIÓN</div>
+<p><strong>Filtro BAJO</strong> → el input pasa libremente → adquieres el idioma<br>
+<strong>Filtro ALTO</strong> → el input se bloquea → aunque escuches, no adquieres</p></div>
+<h2>¿Qué sube el filtro?</h2>
+<ul class="tip-list">
+  <li>😰 <strong>Miedo a equivocarse</strong> frente a los compañeros</li>
+  <li>😶 <strong>Vergüenza</strong> por tener acento o pronunciar mal</li>
+  <li>😤 <strong>Perfeccionismo</strong> — querer hablar perfecto antes de intentarlo</li>
+  <li>😓 <strong>Presión del tiempo</strong> — sentir que hay que responder de inmediato</li>
+  <li>😡 <strong>Críticas negativas</strong> o burlas de otros</li>
+</ul>
+<h2>¿Qué baja el filtro?</h2>
+<ul class="tip-list">
+  <li>😌 <strong>Ambiente seguro</strong> donde el error es bienvenido</li>
+  <li>😄 <strong>Humor y diversión</strong> — el cerebro aprende mejor relajado</li>
+  <li>🎯 <strong>Enfoque en el mensaje</strong>, no en la forma perfecta</li>
+  <li>🤝 <strong>Apoyo del profesor y compañeros</strong></li>
+  <li>🏆 <strong>Pequeños logros celebrados</strong></li>
+</ul>
+<div class="hl">"Tu cerebro no puede aprender inglés mientras tiene miedo. Bajar el filtro no es ser menos exigente — es la condición necesaria para que el aprendizaje ocurra."</div>
+<div class="exb"><div class="ext"><span class="exn">📝</span> Reflexión personal</div>
+<div class="ex-body"><ol style="margin-left:18px">
+  <li>¿En qué situaciones sientes que tu filtro está más alto?</li>
+  <li>¿Qué podría hacer el profesor o tus compañeros para bajarlo?</li>
+  <li>¿Qué puedes hacer tú mismo para bajar tu propio filtro?</li>
+</ol></div></div>
+</template>
+
+<template id="pro-1m-m02">
+<div class="apo"><div class="at">🌱 Mentalidad de Crecimiento — Dweck, 2006</div>
+<p>Carol Dweck demostró que la creencia sobre la propia capacidad cambia el resultado. Lo mismo aplica exactamente al aprendizaje de inglés oral.</p></div>
+<h2>Dos formas de pensar sobre los errores</h2>
+<div class="mb"><table>
+<tr><th>Mentalidad fija 🔒</th><th>Mentalidad de crecimiento 🌱</th></tr>
+<tr><td class="wrong">"Me equivoqué → soy malo en inglés"</td><td class="correct">"Me equivoqué → mi cerebro está procesando"</td></tr>
+<tr><td class="wrong">"Los demás hablan mejor → no tengo talento"</td><td class="correct">"Los demás tienen más práctica → yo también puedo"</td></tr>
+<tr><td class="wrong">"Mejor no hablo para no pasar vergüenza"</td><td class="correct">"Si no hablo, nunca mejoraré"</td></tr>
+<tr><td class="wrong">"El inglés no es lo mío"</td><td class="correct">"Todavía no domino esto — por ahora"</td></tr>
+</table></div>
+<h2>Los 3 Tipos de Error en L2</h2>
+<div class="step-box"><div class="step-num">1</div><div><strong>Error de Interlengua</strong> — Errores normales en el proceso. Tu cerebro está construyendo un sistema nuevo. Son señal de progreso, no de fracaso.</div></div>
+<div class="step-box"><div class="step-num">2</div><div><strong>Error de Transferencia</strong> — Usas una regla del español en inglés ("I have 15 years" por "I am 15 years old"). Completamente esperables y se corrigen con práctica.</div></div>
+<div class="step-box"><div class="step-num">3</div><div><strong>Error de Actuación</strong> — Ya sabes la regla, pero los nervios te hicieron cometer el error. No dice nada sobre tu nivel real.</div></div>
+<h2>La Estrategia del Cuaderno de Errores</h2>
+<p>En vez de borrar los errores, <strong>colecciónalos</strong>. Cada vez que cometas un error en inglés oral:</p>
+<ol style="margin-left:18px;line-height:2">
+  <li>Escríbelo: <em>"Dije: I have 15 years"</em></li>
+  <li>Escribe la forma correcta: <em>"Debí decir: I am 15 years old"</em></li>
+  <li>Practica 3 veces la forma correcta en voz alta</li>
+</ol>
+<div class="tip"><div class="tt">💡 Dato real</div>
+<p>Personas reconocidas mundialmente que hablan inglés como segunda lengua: Jackie Chan, Malala Yousafzai, Elon Musk, el Papa Francisco. Todos cometieron errores. Ninguno dejó de hablar por eso.</p></div>
+</template>
+
+<template id="pro-1m-m03">
+<div class="apo"><div class="at">💪 Estrategias prácticas — A1/A2</div>
+<p>La vergüenza al hablar inglés es una de las experiencias más universales entre estudiantes. Aquí tienes 10 estrategias concretas que puedes usar desde hoy.</p></div>
+<h2>Antes de hablar</h2>
+<ul class="tip-list">
+  <li><strong>1. Practica solo primero.</strong> Antes de hablar frente a otros, di las frases en voz alta solo — frente al espejo, caminando a casa, bajo la ducha. El cerebro necesita practicar el circuito motor antes de exponerse.</li>
+  <li><strong>2. Prepara frases de emergencia.</strong> Ten listas estas cuando te trancas:<br><em>"I'm not sure how to say this, but..." / "What I mean is..." / "Can you give me a moment?"</em></li>
+  <li><strong>3. Respira antes de hablar.</strong> Una respiración profunda reduce la ansiedad en segundos. No es exagerado — funciona.</li>
+</ul>
+<h2>Durante la conversación</h2>
+<ul class="tip-list">
+  <li><strong>4. Enfócate en el mensaje, no en la perfección.</strong> Tu objetivo es comunicar, no ganar un concurso. Un mensaje claro con errores vale más que el silencio perfecto.</li>
+  <li><strong>5. Habla despacio y en bloques.</strong> Los nativos prefieren a alguien que habla lento y claro que rápido e incomprensible.</li>
+  <li><strong>6. Acepta los silencios cortos.</strong> Es normal pausar para pensar. Usa: <em>"Let me think..."</em> o <em>"That's a good question."</em></li>
+  <li><strong>7. Recuerda que el otro quiere entenderte.</strong> La persona con quien hablas no está buscando errores — está buscando la comunicación.</li>
+</ul>
+<h2>Después de hablar</h2>
+<ul class="tip-list">
+  <li><strong>8. Grábate una vez por semana.</strong> Escucha tu progreso, no tus errores. Comparar hoy con hace un mes es el mejor motivador.</li>
+  <li><strong>9. Celebra cada intento.</strong> Cada vez que hablaste inglés aunque tenías miedo, fue un logro real.</li>
+  <li><strong>10. Busca un compañero de práctica.</strong> El juicio desaparece cuando los dos están en el mismo proceso.</li>
+</ul>
+<div class="tip"><div class="tt">💡 La regla del 70%</div>
+<p>Si entiendes el 70% de lo que escuchas y puedes comunicar el 70% de lo que quieres decir, estás teniendo una conversación exitosa. El 100% perfecto no es necesario para comunicarse.</p></div>
+</template>
+
+<template id="pro-1m-t01">
+<div class="apo"><div class="at">🎙️ Técnica de pronunciación — Todos los niveles</div>
+<p>El <strong>shadowing</strong> es la técnica que usan los intérpretes profesionales, actores de doblaje y aprendices avanzados. Consiste en escuchar un audio y repetirlo casi simultáneamente — como una sombra del hablante original.</p></div>
+<h2>¿Por qué funciona?</h2>
+<ul style="margin-left:18px;line-height:2">
+  <li>Entrena el <strong>ritmo y la entonación</strong> — no solo palabras aisladas</li>
+  <li>Activa la <strong>memoria muscular</strong> — tu boca aprende los movimientos correctos</li>
+  <li>Mejora la <strong>fluidez</strong> eliminando la pausa "busco la palabra"</li>
+  <li>Es la forma más rápida de sonar más natural en inglés</li>
+</ul>
+<h2>Cómo hacer Shadowing — Paso a Paso</h2>
+<div class="step-box"><div class="step-num">1</div><div><strong>Elige un audio corto</strong> (30–60 seg). Claro, no muy rápido. Ideal: BBC Learning English o TED-Ed.</div></div>
+<div class="step-box"><div class="step-num">2</div><div><strong>Escucha una vez completo</strong> sin repetir. Solo escucha para entender el contenido general.</div></div>
+<div class="step-box"><div class="step-num">3</div><div><strong>Escucha con la transcripción</strong> y sigue el texto. Marca las palabras con acento fuerte.</div></div>
+<div class="step-box"><div class="step-num">4</div><div><strong>Whisper shadowing:</strong> repite muy suave, casi en silencio, al mismo tiempo que escuchas.</div></div>
+<div class="step-box"><div class="step-num">5</div><div><strong>Shadowing en voz normal:</strong> repite a volumen normal, intentando coincidir con el ritmo y la entonación.</div></div>
+<div class="step-box"><div class="step-num">6</div><div><strong>Grábate</strong> haciendo el shadowing y compara con el original. ¿Dónde hubo diferencias?</div></div>
+<h2>Recursos para practicar</h2>
+<div class="app-card"><div class="app-icon">🎬</div><div><div class="app-name">BBC Learning English</div><div class="app-desc">Videos cortos con transcripción. Inglés claro y natural. Nivel A1 a C1.</div><div class="app-free">100% gratis</div></div></div>
+<div class="app-card"><div class="app-icon">📺</div><div><div class="app-name">TED-Ed (YouTube)</div><div class="app-desc">Animaciones educativas con subtítulos en inglés. Activa CC y sigue el texto mientras escuchas.</div><div class="app-free">100% gratis</div></div></div>
+<div class="app-card"><div class="app-icon">⚓</div><div><div class="app-name">Maritime English clips</div><div class="app-desc">Busca en YouTube: "marine VHF communication", "SMCP training". Audio real de comunicaciones navales.</div><div class="app-free">100% gratis</div></div></div>
+<div class="tip"><div class="tt">💡 Consejo de práctica</div>
+<p>Empieza con 5 minutos diarios, el mismo audio por 3 días seguidos. La repetición es clave — el segundo y tercer día notas mejoras enormes que el primero no veías.</p></div>
+</template>
+
+<template id="pro-1m-t02">
+<div class="apo"><div class="at">📱 Autoevaluación oral — Todos los niveles</div>
+<p>Grabarse es incómodo al principio. La voz suena rara, los errores se oyen claros. Pero es exactamente por eso que funciona: es la herramienta más honesta de mejora que existe.</p></div>
+<h2>¿Por qué tu voz suena "rara" grabada?</h2>
+<p>Normalmente escuchas tu propia voz a través del aire Y las vibraciones de tus huesos del cráneo. Grabada, solo escuchas la vía aérea — más aguda y diferente. <strong>Esa es tu voz real</strong>, la que escuchan los demás.</p>
+<h2>Protocolo de Grabación — 15 minutos a la semana</h2>
+<div class="step-box"><div class="step-num">1</div><div><strong>Elige un texto corto</strong> (5–8 oraciones): una lectura del curso, una descripción, o las frases del día.</div></div>
+<div class="step-box"><div class="step-num">2</div><div><strong>Léelo en voz alta</strong> sin grabar — solo para calentar la voz.</div></div>
+<div class="step-box"><div class="step-num">3</div><div><strong>Grábate</strong> con el teléfono (Voice Memos / Grabadora).</div></div>
+<div class="step-box"><div class="step-num">4</div><div><strong>Escúchate con un objetivo específico.</strong> No evalúes todo — elige UN aspecto: ¿cómo está el ritmo? ¿Los sonidos /θ/ y /v/?</div></div>
+<div class="step-box"><div class="step-num">5</div><div><strong>Grábate de nuevo</strong> intentando mejorar ese aspecto. Compara ambas grabaciones.</div></div>
+<div class="step-box"><div class="step-num">6</div><div><strong>Guarda una grabación por semana.</strong> En 4 semanas tendrás evidencia concreta de tu progreso.</div></div>
+<h2>¿Qué evaluar en tu grabación?</h2>
+<div class="mb"><table>
+<tr><th>Aspecto</th><th>Preguntas para escucharte</th></tr>
+<tr><td>Ritmo</td><td>¿Suena como español (todas sílabas iguales) o como inglés (acento en palabras clave)?</td></tr>
+<tr><td>Consonantes finales</td><td>¿Se escuchan las consonantes al final? (want, next, port)</td></tr>
+<tr><td>Sonidos difíciles</td><td>¿Estás diciendo /θ/ o /t/? ¿/v/ o /b/?</td></tr>
+<tr><td>Velocidad</td><td>¿Vas a un ritmo que te permite pronunciar bien?</td></tr>
+</table></div>
+<div class="tip"><div class="tt">💡 Herramienta extra</div>
+<p>Escribe cualquier palabra en <strong>cambridge.org/dictionary</strong> y haz clic en 🔊 para escuchar cómo la pronuncia un nativo. Luego grábate tú y compara.</p></div>
+</template>
+
+<template id="pro-1m-t03">
+<div class="apo"><div class="at">📲 Recursos digitales — 100% gratuitos</div>
+<p>No necesitas clases particulares ni materiales caros. Con estas herramientas puedes mejorar tu pronunciación significativamente desde tu celular.</p></div>
+<h2>Apps de Pronunciación</h2>
+<div class="app-card"><div class="app-icon">🤖</div><div><div class="app-name">ELSA Speak</div><div class="app-desc">IA que analiza tu pronunciación fonema por fonema y te da feedback inmediato. La versión gratuita ya es muy útil para A1–A2.</div><div class="app-free">Gratis (versión básica)</div></div></div>
+<div class="app-card"><div class="app-icon">🎧</div><div><div class="app-name">Forvo</div><div class="app-desc">Diccionario de pronunciación con grabaciones de hablantes nativos de todo el mundo. Busca cualquier palabra.</div><div class="app-free">100% gratis</div></div></div>
+<div class="app-card"><div class="app-icon">🔍</div><div><div class="app-name">YouGlish</div><div class="app-desc">Escribe cualquier palabra y muestra decenas de clips de YouTube donde nativos la usan en contexto real. Perfecto para minimal pairs.</div><div class="app-free">100% gratis</div></div></div>
+<div class="app-card"><div class="app-icon">📖</div><div><div class="app-name">Cambridge Dictionary Online</div><div class="app-desc">Toda palabra tiene pronunciación en inglés británico y americano con audio. Imprescindible.</div><div class="app-free">100% gratis</div></div></div>
+<h2>Canales de YouTube Recomendados</h2>
+<div class="app-card"><div class="app-icon">📺</div><div><div class="app-name">BBC Learning English</div><div class="app-desc">El canal oficial de la BBC para aprendices. Pronunciación, gramática, vocabulario — todo con calidad BBC.</div><div class="app-free">100% gratis</div></div></div>
+<div class="app-card"><div class="app-icon">🎤</div><div><div class="app-name">Rachel's English</div><div class="app-desc">Especialista en inglés americano. Explica posición de la lengua y labios para cada sonido. Muy visual.</div><div class="app-free">100% gratis</div></div></div>
+<div class="app-card"><div class="app-icon">🎙️</div><div><div class="app-name">6 Minute English (BBC Podcast)</div><div class="app-desc">Episodios de exactamente 6 minutos sobre temas actuales. Perfecto para shadowing — incluye transcripción gratis.</div><div class="app-free">100% gratis</div></div></div>
+<div class="tip"><div class="tt">💡 Plan de práctica de 10 minutos diarios</div>
+<p>Lunes–viernes: 5 min de shadowing con BBC + 5 min de grabación propia. En 30 días notarás un cambio real y medible.</p></div>
+</template>
+
+<template id="pro-1m-a01">
+<div class="apo"><div class="at">👥 Expresión oral en aula — A1/A2</div>
+<p>Estas actividades están diseñadas para practicar la expresión oral en un ambiente de baja ansiedad. Van de menor a mayor complejidad — siempre hay una estructura de apoyo para que nadie se quede sin saber qué decir.</p></div>
+<h2>Actividad 1 — Chain Description (5 min)</h2>
+<p><strong>Objetivo:</strong> Practicar presentaciones y adjetivos en voz alta.</p>
+<div class="gb"><div class="fm">Estudiante 1: "My name is Carlos and I am tall."</div>
+<div class="fm">Estudiante 2: "His name is Carlos and he is tall. My name is Ana and I am friendly."</div>
+<p>Cada estudiante repite todo lo anterior y agrega su propia descripción.</p></div>
+<h2>Actividad 2 — Picture Talk (5 min)</h2>
+<p>El profesor muestra una imagen (un barco, el puerto, una familia, etc.). Los estudiantes dicen en voz alta todo lo que ven: <em>"I can see...", "There is/are...", "It looks..."</em></p>
+<h2>Actividad 3 — Two Truths and a Lie (10 min)</h2>
+<p>Cada estudiante prepara 3 oraciones sobre sí mismo — 2 verdaderas y 1 falsa. El curso vota cuál es la mentira.</p>
+<div class="gb"><div class="fm">"I have two brothers. / I can swim. / My father is a captain."</div></div>
+<h2>Actividad 4 — Find Someone Who (10 min)</h2>
+<p>Cada estudiante tiene una tarjeta con 5 preguntas. Camina por la sala y encuentra compañeros que cumplan cada condición:</p>
+<ul style="margin-left:18px;line-height:2">
+  <li>"Find someone who can swim." → "Can you swim?"</li>
+  <li>"Find someone who has a pet." → "Do you have a pet?"</li>
+  <li>"Find someone who likes football." → "Do you like football?"</li>
+</ul>
+<h2>Actividad 5 — Read Aloud in Pairs (5 min)</h2>
+<p>En parejas, los estudiantes leen en voz alta un diálogo corto. Luego intercambian roles y leen de nuevo.</p>
+<h2>Actividad 6 — The Hot Seat (15 min)</h2>
+<p>Un estudiante se sienta frente al curso. El resto hace preguntas en inglés. El estudiante responde con frases completas. Se rota cada 2–3 minutos.</p>
+<div class="tip"><div class="tt">💡 Regla de oro</div>
+<p>Ningún estudiante puede corregir la pronunciación o gramática de otro <em>durante</em> la actividad. El feedback lo da el profesor al final — nunca en el medio de la producción oral.</p></div>
+</template>
+
+<template id="pro-1m-a02">
+<div class="apo"><div class="at">⏱️ Presentación oral — 1 minuto · A1/A1+</div>
+<p>El Show &amp; Tell es una de las actividades orales más clásicas y efectivas. Hablar sobre algo que conoces y que te importa baja el filtro afectivo y activa vocabulario real.</p></div>
+<h2>¿Qué es el Show &amp; Tell Marítimo?</h2>
+<p>Traes o muestras (físicamente o en imagen desde tu celular) un objeto, lugar o dato relacionado con el mundo marítimo, y lo presentas en inglés durante <strong>1 minuto</strong>.</p>
+<h2>Ideas de temas</h2>
+<ul style="margin-left:18px;line-height:2">
+  <li>Un objeto de navegación (brújula, mapa, ancla, uniforme)</li>
+  <li>Una foto del puerto de Valparaíso</li>
+  <li>Un animal marino favorito</li>
+  <li>Un barco famoso (Prat, Esmeralda, Titanic)</li>
+  <li>Una profesión marítima que te interese</li>
+</ul>
+<h2>Plantilla de Preparación</h2>
+<div class="gb">
+<p>🔹 "This is a ___________________________."</p>
+<p>🔹 "It is _______________ (color/size/shape)."</p>
+<p>🔹 "Sailors/People use it to ___________________________."</p>
+<p>🔹 "It is important because ___________________________."</p>
+<p>🔹 "I find it interesting because ___________________________."</p>
+</div>
+<h2>Ejemplo completo</h2>
+<div class="hl">"This is a compass. It is round and small. It has a blue and red needle. Sailors use it to find the direction of north. It is important because without it, ships can get lost at sea. I find it interesting because navigation is one of the most important skills in maritime work."</div>
+<h2>Rúbrica (10 puntos)</h2>
+<div class="mb"><table>
+<tr><th>Criterio</th><th>Puntos</th></tr>
+<tr><td>Vocabulario (variado y apropiado)</td><td>2 pts</td></tr>
+<tr><td>Pronunciación (sonidos claros, acento correcto)</td><td>2 pts</td></tr>
+<tr><td>Fluidez (ritmo, sin pausas excesivas)</td><td>2 pts</td></tr>
+<tr><td>Estructura (intro + descripción + importancia)</td><td>2 pts</td></tr>
+<tr><td>Confianza y contacto visual</td><td>2 pts</td></tr>
+</table></div>
+<div class="tip"><div class="tt">💡 Antes de tu presentación</div>
+<p>Practica el texto en voz alta <strong>al menos 5 veces</strong> en casa. Grábate una vez y escúchate. El día de la presentación, el objetivo no es ser perfecto — es comunicar con confianza.</p></div>
+</template>
+
+<!-- ═══ TEMPLATES PRONUNCIACIÓN 2° MEDIO ═══ -->
+
+<template id="pro-2m-s01">
+<div class="apo"><div class="at">🔗 Habla conectada — A2</div>
+<p>Una de las razones por las que entender a los nativos es tan difícil es que <strong>no hablan como en el libro de texto</strong>. El habla real conecta, reduce, elide y asimila sonidos. Aprenderlo te ayuda tanto a entender como a sonar más natural.</p></div>
+<h2>Los 4 Procesos del Connected Speech</h2>
+<h3>1. Linking (Enlace)</h3>
+<p>Cuando una palabra termina en consonante y la siguiente empieza en vocal, se conectan:</p>
+<div class="gb">
+<div class="fm">pick it up → "pi-ki-tup"</div>
+<div class="fm">an apple → "a-na-pple"</div>
+<div class="fm">take it → "tay-kit"</div>
+<div class="fm">not at all → "no-ta-tall"</div>
+</div>
+<h3>2. Reduction (Reducción)</h3>
+<div class="mb"><table>
+<tr><th>Forma escrita</th><th>Forma hablada</th><th>Ejemplo</th></tr>
+<tr><td>and</td><td>/ən/</td><td>"fish and chips" → "fish ən chips"</td></tr>
+<tr><td>for</td><td>/fər/</td><td>"waiting for you" → "waiting fər you"</td></tr>
+<tr><td>to</td><td>/tə/</td><td>"I want to go" → "I want tə go"</td></tr>
+<tr><td>of</td><td>/əv/</td><td>"a cup of tea" → "a cup əv tea"</td></tr>
+</table></div>
+<h3>3. Elision</h3>
+<div class="gb">
+<div class="fm">want to → "wanna"</div>
+<div class="fm">going to → "gonna"</div>
+<div class="fm">have to → "hafta"</div>
+<div class="fm">don't know → "dunno"</div>
+</div>
+<p style="font-size:12px;color:var(--muted)">⚠️ Estas formas son del habla informal oral. No se usan en escritura formal.</p>
+<h3>4. Assimilation</h3>
+<div class="gb">
+<div class="fm">ten bikes → "tem bikes" (/n/ → /m/ antes de /b/)</div>
+<div class="fm">this year → "thish year"</div>
+</div>
+<div class="exb"><div class="ext"><span class="exn">📝</span> Escribe la forma formal</div>
+<div class="ex-body"><ol style="margin-left:18px">
+  <li>"Wanna go ta the port after class?"</li>
+  <li>"Gonna be a great day fər sailing."</li>
+  <li>"Gimme a minute, I hafta check the map."</li>
+</ol></div></div>
+</template>
+
+<template id="pro-2m-s02">
+<div class="apo"><div class="at">🎵 Entonación — A2</div>
+<p>La entonación es la "melodía" del inglés. Una oración con la entonación incorrecta puede sonar ruda, confusa o sarcástica — aunque el vocabulario y la gramática sean perfectos.</p></div>
+<h2>Patrón 1 — Entonación Descendente ↘</h2>
+<p>Se usa para: afirmaciones, preguntas WH-, comandos, último elemento de una lista.</p>
+<ul style="margin-left:18px;line-height:1.9">
+  <li><em>"The ship is in the port." ↘</em></li>
+  <li><em>"Where is the captain?" ↘</em></li>
+  <li><em>"Come here." ↘</em></li>
+  <li><em>"We need water↗, food↗, and fuel." ↘</em></li>
+</ul>
+<h2>Patrón 2 — Entonación Ascendente ↗</h2>
+<p>Se usa para: preguntas Sí/No, mostrar interés o sorpresa, elementos de una lista (menos el último).</p>
+<ul style="margin-left:18px;line-height:1.9">
+  <li><em>"Are you from Valparaíso?" ↗</em></li>
+  <li><em>"Really?" ↗ (genuina sorpresa)</em></li>
+  <li><em>"You're a sailor, aren't you?" ↗</em></li>
+</ul>
+<h2>El cambio de significado con la entonación</h2>
+<div class="gb">
+<div class="fm">"Really?" ↗ = ¿De verdad? (quiero saber más)</div>
+<div class="fm">"Really." ↘ = Qué interesante. (sarcasmo o desinterés)</div>
+<div class="fm">"You're coming?" ↗ = Pregunta sincera</div>
+<div class="fm">"You're coming." ↘ = Afirmación / orden suave</div>
+</div>
+<div class="exb"><div class="ext"><span class="exn">1</span> Marca ↗ o ↘ en cada oración</div>
+<div class="ex-body"><ol style="margin-left:18px">
+  <li>"Do you like working at sea?" ___</li>
+  <li>"The Pacific Ocean is very deep." ___</li>
+  <li>"Where does the captain sleep?" ___</li>
+  <li>"Can you navigate a large ship?" ___</li>
+</ol></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div><p>↗ / ↘ / ↘ / ↗</p></div></div>
+</template>
+
+<template id="pro-2m-s03">
+<div class="apo"><div class="at">🔊 El Schwa — A2</div>
+<p>El <strong>schwa</strong> <span class="phoneme">/ə/</span> es el sonido más frecuente del inglés — aparece en aprox. el 10–15% de todos los sonidos. Y es el que los hispanohablantes más ignoramos. Sin él, el inglés suena robótico.</p></div>
+<h2>¿Cómo suena el Schwa?</h2>
+<p>Es una vocal <strong>completamente relajada</strong>, sin tensión, en posición central de la boca. Se escribe <span class="phoneme">/ə/</span> en notación fonética.</p>
+<div class="gb"><div class="fm">a · the · to · of · for · and · at · from</div>
+<p>Todas estas palabras, cuando no van acentuadas en la oración, se pronuncian con schwa.</p></div>
+<h2>¿Dónde aparece?</h2>
+<div class="step-box"><div class="step-num">1</div><div><strong>Palabras funcionales no acentuadas:</strong> "I want <em>to</em> /tə/ go" — "<em>a</em> /ə/ student" — "<em>the</em> /ðə/ ship"</div></div>
+<div class="step-box"><div class="step-num">2</div><div><strong>Final -er:</strong> teach<em>er</em> /ˈtiːtʃər/ — offic<em>er</em> /ˈɒfɪsər/ — wat<em>er</em> /ˈwɔːtər/</div></div>
+<div class="step-box"><div class="step-num">3</div><div><strong>Sílabas no acentuadas en palabras largas:</strong> n<em>a</em>vig<em>a</em>tion — import<em>a</em>nt — capt<em>ai</em>n /ˈkæptən/</div></div>
+<h2>Palabras marítimas con schwa</h2>
+<div class="pair-grid">
+  <div class="pair-item"><div class="pair-words">captain</div><div class="pair-ipa">/ˈkæptən/</div></div>
+  <div class="pair-item"><div class="pair-words">officer</div><div class="pair-ipa">/ˈɒfɪsər/</div></div>
+  <div class="pair-item"><div class="pair-words">anchor</div><div class="pair-ipa">/ˈæŋkər/</div></div>
+  <div class="pair-item"><div class="pair-words">sailor</div><div class="pair-ipa">/ˈseɪlər/</div></div>
+  <div class="pair-item"><div class="pair-words">harbour</div><div class="pair-ipa">/ˈhɑːbər/</div></div>
+  <div class="pair-item"><div class="pair-words">navigate</div><div class="pair-ipa">/ˈnævɪɡeɪt/</div></div>
+</div>
+<div class="tip"><div class="tt">💡 Cómo practicar el schwa</div>
+<p>Busca cualquier palabra en el diccionario Cambridge online. Mira su transcripción fonética — cada <span class="phoneme">/ə/</span> que ves es un schwa. Escucha el audio y nota cómo esa sílaba casi desaparece.</p></div>
+</template>
+
+<template id="pro-2m-s04">
+<div class="apo"><div class="at">🎯 Word Stress avanzado — A2/A2+</div>
+<p>Marcar el acento en la sílaba equivocada puede hacer que una palabra sea incomprensible — aunque la pronuncies perfectamente. El acento léxico es tan importante como los sonidos individuales.</p></div>
+<h2>Regla 1 — Terminaciones -tion / -sion</h2>
+<p>El acento va en la sílaba ANTES de la terminación:</p>
+<div class="pair-grid">
+  <div class="pair-item"><div class="pair-words">na·vi·<strong>GA</strong>·tion</div></div>
+  <div class="pair-item"><div class="pair-words">com·mu·ni·<strong>CA</strong>·tion</div></div>
+  <div class="pair-item"><div class="pair-words">in·for·<strong>MA</strong>·tion</div></div>
+  <div class="pair-item"><div class="pair-words">de·ci·<strong>SION</strong></div></div>
+</div>
+<h2>Regla 2 — Terminaciones -ity</h2>
+<div class="pair-grid">
+  <div class="pair-item"><div class="pair-words">pos·si·<strong>BIL</strong>·i·ty</div></div>
+  <div class="pair-item"><div class="pair-words">di·<strong>VER</strong>·si·ty</div></div>
+  <div class="pair-item"><div class="pair-words">a·<strong>BIL</strong>·i·ty</div></div>
+</div>
+<h2>Regla 3 — Pares Sustantivo / Verbo</h2>
+<div class="mb"><table>
+<tr><th>Sustantivo 🔵</th><th>Verbo 🟢</th></tr>
+<tr><td><strong>PRE</strong>·sent (regalo)</td><td>pre·<strong>SENT</strong> (presentar)</td></tr>
+<tr><td><strong>RE</strong>·cord (registro)</td><td>re·<strong>CORD</strong> (grabar)</td></tr>
+<tr><td><strong>EX</strong>·port (exportación)</td><td>ex·<strong>PORT</strong> (exportar)</td></tr>
+<tr><td><strong>PER</strong>·mit (permiso)</td><td>per·<strong>MIT</strong> (permitir)</td></tr>
+</table></div>
+<h2>Regla 4 — Sustantivos compuestos</h2>
+<p>El primer elemento lleva el acento: <strong>LIFE</strong>·boat / <strong>LIGHT</strong>·house / <strong>PORT</strong>·side</p>
+<div class="exb"><div class="ext"><span class="exn">📝</span> Marca el acento</div>
+<div class="ex-body"><ol style="margin-left:18px">
+  <li>communication → ___</li>
+  <li>"He will re·cord the voyage." → ¿record = RE·cord o re·CORD?</li>
+  <li>"The port is an export hub." → ¿export = EX·port o ex·PORT?</li>
+</ol></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div><p>com·mu·ni·CA·tion / re·CORD (verbo) / EX·port (sustantivo)</p></div></div>
+</template>
+
+<template id="pro-2m-m01">
+<div class="apo"><div class="at">🧠 Psicolingüística — MacIntyre et al., 1998</div>
+<p>¿Por qué algunos estudiantes hablan aunque cometan errores, mientras otros con más gramática se quedan en silencio? La respuesta está en la <strong>Willingness to Communicate</strong> (WTC).</p></div>
+<h2>¿Qué es la WTC?</h2>
+<p>La WTC es la <strong>disposición de una persona a iniciar comunicación cuando tiene la opción de hacerlo</strong>. MacIntyre et al. (1998) demostraron que es el predictor más fuerte del éxito oral en L2 — más que el nivel gramatical, el vocabulario o la pronunciación.</p>
+<div class="gb"><p><strong>Comunicación real</strong> ← requiere → <strong>WTC situacional</strong> ← depende de → <strong>Confianza + Deseo de comunicarse</strong> ← depende de → <strong>Actitud hacia L2 + Autoconfianza</strong></p></div>
+<h2>Factores que aumentan tu WTC</h2>
+<ul class="tip-list">
+  <li>🎯 <strong>Temas familiares</strong> — hablas mejor sobre lo que conoces. Empieza por temas marítimos que dominas.</li>
+  <li>🤝 <strong>Interlocutor conocido</strong> — hablar con un compañero de confianza antes de hacerlo frente al curso.</li>
+  <li>✅ <strong>Historial de éxito</strong> — cada vez que te salió bien, tu WTC sube para la próxima.</li>
+  <li>🔄 <strong>Exposición incremental</strong> — empieza con 1 oración, luego 2, luego un párrafo.</li>
+  <li>🌍 <strong>Propósito real</strong> — cuando el inglés tiene una razón concreta (trabajo futuro), la WTC aumenta naturalmente.</li>
+</ul>
+<div class="exb"><div class="ext"><span class="exn">📝</span> Autoevaluación WTC</div>
+<div class="ex-body">Marca tu nivel en cada situación (1 = nunca hablaría / 5 = hablaría sin dudarlo):
+<ol style="margin-left:18px;line-height:2.2">
+  <li>Responder una pregunta del profesor: 1 2 3 4 5</li>
+  <li>Hacer una pregunta espontánea: 1 2 3 4 5</li>
+  <li>Hablar con un compañero en pareja: 1 2 3 4 5</li>
+  <li>Presentar frente al curso: 1 2 3 4 5</li>
+  <li>Hablar con un nativo en el puerto: 1 2 3 4 5</li>
+</ol>
+<p style="font-size:12px;color:var(--muted);margin-top:8px">Vuelve a hacer esta autoevaluación en 3 meses y compara tu progreso.</p></div></div>
+</template>
+
+<template id="pro-2m-m02">
+<div class="apo"><div class="at">💬 Estrategias pragmáticas — A2/B1</div>
+<p>Saber qué hacer cuando no sabes una palabra es tan importante como saber la palabra misma. Los comunicadores efectivos no son los que nunca cometen errores — son los que nunca se detienen.</p></div>
+<h2>6 Estrategias cuando no sabes una palabra</h2>
+<div class="step-box"><div class="step-num">1</div><div><strong>Circunlocución</strong> — Describe la palabra que no sabes:<br><em>"I don't know the word, but it's like... the wheel you turn to change the ship's direction."</em> → (helm)</div></div>
+<div class="step-box"><div class="step-num">2</div><div><strong>Aproximación</strong> — Usa una palabra cercana:<br><em>"We need a... container? for the water."</em> → El mensaje llega aunque la palabra no sea exacta.</div></div>
+<div class="step-box"><div class="step-num">3</div><div><strong>Pedir clarificación</strong>:<br><em>"Could you say that again, please?" / "I didn't catch that." / "What do you mean by...?"</em></div></div>
+<div class="step-box"><div class="step-num">4</div><div><strong>Compra tiempo</strong>:<br><em>"That's a good question..." / "Let me think..." / "Well, actually..."</em></div></div>
+<div class="step-box"><div class="step-num">5</div><div><strong>Paráfrasis</strong>:<br><em>"The sailor — I mean, the person who works on the ship — he told me..."</em></div></div>
+<div class="step-box"><div class="step-num">6</div><div><strong>Pide ayuda explícitamente</strong>:<br><em>"How do you say 'timón' in English?" / "Is it correct to say 'make a journey'?"</em></div></div>
+<h2>Frases de rescate — memoriza estas</h2>
+<div class="gb"><ul style="line-height:2.4;font-size:13px">
+  <li>"I'm not sure how to say this in English, but..."</li>
+  <li>"What I mean is..."</li>
+  <li>"Let me rephrase that..."</li>
+  <li>"Could you repeat that more slowly?"</li>
+  <li>"Is ___ the right word for...?"</li>
+  <li>"Sorry, I lost my train of thought."</li>
+</ul></div>
+<div class="tip"><div class="tt">💡 La regla del "Never stop"</div>
+<p>En comunicación oral, un silencio largo es más disruptivo que un error gramatical. Usa una frase de rescate, sigue adelante, y corrige después si puedes.</p></div>
+</template>
+
+<template id="pro-2m-m03">
+<div class="apo"><div class="at">⚓ Inglés marítimo profesional — A2/B1</div>
+<p>El inglés no es solo una asignatura del colegio para ti — es el idioma oficial de tu futura carrera. Entender esto cambia completamente la motivación para practicar.</p></div>
+<h2>¿Por qué el inglés es el idioma del mar?</h2>
+<p>Desde 1974, la Organización Marítima Internacional (IMO) estableció el inglés como el idioma oficial de la comunicación naval internacional, reflejado en:</p>
+<ul style="margin-left:18px;line-height:2">
+  <li><strong>SOLAS</strong> (Safety of Life at Sea) — Convenio internacional de seguridad marítima</li>
+  <li><strong>STCW</strong> — Certificación de competencia para marineros</li>
+</ul>
+<p>Para certificación STCW, un oficial naval debe demostrar competencia en inglés técnico — incluyendo comunicación oral.</p>
+<h2>Las SMCP — Standard Marine Communication Phrases</h2>
+<div class="gb">
+<div class="fm">MAYDAY MAYDAY MAYDAY — This is [vessel name]</div>
+<div class="fm">I am [type of distress] in position [coordinates]</div>
+<div class="fm">I require immediate assistance. Over.</div>
+<p style="font-size:12px;color:rgba(255,255,255,.7);margin-top:8px">La pronunciación correcta de estas frases es literalmente una cuestión de vida o muerte.</p>
+</div>
+<h2>Situaciones reales de inglés marítimo</h2>
+<div class="step-box"><div class="step-num">📻</div><div><strong>Radio VHF:</strong> "Vessel on my port bow, this is [name], requesting your intentions. Over."</div></div>
+<div class="step-box"><div class="step-num">🚢</div><div><strong>A bordo:</strong> "All hands on deck." / "Secure all loose equipment." / "Life jackets are located under your seat."</div></div>
+<div class="step-box"><div class="step-num">🌊</div><div><strong>Emergencias:</strong> "Man overboard on the starboard side!" / "Prepare to abandon ship."</div></div>
+<div class="tip"><div class="tt">💡 Reflexión profesional</div>
+<p>Un marinero que no habla inglés es como un médico que no puede leer recetas. El inglés marítimo no es una opción — es una competencia profesional exigida internacionalmente. Cada hora de práctica en clases es una inversión directa en tu seguridad.</p></div>
+</template>
+
+<template id="pro-2m-t01">
+<div class="apo"><div class="at">🎙️ Técnicas avanzadas — A2/B1</div>
+<p>Una vez que dominas el shadowing básico, estas técnicas complementarias aceleran el desarrollo de la fluidez y la automatización del lenguaje oral.</p></div>
+<h2>Técnica 1 — Shadowing con Anotaciones</h2>
+<div class="step-box"><div class="step-num">1</div><div>Consigue la transcripción del audio.</div></div>
+<div class="step-box"><div class="step-num">2</div><div>Antes de hacer shadowing, <strong>marca</strong> en el texto: sílabas acentuadas (negrita), palabras que se enlazan (arco encima), schwas (subrayado).</div></div>
+<div class="step-box"><div class="step-num">3</div><div>Haz el shadowing con la transcripción anotada. Luego practica sin el texto.</div></div>
+<h2>Técnica 2 — Dicto-gloss</h2>
+<div class="step-box"><div class="step-num">1</div><div>Escucha un texto corto (60–90 seg) <strong>tomando solo palabras clave</strong>.</div></div>
+<div class="step-box"><div class="step-num">2</div><div>Con tus notas, <strong>reconstruye el texto oralmente</strong> — di en voz alta lo que recuerdas.</div></div>
+<div class="step-box"><div class="step-num">3</div><div>Escucha de nuevo, completa tu versión y compara con la transcripción.</div></div>
+<h2>Técnica 3 — Backward Building</h2>
+<p>Construye oraciones hacia atrás para automatizar estructuras complejas:</p>
+<div class="gb">
+<div class="fm">"...the port."</div>
+<div class="fm">"...arrived at the port."</div>
+<div class="fm">"...has just arrived at the port."</div>
+<div class="fm">"The vessel has just arrived at the port."</div>
+</div>
+<p>Repite cada versión hasta que salga automáticamente antes de agregar la siguiente parte.</p>
+<h2>Técnica 4 — Variación de velocidad</h2>
+<ul style="margin-left:18px;line-height:2">
+  <li><strong>75%</strong> → escuchas cada sonido claramente para analizar</li>
+  <li><strong>100%</strong> → velocidad normal para shadowing regular</li>
+  <li><strong>125%</strong> → tu boca se acostumbra a velocidades más altas</li>
+</ul>
+<div class="tip"><div class="tt">💡 En YouTube</div>
+<p>En cualquier video: haz clic en ⚙️ Settings → Playback speed. Puedes ir de 0.5x a 2x. Gratis y funciona para cualquier audio.</p></div>
+</template>
+
+<template id="pro-2m-a01">
+<div class="apo"><div class="at">👥 Expresión oral avanzada — A2/B1</div>
+<p>Estas actividades exigen más producción espontánea, argumentación y respuesta a otros. Diseñadas para simular comunicación real en contextos marítimos y cotidianos.</p></div>
+<h2>Actividad 1 — Structured Debate (20 min)</h2>
+<p><strong>Tema:</strong> "All sailors must speak English to work at sea."</p>
+<div class="gb"><p>Equipo A: A favor. Equipo B: En contra.<br>Estructura: 2 min de preparación → 1 min por estudiante → 1 min de rebuttal → votación.</p>
+<p>Frases: <em>"I believe that... / However... / On the other hand... / I disagree because..."</em></p></div>
+<h2>Actividad 2 — Role Play: Radio Communication (15 min)</h2>
+<p>En parejas: Estudiante A = Oficial en el puente. Estudiante B = Operador del puerto.</p>
+<div class="gb">
+<div class="fm">A: "Valparaíso Port Control, this is MV Esmeralda. Request permission to enter harbour. Over."</div>
+<div class="fm">B: "MV Esmeralda, this is Valparaíso Port Control. Permission granted. Proceed to Berth 4. Over."</div>
+</div>
+<h2>Actividad 3 — Opinion Circle (15 min)</h2>
+<p>El profesor presenta una imagen o noticia marítima. Cada estudiante da su opinión en 3–4 oraciones. El siguiente debe hacer referencia a lo dicho antes: <em>"As [name] said... / I agree but... / Adding to that..."</em></p>
+<h2>Actividad 4 — Maritime News Bulletin (10 min)</h2>
+<p>Cada estudiante prepara un "noticiero" de 30 segundos sobre un evento marítimo imaginario: qué pasó, dónde, cuándo, por qué importa.</p>
+<div class="gb"><div class="fm">"Good evening. Today, a cargo ship arrived at Valparaíso carrying 500 containers from Japan. The captain said the voyage took 21 days..."</div></div>
+<h2>Actividad 5 — Emergency Scenario (20 min)</h2>
+<p>El profesor describe una emergencia a bordo. Los estudiantes discuten en inglés cómo responder: <em>"A crew member is injured during a storm. What do you do?"</em></p>
+<h2>Actividad 6 — Peer Interview (10 min)</h2>
+<p>Un estudiante es "periodista" y el otro es "capitán famoso". Preparan 5 preguntas y las responden en rol. Luego intercambian.</p>
+</template>
+
+<template id="pro-2m-a02">
+<div class="apo"><div class="at">⏱️ Presentación oral preparada — 1 minuto · A2</div>
+<p>El One-Minute Talk es una habilidad real del mundo profesional marítimo: briefings, reportes de seguridad, presentaciones. Organizar y entregar un discurso de 1 minuto es directamente transferible a tu carrera.</p></div>
+<h2>Estructura del One-Minute Talk</h2>
+<div class="step-box"><div class="step-num">1</div><div><strong>Hook (5–10 seg):</strong> Algo que llame la atención.<br><em>"Did you know that 90% of world trade travels by sea?"</em></div></div>
+<div class="step-box"><div class="step-num">2</div><div><strong>Mi carrera (10 seg):</strong><br><em>"I want to become a naval officer / maritime engineer / port logistics specialist."</em></div></div>
+<div class="step-box"><div class="step-num">3</div><div><strong>Por qué (20–25 seg):</strong> 2–3 razones concretas.<br><em>"I chose this career because... / I'm passionate about... / I believe I can..."</em></div></div>
+<div class="step-box"><div class="step-num">4</div><div><strong>Metas futuras (10 seg):</strong><br><em>"In 5 years, I will... / My goal is to... / I plan to..."</em></div></div>
+<div class="step-box"><div class="step-num">5</div><div><strong>Cierre (5 seg):</strong> Una frase memorable.<br><em>"The sea is not just my classroom — it will be my career."</em></div></div>
+<h2>Ejemplo completo</h2>
+<div class="hl">"Did you know that over 80,000 merchant ships are sailing the world's oceans right now? I want to be part of that world. My name is Andrés and I want to become a maritime officer. I chose this career because I love the ocean, I'm good at problem-solving under pressure, and I believe the maritime industry offers real opportunities for Chilean professionals. In the future, I plan to sail international routes and eventually become a ship captain. The sea has always called to me — now I'm answering."</div>
+<h2>Caja de frases útiles</h2>
+<div class="gb"><ul style="line-height:2.2;font-size:13px">
+  <li>Opening: "Did you know...? / Imagine... / Have you ever thought about...?"</li>
+  <li>Reasons: "First, ... / Also, ... / Most importantly, ..."</li>
+  <li>Future: "I will / I'm going to / I plan to / My goal is to..."</li>
+  <li>Closing: "That's why... / The most important thing is..."</li>
+</ul></div>
+<h2>Rúbrica (10 pts)</h2>
+<div class="mb"><table>
+<tr><th>Criterio</th><th>Pts</th></tr>
+<tr><td>Contenido (ideas claras y organizadas)</td><td>3</td></tr>
+<tr><td>Vocabulario (variado y apropiado)</td><td>2</td></tr>
+<tr><td>Gramática (estructuras correctas y variadas)</td><td>2</td></tr>
+<tr><td>Pronunciación y fluidez (ritmo, acento, claridad)</td><td>2</td></tr>
+<tr><td>Presentación (contacto visual, confianza)</td><td>1</td></tr>
+</table></div>
+<div class="tip"><div class="tt">💡 El secreto del éxito</div>
+<p>Practica tu One-Minute Talk en voz alta <strong>al menos 10 veces</strong> antes del día. Grábate al menos 2 veces. El día de la presentación, ya no estarás actuando: estarás comunicando.</p></div>
+</template>
+
 </body>
 </html>
