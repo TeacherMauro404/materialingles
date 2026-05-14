@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Inglés IMV — Instituto Marítimo de Valparaíso</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 :root{
   --navy:#0b1f3a;--teal:#1a7a8a;--teal-l:#25a0b4;
@@ -14,7 +14,7 @@
   --shadow:0 4px 24px rgba(11,31,58,.10);--r:10px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);min-height:100vh}
+body{font-family:'DM Sans',sans-serif;background:#f0f2f7;color:var(--text);min-height:100vh;font-size:15px;line-height:1.65}
 
 /* HEADER */
 header{background:var(--navy);color:#fff;position:relative;overflow:hidden}
@@ -24,12 +24,12 @@ header::before{content:'';position:absolute;inset:0;
   pointer-events:none}
 header::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:48px;
   background:var(--cream);clip-path:ellipse(55% 100% at 50% 100%)}
-.hdr{max-width:1100px;margin:0 auto;padding:40px 20px 64px;position:relative;z-index:1}
+.hdr{max-width:1140px;margin:0 auto;padding:56px 28px 80px;position:relative;z-index:1}
 .hbadge{display:inline-flex;align-items:center;gap:8px;
   background:rgba(212,168,67,.15);border:1px solid rgba(212,168,67,.40);
   color:var(--gold);font-size:11px;font-weight:600;letter-spacing:1.5px;
   text-transform:uppercase;padding:5px 12px;border-radius:20px;margin-bottom:16px}
-header h1{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,40px);line-height:1.15;font-weight:700}
+header h1{font-family:'New York',Georgia,serif;font-size:clamp(26px,4.5vw,48px);line-height:1.12;font-weight:700;letter-spacing:-.3px}
 header h1 span{color:var(--teal-l)}
 .hsub{color:rgba(255,255,255,.55);font-size:14px;font-weight:300;margin-top:8px}
 .hmeta{display:flex;gap:18px;margin-top:18px;flex-wrap:wrap}
@@ -37,17 +37,17 @@ header h1 span{color:var(--teal-l)}
 .hmeta span b{color:#fff;font-weight:500}
 
 /* MAIN */
-main{max-width:1100px;margin:0 auto;padding:36px 16px 80px}
+main{max-width:1140px;margin:0 auto;padding:48px 24px 110px}
 
 /* TABS */
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:32px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px;border-bottom:2px solid #dde3ed;padding-bottom:16px}
 .tabs::-webkit-scrollbar{height:4px}
 .tabs::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
-.tbtn{padding:7px 16px;border-radius:20px;border:1.5px solid var(--border);
+.tbtn{padding:9px 22px;border-radius:24px;border:1.5px solid var(--border);
   background:#fff;color:var(--muted);font-family:'DM Sans',sans-serif;
-  font-size:12px;font-weight:500;cursor:pointer;transition:all .18s ease;white-space:nowrap;flex-shrink:0}
+  font-size:13px;font-weight:500;cursor:pointer;transition:all .18s ease;white-space:nowrap;flex-shrink:0;letter-spacing:.1px;box-shadow:0 1px 4px rgba(11,31,58,.06)}
 .tbtn:hover{border-color:var(--teal);color:var(--teal)}
-.tbtn.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.tbtn.active{background:var(--navy);border-color:var(--navy);color:#fff;box-shadow:0 4px 14px rgba(11,31,58,.22);font-weight:600}
 .tbtn.tv1{border-color:#2d7a4f;color:#2d7a4f}
 .tbtn.tv1.active{background:#2d7a4f;border-color:#2d7a4f}
 .tbtn.tv2{border-color:#5a3a8a;color:#5a3a8a}
@@ -58,22 +58,22 @@ main{max-width:1100px;margin:0 auto;padding:36px 16px 80px}
 .tbtn.tpie.active{background:#1a6a8a;border-color:#1a6a8a}
 
 .sec{display:none;animation:fup .28s ease}
-.sec.vis{display:block}
+.sec.vis{display:block;background:#fff;border-radius:18px;padding:36px 40px;box-shadow:0 2px 20px rgba(11,31,58,.07)}
 @keyframes fup{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
 /* SECTION HEADING */
-.sh{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);
-  margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--border);
-  display:flex;align-items:center;gap:10px}
+.sh{font-family:'New York',Georgia,serif;font-size:23px;color:var(--navy);
+  margin-bottom:30px;padding-bottom:14px;border-bottom:2px solid var(--border);
+  display:flex;align-items:center;gap:12px;letter-spacing:-.2px}
 .sh::before{content:'';display:block;width:5px;height:22px;background:var(--teal);border-radius:3px}
 .sh.gv::before{background:var(--green)}
 .sh.pv::before{background:var(--purple)}
 .sh.ex::before{background:var(--gold)}
 
 /* CATEGORY LABEL */
-.cat{display:flex;align-items:center;gap:8px;font-size:10px;font-weight:700;
-  letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);
-  margin-bottom:12px;margin-top:28px}
+.cat{display:flex;align-items:center;gap:8px;font-size:10.5px;font-weight:700;
+  letter-spacing:1.6px;text-transform:uppercase;color:var(--muted);
+  margin-bottom:16px;margin-top:36px}
 .cat:first-of-type{margin-top:0}
 .cat::after{content:'';flex:1;height:1px;background:var(--border)}
 
@@ -84,15 +84,15 @@ main{max-width:1100px;margin:0 auto;padding:36px 16px 80px}
 .week-header:first-of-type{margin-top:0}
 .week-num{background:var(--teal-l);color:#fff;font-size:11px;font-weight:700;
   padding:3px 10px;border-radius:12px;letter-spacing:.5px}
-.week-title{font-family:'Playfair Display',serif;font-size:15px}
+.week-title{font-family:'New York',Georgia,serif;font-size:15px}
 .week-sub{font-size:12px;color:rgba(255,255,255,.6);margin-top:2px}
 
 /* CARDS GRID */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
-.card{background:#fff;border:1px solid var(--border);border-radius:var(--r);
-  padding:18px 20px;box-shadow:var(--shadow);
-  transition:transform .18s,box-shadow .18s,border-color .18s}
-.card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(11,31,58,.13);border-color:var(--teal-l)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.card{background:#fff;border:1px solid var(--border);border-radius:14px;
+  padding:22px 26px;box-shadow:0 2px 12px rgba(11,31,58,.07);
+  transition:transform .22s,box-shadow .22s,border-color .22s}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(11,31,58,.14);border-color:var(--teal-l)}
 .card.adv{border-color:rgba(212,168,67,.4)}
 .card.adv:hover{border-color:var(--gold)}
 .ct{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
@@ -102,15 +102,15 @@ main{max-width:1100px;margin:0 auto;padding:36px 16px 80px}
 .ca{background:#fff0d0;color:#8a5a00}
 .cv{background:#e8f5ec;color:#2d7a4f}
 .cp{background:#f0eaff;color:#5a3a8a}
-.card h3{font-family:'Playfair Display',serif;font-size:14px;font-weight:600;
-  color:var(--navy);margin-bottom:5px;line-height:1.3}
-.card p{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:12px}
+.card h3{font-family:'New York',Georgia,serif;font-size:15.5px;font-weight:600;
+  color:var(--navy);margin-bottom:7px;line-height:1.3}
+.card p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px}
 .cfoot{display:flex;align-items:center;justify-content:space-between;
   padding-top:10px;border-top:1px solid var(--border)}
 .cdate{font-size:11px;color:var(--muted)}
-.btn{background:var(--navy);color:#fff;border:none;padding:6px 14px;
-  border-radius:6px;font-size:11px;font-family:'DM Sans',sans-serif;
-  font-weight:500;cursor:pointer;transition:background .15s}
+.btn{background:var(--navy);color:#fff;border:none;padding:8px 18px;
+  border-radius:8px;font-size:12px;font-family:'DM Sans',sans-serif;
+  font-weight:600;cursor:pointer;transition:all .18s;letter-spacing:.2px}
 .btn:hover{background:var(--teal)}
 .btn.bg{background:#2d7a4f}.btn.bg:hover{background:#1d5a3a}
 .btn.bp{background:#5a3a8a}.btn.bp:hover{background:#3a2060}
@@ -124,7 +124,7 @@ main{max-width:1100px;margin:0 auto;padding:36px 16px 80px}
   cursor:pointer;user-select:none;transition:background .15s;cursor:pointer;user-select:none;transition:background .15s}
 .vcard-head:hover{background:#f8fafc}
 .vcard-head:hover{background:#f8fafc}
-.vcard-head h3{font-family:'Playfair Display',serif;font-size:15px;color:var(--navy)}
+.vcard-head h3{font-family:'New York',Georgia,serif;font-size:15px;color:var(--navy)}
 .vcard-body{padding:16px 18px;display:none}.vcard.open .vcard-body{display:block}
 .vtoggle{font-size:13px;color:var(--muted);transition:transform .2s;flex-shrink:0;margin-left:8px}
 .vcard.open .vtoggle{transform:rotate(180deg)}
@@ -166,24 +166,24 @@ main{max-width:1100px;margin:0 auto;padding:36px 16px 80px}
   z-index:900;display:flex;align-items:center;justify-content:center;padding:16px;
   opacity:0;pointer-events:none;transition:opacity .2s ease}
 .mo.open{opacity:1;pointer-events:all}
-.mbox{background:#fff;border-radius:14px;max-width:760px;width:100%;
-  max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(11,31,58,.25);
-  transform:translateY(14px);transition:transform .25s ease}
+.mbox{background:#fff;border-radius:18px;max-width:780px;width:100%;
+  max-height:92vh;overflow-y:auto;box-shadow:0 24px 72px rgba(11,31,58,.28);
+  transform:translateY(16px);transition:transform .28s ease}
 .mo.open .mbox{transform:translateY(0)}
 .mhdr{position:sticky;top:0;background:var(--navy);color:#fff;
   padding:16px 22px;border-radius:14px 14px 0 0;
   display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
 .mhdr.ag{background:#1a5a30}.mhdr.ap{background:#3a2060}.mhdr.ao{background:#4a3200}
-.mt{font-family:'Playfair Display',serif;font-size:16px;line-height:1.3}
+.mt{font-family:'New York',Georgia,serif;font-size:16px;line-height:1.3}
 .ms{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px}
 .mc{background:rgba(255,255,255,.15);border:none;color:#fff;
   width:28px;height:28px;border-radius:50%;font-size:15px;cursor:pointer;
   display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s}
 .mc:hover{background:rgba(255,255,255,.3)}
-.mb{padding:22px 24px;font-size:14px;line-height:1.75;color:var(--text)}
+.mb{padding:26px 30px;font-size:14.5px;line-height:1.8;color:var(--text)}
 
 /* MODAL CONTENT STYLES */
-.mb h2{font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);margin:22px 0 8px}
+.mb h2{font-family:'New York',Georgia,serif;font-size:16px;color:var(--navy);margin:22px 0 8px}
 .mb h2:first-child{margin-top:0}
 .mb h3{font-size:12px;font-weight:700;color:var(--teal);margin:16px 0 6px;text-transform:uppercase;letter-spacing:.4px}
 .mb p{margin-bottom:10px}
@@ -238,7 +238,7 @@ main{max-width:1100px;margin:0 auto;padding:36px 16px 80px}
 .pro-sub{display:none}.pro-sub.vis{display:block}
 .cpro{background:#fdf2ee;color:#b04020}
 .pbox{background:linear-gradient(135deg,#6a2010,#b04020);color:#fff;border-radius:var(--r);padding:20px 24px;margin-bottom:28px}
-.pbox h3{font-family:'Playfair Display',serif;font-size:17px;margin-bottom:10px}
+.pbox h3{font-family:'New York',Georgia,serif;font-size:17px;margin-bottom:10px}
 .pbox p{font-size:13px;line-height:1.7;color:rgba(255,255,255,.85);margin-bottom:8px}
 .pbox p:last-child{margin-bottom:0}
 .ptag{display:inline-block;background:rgba(255,255,255,.2);font-size:11px;font-weight:600;padding:3px 10px;border-radius:12px;margin:3px 3px 3px 0}
@@ -259,13 +259,19 @@ main{max-width:1100px;margin:0 auto;padding:36px 16px 80px}
 .app-name{font-weight:700;font-size:13px;color:var(--navy)}
 .app-desc{font-size:12px;color:var(--muted);margin-top:2px}
 .app-free{font-size:10px;font-weight:700;background:#e6f4f7;color:var(--teal);padding:2px 7px;border-radius:10px;display:inline-block;margin-top:3px}
+/* ANSWER TOGGLE */
+.ans-btn{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1.5px solid var(--teal);
+  color:var(--teal);padding:6px 16px;border-radius:20px;font-family:'DM Sans',sans-serif;
+  font-size:12px;font-weight:600;cursor:pointer;margin:4px 0 8px;transition:all .18s}
+.ans-btn:hover{background:var(--teal);color:#fff}
+.ans-btn.open{background:var(--teal);color:#fff}
 @media print{.tabs,.tbtn,.adv-subbtn,.btn,.mc,.vclick,.vtoggle,.pdf-btn,header{display:none!important}.sec{display:block!important}.mo{position:relative!important;opacity:1!important;pointer-events:all!important;backdrop-filter:none!important;padding:0!important}.mbox{max-height:none!important;box-shadow:none!important}.mhdr{border-radius:0!important;position:relative!important}body{background:#fff;font-size:13px}main{padding:10px}}
 .empty .ic{font-size:32px;margin-bottom:8px}
 
 /* JUSTIFICATION BOX */
 .jbox{background:linear-gradient(135deg,#1a5a30,#2d7a4f);color:#fff;
   border-radius:var(--r);padding:20px 24px;margin-bottom:28px}
-.jbox h3{font-family:'Playfair Display',serif;font-size:17px;margin-bottom:10px}
+.jbox h3{font-family:'New York',Georgia,serif;font-size:17px;margin-bottom:10px}
 .jbox p{font-size:13px;line-height:1.7;color:rgba(255,255,255,.85);margin-bottom:8px}
 .jbox p:last-child{margin-bottom:0}
 .jbox .jtag{display:inline-block;background:rgba(255,255,255,.2);font-size:11px;font-weight:600;padding:3px 10px;border-radius:12px;margin:3px 3px 3px 0}
@@ -317,7 +323,7 @@ main{max-width:1100px;margin:0 auto;padding:36px 16px 80px}
     <button class="tbtn tv2"     onclick="show('v2',this)">🔤 Vocabularios 2°</button>
     <button class="tbtn tex"     onclick="show('ex',this)">⭐ Avanzados</button>
     <button class="tbtn tpie"    onclick="show('pie',this)">🌟 DUA</button>
-    <button class="tbtn tlec" onclick="show('lec',this)">🏠 Guías Domiciliarias</button>
+    <button class="tbtn tlec" onclick="show('lec',this)">🏠 Guías para el Hogar</button>
     <button class="tbtn tpro" onclick="show('pro',this)">🗣️ Pronunciación</button>
   </div>
 
@@ -376,6 +382,28 @@ function show(id,btn){
   });
   window.scrollTo({top:0,behavior:'smooth'});
 }
+function wrapAns(el){
+  if(el.dataset.toggled)return;
+  el.dataset.toggled='1';
+  el.hidden=true;
+  var btn=document.createElement('button');
+  btn.className='ans-btn';
+  btn.innerHTML='👁 Ver respuestas';
+  btn.onclick=function(){
+    el.hidden=!el.hidden;
+    btn.innerHTML=el.hidden?'👁 Ver respuestas':'🙈 Ocultar respuestas';
+    btn.classList.toggle('open',!el.hidden);
+  };
+  el.parentNode.insertBefore(btn,el);
+}
+function initAnswerToggles(container){
+  container.querySelectorAll('.ak,.ak2').forEach(wrapAns);
+  container.querySelectorAll('div').forEach(function(el){
+    if(el.dataset.toggled)return;
+    var t=(el.innerText||'').trimStart();
+    if(t.startsWith('Respuestas:')||t.startsWith('Answer key:')||t.startsWith('RESPUESTAS'))wrapAns(el);
+  });
+}
 function openM(card){
   var id=card.getAttribute('data-content');
   var tmpl=document.getElementById(id);
@@ -383,7 +411,9 @@ function openM(card){
   document.getElementById('moTitle').textContent=card.getAttribute('data-title')||'';
   document.getElementById('moSub').textContent=card.getAttribute('data-subtitle')||'';
   document.getElementById('moHdr').className=isAdv?'mhdr ao':'mhdr';
-  document.getElementById('moBody').innerHTML=tmpl?tmpl.innerHTML:'<p>Contenido no disponible.</p>';
+  var mb=document.getElementById('moBody');
+  mb.innerHTML=tmpl?tmpl.innerHTML:'<p>Contenido no disponible.</p>';
+  initAnswerToggles(mb);
   document.getElementById('moOverlay').classList.add('open');
   document.getElementById('moBox').scrollTop=0;
   document.body.style.overflow='hidden';
@@ -824,7 +854,7 @@ function showPro(id,btn){document.querySelectorAll('.pro-subbtn').forEach(b=>b.c
   <div class="sh" style="border-color:#1a6a8a">🌟 DUA — Material de Apoyo</div>
 
   <div style="background:linear-gradient(135deg,#0b3d52,#1a6a8a);color:#fff;border-radius:10px;padding:18px 22px;margin-bottom:24px">
-    <h3 style="font-family:'Playfair Display',serif;font-size:16px;margin-bottom:8px">Material de Apoyo en Inglés</h3>
+    <h3 style="font-family:'New York',Georgia,serif;font-size:16px;margin-bottom:8px">Material de Apoyo en Inglés</h3>
     <p style="font-size:13px;line-height:1.7;color:rgba(255,255,255,.85);margin:0">Este material está diseñado para que puedas aprender inglés a tu ritmo, con explicaciones claras, imágenes y actividades paso a paso. Puedes trabajar con este material durante la clase junto a tus compañeros.</p>
   </div>
 
@@ -927,10 +957,10 @@ function showPro(id,btn){document.querySelectorAll('.pro-subbtn').forEach(b=>b.c
 
 <!-- ═══════════ LECTURAS (CON LICENCIA) ═══════════ -->
 <div class="sec" id="sec-lec">
-  <div class="sh" style="border-color:#7a1a1a">🏠 Guías Domiciliarias</div>
+  <div class="sh" style="border-color:#7a1a1a">🏠 Guías para el Hogar</div>
 
   <div style="background:linear-gradient(135deg,#4a0a0a,#7a1a1a);color:#fff;border-radius:10px;padding:18px 22px;margin-bottom:24px">
-    <h3 style="font-family:'Playfair Display',serif;font-size:17px;margin-bottom:10px">📌 Instrucciones para el estudiante</h3>
+    <h3 style="font-family:'New York',Georgia,serif;font-size:17px;margin-bottom:10px">📌 Instrucciones para el estudiante</h3>
     <ol style="font-size:13px;line-height:2;color:rgba(255,255,255,.9);margin-left:18px">
       <li>Lee el texto con calma al menos <strong>dos veces</strong> antes de responder.</li>
       <li>Escribe todas las respuestas en tu <strong>cuaderno</strong> con fecha y título.</li>
@@ -941,83 +971,131 @@ function showPro(id,btn){document.querySelectorAll('.pro-subbtn').forEach(b=>b.c
     
   </div>
 
-  <div class="cat" style="color:#7a1a1a">📘 Guías Domiciliarias — 1° Medio</div>
+  <div class="cat" style="color:#7a1a1a">📘 Guías para el Hogar — 1° Medio</div>
   <div class="grid">
-    <div class="card" style="border-color:#e8c0c0" data-title="Lectura 1M N°1 — The Sea and Its Wonders" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-1m-01">
-      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Licencia · 1° M</span>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía para el Hogar N°1 — The Sea and Its Wonders" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-1m-01">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Hogar · 1° M</span>
       <h3>The Sea and Its Wonders</h3>
       <p>El océano Pacífico y su importancia. Vocabulario, comprensión y actividades de escritura. Nivel A1.</p>
-      <div class="cfoot"><span class="cdate">📅 Unidad 1 · A1</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver lectura</button></div>
+      <div class="cfoot"><span class="cdate">📅 Unidad 1 · A1</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
     </div>
-    <div class="card" style="border-color:#e8c0c0" data-title="Lectura 1M N°2 — A Day in Valparaíso" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-1m-02">
-      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Licencia · 1° M</span>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía para el Hogar N°2 — A Day in Valparaíso" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-1m-02">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Hogar · 1° M</span>
       <h3>A Day in Valparaíso</h3>
       <p>Rutina diaria de Matías, estudiante marítimo. Presente simple, vocabulario y escritura. A1+.</p>
-      <div class="cfoot"><span class="cdate">📅 Unidad 1 · A1+</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver lectura</button></div>
+      <div class="cfoot"><span class="cdate">📅 Unidad 1 · A1+</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
     </div>
-    <div class="card" style="border-color:#e8c0c0" data-title="Lectura 1M N°3 — Jobs at Sea" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-1m-03">
-      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Licencia · 1° M</span>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía para el Hogar N°3 — Jobs at Sea" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-1m-03">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Hogar · 1° M</span>
       <h3>Jobs at Sea</h3>
       <p>Profesiones marítimas: capitán, oficial, ingeniero y marinero. Vocabulario técnico A1+.</p>
-      <div class="cfoot"><span class="cdate">📅 Unidad 1 · A1+</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver lectura</button></div>
+      <div class="cfoot"><span class="cdate">📅 Unidad 1 · A1+</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
     </div>
-    <div class="card" style="border-color:#e8c0c0" data-title="Lectura 1M N°4 — My Family Tree" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-1m-04">
-      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Licencia · 1° M</span>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía para el Hogar N°4 — My Family Tree" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-1m-04">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Hogar · 1° M</span>
       <h3>My Family Tree</h3>
       <p>Árbol genealógico de Camila. Vocabulario de familia, To Be, posesivos y apostrophe. A1+.</p>
-      <div class="cfoot"><span class="cdate">📅 Unidad 2 · A1+</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver lectura</button></div>
+      <div class="cfoot"><span class="cdate">📅 Unidad 2 · A1+</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
     </div>
-    <div class="card" style="border-color:#e8c0c0" data-title="Guía Dom. 1M N°5 — Classroom Objects" data-subtitle="Objetos del aula y la mochila" data-content="lec-1m-05">
-      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Domiciliaria · 1° M</span>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía para el Hogar N°5 — Classroom Objects" data-subtitle="Objetos del aula y la mochila" data-content="lec-1m-05">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Hogar · 1° M</span>
       <h3>Classroom Objects</h3>
       <p>Objetos del aula y la mochila con This/That/Have. Vocabulario, comprensión y escritura. A1+.</p>
       <div class="cfoot"><span class="cdate">📅 Unidad 2 · A1+</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
     </div>
-    <div class="card" style="border-color:#e8c0c0" data-title="Guía Dom. 1M N°6 — Days, Months & Numbers" data-subtitle="Días, meses y números 1-100" data-content="lec-1m-06">
-      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Domiciliaria · 1° M</span>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía para el Hogar N°6 — Days, Months & Numbers" data-subtitle="Días, meses y números 1-100" data-content="lec-1m-06">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Hogar · 1° M</span>
       <h3>Days, Months &amp; Numbers</h3>
       <p>Días de la semana, meses del año y números del 1 al 100. Oraciones y ejercicios. A1.</p>
       <div class="cfoot"><span class="cdate">📅 Unidad 1 · A1</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
     </div>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía para el Hogar N°7 — Simple Present: My Daily Routine" data-subtitle="Rutinas y hábitos cotidianos · Presente Simple" data-content="lec-1m-07">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Hogar · 1° M</span>
+      <h3>My Daily Routine</h3>
+      <p>Lucas describe su rutina diaria. Presente Simple, adverbios de frecuencia y vocabulario de actividades. A1.</p>
+      <div class="cfoot"><span class="cdate">📅 Unidad 2 · A1</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+    </div>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía para el Hogar N°8 — My School: Subjects and Timetable" data-subtitle="Horario escolar y asignaturas" data-content="lec-1m-08">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Hogar · 1° M</span>
+      <h3>My School Timetable</h3>
+      <p>Horario semanal, asignaturas en inglés, expresiones de tiempo y escritura. A1+.</p>
+      <div class="cfoot"><span class="cdate">📅 Unidad 2 · A1+</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+    </div>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía para el Hogar N°9 — Present Continuous: What's Happening?" data-subtitle="Acciones en curso · Presente Continuo" data-content="lec-1m-09">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Hogar · 1° M</span>
+      <h3>What's Happening?</h3>
+      <p>Acciones que ocurren ahora. Estructura BE + VERB-ING, contraste con Presente Simple. A1+.</p>
+      <div class="cfoot"><span class="cdate">📅 Unidad 3 · A1+</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+    </div>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía para el Hogar N°10 — Describing People and Places" data-subtitle="Adjetivos para describir personas y lugares" data-content="lec-1m-10">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Hogar · 1° M</span>
+      <h3>Describing People &amp; Places</h3>
+      <p>Adjetivos de apariencia, personalidad y lugares. Lectura descriptiva y producción escrita. A1+.</p>
+      <div class="cfoot"><span class="cdate">📅 Unidad 3 · A1+</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+    </div>
   </div>
 
-  <div class="cat" style="color:#7a1a1a">📗 Guías Domiciliarias — 2° Medio</div>
+  <div class="cat" style="color:#7a1a1a">📗 Guías para el Hogar — 2° Medio</div>
   <div class="grid">
-    <div class="card" style="border-color:#e8c0c0" data-title="Lectura 2M N°1 — Camila's Hobbies and Free Time" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-2m-01">
-      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Licencia · 2° M</span>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía para el Hogar N°1 — Camila's Hobbies and Free Time" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-2m-01">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Hogar · 2° M</span>
       <h3>Camila's Hobbies</h3>
       <p>Camila describe sus pasatiempos, música y rutina. CAN, Present Simple y Continuous. A2.</p>
-      <div class="cfoot"><span class="cdate">📅 Unidad 1 · A2</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver lectura</button></div>
+      <div class="cfoot"><span class="cdate">📅 Unidad 1 · A2</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
     </div>
-    <div class="card" style="border-color:#e8c0c0" data-title="Lectura 2M N°2 — The Maritime Life" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-2m-02">
-      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Licencia · 2° M</span>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía para el Hogar N°2 — The Maritime Life" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-2m-02">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Hogar · 2° M</span>
       <h3>The Maritime Life</h3>
       <p>Habilidades de un oficial naval. CAN, Present Continuous y vocabulario profesional. A2.</p>
-      <div class="cfoot"><span class="cdate">📅 Unidad 1 · A2</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver lectura</button></div>
+      <div class="cfoot"><span class="cdate">📅 Unidad 1 · A2</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
     </div>
-    <div class="card" style="border-color:#e8c0c0" data-title="Lectura 2M N°3 — My Future Plans" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-2m-03">
-      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Licencia · 2° M</span>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía para el Hogar N°3 — My Future Plans" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-2m-03">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Hogar · 2° M</span>
       <h3>My Future Plans</h3>
       <p>Andrés y sus metas profesionales. Will, Going To, Future Continuous y opiniones. A2.</p>
-      <div class="cfoot"><span class="cdate">📅 Unidad 2 · A2</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver lectura</button></div>
+      <div class="cfoot"><span class="cdate">📅 Unidad 2 · A2</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
     </div>
-    <div class="card" style="border-color:#e8c0c0" data-title="Lectura 2M N°4 — A Survey About Preferences" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-2m-04">
-      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Licencia · 2° M</span>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía para el Hogar N°4 — A Survey About Preferences" data-subtitle="Trabajo en casa · Lee y responde en tu cuaderno" data-content="lec-2m-04">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Hogar · 2° M</span>
       <h3>A Survey About Preferences</h3>
       <p>Datos de encuesta escolar. Interpretar estadísticas y emitir opiniones justificadas. A2.</p>
-      <div class="cfoot"><span class="cdate">📅 Unidad 2 · A2</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver lectura</button></div>
+      <div class="cfoot"><span class="cdate">📅 Unidad 2 · A2</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
     </div>
-    <div class="card" style="border-color:#e8c0c0" data-title="Guía Dom. 2M N°5 — Feelings: Extended Practice" data-subtitle="Sentimientos y emociones — ampliado" data-content="lec-2m-05">
-      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Domiciliaria · 2° M</span>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía para el Hogar N°5 — Feelings: Extended Practice" data-subtitle="Sentimientos y emociones — ampliado" data-content="lec-2m-05">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Hogar · 2° M</span>
       <h3>Feelings — Extended Practice</h3>
       <p>30 emociones en contexto, when/because, situaciones cotidianas y escritura personal. A2.</p>
       <div class="cfoot"><span class="cdate">📅 Unidad 1 · A2</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
     </div>
-    <div class="card" style="border-color:#e8c0c0" data-title="Guía Dom. 2M N°6 — Sports and Music Around the World" data-subtitle="Deportes y música global" data-content="lec-2m-06">
-      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Domiciliaria · 2° M</span>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía para el Hogar N°6 — Sports and Music Around the World" data-subtitle="Deportes y música global" data-content="lec-2m-06">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Hogar · 2° M</span>
       <h3>Sports &amp; Music Around the World</h3>
       <p>Deportes globales (PLAY/GO/DO), géneros musicales, instrumentos. Reading + actividades. A2.</p>
       <div class="cfoot"><span class="cdate">📅 Unidad 1 · A2</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+    </div>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía para el Hogar N°7 — Comparatives and Superlatives" data-subtitle="Comparar ciudades, personas y cosas" data-content="lec-2m-07">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Hogar · 2° M</span>
+      <h3>Comparatives &amp; Superlatives</h3>
+      <p>Comparar con -er/-est, more/most. Texto sobre ciudades chilenas y producción escrita. A2.</p>
+      <div class="cfoot"><span class="cdate">📅 Unidad 2 · A2</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+    </div>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía para el Hogar N°8 — Past Simple: My Last Holiday" data-subtitle="Pasado simple · verbos regulares e irregulares" data-content="lec-2m-08">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Hogar · 2° M</span>
+      <h3>My Last Holiday</h3>
+      <p>Pasado Simple regular e irregular. Relato de vacaciones, negativo, preguntas y escritura. A2.</p>
+      <div class="cfoot"><span class="cdate">📅 Unidad 2 · A2</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+    </div>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía para el Hogar N°9 — Going To: Plans for Next Year" data-subtitle="Planes futuros con Going To" data-content="lec-2m-09">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Hogar · 2° M</span>
+      <h3>Plans for Next Year</h3>
+      <p>Going To para planes e intenciones. Contraste con Will, preguntas y escritura personal. A2.</p>
+      <div class="cfoot"><span class="cdate">📅 Unidad 3 · A2</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+    </div>
+    <div class="card" style="border-color:#e8c0c0" data-title="Guía para el Hogar N°10 — Modal Verbs: Can, Should, Must" data-subtitle="Verbos modales en contexto cotidiano" data-content="lec-2m-10">
+      <span class="ct" style="background:#fdf0f0;color:#7a1a1a">Hogar · 2° M</span>
+      <h3>Modal Verbs: Can, Should, Must</h3>
+      <p>Modales para habilidad, consejo y obligación. Reglamento escolar, situaciones y actividades. A2.</p>
+      <div class="cfoot"><span class="cdate">📅 Unidad 3 · A2</span><button class="btn" style="background:#7a1a1a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
     </div>
   </div>
 </div>
@@ -6439,7 +6517,7 @@ My favorite music is <span style="border-bottom:2px solid #1a6a8a;display:inline
 
 <template id="lec-1m-01">
 <div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
-<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:8px">🏠 GUÍA DOMICILIARIA — AUTOINSTRUCCIONAL</div>
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:8px">🏠 GUÍA PARA EL HOGAR — AUTOINSTRUCCIONAL</div>
 <p style="font-size:13px;color:#4a0a0a;margin:0 0 6px 0"><strong>Instrucciones:</strong> Lee el texto dos veces. Luego responde todas las actividades en tu cuaderno. Escribe la fecha y el título antes de comenzar.</p>
 <p style="font-size:13px;color:#4a0a0a;margin:0"><strong>Al volver al colegio:</strong> Entrega tu cuaderno al profesor con las actividades completas.</p></div>
 <button onclick="printGuide('lec-1m-01','The Sea and Its Wonders — 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
@@ -6514,7 +6592,7 @@ My favorite music is <span style="border-bottom:2px solid #1a6a8a;display:inline
 
 <template id="lec-1m-02">
 <div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
-<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA DOMICILIARIA — LEE Y RESPONDE EN TU CUADERNO</div>
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA PARA EL HOGAR — LEE Y RESPONDE EN TU CUADERNO</div>
 <p style="font-size:13px;color:#4a0a0a;margin:0">Lee el texto dos veces. Busca en el diccionario las palabras que no entiendas. Escribe todas las respuestas en tu cuaderno con fecha y título.</p></div>
 <button onclick="printGuide('lec-1m-02','A Day in Valparaíso — 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
 
@@ -6581,7 +6659,7 @@ My favorite music is <span style="border-bottom:2px solid #1a6a8a;display:inline
 
 <template id="lec-1m-03">
 <div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
-<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA DOMICILIARIA — LEE Y RESPONDE EN TU CUADERNO</div>
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA PARA EL HOGAR — LEE Y RESPONDE EN TU CUADERNO</div>
 <p style="font-size:13px;color:#4a0a0a;margin:0">Lee el texto dos veces. Responde en inglés siempre que sea posible.</p></div>
 <button onclick="printGuide('lec-1m-03','Jobs at Sea — 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
 
@@ -6633,7 +6711,7 @@ My favorite music is <span style="border-bottom:2px solid #1a6a8a;display:inline
 
 <template id="lec-1m-04">
 <div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
-<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA DOMICILIARIA — LEE Y RESPONDE EN TU CUADERNO</div>
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA PARA EL HOGAR — LEE Y RESPONDE EN TU CUADERNO</div>
 <p style="font-size:13px;color:#4a0a0a;margin:0">Lee el texto y responde todas las actividades. Presta atención especial a los posesivos y el apóstrofe.</p></div>
 <button onclick="printGuide('lec-1m-04','My Family Tree — 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
 
@@ -6938,9 +7016,9 @@ My favorite music is <span style="border-bottom:2px solid #1a6a8a;display:inline
 
 <template id="lec-1m-05">
 <div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:14px">
-<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA DOMICILIARIA — LEE Y RESPONDE EN TU CUADERNO</div>
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA PARA EL HOGAR — LEE Y RESPONDE EN TU CUADERNO</div>
 <p style="font-size:13px;color:#4a0a0a;margin:0">Lee el vocabulario, copia los ejemplos y responde todas las actividades. Escribe la fecha y el título.</p></div>
-<button onclick="printGuide('lec-1m-05','Classroom Objects — Guía Domiciliaria 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<button onclick="printGuide('lec-1m-05','Classroom Objects — Guía para el Hogar 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
 
 <h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:14px">📖 Classroom Objects — Objetos del Aula</h2>
 
@@ -7031,9 +7109,9 @@ My favorite music is <span style="border-bottom:2px solid #1a6a8a;display:inline
 
 <template id="lec-1m-06">
 <div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:14px">
-<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA DOMICILIARIA — LEE Y RESPONDE EN TU CUADERNO</div>
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA PARA EL HOGAR — LEE Y RESPONDE EN TU CUADERNO</div>
 <p style="font-size:13px;color:#4a0a0a;margin:0">Copia el vocabulario y responde todas las actividades en tu cuaderno.</p></div>
-<button onclick="printGuide('lec-1m-06','Days, Months and Numbers — Guía Domiciliaria 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<button onclick="printGuide('lec-1m-06','Days, Months and Numbers — Guía para el Hogar 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
 
 <h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:14px">📖 Days, Months and Numbers</h2>
 
@@ -7120,9 +7198,9 @@ My favorite music is <span style="border-bottom:2px solid #1a6a8a;display:inline
 
 <template id="lec-2m-05">
 <div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:14px">
-<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA DOMICILIARIA — LEE Y RESPONDE EN TU CUADERNO</div>
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA PARA EL HOGAR — LEE Y RESPONDE EN TU CUADERNO</div>
 <p style="font-size:13px;color:#4a0a0a;margin:0">Trabaja cada sección con calma. Usa el diccionario si necesitas. Responde en inglés siempre que sea posible.</p></div>
-<button onclick="printGuide('lec-2m-05','Feelings: Extended Practice — Guía Domiciliaria 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<button onclick="printGuide('lec-2m-05','Feelings: Extended Practice — Guía para el Hogar 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
 
 <h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:14px">📖 Feelings and Emotions — Extended Practice</h2>
 
@@ -7211,9 +7289,9 @@ I feel grateful <strong>when</strong> my family supports me.</p>
 
 <template id="lec-2m-06">
 <div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:14px">
-<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA DOMICILIARIA — LEE Y RESPONDE EN TU CUADERNO</div>
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA PARA EL HOGAR — LEE Y RESPONDE EN TU CUADERNO</div>
 <p style="font-size:13px;color:#4a0a0a;margin:0">Lee el texto y responde todas las actividades. Presta atención a PLAY, GO y DO con deportes.</p></div>
-<button onclick="printGuide('lec-2m-06','Sports and Music Around the World — Guía Domiciliaria 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<button onclick="printGuide('lec-2m-06','Sports and Music Around the World — Guía para el Hogar 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
 
 <h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:14px">📖 Sports and Music Around the World</h2>
 <p style="font-size:14px;line-height:1.9;margin-bottom:14px">Sport and music are two things that connect people across cultures. Billions of people around the world play sports, watch games, and listen to music every day. Some sports are played in specific countries; others have become global phenomena.</p>
@@ -7916,5 +7994,355 @@ I feel grateful <strong>when</strong> my family supports me.</p>
 <p>Practica tu One-Minute Talk en voz alta <strong>al menos 10 veces</strong> antes del día. Grábate al menos 2 veces. El día de la presentación, ya no estarás actuando: estarás comunicando.</p></div>
 </template>
 
+<!-- ═══ NUEVAS GUÍAS 1° MEDIO ═══ -->
+<template id="lec-1m-07">
+<div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA PARA EL HOGAR — LEE Y RESPONDE EN TU CUADERNO</div>
+<p style="font-size:13px;color:#4a0a0a;margin:0">Lee el texto dos veces. Responde todas las actividades en tu cuaderno con fecha y título.</p></div>
+<button onclick="printGuide('lec-1m-07','My Daily Routine — Guía para el Hogar 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 My Daily Routine</h2>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">My name is Lucas. I am 14 years old and I live in Viña del Mar. My daily routine is always the same from Monday to Friday. I wake up at 7:00 and go to the bathroom to wash my face and brush my teeth. Then I get dressed and have breakfast with my parents. I usually eat toast and drink a glass of milk.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">I leave home at 7:45 and take the bus to school. I always listen to music on the bus. School starts at 8:15. I study English, Mathematics, History, Science, and Physical Education. My favourite subject is English because my teacher makes the classes fun and interesting.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">I have lunch at 13:00 in the school canteen. I usually eat with my friends Carlos and Sofía. After lunch we sometimes play football in the playground. School finishes at 16:30.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:20px">In the evening, I do my homework first — I never leave it for the next day. Then I help my mother set the table for dinner. After dinner I relax and watch TV or play video games. I always go to bed at 22:00. On weekends I sleep until 9:00!</p>
+<div style="background:#f9e8e8;border:2px solid #c08080;border-radius:10px;padding:14px;margin-bottom:16px">
+<div style="font-size:12px;font-weight:700;color:#7a1a1a;margin-bottom:8px">📚 VOCABULARIO CLAVE</div>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="background:#7a1a1a;color:#fff"><th style="padding:6px">Inglés</th><th style="padding:6px">Español</th><th style="padding:6px">Inglés</th><th style="padding:6px">Español</th></tr>
+<tr style="border-bottom:1px solid #e0b0b0"><td style="padding:6px">wake up</td><td style="padding:6px">despertar(se)</td><td style="padding:6px">leave home</td><td style="padding:6px">salir de casa</td></tr>
+<tr style="background:#fff8f8"><td style="padding:6px">get dressed</td><td style="padding:6px">vestirse</td><td style="padding:6px">canteen</td><td style="padding:6px">comedor</td></tr>
+<tr><td style="padding:6px">homework</td><td style="padding:6px">tarea</td><td style="padding:6px">playground</td><td style="padding:6px">patio</td></tr></table></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 1 — Comprensión lectora ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>What time does Lucas wake up on school days?</li>
+<li>How does he get to school?</li>
+<li>What is his favourite subject and why?</li>
+<li>What does he do after school in the evening?</li>
+<li>What time does he go to bed? Why?</li></ol></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 2 — Verdadero (V) o Falso (F) ✏️ Corrige los falsos</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>Lucas lives in Valparaíso. ___</li>
+<li>He has breakfast alone. ___</li>
+<li>School starts at 8:00. ___</li>
+<li>He eats lunch with his parents. ___</li>
+<li>Lucas always does his homework before going to bed. ___</li>
+<li>On weekends he wakes up at 7:00. ___</li></ol></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 3 — Presente Simple: completa con el verbo correcto ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Usa: <strong>finishes / listens / gets up / plays / takes / leaves</strong></p>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>Lucas ___ at 7:00 every morning.</li>
+<li>He ___ the bus to school.</li>
+<li>He ___ to music on the bus.</li>
+<li>After lunch, he sometimes ___ football.</li>
+<li>School ___ at 16:30.</li>
+<li>He ___ home at 7:45.</li></ol>
+<div style="background:#fdf0f0;border-radius:6px;padding:8px 12px;margin-top:10px;font-size:12px;color:#7a1a1a"><strong>Respuestas:</strong> gets up · takes · listens · plays · finishes · leaves</div></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 4 — Adverbios de frecuencia ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Busca en el texto y copia en tu cuaderno las oraciones con: <strong>always / usually / sometimes / never</strong>.</p></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 5 — Tu rutina ✍️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Escribe un párrafo de 6–8 oraciones sobre TU rutina diaria. Incluye: hora en que te despiertas, desayuno, cómo llegas al colegio y qué haces por la tarde.</p></div>
+</template>
+
+<template id="lec-1m-08">
+<div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA PARA EL HOGAR — LEE Y RESPONDE EN TU CUADERNO</div>
+<p style="font-size:13px;color:#4a0a0a;margin:0">Lee el texto. Responde las actividades en tu cuaderno.</p></div>
+<button onclick="printGuide('lec-1m-08','My School Timetable — Guía para el Hogar 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 My School: Subjects and Timetable</h2>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">Hi! My name is Valentina and I study at a secondary school in Santiago. My school week is very busy. I have classes from Monday to Friday. Every day I have six periods of 45 minutes each. We have a break of 20 minutes at 10:30 and a lunch break at 13:00.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">On Mondays I have Mathematics, Spanish Language, English, History, and PE. I love PE because we go outside and play sports. On Tuesdays I have Science, Art, Music, and English again — we have English three times a week! Wednesday is my favourite day because I have Art in the morning.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:20px">My most difficult subject is Mathematics. I don't understand fractions very well, but my teacher is patient. My easiest subject is English because I study at home with apps and YouTube videos. I think learning English is very important for my future career.</p>
+<div style="background:#f9e8e8;border:2px solid #c08080;border-radius:10px;padding:14px;margin-bottom:16px">
+<div style="font-size:12px;font-weight:700;color:#7a1a1a;margin-bottom:8px">📚 ASIGNATURAS EN INGLÉS — Apréndetelas</div>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="background:#7a1a1a;color:#fff"><th style="padding:6px">Inglés</th><th style="padding:6px">Español</th><th style="padding:6px">Inglés</th><th style="padding:6px">Español</th></tr>
+<tr style="border-bottom:1px solid #e0b0b0"><td style="padding:6px">Mathematics</td><td style="padding:6px">Matemática</td><td style="padding:6px">History</td><td style="padding:6px">Historia</td></tr>
+<tr style="background:#fff8f8"><td style="padding:6px">Spanish Language</td><td style="padding:6px">Lengua y Literatura</td><td style="padding:6px">Science</td><td style="padding:6px">Ciencias Naturales</td></tr>
+<tr><td style="padding:6px">Physical Education (PE)</td><td style="padding:6px">Educación Física</td><td style="padding:6px">Art / Music</td><td style="padding:6px">Artes / Música</td></tr></table></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 1 — Comprensión ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>How many periods does Valentina have each day?</li>
+<li>How long is each period?</li>
+<li>What time is the morning break?</li>
+<li>How many times a week does she have English?</li>
+<li>Why is Mathematics difficult for her?</li></ol></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 2 — Relaciona (Matching) ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Conecta cada asignatura con su descripción:</p>
+<p style="font-size:14px;line-height:2.2;margin-left:16px">
+1. Mathematics &nbsp; 2. History &nbsp; 3. Science &nbsp; 4. PE<br>
+a. We learn about plants, animals and the human body.<br>
+b. We use numbers, fractions and formulas.<br>
+c. We learn about the past and important events.<br>
+d. We do sports and exercise outside.</p>
+<div style="background:#fdf0f0;border-radius:6px;padding:8px 12px;margin-top:8px;font-size:12px;color:#7a1a1a"><strong>Respuestas:</strong> 1-b · 2-c · 3-a · 4-d</div></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 3 — Traduce al inglés ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>Matemática → ___</li><li>Historia → ___</li><li>Educación Física → ___</li><li>Ciencias Naturales → ___</li><li>Música → ___</li></ol>
+<div style="background:#fdf0f0;border-radius:6px;padding:8px 12px;margin-top:8px;font-size:12px;color:#7a1a1a"><strong>Respuestas:</strong> Mathematics · History · Physical Education · Science · Music</div></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 4 — Tu horario ✍️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Escribe sobre TU horario: asignatura favorita, asignatura más difícil y por qué. Escribe 5–6 oraciones.</p></div>
+</template>
+
+<template id="lec-1m-09">
+<div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA PARA EL HOGAR — LEE Y RESPONDE EN TU CUADERNO</div>
+<p style="font-size:13px;color:#4a0a0a;margin:0">Lee el texto. Responde todas las actividades en tu cuaderno con fecha y título.</p></div>
+<button onclick="printGuide('lec-1m-09','Present Continuous — Guía para el Hogar 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 What's Happening at the Park?</h2>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">It is Saturday afternoon and many people are in the park. The weather is beautiful — the sun is shining and a soft wind is blowing. People are enjoying their free time in different ways.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">Near the fountain, two young boys are playing football. Their dog is running after the ball and barking loudly. A girl is sitting on the grass and reading a book. She is wearing headphones and listening to music at the same time. Her mother is standing nearby and talking on her phone.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">A group of teenagers is sitting at a picnic table. They are eating sandwiches and laughing together. One of them is taking photos with his phone. An elderly couple is walking slowly along the path, holding hands and talking quietly.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:20px">Near the pond, a man is feeding the ducks. Some children are pointing at the ducks and jumping with excitement. Two cyclists are riding their bikes along the track. Everybody is having a great time on this lovely Saturday afternoon.</p>
+<div style="background:#e8f5f7;border:2px solid #1a7a8a;border-radius:10px;padding:14px;margin-bottom:16px">
+<div style="font-size:12px;font-weight:700;color:#1a6a8a;margin-bottom:8px">📌 GRAMÁTICA: PRESENTE CONTINUO</div>
+<p style="font-size:13px;margin-bottom:6px"><strong>Estructura:</strong> Sujeto + BE (am/is/are) + VERBO-ING</p>
+<p style="font-size:13px;margin-bottom:6px">✅ She <strong>is reading</strong> a book. &nbsp;|&nbsp; They <strong>are eating</strong> sandwiches.</p>
+<p style="font-size:13px;margin-bottom:0">❓ <strong>Is</strong> she reading? — Yes, she <strong>is</strong>. / No, she <strong>isn't</strong>.</p></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 1 — Comprensión ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>What is the weather like in the park?</li>
+<li>What are the two boys doing?</li>
+<li>What is the girl near the fountain doing?</li>
+<li>What is the man near the pond doing?</li>
+<li>Why are the children jumping?</li></ol></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 2 — Identifica los verbos ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Copia del texto 8 verbos en Presente Continuo (is/are + VERB-ING) en tu cuaderno. Ejemplo: <em>is shining</em>.</p></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 3 — Completa con Presente Continuo ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Usa el verbo en paréntesis en Presente Continuo:</p>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>The dog ___ after the ball. (run)</li>
+<li>The teenagers ___ at a picnic table. (sit)</li>
+<li>The elderly couple ___ along the path. (walk)</li>
+<li>One teenager ___ photos. (take)</li>
+<li>The children ___ at the ducks. (point)</li></ol>
+<div style="background:#fdf0f0;border-radius:6px;padding:8px 12px;margin-top:10px;font-size:12px;color:#7a1a1a"><strong>Respuestas:</strong> is running · are sitting · is walking · is taking · are pointing</div></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 4 — Producción ✍️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Escribe 6 oraciones describiendo lo que las personas de tu casa están haciendo en este momento. Usa Presente Continuo. Ejemplo: <em>My mother is cooking lunch.</em></p></div>
+</template>
+
+<template id="lec-1m-10">
+<div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA PARA EL HOGAR — LEE Y RESPONDE EN TU CUADERNO</div>
+<p style="font-size:13px;color:#4a0a0a;margin:0">Lee el texto dos veces. Responde las actividades en tu cuaderno con fecha y título.</p></div>
+<button onclick="printGuide('lec-1m-10','Describing People and Places — Guía para el Hogar 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 My Best Friend and My Neighbourhood</h2>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">My best friend is Nicolás. He is 15 years old and he is tall and thin. He has short, dark hair and brown eyes. He always wears glasses. He is very funny and friendly, but sometimes he is a bit shy with people he doesn't know. He is also very intelligent and hardworking — he always gets good marks at school.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">Nicolás loves playing video games and watching science documentaries. He is not very sporty, but he can ride a bike very fast. He speaks quietly and is always calm. I think he is a great friend because he is kind and honest.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">I live in a neighbourhood called Barrio Italia in Santiago. It is a colourful and lively area. The streets are narrow and there are many trees. There are small cafés, bookshops, and vintage stores on every corner. It is always busy and full of life.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:20px">My favourite place is a small park near my house. It has a big fountain, some benches, and lots of green grass. It is peaceful and quiet in the mornings. I love sitting there and reading on sunny days.</p>
+<div style="background:#f9e8e8;border:2px solid #c08080;border-radius:10px;padding:14px;margin-bottom:16px">
+<div style="font-size:12px;font-weight:700;color:#7a1a1a;margin-bottom:8px">📚 ADJETIVOS DEL TEXTO</div>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="background:#7a1a1a;color:#fff"><th style="padding:6px">Apariencia</th><th style="padding:6px">Personalidad</th><th style="padding:6px">Lugares</th></tr>
+<tr><td style="padding:7px">tall · thin · short · dark · brown</td><td style="padding:7px">funny · friendly · shy · intelligent · hardworking · kind · honest</td><td style="padding:7px">colourful · lively · narrow · peaceful · quiet · busy</td></tr></table></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 1 — Comprensión ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>Describe Nicolás physically (3 details).</li>
+<li>What are 2 personality adjectives for Nicolás?</li>
+<li>What does Nicolás like doing in his free time?</li>
+<li>Where does the writer live?</li>
+<li>What is the writer's favourite place?</li></ol></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 2 — Clasifica los adjetivos ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Crea una tabla en tu cuaderno con las columnas <strong>Apariencia / Personalidad / Lugar</strong> y clasifica: <em>colourful · shy · tall · peaceful · kind · dark · narrow · funny · lively · brown · quiet · hardworking</em></p></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 3 — Completa con adjetivos ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Usa: <strong>friendly / narrow / peaceful / intelligent / busy</strong></p>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>The streets in Barrio Italia are ___ and full of trees.</li>
+<li>Nicolás is very ___ — he always gets good marks.</li>
+<li>The park is ___ and quiet in the mornings.</li>
+<li>The neighbourhood is always ___ and full of life.</li>
+<li>Nicolás is ___ — he talks to everyone.</li></ol>
+<div style="background:#fdf0f0;border-radius:6px;padding:8px 12px;margin-top:10px;font-size:12px;color:#7a1a1a"><strong>Respuestas:</strong> narrow · intelligent · peaceful · busy · friendly</div></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 4 — Producción ✍️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Describe a un amigo/a y el lugar donde vives. Dos párrafos de 4–5 oraciones. Usa al menos 6 adjetivos diferentes.</p></div>
+</template>
+
+<!-- ═══ NUEVAS GUÍAS 2° MEDIO ═══ -->
+<template id="lec-2m-07">
+<div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA PARA EL HOGAR — LEE Y RESPONDE EN TU CUADERNO</div>
+<p style="font-size:13px;color:#4a0a0a;margin:0">Lee el texto dos veces. Responde las actividades en tu cuaderno con fecha y título.</p></div>
+<button onclick="printGuide('lec-2m-07','Comparatives and Superlatives — Guía para el Hogar 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 Three Cities, One Country</h2>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">Chile is a long, narrow country with many different cities. Three of the most popular are Santiago, Valparaíso, and Pucón — interesting but very different from each other.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">Santiago is the capital and the biggest city in Chile, with over seven million people. It is much larger than Valparaíso, which has around 300,000 inhabitants. Santiago is more modern, with tall skyscrapers and an extensive metro network. However, it is also more expensive and more polluted. Traffic is heavier and life moves faster there.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">Valparaíso is smaller but more colourful and artistic than Santiago. Its hills are covered in beautiful street art and its architecture is older and more interesting. Many people say it is the most creative city in Chile. It is also more affordable.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:20px">Pucón is the smallest of the three but also the most beautiful, according to tourists. Located next to a lake and an active volcano, the air is the cleanest and the nature is the most spectacular. It is quieter and more relaxed than both Santiago and Valparaíso. For outdoor lovers, Pucón is the best destination in Chile.</p>
+<div style="background:#e8f5f7;border:2px solid #1a7a8a;border-radius:10px;padding:14px;margin-bottom:16px">
+<div style="font-size:12px;font-weight:700;color:#1a6a8a;margin-bottom:8px">📌 COMPARATIVOS Y SUPERLATIVOS</div>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="background:#1a6a8a;color:#fff"><th style="padding:6px">Tipo</th><th style="padding:6px">Regla</th><th style="padding:6px">Ejemplo</th></tr>
+<tr style="border-bottom:1px solid #b0d8e0"><td style="padding:6px">Corto (1 sílaba)</td><td style="padding:6px">adj + -er / the adj + -est</td><td style="padding:6px">big → bigger / the biggest</td></tr>
+<tr style="border-bottom:1px solid #b0d8e0;background:#f0f8fa"><td style="padding:6px">Largo (2+ sílabas)</td><td style="padding:6px">more + adj / the most + adj</td><td style="padding:6px">creative → more creative / the most creative</td></tr>
+<tr><td style="padding:6px">Irregular</td><td style="padding:6px">good→better/the best · bad→worse/the worst</td><td style="padding:6px">Pucón is the best destination.</td></tr></table></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 1 — Comprensión ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>Which is the largest city? How many people live there?</li>
+<li>Which city is the most creative?</li>
+<li>Why is Pucón special according to tourists?</li>
+<li>What makes Santiago more negative compared to the others?</li></ol></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 2 — Forma el comparativo y superlativo ✏️</div>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="background:#7a1a1a;color:#fff"><th style="padding:6px">Adjetivo</th><th style="padding:6px">Comparativo</th><th style="padding:6px">Superlativo</th></tr>
+<tr style="border-bottom:1px solid #e0b0b0"><td style="padding:8px">big</td><td style="padding:8px">___</td><td style="padding:8px">___</td></tr>
+<tr style="border-bottom:1px solid #e0b0b0;background:#fff8f8"><td style="padding:8px">expensive</td><td style="padding:8px">___</td><td style="padding:8px">___</td></tr>
+<tr style="border-bottom:1px solid #e0b0b0"><td style="padding:8px">quiet</td><td style="padding:8px">___</td><td style="padding:8px">___</td></tr>
+<tr style="background:#fff8f8"><td style="padding:8px">good</td><td style="padding:8px">___</td><td style="padding:8px">___</td></tr></table>
+<div style="background:#fdf0f0;border-radius:6px;padding:8px 12px;margin-top:10px;font-size:12px;color:#7a1a1a"><strong>Respuestas:</strong> bigger / the biggest · more expensive / the most expensive · quieter / the quietest · better / the best</div></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 3 — Producción ✍️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Compara dos lugares que conoces bien (ciudades, barrios, colegios). Escribe 6–8 oraciones usando comparativos y superlativos.</p></div>
+</template>
+
+<template id="lec-2m-08">
+<div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA PARA EL HOGAR — LEE Y RESPONDE EN TU CUADERNO</div>
+<p style="font-size:13px;color:#4a0a0a;margin:0">Lee el texto. Responde todas las actividades en tu cuaderno con fecha y título.</p></div>
+<button onclick="printGuide('lec-2m-08','Past Simple — Guía para el Hogar 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 My Last Holiday</h2>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">Last January, my family and I travelled to Puerto Varas for two weeks. We left Valparaíso early in the morning and took a bus to Santiago. From there, we caught a flight to Puerto Montt — about two hours. We arrived at our hostel in the afternoon and immediately went for a walk by the lake.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">The first day, we visited the Osorno volcano. It was covered in snow and looked absolutely spectacular. We took hundreds of photos. In the evening, we ate traditional German food because Puerto Varas has a strong German heritage. It was delicious.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">On the second day, we went kayaking on Lake Llanquihue. I was a bit nervous because I had never kayaked before, but my instructor was patient and helped me a lot. By the end of the morning I felt confident and enjoyed it a great deal.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:20px">Unfortunately, on the last day it rained heavily and we stayed in the hostel. My brother and I played board games and watched movies. We didn't go outside at all. But overall, it was an amazing holiday. I want to go back next year!</p>
+<div style="background:#e8f5f7;border:2px solid #1a7a8a;border-radius:10px;padding:14px;margin-bottom:16px">
+<div style="font-size:12px;font-weight:700;color:#1a6a8a;margin-bottom:8px">📌 PASADO SIMPLE — VERBOS DEL TEXTO</div>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="background:#1a6a8a;color:#fff"><th style="padding:6px">Infinitivo</th><th style="padding:6px">Pasado</th><th style="padding:6px">Tipo</th><th style="padding:6px">Infinitivo</th><th style="padding:6px">Pasado</th><th style="padding:6px">Tipo</th></tr>
+<tr style="border-bottom:1px solid #b0d8e0"><td style="padding:5px">travel</td><td style="padding:5px">travelled</td><td style="padding:5px">Regular</td><td style="padding:5px">take</td><td style="padding:5px">took</td><td style="padding:5px">Irregular</td></tr>
+<tr style="background:#f0f8fa"><td style="padding:5px">arrive</td><td style="padding:5px">arrived</td><td style="padding:5px">Regular</td><td style="padding:5px">go</td><td style="padding:5px">went</td><td style="padding:5px">Irregular</td></tr>
+<tr><td style="padding:5px">eat</td><td style="padding:5px">ate</td><td style="padding:5px">Irregular</td><td style="padding:5px">feel</td><td style="padding:5px">felt</td><td style="padding:5px">Irregular</td></tr></table></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 1 — Comprensión ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>Where did the family travel to?</li>
+<li>How did they get from Santiago to Puerto Montt?</li>
+<li>What did they visit on the first day?</li>
+<li>Why was the writer nervous on the second day?</li>
+<li>What did they do on the last day and why?</li></ol></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 2 — Forma el Pasado Simple ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Escribe el pasado. Indica si es Regular (R) o Irregular (I):</p>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>visit → ___ (___)</li><li>leave → ___ (___)</li>
+<li>catch → ___ (___)</li><li>see → ___ (___)</li>
+<li>play → ___ (___)</li><li>have → ___ (___)</li></ol>
+<div style="background:#fdf0f0;border-radius:6px;padding:8px 12px;margin-top:10px;font-size:12px;color:#7a1a1a"><strong>Respuestas:</strong> visited (R) · left (I) · caught (I) · saw (I) · played (R) · had (I)</div></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 3 — Negaciones y preguntas ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>They travelled by bus. → (negativa) They ___ by bus.</li>
+<li>The family stayed at a hostel. → (pregunta) Where ___?</li>
+<li>It rained on the last day. → (negativa) It ___ on the last day.</li></ol>
+<div style="background:#fdf0f0;border-radius:6px;padding:8px 12px;margin-top:10px;font-size:12px;color:#7a1a1a"><strong>Respuestas:</strong> didn't travel · did the family stay? · didn't rain</div></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 4 — Producción ✍️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Escribe sobre tus últimas vacaciones o un fin de semana memorable. ¿A dónde fuiste? ¿Qué hiciste? ¿Cómo te sentiste? 7–9 oraciones en Pasado Simple.</p></div>
+</template>
+
+<template id="lec-2m-09">
+<div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA PARA EL HOGAR — LEE Y RESPONDE EN TU CUADERNO</div>
+<p style="font-size:13px;color:#4a0a0a;margin:0">Lee el texto con atención. Responde las actividades en tu cuaderno con fecha y título.</p></div>
+<button onclick="printGuide('lec-2m-09','Going To — Guía para el Hogar 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 My Plans for Next Year</h2>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">My name is Fernanda and I am in my second year of secondary school. Next year is going to be very important for me because I am going to start preparing for my university entrance exams. I know it is going to be a challenging year, but I feel ready for it.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">In terms of school, I am going to work harder in Mathematics because it is my weakest subject. I am not going to leave my homework until the last minute anymore. I am also going to join the school's English club to practise more. My teacher says it is a great way to improve speaking skills.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">Outside school, my best friend and I are going to start running three times a week and join a local running club. I want to run a 5K race by December. I'm also going to learn how to cook — my grandmother is going to teach me her recipes every Sunday.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:20px">I am not going to spend so much time on social media. It wastes a lot of time. Instead, I am going to read more books and spend more time with my family. I think next year is going to be the best year of my life so far!</p>
+<div style="background:#e8f5f7;border:2px solid #1a7a8a;border-radius:10px;padding:14px;margin-bottom:16px">
+<div style="font-size:12px;font-weight:700;color:#1a6a8a;margin-bottom:8px">📌 GOING TO — ESTRUCTURA</div>
+<p style="font-size:13px;margin-bottom:4px"><strong>Afirmativo:</strong> I / She / We + am/is/are + going to + verbo base</p>
+<p style="font-size:13px;margin-bottom:4px"><strong>Negativo:</strong> I / She / We + am not/isn't/aren't + going to + verbo base</p>
+<p style="font-size:13px;margin-bottom:4px"><strong>Pregunta:</strong> Am/Is/Are + sujeto + going to + verbo base?</p>
+<p style="font-size:13px;margin-bottom:0">🎯 <strong>Uso:</strong> planes e intenciones decididas con anticipación.</p></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 1 — Comprensión ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>Why is next year going to be important for Fernanda?</li>
+<li>What is she going to do about Mathematics?</li>
+<li>What physical activity is she going to do with her friend?</li>
+<li>What is she NOT going to do as much?</li>
+<li>Who is going to teach her to cook?</li></ol></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 2 — Completa con Going To ✏️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Usa la forma correcta de <em>going to</em> y el verbo en paréntesis:</p>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>Fernanda ___ harder next year. (work)</li>
+<li>She and her friend ___ running. (start)</li>
+<li>She ___ so much time on social media. (not spend)</li>
+<li>Her grandmother ___ her to cook. (teach)</li>
+<li>___ she ___ the English club? Yes, she ___. (join)</li></ol>
+<div style="background:#fdf0f0;border-radius:6px;padding:8px 12px;margin-top:10px;font-size:12px;color:#7a1a1a"><strong>Respuestas:</strong> is going to work · are going to start · is not going to spend · is going to teach · Is…going to join / is</div></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 3 — Tus planes ✍️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Escribe 8 oraciones sobre TUS planes para el próximo año usando <em>going to</em>. Incluye afirmativo y negativo. Habla de estudios, deporte, pasatiempos y algo que NO vas a hacer.</p></div>
+</template>
+
+<template id="lec-2m-10">
+<div style="background:#fdf0f0;border-left:4px solid #7a1a1a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#7a1a1a;margin-bottom:6px">🏠 GUÍA PARA EL HOGAR — LEE Y RESPONDE EN TU CUADERNO</div>
+<p style="font-size:13px;color:#4a0a0a;margin:0">Lee el texto atentamente. Responde todas las actividades en tu cuaderno con fecha y título.</p></div>
+<button onclick="printGuide('lec-2m-10','Modal Verbs — Guía para el Hogar 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<h2 style="font-size:18px;color:#7a1a1a;border-bottom:2px solid #7a1a1a;padding-bottom:6px;margin-top:16px">📖 School Rules and Advice: Can, Should, Must</h2>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px">Dear Students, welcome to our school. Please read this information carefully. It explains our school rules and advice from the student council.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px"><strong>Things you MUST do:</strong> You must arrive on time every day — classes start at 8:15 and you must be in your classroom before the bell rings. You must wear your complete uniform. You must respect all teachers and classmates. You must turn off your mobile phone during lessons.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:14px"><strong>Things you CAN do:</strong> You can use the school library until 18:00. You can bring your own food to eat during the lunch break. You can join any of our 12 after-school clubs. You can speak to a counsellor if you feel stressed or have personal problems.</p>
+<p style="font-size:14px;line-height:1.9;margin-bottom:20px"><strong>Things you SHOULD do:</strong> You should study for at least one hour every evening. You should participate actively in class — it helps you learn. You should ask for help when you don't understand something. You should eat breakfast before school; research shows it improves concentration and performance.</p>
+<div style="background:#e8f5f7;border:2px solid #1a7a8a;border-radius:10px;padding:14px;margin-bottom:16px">
+<div style="font-size:12px;font-weight:700;color:#1a6a8a;margin-bottom:8px">📌 VERBOS MODALES — SIGNIFICADO Y USO</div>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="background:#1a6a8a;color:#fff"><th style="padding:6px">Modal</th><th style="padding:6px">Significado</th><th style="padding:6px">Ejemplo</th></tr>
+<tr style="border-bottom:1px solid #b0d8e0"><td style="padding:6px"><strong>must</strong></td><td style="padding:6px">Obligación fuerte / regla</td><td style="padding:6px">You must wear your uniform.</td></tr>
+<tr style="border-bottom:1px solid #b0d8e0;background:#f0f8fa"><td style="padding:6px"><strong>can</strong></td><td style="padding:6px">Permiso / habilidad</td><td style="padding:6px">You can use the library.</td></tr>
+<tr><td style="padding:6px"><strong>should</strong></td><td style="padding:6px">Consejo / recomendación</td><td style="padding:6px">You should eat breakfast.</td></tr></table></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 1 — Comprensión ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>What time must students be in their classroom?</li>
+<li>What must students do with their mobile phones?</li>
+<li>How late can students use the library?</li>
+<li>Why should students eat breakfast?</li>
+<li>What should students do when they don't understand something?</li></ol></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px;margin-bottom:14px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 2 — Completa con can / should / must ✏️</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>You ___ arrive late to school. (obligación negativa)</li>
+<li>You ___ join an after-school club if you want. (permiso)</li>
+<li>You ___ study every evening. (consejo)</li>
+<li>You ___ respect your teachers. (obligación)</li>
+<li>You ___ speak to a counsellor if you feel stressed. (permiso)</li></ol>
+<div style="background:#fdf0f0;border-radius:6px;padding:8px 12px;margin-top:10px;font-size:12px;color:#7a1a1a"><strong>Respuestas:</strong> mustn't · can · should · must · can</div></div>
+<div style="background:#fff;border:2px solid #e0b0b0;border-radius:10px;padding:16px">
+<div style="font-size:13px;font-weight:700;color:#7a1a1a;margin-bottom:10px">ACTIVIDAD 3 — Producción ✍️</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Escribe un mensaje de bienvenida para un alumno nuevo en tu colegio. Incluye: 3 cosas que <em>must</em> hacer, 3 que <em>can</em> hacer, y 3 consejos con <em>should</em>.</p></div>
+</template>
+
+<footer style="background:var(--navy);color:rgba(255,255,255,.55);text-align:center;padding:28px 20px;font-size:12px;margin-top:0;letter-spacing:.3px">
+  <div style="max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap">
+    <span style="color:rgba(255,255,255,.35);font-size:18px">⚓</span>
+    <span>Instituto Marítimo de Valparaíso &nbsp;·&nbsp; Inglés Técnico-Profesional</span>
+    <span style="color:rgba(255,255,255,.25)">|</span>
+    <span>Material de uso interno — Dept. Inglés</span>
+  </div>
+</footer>
 </body>
 </html>
