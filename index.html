@@ -259,6 +259,27 @@ main{max-width:1140px;margin:0 auto;padding:48px 24px 110px}
 .app-name{font-weight:700;font-size:13px;color:var(--navy)}
 .app-desc{font-size:12px;color:var(--muted);margin-top:2px}
 .app-free{font-size:10px;font-weight:700;background:#e6f4f7;color:var(--teal);padding:2px 7px;border-radius:10px;display:inline-block;margin-top:3px}
+/* ─── REEMPLAZO ─── */
+.tbtn.trpl{border-color:#2a5a8a;color:#2a5a8a}
+.tbtn.trpl.active{background:#2a5a8a;border-color:#2a5a8a;color:#fff;box-shadow:0 4px 14px rgba(42,90,138,.22);font-weight:600}
+.sh.rpv::before{background:#2a5a8a}
+.rpl-subbtn{padding:8px 20px;border-radius:20px;border:2px solid #2a5a8a;background:#fff;color:#2a5a8a;
+  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .18s;margin-bottom:8px}
+.rpl-subbtn:hover{background:#eef3f8}
+.rpl-subbtn.rav{background:#2a5a8a;color:#fff}
+.rpl-sub{display:none}.rpl-sub.vis{display:block}
+.crpl{background:#e8f0f8;color:#2a5a8a}
+.rbox{background:linear-gradient(135deg,#152f50,#2a5a8a);color:#fff;border-radius:var(--r);padding:20px 24px;margin-bottom:28px}
+.rbox h3{font-family:'New York',Georgia,serif;font-size:17px;margin-bottom:10px}
+.rbox p{font-size:13px;line-height:1.7;color:rgba(255,255,255,.85);margin-bottom:8px}
+.rbox p:last-child{margin-bottom:0}
+.rtag{display:inline-block;background:rgba(255,255,255,.2);font-size:11px;font-weight:600;padding:3px 10px;border-radius:12px;margin:3px 3px 3px 0}
+.mhdr.ar{background:#1a3a5a}
+.rpl-reading{background:#f5f8fc;border:1.5px solid #c0d4ea;border-radius:10px;padding:18px 20px;margin-bottom:18px;font-size:14px;line-height:1.8}
+.rpl-reading h4{font-family:'New York',Georgia,serif;font-size:15px;color:#1a3a5a;margin-bottom:10px;padding-bottom:6px;border-bottom:1.5px solid #c0d4ea}
+.rpl-ex{background:#fff;border:2px solid #c0d4ea;border-radius:10px;padding:16px;margin-bottom:14px}
+.rpl-ex-title{font-size:13px;font-weight:700;color:#2a5a8a;margin-bottom:10px}
+.rpl-badge{display:inline-block;background:#2a5a8a;color:#fff;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:12px;margin-bottom:14px}
 /* ANSWER TOGGLE */
 .ans-btn{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1.5px solid var(--teal);
   color:var(--teal);padding:6px 16px;border-radius:20px;font-family:'DM Sans',sans-serif;
@@ -325,6 +346,7 @@ main{max-width:1140px;margin:0 auto;padding:48px 24px 110px}
     <button class="tbtn tpie"    onclick="show('pie',this)">🌟 DUA</button>
     <button class="tbtn tlec" onclick="show('lec',this)">🏠 Guías para el Hogar</button>
     <button class="tbtn tpro" onclick="show('pro',this)">🗣️ Pronunciación</button>
+    <button class="tbtn trpl" onclick="show('rpl',this)">🔄 Reemplazo</button>
   </div>
 
 <script>
@@ -427,6 +449,7 @@ function closeMO(e){
 }
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeM();});
 function showPro(id,btn){document.querySelectorAll('.pro-subbtn').forEach(b=>b.classList.remove('pav'));btn.classList.add('pav');document.querySelectorAll('.pro-sub').forEach(s=>s.classList.toggle('vis',s.id===id));}
+function showRem(id,btn){document.querySelectorAll('.rpl-subbtn').forEach(b=>b.classList.remove('rav'));btn.classList.add('rav');document.querySelectorAll('.rpl-sub').forEach(s=>s.classList.toggle('vis',s.id===id));}
 </script>
 
 <!-- ═══════════ 1° MEDIO ═══════════ -->
@@ -1262,6 +1285,160 @@ function showPro(id,btn){document.querySelectorAll('.pro-subbtn').forEach(b=>b.c
     </div>
   </div><!-- close pro2m -->
 </div><!-- close sec-pro -->
+
+<!-- ═══════════ REEMPLAZO ═══════════ -->
+<div class="sec" id="sec-rpl">
+  <div class="sh rpv">🔄 Material de Reemplazo</div>
+
+  <div class="rbox">
+    <h3>📋 Guías Autoinstruccionales para Clase de Reemplazo</h3>
+    <p>Material diseñado para que los estudiantes trabajen en forma autónoma durante clases con docente de reemplazo. Cada guía incluye vocabulario, lectura auténtica y ejercicios graduados. El docente de reemplazo solo debe entregar la guía impresa e indicar que trabajen en silencio.</p>
+    <p><strong>Para imprimir:</strong> Haz clic en la guía, luego usa el botón 🖨️ Imprimir. Imprime una copia por estudiante antes de la clase.</p>
+    <span class="rtag">🖨️ Todas las guías son imprimibles</span>
+    <span class="rtag">⏱️ 45–90 min.</span>
+    <span class="rtag">✅ Autoinstruccional</span>
+    <span class="rtag">📐 Formato A4</span>
+  </div>
+
+  <div style="display:flex;gap:10px;margin-bottom:28px;flex-wrap:wrap">
+    <button onclick="showRem('rpl1m',this)" class="rpl-subbtn rav">📘 1° Medio</button>
+    <button onclick="showRem('rpl2m',this)" class="rpl-subbtn">📗 2° Medio</button>
+  </div>
+
+  <!-- 1° MEDIO -->
+  <div id="rpl1m" class="rpl-sub vis">
+    <div class="cat" style="color:#2a5a8a">📘 Guías de Reemplazo — 1° Medio · Nivel A1</div>
+    <div class="grid">
+      <div class="card" style="border-color:#c0d4ea" data-title="Reemplazo 1M N°1 — At the Swimming Pool" data-subtitle="Reading skills practice · Nivel A1" data-content="rpl-1m-01" data-adv="rpl">
+        <span class="ct crpl">Reemplazo · 1° M</span>
+        <h3>At the Swimming Pool</h3>
+        <p>Lee el reglamento de la piscina. Ejercicios de agrupación, verdadero/falso y escritura. A1.</p>
+        <div class="cfoot"><span class="cdate">📅 A1 · 45 min</span><button class="btn" style="background:#2a5a8a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+      </div>
+      <div class="card" style="border-color:#c0d4ea" data-title="Reemplazo 1M N°2 — The Language School" data-subtitle="Reading skills practice · Nivel A1" data-content="rpl-1m-02" data-adv="rpl">
+        <span class="ct crpl">Reemplazo · 1° M</span>
+        <h3>The Language School</h3>
+        <p>Lee el folleto de una escuela de idiomas en Londres. Selección múltiple y comprensión. A1.</p>
+        <div class="cfoot"><span class="cdate">📅 A1 · 45 min</span><button class="btn" style="background:#2a5a8a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+      </div>
+      <div class="card" style="border-color:#c0d4ea" data-title="Reemplazo 1M N°3 — At the Train Station" data-subtitle="Reading skills practice · Nivel A1" data-content="rpl-1m-03" data-adv="rpl">
+        <span class="ct crpl">Reemplazo · 1° M</span>
+        <h3>At the Train Station</h3>
+        <p>Lee un boleto de tren. Verdadero/Falso, vocabulario de transporte y relaciones. A1.</p>
+        <div class="cfoot"><span class="cdate">📅 A1 · 45 min</span><button class="btn" style="background:#2a5a8a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+      </div>
+      <div class="card" style="border-color:#c0d4ea" data-title="Reemplazo 1M N°4 — At the Restaurant" data-subtitle="Reading skills practice · Nivel A1" data-content="rpl-1m-04" data-adv="rpl">
+        <span class="ct crpl">Reemplazo · 1° M</span>
+        <h3>At the Restaurant</h3>
+        <p>Lee un menú de restaurante. Agrupa platos, verdadero/falso y escribe tu pedido. A1.</p>
+        <div class="cfoot"><span class="cdate">📅 A1 · 45 min</span><button class="btn" style="background:#2a5a8a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+      </div>
+      <div class="card" style="border-color:#c0d4ea" data-title="Reemplazo 1M N°5 — On the Telephone" data-subtitle="Reading skills practice · Nivel A1" data-content="rpl-1m-05" data-adv="rpl">
+        <span class="ct crpl">Reemplazo · 1° M</span>
+        <h3>On the Telephone</h3>
+        <p>Lee mensajes de texto y una conversación telefónica. Abreviaciones y comprensión. A1.</p>
+        <div class="cfoot"><span class="cdate">📅 A1 · 45 min</span><button class="btn" style="background:#2a5a8a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+      </div>
+      <div class="card" style="border-color:#c0d4ea" data-title="Reemplazo 1M N°6 — At the Supermarket" data-subtitle="Reading skills practice · Nivel A1" data-content="rpl-1m-06" data-adv="rpl">
+        <span class="ct crpl">Reemplazo · 1° M</span>
+        <h3>At the Supermarket</h3>
+        <p>Lee una lista de compras y folleto de ofertas. Agrupación de alimentos y precios. A1.</p>
+        <div class="cfoot"><span class="cdate">📅 A1 · 45 min</span><button class="btn" style="background:#2a5a8a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+      </div>
+      <div class="card" style="border-color:#c0d4ea" data-title="Reemplazo 1M N°7 — My Bedroom" data-subtitle="Vocabulary practice · Nivel A1" data-content="rpl-1m-07" data-adv="rpl">
+        <span class="ct crpl">Reemplazo · 1° M</span>
+        <h3>My Bedroom</h3>
+        <p>Vocabulario de muebles y objetos. Lee una descripción y completa ejercicios. A1.</p>
+        <div class="cfoot"><span class="cdate">📅 A1 · 45 min</span><button class="btn" style="background:#2a5a8a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+      </div>
+      <div class="card" style="border-color:#c0d4ea" data-title="Reemplazo 1M N°8 — Weather and Seasons" data-subtitle="Reading &amp; vocabulary · Nivel A1" data-content="rpl-1m-08" data-adv="rpl">
+        <span class="ct crpl">Reemplazo · 1° M</span>
+        <h3>Weather and Seasons</h3>
+        <p>El tiempo y las estaciones del año. Lee un pronóstico y responde ejercicios. A1.</p>
+        <div class="cfoot"><span class="cdate">📅 A1 · 45 min</span><button class="btn" style="background:#2a5a8a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+      </div>
+      <div class="card" style="border-color:#c0d4ea" data-title="Reemplazo 1M N°9 — A Sports Day" data-subtitle="Reading skills practice · Nivel A1" data-content="rpl-1m-09" data-adv="rpl">
+        <span class="ct crpl">Reemplazo · 1° M</span>
+        <h3>A Sports Day</h3>
+        <p>Lee un aviso sobre el día deportivo del colegio. Comprensión y vocabulario de deportes. A1.</p>
+        <div class="cfoot"><span class="cdate">📅 A1 · 45 min</span><button class="btn" style="background:#2a5a8a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+      </div>
+      <div class="card" style="border-color:#c0d4ea" data-title="Reemplazo 1M N°10 — Animals and Nature" data-subtitle="Reading &amp; vocabulary · Nivel A1" data-content="rpl-1m-10" data-adv="rpl">
+        <span class="ct crpl">Reemplazo · 1° M</span>
+        <h3>Animals and Nature</h3>
+        <p>Animales y hábitats. Lee un artículo de revista y responde comprensión y vocabulario. A1.</p>
+        <div class="cfoot"><span class="cdate">📅 A1 · 45 min</span><button class="btn" style="background:#2a5a8a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+      </div>
+    </div>
+  </div><!-- close rpl1m -->
+
+  <!-- 2° MEDIO -->
+  <div id="rpl2m" class="rpl-sub">
+    <div class="cat" style="color:#2a5a8a">📗 Guías de Reemplazo — 2° Medio · Nivel A1–A2</div>
+    <div class="grid">
+      <div class="card" style="border-color:#c0d4ea" data-title="Reemplazo 2M N°1 — Appearance" data-subtitle="Vocabulary practice · Nivel A1–A2" data-content="rpl-2m-01" data-adv="rpl">
+        <span class="ct crpl">Reemplazo · 2° M</span>
+        <h3>Appearance</h3>
+        <p>Vocabulario para describir la apariencia física: adjetivos y opuestos. A1–A2.</p>
+        <div class="cfoot"><span class="cdate">📅 A1–A2 · 45 min</span><button class="btn" style="background:#2a5a8a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+      </div>
+      <div class="card" style="border-color:#c0d4ea" data-title="Reemplazo 2M N°2 — Finding a Home" data-subtitle="Reading skills practice · Nivel A2" data-content="rpl-2m-02" data-adv="rpl">
+        <span class="ct crpl">Reemplazo · 2° M</span>
+        <h3>Finding a Home</h3>
+        <p>Lee clasificados de arriendo. Ejercicios de relación, selección múltiple y escritura. A2.</p>
+        <div class="cfoot"><span class="cdate">📅 A2 · 45 min</span><button class="btn" style="background:#2a5a8a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+      </div>
+      <div class="card" style="border-color:#c0d4ea" data-title="Reemplazo 2M N°3 — At the Airport" data-subtitle="Reading skills practice · Nivel A2" data-content="rpl-2m-03" data-adv="rpl">
+        <span class="ct crpl">Reemplazo · 2° M</span>
+        <h3>At the Airport</h3>
+        <p>Lee un tablero de vuelos y avisos de aeropuerto. Comprensión y vocabulario de viajes. A2.</p>
+        <div class="cfoot"><span class="cdate">📅 A2 · 45 min</span><button class="btn" style="background:#2a5a8a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+      </div>
+      <div class="card" style="border-color:#c0d4ea" data-title="Reemplazo 2M N°4 — Social Media" data-subtitle="Reading skills practice · Nivel A2" data-content="rpl-2m-04" data-adv="rpl">
+        <span class="ct crpl">Reemplazo · 2° M</span>
+        <h3>Social Media</h3>
+        <p>Lee perfiles y posts de redes sociales. Comprensión, vocabulario digital y opinión. A2.</p>
+        <div class="cfoot"><span class="cdate">📅 A2 · 45 min</span><button class="btn" style="background:#2a5a8a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+      </div>
+      <div class="card" style="border-color:#c0d4ea" data-title="Reemplazo 2M N°5 — A Healthy Lifestyle" data-subtitle="Reading skills practice · Nivel A2" data-content="rpl-2m-05" data-adv="rpl">
+        <span class="ct crpl">Reemplazo · 2° M</span>
+        <h3>A Healthy Lifestyle</h3>
+        <p>Lee un artículo sobre hábitos saludables. Comprensión, consejos con should y escritura. A2.</p>
+        <div class="cfoot"><span class="cdate">📅 A2 · 45 min</span><button class="btn" style="background:#2a5a8a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+      </div>
+      <div class="card" style="border-color:#c0d4ea" data-title="Reemplazo 2M N°6 — A Movie Review" data-subtitle="Reading skills practice · Nivel A2" data-content="rpl-2m-06" data-adv="rpl">
+        <span class="ct crpl">Reemplazo · 2° M</span>
+        <h3>A Movie Review</h3>
+        <p>Lee una reseña de cine en inglés. Comprensión, vocabulario de opinión y escritura. A2.</p>
+        <div class="cfoot"><span class="cdate">📅 A2 · 45 min</span><button class="btn" style="background:#2a5a8a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+      </div>
+      <div class="card" style="border-color:#c0d4ea" data-title="Reemplazo 2M N°7 — A Job Interview" data-subtitle="Reading skills practice · Nivel A2" data-content="rpl-2m-07" data-adv="rpl">
+        <span class="ct crpl">Reemplazo · 2° M</span>
+        <h3>A Job Interview</h3>
+        <p>Lee un diálogo de entrevista de trabajo. Comprensión, vocabulario laboral y rol play escrito. A2.</p>
+        <div class="cfoot"><span class="cdate">📅 A2 · 45 min</span><button class="btn" style="background:#2a5a8a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+      </div>
+      <div class="card" style="border-color:#c0d4ea" data-title="Reemplazo 2M N°8 — Travel Plans" data-subtitle="Reading skills practice · Nivel A2" data-content="rpl-2m-08" data-adv="rpl">
+        <span class="ct crpl">Reemplazo · 2° M</span>
+        <h3>Travel Plans</h3>
+        <p>Lee correos sobre planificación de viaje. Comprensión, Going To y escritura personal. A2.</p>
+        <div class="cfoot"><span class="cdate">📅 A2 · 45 min</span><button class="btn" style="background:#2a5a8a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+      </div>
+      <div class="card" style="border-color:#c0d4ea" data-title="Reemplazo 2M N°9 — Environmental Issues" data-subtitle="Reading skills practice · Nivel A2" data-content="rpl-2m-09" data-adv="rpl">
+        <span class="ct crpl">Reemplazo · 2° M</span>
+        <h3>Environmental Issues</h3>
+        <p>Lee un artículo sobre problemas medioambientales. Comprensión, vocabulario y opinión. A2.</p>
+        <div class="cfoot"><span class="cdate">📅 A2 · 45 min</span><button class="btn" style="background:#2a5a8a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+      </div>
+      <div class="card" style="border-color:#c0d4ea" data-title="Reemplazo 2M N°10 — Technology in Daily Life" data-subtitle="Reading skills practice · Nivel A2" data-content="rpl-2m-10" data-adv="rpl">
+        <span class="ct crpl">Reemplazo · 2° M</span>
+        <h3>Technology in Daily Life</h3>
+        <p>Lee un artículo sobre tecnología cotidiana. Comprensión, vocabulario digital y escritura. A2.</p>
+        <div class="cfoot"><span class="cdate">📅 A2 · 45 min</span><button class="btn" style="background:#2a5a8a" onclick="openM(this.closest('.card'))">Ver guía</button></div>
+      </div>
+    </div>
+  </div><!-- close rpl2m -->
+</div><!-- close sec-rpl -->
 
 <!-- MODAL -->
 <div class="mo" id="moOverlay" onclick="closeMO(event)">
@@ -7992,6 +8169,1121 @@ I feel grateful <strong>when</strong> my family supports me.</p>
 </table></div>
 <div class="tip"><div class="tt">💡 El secreto del éxito</div>
 <p>Practica tu One-Minute Talk en voz alta <strong>al menos 10 veces</strong> antes del día. Grábate al menos 2 veces. El día de la presentación, ya no estarás actuando: estarás comunicando.</p></div>
+</template>
+
+<!-- ═══ REEMPLAZO — 1° MEDIO ═══ -->
+<template id="rpl-1m-01">
+<div style="background:#e8f0f8;border-left:4px solid #2a5a8a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:16px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#2a5a8a;margin-bottom:5px">🔄 GUÍA DE REEMPLAZO · INSTITUTO MARÍTIMO DE VALPARAÍSO · ENGLISH DEPARTMENT</div>
+<p style="font-size:13px;color:#1a3a5a;margin:0"><strong>Instructions:</strong> Read the poster carefully. Then do all the exercises. Write your answers in the boxes or spaces provided. You have 45 minutes.</p></div>
+<div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
+<button onclick="printGuide('rpl-1m-01','At the Swimming Pool — Guía de Reemplazo 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<span style="background:#2a5a8a;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:12px;letter-spacing:.5px">LEVEL A1 · 1° MEDIO</span></div>
+
+<h2 style="font-size:18px;color:#2a5a8a;border-bottom:2px solid #2a5a8a;padding-bottom:6px;margin-top:4px;margin-bottom:14px">🏊 Reading Skills Practice: At the Swimming Pool</h2>
+
+<div class="rpl-reading">
+<h4>🏊 CITY POOL — Rules and Opening Times</h4>
+<p><strong>Opening Times:</strong><br>
+Monday – Friday: 7:00 am – 9:00 pm<br>
+Saturday: 8:00 am – 6:00 pm<br>
+Sunday: 10:00 am – 4:00 pm</p>
+<p><strong>Entry Prices:</strong><br>
+Adults (16+): £4.50 &nbsp;|&nbsp; Children (under 16): £2.50 &nbsp;|&nbsp; Family ticket (2 adults + 2 children): £12.00</p>
+<p><strong>Pool Rules — Please read carefully:</strong></p>
+<ul style="margin-left:18px;line-height:2">
+<li>✅ Swim in the correct lane for your speed.</li>
+<li>✅ Use the steps to enter and exit the pool.</li>
+<li>✅ Listen to the lifeguard at all times.</li>
+<li>✅ Shower before entering the pool.</li>
+<li>❌ Do not run near the pool.</li>
+<li>❌ Do not eat or drink in the pool area.</li>
+<li>❌ Do not dive into the shallow end.</li>
+<li>❌ Children under 8 must not swim alone.</li>
+<li>❌ Do not use your mobile phone in the changing rooms.</li></ul></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">PREPARATION — Match the word with its meaning. Write the letter.</div>
+<table style="width:100%;font-size:13px;border-collapse:collapse">
+<tr><td style="padding:6px;width:50%">1. ___ lifeguard</td><td style="padding:6px">a. the place where you get changed</td></tr>
+<tr style="background:#f5f8fc"><td style="padding:6px">2. ___ lane</td><td style="padding:6px">b. the section of the pool that is not deep</td></tr>
+<tr><td style="padding:6px">3. ___ shallow end</td><td style="padding:6px">c. a person who watches for danger in the pool</td></tr>
+<tr style="background:#f5f8fc"><td style="padding:6px">4. ___ changing room</td><td style="padding:6px">d. a section of the pool for swimmers going the same direction</td></tr></table>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-c · 2-d · 3-b · 4-a</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 1 — Grouping: What CAN you do? What CAN'T you do?</div>
+<p style="font-size:13px;color:#555;margin-bottom:10px">Read the rules and write each activity in the correct column:</p>
+<p style="font-size:13px;font-style:italic;color:#2a5a8a;margin-bottom:10px">run &nbsp;·&nbsp; use the steps &nbsp;·&nbsp; eat near the pool &nbsp;·&nbsp; listen to the lifeguard &nbsp;·&nbsp; dive into the shallow end &nbsp;·&nbsp; swim in your lane &nbsp;·&nbsp; shower before swimming</p>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="background:#2a5a8a;color:#fff"><th style="padding:8px">✅ You CAN …</th><th style="padding:8px">❌ You CAN'T …</th></tr>
+<tr><td style="padding:10px;border:1px solid #c0d4ea;height:70px;vertical-align:top"></td><td style="padding:10px;border:1px solid #c0d4ea;height:70px;vertical-align:top"></td></tr></table>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas — CAN:</strong> use the steps · listen to the lifeguard · swim in your lane · shower before swimming &nbsp;|&nbsp; <strong>CAN'T:</strong> run · eat near the pool · dive into the shallow end</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 2 — True or False? Circle TRUE or FALSE. Correct the false ones.</div>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>The pool is open on Sunday mornings at 8:00. &nbsp;&nbsp; TRUE &nbsp; / &nbsp; FALSE</li>
+<li>Children under 16 pay £4.50 to enter. &nbsp;&nbsp; TRUE &nbsp; / &nbsp; FALSE</li>
+<li>You can eat a snack near the pool. &nbsp;&nbsp; TRUE &nbsp; / &nbsp; FALSE</li>
+<li>Children under 8 must swim with an adult. &nbsp;&nbsp; TRUE &nbsp; / &nbsp; FALSE</li>
+<li>You must shower before you swim. &nbsp;&nbsp; TRUE &nbsp; / &nbsp; FALSE</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-F (opens at 10:00) · 2-F (£2.50) · 3-F (not allowed) · 4-T · 5-T</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 3 — Writing: Write 4 rules for your school using MUST and MUST NOT.</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Example: <em>Students must arrive on time. Students must not use their phones in class.</em></p>
+<ol style="font-size:14px;line-height:3;margin-left:20px">
+<li>Students must ___________________________.</li>
+<li>Students must not ________________________.</li>
+<li>Students must ___________________________.</li>
+<li>Students must not ________________________.</li></ol></div>
+</template>
+
+<template id="rpl-1m-02">
+<div style="background:#e8f0f8;border-left:4px solid #2a5a8a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:16px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#2a5a8a;margin-bottom:5px">🔄 GUÍA DE REEMPLAZO · INSTITUTO MARÍTIMO DE VALPARAÍSO · ENGLISH DEPARTMENT</div>
+<p style="font-size:13px;color:#1a3a5a;margin:0"><strong>Instructions:</strong> Look at the flyer carefully. Then do all the exercises. Write your answers in the spaces. You have 45 minutes.</p></div>
+<div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
+<button onclick="printGuide('rpl-1m-02','The Language School — Guía de Reemplazo 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<span style="background:#2a5a8a;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:12px">LEVEL A1 · 1° MEDIO</span></div>
+
+<h2 style="font-size:18px;color:#2a5a8a;border-bottom:2px solid #2a5a8a;padding-bottom:6px;margin-top:4px;margin-bottom:14px">📚 Reading Skills Practice: The Language School</h2>
+
+<div class="rpl-reading">
+<h4>🏫 GLOBAL ENGLISH — Language School Flyer</h4>
+<p style="text-align:center;font-size:15px;font-weight:700;color:#2a5a8a">GLOBAL ENGLISH — London's Number One Language School</p>
+<p style="text-align:center;font-size:13px;color:#555">📍 14 Oxford Street, London &nbsp;|&nbsp; 📞 020 7234 5678 &nbsp;|&nbsp; 🌐 www.globalenglish.co.uk</p>
+<p style="margin-top:12px"><strong>Our courses:</strong></p>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="background:#2a5a8a;color:#fff"><th style="padding:7px">Course</th><th style="padding:7px">Hours</th><th style="padding:7px">Price</th><th style="padding:7px">Max. students</th></tr>
+<tr style="border-bottom:1px solid #c0d4ea"><td style="padding:7px">Reading &amp; Writing</td><td style="padding:7px">30 hours</td><td style="padding:7px">£30</td><td style="padding:7px">15</td></tr>
+<tr style="border-bottom:1px solid #c0d4ea;background:#f5f8fc"><td style="padding:7px">Listening</td><td style="padding:7px">30 hours</td><td style="padding:7px">£45</td><td style="padding:7px">20</td></tr>
+<tr style="border-bottom:1px solid #c0d4ea"><td style="padding:7px">Speaking (Conversation)</td><td style="padding:7px">20 hours</td><td style="padding:7px">£95</td><td style="padding:7px">10</td></tr>
+<tr style="background:#f5f8fc"><td style="padding:7px">Complete English</td><td style="padding:7px">80 hours</td><td style="padding:7px">£150</td><td style="padding:7px">12</td></tr></table>
+<p style="margin-top:10px"><strong>Speaking practice sessions:</strong> Every Saturday and Sunday, 10:00–12:00. Free for all students enrolled in any course.</p>
+<p><strong>Opening hours:</strong> Monday &amp; Tuesday: 9:00–18:00 &nbsp;·&nbsp; Wednesday: 10:00–20:00 &nbsp;·&nbsp; Thursday &amp; Friday: 9:00–17:00 &nbsp;·&nbsp; Weekends: 10:00–13:00</p></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">PREPARATION — Write the correct word under each activity.</div>
+<p style="font-size:13px;font-style:italic;color:#555;margin-bottom:8px">read &nbsp;·&nbsp; write &nbsp;·&nbsp; listen &nbsp;·&nbsp; speak &nbsp;·&nbsp; teach &nbsp;·&nbsp; study</p>
+<p style="font-size:13px;color:#555">Draw a small picture or write one sentence for each verb. Example: <em>listen = I listen to music on the bus.</em></p></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 1 — Multiple choice: Circle the best answer.</div>
+<ol style="font-size:14px;line-height:2.6;margin-left:20px">
+<li>In which city is the language school? &nbsp;&nbsp; <strong>Liverpool</strong> &nbsp;/&nbsp; <strong>London</strong></li>
+<li>How many courses are there? &nbsp;&nbsp; <strong>three</strong> &nbsp;/&nbsp; <strong>four</strong></li>
+<li>When can you practise speaking for free? &nbsp;&nbsp; <strong>weekdays</strong> &nbsp;/&nbsp; <strong>weekends</strong></li>
+<li>How much is the Reading &amp; Writing course? &nbsp;&nbsp; <strong>£30</strong> &nbsp;/&nbsp; <strong>£95</strong></li>
+<li>What is the maximum number of students in a Speaking class? &nbsp;&nbsp; <strong>10</strong> &nbsp;/&nbsp; <strong>20</strong></li>
+<li>What time does the school open on Wednesday? &nbsp;&nbsp; <strong>9:00</strong> &nbsp;/&nbsp; <strong>10:00</strong></li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-London · 2-four · 3-weekends · 4-£30 · 5-10 · 6-10:00</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 2 — True or False? Circle and correct the false ones.</div>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>The school is in Oxford Street, London. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>The Listening course has 50 hours of class. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>The Speaking course is the most expensive. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>You can practise speaking every day of the week. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>The school opens on Saturday mornings. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-T · 2-F (30 hours) · 3-T (£95 / £150 Complete is more expensive — accept both) · 4-F (only weekends) · 5-T</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 3 — Writing: Which course would you choose? Why?</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Write 4–5 sentences. Use: <em>I would choose the ___ course because… I think… I want to improve my… It costs…</em></p></div>
+</template>
+
+<template id="rpl-1m-03">
+<div style="background:#e8f0f8;border-left:4px solid #2a5a8a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:16px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#2a5a8a;margin-bottom:5px">🔄 GUÍA DE REEMPLAZO · INSTITUTO MARÍTIMO DE VALPARAÍSO · ENGLISH DEPARTMENT</div>
+<p style="font-size:13px;color:#1a3a5a;margin:0"><strong>Instructions:</strong> Look at the train ticket. Then do the exercises. Write your answers in the spaces. You have 45 minutes.</p></div>
+<div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
+<button onclick="printGuide('rpl-1m-03','At the Train Station — Guía de Reemplazo 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<span style="background:#2a5a8a;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:12px">LEVEL A1 · 1° MEDIO</span></div>
+
+<h2 style="font-size:18px;color:#2a5a8a;border-bottom:2px solid #2a5a8a;padding-bottom:6px;margin-top:4px;margin-bottom:14px">🚂 Reading Skills Practice: At the Train Station</h2>
+
+<div class="rpl-reading">
+<h4>🎫 TRAIN TICKET</h4>
+<table style="width:100%;border-collapse:collapse;font-size:13.5px;background:#fffef8;border:2px solid #c0d4ea;border-radius:8px">
+<tr style="background:#2a5a8a;color:#fff"><td colspan="2" style="padding:10px;text-align:center;font-size:15px;font-weight:700;letter-spacing:1px">🚂 NATIONAL RAIL</td></tr>
+<tr><td style="padding:9px;border-bottom:1px solid #ddd;font-weight:600">FROM:</td><td style="padding:9px;border-bottom:1px solid #ddd">Manchester Piccadilly</td></tr>
+<tr style="background:#f5f8fc"><td style="padding:9px;border-bottom:1px solid #ddd;font-weight:600">TO:</td><td style="padding:9px;border-bottom:1px solid #ddd">London Euston</td></tr>
+<tr><td style="padding:9px;border-bottom:1px solid #ddd;font-weight:600">DATE:</td><td style="padding:9px;border-bottom:1px solid #ddd">10 July 2024</td></tr>
+<tr style="background:#f5f8fc"><td style="padding:9px;border-bottom:1px solid #ddd;font-weight:600">DEPARTS:</td><td style="padding:9px;border-bottom:1px solid #ddd">09:45</td></tr>
+<tr><td style="padding:9px;border-bottom:1px solid #ddd;font-weight:600">ARRIVES:</td><td style="padding:9px;border-bottom:1px solid #ddd">12:07</td></tr>
+<tr style="background:#f5f8fc"><td style="padding:9px;border-bottom:1px solid #ddd;font-weight:600">TYPE:</td><td style="padding:9px;border-bottom:1px solid #ddd">Return (adult)</td></tr>
+<tr><td style="padding:9px;font-weight:600">PRICE:</td><td style="padding:9px">£34.50</td></tr></table></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">PREPARATION — Circle the correct option to complete these sentences.</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>You can take a train at the &nbsp; <strong>bus station</strong> &nbsp;/&nbsp; <strong>train station</strong>.</li>
+<li>At a train station you need a &nbsp; <strong>train ticket</strong> &nbsp;/&nbsp; <strong>passport</strong>.</li>
+<li>A return ticket means you travel &nbsp; <strong>one way</strong> &nbsp;/&nbsp; <strong>there and back</strong>.</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:8px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> train station · train ticket · there and back</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 1 — True or False? Circle and correct the false sentences.</div>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>This is a single ticket. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>This is a child's ticket. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>This ticket costs £34.50. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>This ticket is for trains leaving Manchester. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>The journey takes approximately 2 hours 22 minutes. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-F (it's a return) · 2-F (adult) · 3-T · 4-T · 5-T (09:45→12:07 = 2h 22min)</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 2 — Matching: Match 1–5 with a–e.</div>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr><td style="padding:7px;width:50%">1. ___ The train is going to</td><td style="padding:7px">a. 09:45.</td></tr>
+<tr style="background:#f5f8fc"><td style="padding:7px">2. ___ The train departs at</td><td style="padding:7px">b. £34.50.</td></tr>
+<tr><td style="padding:7px">3. ___ This ticket costs</td><td style="padding:7px">c. 10 July 2024.</td></tr>
+<tr style="background:#f5f8fc"><td style="padding:7px">4. ___ The travel date is</td><td style="padding:7px">d. Manchester Piccadilly.</td></tr>
+<tr><td style="padding:7px">5. ___ The train is leaving from</td><td style="padding:7px">e. London Euston.</td></tr></table>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-e · 2-a · 3-b · 4-c · 5-d</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 3 — Writing: Imagine you are buying a ticket. Complete the form.</div>
+<table style="width:100%;border-collapse:collapse;font-size:13px;border:1px solid #c0d4ea">
+<tr style="background:#2a5a8a;color:#fff"><td colspan="2" style="padding:8px;text-align:center;font-weight:700">MY TRAIN TICKET</td></tr>
+<tr><td style="padding:10px;border-bottom:1px solid #ddd;font-weight:600;width:40%">FROM:</td><td style="padding:10px;border-bottom:1px solid #ddd">_______________</td></tr>
+<tr style="background:#f5f8fc"><td style="padding:10px;border-bottom:1px solid #ddd;font-weight:600">TO:</td><td style="padding:10px;border-bottom:1px solid #ddd">_______________</td></tr>
+<tr><td style="padding:10px;border-bottom:1px solid #ddd;font-weight:600">DATE:</td><td style="padding:10px;border-bottom:1px solid #ddd">_______________</td></tr>
+<tr style="background:#f5f8fc"><td style="padding:10px;font-weight:600">TYPE:</td><td style="padding:10px">single / return (circle one)</td></tr></table></div>
+</template>
+
+<template id="rpl-1m-04">
+<div style="background:#e8f0f8;border-left:4px solid #2a5a8a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:16px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#2a5a8a;margin-bottom:5px">🔄 GUÍA DE REEMPLAZO · INSTITUTO MARÍTIMO DE VALPARAÍSO · ENGLISH DEPARTMENT</div>
+<p style="font-size:13px;color:#1a3a5a;margin:0"><strong>Instructions:</strong> Look at the restaurant menu. Then do all the exercises. You have 45 minutes.</p></div>
+<div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
+<button onclick="printGuide('rpl-1m-04','At the Restaurant — Guía de Reemplazo 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<span style="background:#2a5a8a;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:12px">LEVEL A1 · 1° MEDIO</span></div>
+
+<h2 style="font-size:18px;color:#2a5a8a;border-bottom:2px solid #2a5a8a;padding-bottom:6px;margin-top:4px;margin-bottom:14px">🍽️ Reading Skills Practice: At the Restaurant</h2>
+
+<div class="rpl-reading">
+<h4>🍽️ THE HARBOUR RESTAURANT — Menu</h4>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;font-size:13px">
+<div>
+<p style="font-weight:700;color:#2a5a8a;border-bottom:1px solid #c0d4ea;padding-bottom:4px">🥗 STARTERS</p>
+<p>Tomato soup — £4.50</p>
+<p>Garlic bread — £3.00</p>
+<p>Seafood salad — £6.50</p>
+<p>Mixed salad — £4.00</p>
+</div>
+<div>
+<p style="font-weight:700;color:#2a5a8a;border-bottom:1px solid #c0d4ea;padding-bottom:4px">🍖 MAIN COURSES</p>
+<p>Fish and chips — £9.50</p>
+<p>Chicken curry — £10.00</p>
+<p>Cheese burger — £8.50</p>
+<p>Macaroni cheese — £7.50</p>
+<p>Seafood pizza — £11.00</p>
+<p>Fish pie — £9.00</p>
+</div>
+<div>
+<p style="font-weight:700;color:#2a5a8a;border-bottom:1px solid #c0d4ea;padding-bottom:4px">🍰 DESSERTS</p>
+<p>Ice cream — £3.50</p>
+<p>Fruit cake — £3.00</p>
+<p>Banana cake — £3.50</p>
+<p>Custard — £2.50</p>
+<p style="font-weight:700;margin-top:8px;color:#2a5a8a;border-bottom:1px solid #c0d4ea;padding-bottom:4px">🥤 DRINKS</p>
+<p>Coffee / Tea — £2.00</p>
+<p>Apple juice — £2.50</p>
+<p>Water — £1.00</p>
+</div></div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">PREPARATION — Write the name of each food next to its emoji.</div>
+<p style="font-size:13px;font-style:italic;color:#555;margin-bottom:8px">ice cream &nbsp;·&nbsp; cheese burger &nbsp;·&nbsp; seafood salad &nbsp;·&nbsp; fruit cake &nbsp;·&nbsp; coffee &nbsp;·&nbsp; pizza</p>
+<p style="font-size:14px;line-height:2.5">🍦 _______________ &nbsp;&nbsp; 🍔 _______________ &nbsp;&nbsp; 🥗 _______________ &nbsp;&nbsp; 🎂 _______________ &nbsp;&nbsp; ☕ _______________ &nbsp;&nbsp; 🍕 _______________</p>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:8px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> ice cream · cheese burger · seafood salad · fruit cake · coffee · pizza</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 1 — Grouping: Write the foods in the correct section.</div>
+<p style="font-size:13px;font-style:italic;color:#555;margin-bottom:10px">water · macaroni cheese · custard · fruit cake · fish pie · coffee · ice cream · cheese burger · tea · apple juice · banana cake · seafood salad · chicken curry · tomato soup</p>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="background:#2a5a8a;color:#fff"><th style="padding:8px">🥗 Starters</th><th style="padding:8px">🍖 Main Courses</th><th style="padding:8px">🍰 Desserts</th><th style="padding:8px">🥤 Drinks</th></tr>
+<tr><td style="padding:10px;border:1px solid #c0d4ea;height:70px;vertical-align:top"></td><td style="padding:10px;border:1px solid #c0d4ea;height:70px;vertical-align:top"></td><td style="padding:10px;border:1px solid #c0d4ea;height:70px;vertical-align:top"></td><td style="padding:10px;border:1px solid #c0d4ea;height:70px;vertical-align:top"></td></tr></table>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas — Starters:</strong> tomato soup, seafood salad &nbsp;|&nbsp; <strong>Mains:</strong> macaroni cheese, fish pie, cheese burger, chicken curry &nbsp;|&nbsp; <strong>Desserts:</strong> custard, fruit cake, ice cream, banana cake &nbsp;|&nbsp; <strong>Drinks:</strong> water, coffee, tea, apple juice</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 2 — True or False? Circle and correct the false ones.</div>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>You can eat seafood in this restaurant. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>The most expensive main course is the cheese burger. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>A coffee costs £2.00. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>There are four desserts on the menu. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>You can order garlic bread as a starter. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-T · 2-F (the most expensive is seafood pizza, £11.00) · 3-T · 4-T · 5-T</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 3 — Writing: Write your order for a three-course meal. Calculate the total price.</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Use: <em>For my starter, I would like… For my main course… For dessert… I would like to drink… The total is…</em></p></div>
+</template>
+
+<template id="rpl-1m-05">
+<div style="background:#e8f0f8;border-left:4px solid #2a5a8a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:16px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#2a5a8a;margin-bottom:5px">🔄 GUÍA DE REEMPLAZO · INSTITUTO MARÍTIMO DE VALPARAÍSO · ENGLISH DEPARTMENT</div>
+<p style="font-size:13px;color:#1a3a5a;margin:0"><strong>Instructions:</strong> Read the text messages and conversation. Then do all the exercises. You have 45 minutes.</p></div>
+<div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
+<button onclick="printGuide('rpl-1m-05','On the Telephone — Guía de Reemplazo 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<span style="background:#2a5a8a;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:12px">LEVEL A1 · 1° MEDIO</span></div>
+
+<h2 style="font-size:18px;color:#2a5a8a;border-bottom:2px solid #2a5a8a;padding-bottom:6px;margin-top:4px;margin-bottom:14px">📱 Reading Skills Practice: On the Telephone</h2>
+
+<div class="rpl-reading">
+<h4>📱 TEXT MESSAGE CONVERSATION</h4>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:13px">
+<div>
+<p style="font-weight:700;color:#2a5a8a;margin-bottom:6px">Lucy → Peter:</p>
+<div style="background:#dcf8c6;border-radius:12px;padding:10px;margin-bottom:8px;font-size:13px">Hi Pete! R u free 2nite? There's a new film @ the cinema – Deathball 3! Want 2 go? It starts @ 7pm. Cu l8r? 😊</div>
+<p style="font-weight:700;color:#2a5a8a;margin-bottom:6px">Peter → Lucy:</p>
+<div style="background:#fff;border:1px solid #c0d4ea;border-radius:12px;padding:10px;margin-bottom:8px;font-size:13px">Sounds gr8! But I finish work @ 6:30. Can we meet @ 6:45 outside the cinema? Shall I buy the tickets online?</div>
+<p style="font-weight:700;color:#2a5a8a;margin-bottom:6px">Lucy → Peter:</p>
+<div style="background:#dcf8c6;border-radius:12px;padding:10px;font-size:13px">Yes plz! Get 2 tickets. I'll pay u back l8r. CU @ 6:45! 🎬</div>
+</div>
+<div style="background:#f5f8fc;border-radius:8px;padding:12px">
+<p style="font-weight:700;color:#2a5a8a;margin-bottom:8px">📖 Common text message abbreviations:</p>
+<table style="width:100%;font-size:12px;border-collapse:collapse">
+<tr style="background:#2a5a8a;color:#fff"><th style="padding:5px">Abbreviation</th><th style="padding:5px">Meaning</th></tr>
+<tr style="border-bottom:1px solid #c0d4ea"><td style="padding:5px">r u</td><td style="padding:5px">are you</td></tr>
+<tr style="border-bottom:1px solid #c0d4ea;background:#fff"><td style="padding:5px">2nite</td><td style="padding:5px">tonight</td></tr>
+<tr style="border-bottom:1px solid #c0d4ea"><td style="padding:5px">@</td><td style="padding:5px">at</td></tr>
+<tr style="border-bottom:1px solid #c0d4ea;background:#fff"><td style="padding:5px">2</td><td style="padding:5px">to / too</td></tr>
+<tr style="border-bottom:1px solid #c0d4ea"><td style="padding:5px">cu</td><td style="padding:5px">see you</td></tr>
+<tr style="border-bottom:1px solid #c0d4ea;background:#fff"><td style="padding:5px">l8r</td><td style="padding:5px">later</td></tr>
+<tr style="border-bottom:1px solid #c0d4ea"><td style="padding:5px">gr8</td><td style="padding:5px">great</td></tr>
+<tr style="background:#fff"><td style="padding:5px">plz</td><td style="padding:5px">please</td></tr></table>
+</div></div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">PREPARATION — Match the abbreviation with its meaning.</div>
+<table style="width:100%;font-size:13px;border-collapse:collapse">
+<tr><td style="padding:6px;width:50%">1. ___ r u</td><td style="padding:6px">a. see you later</td></tr>
+<tr style="background:#f5f8fc"><td style="padding:6px">2. ___ 2nite</td><td style="padding:6px">b. are you</td></tr>
+<tr><td style="padding:6px">3. ___ cu l8r</td><td style="padding:6px">c. tonight</td></tr>
+<tr style="background:#f5f8fc"><td style="padding:6px">4. ___ gr8</td><td style="padding:6px">d. great</td></tr></table>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:8px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-b · 2-c · 3-a · 4-d</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 1 — True or False? Circle and correct the false ones.</div>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>Lucy and Peter are going to see a football match. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>The film starts at 7:00 pm. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>They are going to meet at Lucy's house. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Peter is going to buy the tickets. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Lucy will pay Peter back later. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-F (film/cinema) · 2-T · 3-F (outside the cinema) · 4-T · 5-T</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 2 — Rewrite the text messages in full English. No abbreviations.</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Rewrite Lucy's first message in full English. Example: <em>"r u free" → "are you free"</em></p>
+<p style="font-size:14px;color:#333;line-height:3">Hi Pete! _____________________________________________<br>_____________________________________________________</p></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 3 — Writing: Write a short text message to a friend.</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Invite a friend to do an activity this weekend. Use at least 3 text message abbreviations. Then write the reply from your friend.</p></div>
+</template>
+
+<template id="rpl-1m-06">
+<div style="background:#e8f0f8;border-left:4px solid #2a5a8a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:16px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#2a5a8a;margin-bottom:5px">🔄 GUÍA DE REEMPLAZO · INSTITUTO MARÍTIMO DE VALPARAÍSO · ENGLISH DEPARTMENT</div>
+<p style="font-size:13px;color:#1a3a5a;margin:0"><strong>Instructions:</strong> Read the shopping list and offers carefully. Do all the exercises. You have 45 minutes.</p></div>
+<div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
+<button onclick="printGuide('rpl-1m-06','At the Supermarket — Guía de Reemplazo 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<span style="background:#2a5a8a;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:12px">LEVEL A1 · 1° MEDIO</span></div>
+
+<h2 style="font-size:18px;color:#2a5a8a;border-bottom:2px solid #2a5a8a;padding-bottom:6px;margin-top:4px;margin-bottom:14px">🛒 Reading Skills Practice: At the Supermarket</h2>
+
+<div class="rpl-reading">
+<h4>🛒 FRESHMART SUPERMARKET — Weekly Offers</h4>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;font-size:13px">
+<div>
+<p style="font-weight:700;color:#2a5a8a;margin-bottom:8px">🥦 FRUIT &amp; VEGETABLES</p>
+<p>🍎 Apples (1 kg) — £1.20 &nbsp; <span style="background:#e00;color:#fff;padding:1px 6px;border-radius:8px;font-size:11px">OFFER</span></p>
+<p>🥕 Carrots (500 g) — £0.80</p>
+<p>🍌 Bananas (bunch) — £1.00</p>
+<p>🥦 Broccoli — £0.90</p>
+<p>🍊 Oranges (4 pack) — £1.50</p>
+<p style="font-weight:700;color:#2a5a8a;margin-top:10px;margin-bottom:8px">🥛 DAIRY</p>
+<p>🥛 Milk (2 litres) — £1.30</p>
+<p>🧀 Cheese (200 g) — £2.50 &nbsp; <span style="background:#e00;color:#fff;padding:1px 6px;border-radius:8px;font-size:11px">OFFER</span></p>
+<p>🥚 Eggs (12) — £2.00</p>
+<p>🧈 Butter (250 g) — £1.80</p>
+</div>
+<div>
+<p style="font-weight:700;color:#2a5a8a;margin-bottom:8px">🍞 BAKERY</p>
+<p>🍞 White bread (800 g) — £1.20</p>
+<p>🥐 Croissants (4 pack) — £2.00 &nbsp; <span style="background:#e00;color:#fff;padding:1px 6px;border-radius:8px;font-size:11px">OFFER</span></p>
+<p style="font-weight:700;color:#2a5a8a;margin-top:10px;margin-bottom:8px">🥩 MEAT &amp; FISH</p>
+<p>🍗 Chicken (1 kg) — £4.50</p>
+<p>🐟 Salmon (300 g) — £5.00</p>
+<p>🥩 Beef mince (500 g) — £3.50</p>
+<p style="font-weight:700;color:#2a5a8a;margin-top:10px;margin-bottom:8px">🧃 DRINKS</p>
+<p>🧃 Orange juice (1 L) — £1.50</p>
+<p>🚰 Still water (6 pack) — £2.00</p>
+<p>☕ Coffee (200 g) — £3.00</p>
+</div></div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">PREPARATION — Write the food group for each item.</div>
+<p style="font-size:13px;font-style:italic;color:#555;margin-bottom:8px">Fruit &amp; Vegetables / Dairy / Bakery / Meat &amp; Fish / Drinks</p>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>Salmon → _______________</li>
+<li>Broccoli → _______________</li>
+<li>Butter → _______________</li>
+<li>Croissants → _______________</li>
+<li>Orange juice → _______________</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:8px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> Meat &amp; Fish · Fruit &amp; Vegetables · Dairy · Bakery · Drinks</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 1 — True or False? Circle and correct the false ones.</div>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>Apples are on special offer this week. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>You can buy 6 eggs for £2.00. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>The most expensive item is the salmon. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Croissants are on offer this week. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>You can buy white bread for £1.20. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-T · 2-F (12 eggs) · 3-T (£5.00) · 4-T · 5-T</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 2 — Calculate: You have £10. What can you buy? Write a shopping list.</div>
+<p style="font-size:13px;color:#555;margin-bottom:10px">Choose items from the supermarket. Calculate the total. Try to spend close to £10 without going over.</p>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="background:#2a5a8a;color:#fff"><th style="padding:6px">Item</th><th style="padding:6px">Price</th></tr>
+<tr><td style="padding:10px;border-bottom:1px solid #c0d4ea">_______________</td><td style="padding:10px;border-bottom:1px solid #c0d4ea">£ ___</td></tr>
+<tr style="background:#f5f8fc"><td style="padding:10px;border-bottom:1px solid #c0d4ea">_______________</td><td style="padding:10px;border-bottom:1px solid #c0d4ea">£ ___</td></tr>
+<tr><td style="padding:10px;border-bottom:1px solid #c0d4ea">_______________</td><td style="padding:10px;border-bottom:1px solid #c0d4ea">£ ___</td></tr>
+<tr style="background:#f5f8fc"><td style="padding:10px;border-bottom:1px solid #c0d4ea">_______________</td><td style="padding:10px;border-bottom:1px solid #c0d4ea">£ ___</td></tr>
+<tr><td style="padding:10px;font-weight:700;color:#2a5a8a">TOTAL</td><td style="padding:10px;font-weight:700;color:#2a5a8a">£ ___</td></tr></table></div>
+</template>
+
+<template id="rpl-1m-07">
+<div style="background:#e8f0f8;border-left:4px solid #2a5a8a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:16px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#2a5a8a;margin-bottom:5px">🔄 GUÍA DE REEMPLAZO · INSTITUTO MARÍTIMO DE VALPARAÍSO · ENGLISH DEPARTMENT</div>
+<p style="font-size:13px;color:#1a3a5a;margin:0"><strong>Instructions:</strong> Read the description of a bedroom and do the exercises. You have 45 minutes.</p></div>
+<div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
+<button onclick="printGuide('rpl-1m-07','My Bedroom — Guía de Reemplazo 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<span style="background:#2a5a8a;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:12px">LEVEL A1 · 1° MEDIO</span></div>
+
+<h2 style="font-size:18px;color:#2a5a8a;border-bottom:2px solid #2a5a8a;padding-bottom:6px;margin-top:4px;margin-bottom:14px">🛏️ Vocabulary Practice: My Bedroom</h2>
+
+<div class="rpl-reading">
+<h4>🛏️ My Bedroom — by Tom, age 14</h4>
+<p>My bedroom is my favourite room in the house. It is not very big, but it is very comfortable. Let me describe it to you.</p>
+<p>When you open the door, you can see my bed on the left. It is a single bed with a blue and white duvet. Next to the bed, there is a small bedside table with a lamp on it. I always put my phone and my books on the bedside table before I go to sleep.</p>
+<p>On the right side of the room, there is a large wardrobe. I keep my clothes and shoes inside it. Next to the wardrobe, there is a chest of drawers. My socks, T-shirts and underwear are in the drawers. Above the chest of drawers, there is a mirror.</p>
+<p>In front of the window, there is a desk with a chair. I do my homework at the desk every evening. My computer and my school books are on the desk. The window has blue curtains that match the duvet. Under the window, there is a small bookshelf with about 30 books.</p>
+<p>The floor has a soft carpet — it is grey with small white stars. On the walls, there are posters of my favourite football team. My bedroom is my private space and I love it!</p></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">PREPARATION — Match the furniture with its definition.</div>
+<table style="width:100%;font-size:13px;border-collapse:collapse">
+<tr><td style="padding:6px;width:50%">1. ___ wardrobe</td><td style="padding:6px">a. a piece of furniture with drawers for keeping clothes</td></tr>
+<tr style="background:#f5f8fc"><td style="padding:6px">2. ___ bedside table</td><td style="padding:6px">b. a large cupboard where you hang clothes</td></tr>
+<tr><td style="padding:6px">3. ___ chest of drawers</td><td style="padding:6px">c. a surface where you study</td></tr>
+<tr style="background:#f5f8fc"><td style="padding:6px">4. ___ desk</td><td style="padding:6px">d. a small table next to the bed</td></tr></table>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:8px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-b · 2-d · 3-a · 4-c</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 1 — Where are these things? Use: on / next to / in / above / in front of / under.</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>The lamp is ___ the bedside table.</li>
+<li>The wardrobe is ___ the chest of drawers.</li>
+<li>The desk is ___ the window.</li>
+<li>The mirror is ___ the chest of drawers.</li>
+<li>Tom's books are ___ the bookshelf.</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:8px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> on · next to · in front of · above · on</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 2 — True or False? Circle and correct the false ones.</div>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>Tom's bed is on the right side of the room. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>The curtains are the same colour as the duvet. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Tom has about 50 books on his bookshelf. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Tom does his homework at his desk. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>The carpet is blue with white stars. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-F (on the left) · 2-T (both blue) · 3-F (about 30) · 4-T · 5-F (grey with white stars)</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 3 — Writing: Describe YOUR bedroom (or your ideal bedroom). Write 6–8 sentences. Use prepositions of place.</div></div>
+</template>
+
+<template id="rpl-1m-08">
+<div style="background:#e8f0f8;border-left:4px solid #2a5a8a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:16px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#2a5a8a;margin-bottom:5px">🔄 GUÍA DE REEMPLAZO · INSTITUTO MARÍTIMO DE VALPARAÍSO · ENGLISH DEPARTMENT</div>
+<p style="font-size:13px;color:#1a3a5a;margin:0"><strong>Instructions:</strong> Read the weather forecast and do the exercises. You have 45 minutes.</p></div>
+<div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
+<button onclick="printGuide('rpl-1m-08','Weather and Seasons — Guía de Reemplazo 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<span style="background:#2a5a8a;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:12px">LEVEL A1 · 1° MEDIO</span></div>
+
+<h2 style="font-size:18px;color:#2a5a8a;border-bottom:2px solid #2a5a8a;padding-bottom:6px;margin-top:4px;margin-bottom:14px">⛅ Reading Practice: Weather and Seasons</h2>
+
+<div class="rpl-reading">
+<h4>⛅ WEEKLY WEATHER FORECAST — Valparaíso, Chile</h4>
+<table style="width:100%;border-collapse:collapse;font-size:13px;text-align:center">
+<tr style="background:#2a5a8a;color:#fff"><th style="padding:8px">Day</th><th style="padding:8px">Weather</th><th style="padding:8px">Temp. (°C)</th><th style="padding:8px">Wind</th><th style="padding:8px">Rain?</th></tr>
+<tr style="border-bottom:1px solid #c0d4ea"><td style="padding:8px"><strong>Monday</strong></td><td style="padding:8px">☀️ Sunny</td><td style="padding:8px">22°C</td><td style="padding:8px">Light</td><td style="padding:8px">No</td></tr>
+<tr style="background:#f5f8fc;border-bottom:1px solid #c0d4ea"><td style="padding:8px"><strong>Tuesday</strong></td><td style="padding:8px">⛅ Partly cloudy</td><td style="padding:8px">19°C</td><td style="padding:8px">Moderate</td><td style="padding:8px">No</td></tr>
+<tr style="border-bottom:1px solid #c0d4ea"><td style="padding:8px"><strong>Wednesday</strong></td><td style="padding:8px">🌧️ Rainy</td><td style="padding:8px">15°C</td><td style="padding:8px">Strong</td><td style="padding:8px">Yes, heavy</td></tr>
+<tr style="background:#f5f8fc;border-bottom:1px solid #c0d4ea"><td style="padding:8px"><strong>Thursday</strong></td><td style="padding:8px">🌥️ Cloudy</td><td style="padding:8px">16°C</td><td style="padding:8px">Moderate</td><td style="padding:8px">Light rain</td></tr>
+<tr style="border-bottom:1px solid #c0d4ea"><td style="padding:8px"><strong>Friday</strong></td><td style="padding:8px">☀️ Sunny</td><td style="padding:8px">21°C</td><td style="padding:8px">Light</td><td style="padding:8px">No</td></tr>
+<tr style="background:#f5f8fc;border-bottom:1px solid #c0d4ea"><td style="padding:8px"><strong>Saturday</strong></td><td style="padding:8px">⛈️ Stormy</td><td style="padding:8px">13°C</td><td style="padding:8px">Very strong</td><td style="padding:8px">Yes, heavy</td></tr>
+<tr><td style="padding:8px"><strong>Sunday</strong></td><td style="padding:8px">☀️ Sunny</td><td style="padding:8px">24°C</td><td style="padding:8px">Light</td><td style="padding:8px">No</td></tr></table>
+<p style="margin-top:12px;font-size:12px;color:#666">* Temperatures shown are for the afternoon. Morning temperatures are approximately 5°C lower.</p></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">PREPARATION — Match the weather word with its description.</div>
+<table style="width:100%;font-size:13px;border-collapse:collapse">
+<tr><td style="padding:6px;width:50%">1. ___ sunny</td><td style="padding:6px">a. a lot of wind and rain together</td></tr>
+<tr style="background:#f5f8fc"><td style="padding:6px">2. ___ cloudy</td><td style="padding:6px">b. bright weather with no clouds</td></tr>
+<tr><td style="padding:6px">3. ___ rainy</td><td style="padding:6px">c. there is a lot of water falling from the sky</td></tr>
+<tr style="background:#f5f8fc"><td style="padding:6px">4. ___ stormy</td><td style="padding:6px">d. the sky is grey and covered with clouds</td></tr></table>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:8px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-b · 2-d · 3-c · 4-a</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 1 — Answer the questions about the forecast.</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>How many sunny days are there this week?</li>
+<li>On which day is the temperature the lowest?</li>
+<li>On which day is the wind the strongest?</li>
+<li>What is the weather like on Tuesday?</li>
+<li>Would you go to the beach on Wednesday? Why / Why not?</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:8px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-Three (Mon, Fri, Sun) · 2-Saturday (13°C) · 3-Saturday (very strong) · 4-Partly cloudy, 19°C · 5-No (rainy, strong wind)</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 2 — Complete the sentences using the forecast.</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>On Monday it is ___ and the temperature is ___.</li>
+<li>On Wednesday it ___ heavily and the wind is ___.</li>
+<li>The warmest day of the week is ___ with ___.</li>
+<li>You should take an umbrella on ___ and ___.</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:8px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-sunny / 22°C · 2-rains / strong · 3-Sunday / 24°C · 4-Wednesday / Saturday</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 3 — Writing: Describe the weather in Valparaíso in different seasons.</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Write one sentence for each season. Use: <em>In summer/autumn/winter/spring, it is usually…</em></p></div>
+</template>
+
+<template id="rpl-1m-09">
+<div style="background:#e8f0f8;border-left:4px solid #2a5a8a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:16px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#2a5a8a;margin-bottom:5px">🔄 GUÍA DE REEMPLAZO · INSTITUTO MARÍTIMO DE VALPARAÍSO · ENGLISH DEPARTMENT</div>
+<p style="font-size:13px;color:#1a3a5a;margin:0"><strong>Instructions:</strong> Read the school sports day poster and do the exercises. You have 45 minutes.</p></div>
+<div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
+<button onclick="printGuide('rpl-1m-09','A Sports Day — Guía de Reemplazo 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<span style="background:#2a5a8a;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:12px">LEVEL A1 · 1° MEDIO</span></div>
+
+<h2 style="font-size:18px;color:#2a5a8a;border-bottom:2px solid #2a5a8a;padding-bottom:6px;margin-top:4px;margin-bottom:14px">🏅 Reading Practice: A Sports Day</h2>
+
+<div class="rpl-reading">
+<h4>🏅 PARKVIEW SCHOOL — Annual Sports Day 2024</h4>
+<p><strong>📅 Date:</strong> Friday 14 June 2024 &nbsp;·&nbsp; <strong>⏰ Time:</strong> 9:00 am – 4:00 pm &nbsp;·&nbsp; <strong>📍 Location:</strong> School sports ground</p>
+<p style="margin-top:10px"><strong>Events and times:</strong></p>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="background:#2a5a8a;color:#fff"><th style="padding:7px">Time</th><th style="padding:7px">Event</th><th style="padding:7px">Who can participate?</th></tr>
+<tr style="border-bottom:1px solid #c0d4ea"><td style="padding:7px">9:00–10:00</td><td style="padding:7px">100m sprint</td><td style="padding:7px">All students</td></tr>
+<tr style="background:#f5f8fc;border-bottom:1px solid #c0d4ea"><td style="padding:7px">10:00–11:00</td><td style="padding:7px">Long jump</td><td style="padding:7px">Year 1 and Year 2</td></tr>
+<tr style="border-bottom:1px solid #c0d4ea"><td style="padding:7px">11:30–12:30</td><td style="padding:7px">Football match</td><td style="padding:7px">Year 1 vs. Year 2</td></tr>
+<tr style="background:#f5f8fc;border-bottom:1px solid #c0d4ea"><td style="padding:7px">12:30–13:30</td><td style="padding:7px">Lunch break 🍽️</td><td style="padding:7px">Everyone</td></tr>
+<tr style="border-bottom:1px solid #c0d4ea"><td style="padding:7px">13:30–14:30</td><td style="padding:7px">Relay race</td><td style="padding:7px">Teams of 4</td></tr>
+<tr style="background:#f5f8fc;border-bottom:1px solid #c0d4ea"><td style="padding:7px">14:30–15:30</td><td style="padding:7px">High jump</td><td style="padding:7px">Year 2 and Year 3</td></tr>
+<tr><td style="padding:7px">15:30–16:00</td><td style="padding:7px">Prize ceremony 🏆</td><td style="padding:7px">All students and teachers</td></tr></table>
+<p style="margin-top:10px"><strong>Important information:</strong></p>
+<ul style="margin-left:18px;font-size:13px;line-height:1.8">
+<li>Students must wear their sports uniform (white T-shirt and dark shorts).</li>
+<li>Students must bring a water bottle and sunscreen.</li>
+<li>Lunch is provided by the school — sandwiches and fruit.</li>
+<li>Parents are welcome to attend — please inform the school office.</li>
+<li>In case of rain, the event will be cancelled and rescheduled.</li></ul></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">PREPARATION — Match each sport with its description.</div>
+<table style="width:100%;font-size:13px;border-collapse:collapse">
+<tr><td style="padding:6px;width:50%">1. ___ 100m sprint</td><td style="padding:6px">a. each person runs part of the race and passes a baton</td></tr>
+<tr style="background:#f5f8fc"><td style="padding:6px">2. ___ long jump</td><td style="padding:6px">b. you run as fast as you can for 100 metres</td></tr>
+<tr><td style="padding:6px">3. ___ relay race</td><td style="padding:6px">c. you try to jump as far as possible from a running start</td></tr>
+<tr style="background:#f5f8fc"><td style="padding:6px">4. ___ high jump</td><td style="padding:6px">d. you try to jump over a bar set at different heights</td></tr></table>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:8px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-b · 2-c · 3-a · 4-d</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 1 — True or False? Circle and correct the false ones.</div>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>The sports day starts at 8:00 am. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>All students can participate in the 100m sprint. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>The football match is Year 1 vs. Year 3. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Students need to bring their own lunch. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>If it rains, the event will happen indoors. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-F (9:00 am) · 2-T · 3-F (Year 1 vs Year 2) · 4-F (school provides lunch) · 5-F (will be cancelled)</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 2 — Writing: Which event would you choose? Why?</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Write 5–6 sentences. Which sport do you prefer? Are you good at it? Have you ever competed? Use: <em>I would choose… because… I think I am… I have/haven't…</em></p></div>
+</template>
+
+<template id="rpl-1m-10">
+<div style="background:#e8f0f8;border-left:4px solid #2a5a8a;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:16px">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#2a5a8a;margin-bottom:5px">🔄 GUÍA DE REEMPLAZO · INSTITUTO MARÍTIMO DE VALPARAÍSO · ENGLISH DEPARTMENT</div>
+<p style="font-size:13px;color:#1a3a5a;margin:0"><strong>Instructions:</strong> Read the article about animals and do all the exercises. You have 45 minutes.</p></div>
+<div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
+<button onclick="printGuide('rpl-1m-10','Animals and Nature — Guía de Reemplazo 1° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<span style="background:#2a5a8a;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:12px">LEVEL A1 · 1° MEDIO</span></div>
+
+<h2 style="font-size:18px;color:#2a5a8a;border-bottom:2px solid #2a5a8a;padding-bottom:6px;margin-top:4px;margin-bottom:14px">🌿 Reading Practice: Animals and Nature</h2>
+
+<div class="rpl-reading">
+<h4>🌿 Amazing Animals of Chile — Magazine Article</h4>
+<p>Chile is a long, thin country with an amazing variety of natural habitats. From the Atacama Desert in the north to the cold waters of Patagonia in the south, Chile is home to many incredible animals.</p>
+<p>The <strong>South American sea lion</strong> lives on the coast near Valparaíso. These large animals love to swim and eat fish. They live in groups and are very noisy — they make loud barking sounds! Sea lions can weigh up to 300 kg and they can swim very fast.</p>
+<p>The <strong>Andean condor</strong> is a huge black bird that lives in the Andes mountains. It is one of the largest flying birds in the world, with a wingspan of up to 3 metres. The condor eats dead animals (it is a scavenger). In Chile, the condor is a symbol of freedom and appears on the national coat of arms.</p>
+<p>The <strong>chinchilla</strong> is a small, grey, very soft rodent that comes from the Andes. Chinchillas are nocturnal — they sleep in the day and are active at night. They eat plants, seeds and insects. Unfortunately, chinchillas are endangered because people hunt them for their fur.</p>
+<p>The <strong>Chilean flamingo</strong> lives in salt lakes in the north of Chile. These beautiful pink birds are about 1 metre tall. They eat algae and small crustaceans, which give their feathers the pink colour. They usually live in large groups of hundreds or even thousands of birds.</p></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">PREPARATION — Match the animal with its habitat.</div>
+<table style="width:100%;font-size:13px;border-collapse:collapse">
+<tr><td style="padding:6px;width:50%">1. ___ South American sea lion</td><td style="padding:6px">a. Andes mountains</td></tr>
+<tr style="background:#f5f8fc"><td style="padding:6px">2. ___ Andean condor</td><td style="padding:6px">b. salt lakes in the north</td></tr>
+<tr><td style="padding:6px">3. ___ chinchilla</td><td style="padding:6px">c. coastal areas near Valparaíso</td></tr>
+<tr style="background:#f5f8fc"><td style="padding:6px">4. ___ Chilean flamingo</td><td style="padding:6px">d. high Andes mountains</td></tr></table>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:8px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-c · 2-a · 3-d · 4-b</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 1 — True or False? Circle and correct the false ones.</div>
+<ol style="font-size:14px;line-height:2.8;margin-left:20px">
+<li>Sea lions eat plants. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>The Andean condor can have wings up to 3 metres wide. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Chinchillas are active during the day. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Flamingos are pink because of what they eat. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>The chinchilla appears on Chile's national coat of arms. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-F (fish) · 2-T · 3-F (nocturnal, active at night) · 4-T · 5-F (the condor)</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 2 — Answer the questions.</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>How heavy can a sea lion be?</li>
+<li>What does the condor eat?</li>
+<li>Why are chinchillas endangered?</li>
+<li>Where do flamingos live in Chile?</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:8px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> Up to 300 kg · Dead animals (it's a scavenger) · People hunt them for their fur · Salt lakes in the north</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 3 — Writing: Describe your favourite animal. Write 5–7 sentences.</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Include: name, where it lives, what it eats, what it looks like, one interesting fact. Use the article as a model.</p></div>
+</template>
+
+<!-- ═══ GUÍAS REEMPLAZO 2° MEDIO ═══ -->
+<template id="rpl-2m-01">
+<div class="mhdr ar"><div style="font-size:10px;font-weight:700;letter-spacing:1.5px;opacity:.7;margin-bottom:4px">GUÍA DE REEMPLAZO · IMV · ENGLISH DEPARTMENT</div><div style="font-size:17px;font-weight:700">Appearance — Describing People</div></div>
+<button onclick="printGuide('rpl-2m-01','Appearance — Guía de Reemplazo 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<div class="rpl-badge">LEVEL A2 · 2° MEDIO</div>
+<div class="rpl-reading">
+<h4>📖 Reading: What do they look like?</h4>
+<p>People look different in many ways. We use adjectives to describe physical appearance. Look at these descriptions:</p>
+<p><strong>Emma</strong> is 28 years old. She is tall and slim. She has long, straight, blond hair and blue eyes. She always looks elegant.</p>
+<p><strong>Carlos</strong> is 35 years old. He is medium height and a little fat. He has short, dark hair and brown eyes. He has a beard.</p>
+<p><strong>Sofia</strong> is 16 years old. She is short and thin. She has curly, ginger hair and green eyes. She wears glasses.</p>
+<p><strong>Mr. Park</strong> is 60 years old. He is tall and slim. He has short, grey hair and dark eyes. He looks young for his age.</p>
+<p><strong>Vocabulary box:</strong> tall / short / medium height · slim / thin / fat · long / short / curly / straight hair · blond / dark / ginger / grey hair · blue / brown / green / dark eyes · beard / glasses</p>
+</div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">PREPARATION — Match the word with its meaning.</div>
+<ol style="font-size:14px;line-height:2.2;margin-left:20px">
+<li>slim &nbsp;&nbsp;&nbsp; a) pelo rizado</li>
+<li>beard &nbsp;&nbsp;&nbsp; b) delgado/a</li>
+<li>curly &nbsp;&nbsp;&nbsp; c) barba</li>
+<li>ginger &nbsp;&nbsp;&nbsp; d) pelo rojizo</li>
+<li>elderly &nbsp;&nbsp;&nbsp; e) mayor / anciano</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-b · 2-c · 3-a · 4-d · 5-e</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 1 — True or False? Write T or F next to each sentence.</div>
+<ol style="font-size:14px;line-height:2.4;margin-left:20px">
+<li>Emma has dark hair. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Carlos has a beard. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Sofia is tall. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Mr. Park has grey hair. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Sofia wears glasses. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-F (blond) · 2-T · 3-F (short) · 4-T · 5-T</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 2 — Complete the sentences with the correct word.</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px"><em>tall &nbsp;·&nbsp; slim &nbsp;·&nbsp; curly &nbsp;·&nbsp; blue &nbsp;·&nbsp; beard</em></p>
+<ol style="font-size:14px;line-height:2.4;margin-left:20px">
+<li>Emma has ________ eyes.</li>
+<li>Carlos has a ________.</li>
+<li>Sofia has ________ hair.</li>
+<li>Emma is ________ and ________.</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-blue · 2-beard · 3-curly · 4-tall, slim</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 3 — Writing: Describe a person you know.</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Write 5–6 sentences describing a friend or family member. Include: age, height, build, hair, and eyes. Use the reading as a model.</p>
+<p style="font-size:13px;font-style:italic;color:#2a5a8a">Example: My friend Diego is 15 years old. He is tall and slim. He has short, dark hair and brown eyes...</p></div>
+</template>
+
+<template id="rpl-2m-02">
+<div class="mhdr ar"><div style="font-size:10px;font-weight:700;letter-spacing:1.5px;opacity:.7;margin-bottom:4px">GUÍA DE REEMPLAZO · IMV · ENGLISH DEPARTMENT</div><div style="font-size:17px;font-weight:700">Finding a Home</div></div>
+<button onclick="printGuide('rpl-2m-02','Finding a Home — Guía de Reemplazo 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<div class="rpl-badge">LEVEL A2 · 2° MEDIO</div>
+<div class="rpl-reading">
+<h4>📖 Reading: Property Classifieds</h4>
+<p style="font-size:13px;color:#555;font-style:italic;margin-bottom:10px">Read these property advertisements from a local newspaper.</p>
+<div style="background:#fff;border:1.5px solid #b0c4de;border-radius:8px;padding:12px;margin-bottom:10px;font-size:13.5px;line-height:1.7">
+<strong>AD 1 — FOR RENT: Modern Flat</strong><br>
+2 bedrooms · 1 bathroom · 5th floor · city centre<br>
+Fully furnished. Gas central heating. No pets.<br>
+$350,000 / month. Call: 32-2456789
+</div>
+<div style="background:#fff;border:1.5px solid #b0c4de;border-radius:8px;padding:12px;margin-bottom:10px;font-size:13.5px;line-height:1.7">
+<strong>AD 2 — FOR SALE: Family House</strong><br>
+3 bedrooms · 2 bathrooms · garden · garage<br>
+Quiet neighbourhood. Near school and supermarket.<br>
+$65,000,000. Contact: realestate@mail.com
+</div>
+<div style="background:#fff;border:1.5px solid #b0c4de;border-radius:8px;padding:12px;margin-bottom:10px;font-size:13.5px;line-height:1.7">
+<strong>AD 3 — FOR RENT: Studio Apartment</strong><br>
+1 room · kitchen · bathroom · 2nd floor<br>
+Near university. Internet included. Pets welcome.<br>
+$180,000 / month. Available immediately.
+</div>
+<div style="background:#fff;border:1.5px solid #b0c4de;border-radius:8px;padding:12px;font-size:13.5px;line-height:1.7">
+<strong>AD 4 — FOR SALE: Penthouse</strong><br>
+4 bedrooms · 3 bathrooms · terrace · sea views<br>
+Luxury finishes. 24-hour security. Parking included.<br>
+$220,000,000. Viewings by appointment only.
+</div>
+</div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">PREPARATION — Match the word with its Spanish meaning.</div>
+<ol style="font-size:14px;line-height:2.2;margin-left:20px">
+<li>furnished &nbsp;&nbsp;&nbsp; a) vecindario / barrio</li>
+<li>neighbourhood &nbsp;&nbsp;&nbsp; b) amoblado</li>
+<li>available &nbsp;&nbsp;&nbsp; c) terraza</li>
+<li>terrace &nbsp;&nbsp;&nbsp; d) disponible</li>
+<li>viewings &nbsp;&nbsp;&nbsp; e) visitas (a la propiedad)</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-b · 2-a · 3-d · 4-c · 5-e</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 1 — Which ad? Write the number (1, 2, 3 or 4).</div>
+<ol style="font-size:14px;line-height:2.4;margin-left:20px">
+<li>This property has a garden. → AD ___</li>
+<li>Pets are allowed. → AD ___</li>
+<li>You need an appointment to visit. → AD ___</li>
+<li>It is in the city centre. → AD ___</li>
+<li>Internet is included in the price. → AD ___</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-AD2 · 2-AD3 · 3-AD4 · 4-AD1 · 5-AD3</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 2 — True or False?</div>
+<ol style="font-size:14px;line-height:2.4;margin-left:20px">
+<li>Ad 1 is a house for sale. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Ad 2 has two bathrooms. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Ad 3 is on the third floor. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>The penthouse has sea views. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Ad 1 allows pets. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-F (flat for rent) · 2-T · 3-F (2nd floor) · 4-T · 5-F (no pets)</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 3 — Writing: Which property would you choose?</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Choose one of the four properties. Write 5–6 sentences explaining: which one you chose, why you like it, and one thing you would change about it.</p>
+<p style="font-size:13px;font-style:italic;color:#2a5a8a">Example: I would choose Ad 2 because it has a garden and it is near school. I like the garage too...</p></div>
+</template>
+
+<template id="rpl-2m-03">
+<div class="mhdr ar"><div style="font-size:10px;font-weight:700;letter-spacing:1.5px;opacity:.7;margin-bottom:4px">GUÍA DE REEMPLAZO · IMV · ENGLISH DEPARTMENT</div><div style="font-size:17px;font-weight:700">At the Airport</div></div>
+<button onclick="printGuide('rpl-2m-03','At the Airport — Guía de Reemplazo 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<div class="rpl-badge">LEVEL A2 · 2° MEDIO</div>
+<div class="rpl-reading">
+<h4>📖 Reading: Getting Ready to Fly</h4>
+<p>Travelling by plane can be exciting, but there are many steps before you get on board. First, you arrive at the <strong>airport</strong> and find the right <strong>terminal</strong>. Then you go to the <strong>check-in desk</strong> and show your <strong>passport</strong> and <strong>ticket</strong>. The airline staff weigh your <strong>luggage</strong>. If it is too heavy, you pay extra.</p>
+<p>After check-in, you go through <strong>security</strong>. You put your bag on a belt and walk through a scanner. You cannot take liquids over 100 ml. Then you find your <strong>departure gate</strong>. The screens show your <strong>flight number</strong>, destination, and <strong>boarding time</strong>.</p>
+<p>When the flight is ready, a staff member calls the passengers. You show your <strong>boarding pass</strong> and walk to the plane. On board, you find your <strong>seat</strong>, put your bag in the overhead locker, and fasten your <strong>seatbelt</strong>. The flight attendant explains the safety rules. Then the plane <strong>takes off</strong>.</p>
+<p><strong>Vocabulary:</strong> terminal · check-in · passport · luggage · security · departure gate · boarding pass · seat · seatbelt · take off · flight attendant · overhead locker</p>
+</div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">PREPARATION — Put the steps in the correct order (1–6).</div>
+<div style="font-size:14px;line-height:2.2;margin-left:10px">
+<p>___ Go through security.</p>
+<p>___ Arrive at the airport.</p>
+<p>___ The plane takes off.</p>
+<p>___ Check in your luggage.</p>
+<p>___ Board the plane and find your seat.</p>
+<p>___ Wait at the departure gate.</p>
+</div>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 3 · 1 · 6 · 2 · 5 · 4</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 1 — True or False?</div>
+<ol style="font-size:14px;line-height:2.4;margin-left:20px">
+<li>You show your passport at check-in. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>You can take 200 ml of liquid through security. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>The departure gate shows your flight number. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>The boarding pass is checked before you get on the plane. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>You fasten your seatbelt after the plane takes off. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-T · 2-F (only 100 ml) · 3-T · 4-T · 5-F (before)</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 2 — Fill in the gaps with the correct word.</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px"><em>boarding pass &nbsp;·&nbsp; luggage &nbsp;·&nbsp; terminal &nbsp;·&nbsp; seatbelt &nbsp;·&nbsp; gate</em></p>
+<ol style="font-size:14px;line-height:2.4;margin-left:20px">
+<li>You arrive at the airport and find the right ________.</li>
+<li>The staff weigh your ________ at check-in.</li>
+<li>Your flight leaves from ________ 14.</li>
+<li>You show your ________ before boarding.</li>
+<li>Please fasten your ________ for takeoff.</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-terminal · 2-luggage · 3-gate · 4-boarding pass · 5-seatbelt</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 3 — Writing: Describe your ideal trip.</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Where would you like to fly? Write 5–7 sentences describing your ideal trip. Include: destination, who you travel with, what you will do there, and how you feel about flying.</p></div>
+</template>
+
+<template id="rpl-2m-04">
+<div class="mhdr ar"><div style="font-size:10px;font-weight:700;letter-spacing:1.5px;opacity:.7;margin-bottom:4px">GUÍA DE REEMPLAZO · IMV · ENGLISH DEPARTMENT</div><div style="font-size:17px;font-weight:700">Social Media</div></div>
+<button onclick="printGuide('rpl-2m-04','Social Media — Guía de Reemplazo 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<div class="rpl-badge">LEVEL A2 · 2° MEDIO</div>
+<div class="rpl-reading">
+<h4>📖 Reading: How Do Teenagers Use Social Media?</h4>
+<p>Social media is a big part of young people's lives. A recent survey of 500 teenagers aged 13–17 found some interesting results.</p>
+<p>The most popular platform was <strong>Instagram</strong> (72%), followed by <strong>TikTok</strong> (68%) and <strong>YouTube</strong> (65%). Only 30% used <strong>Facebook</strong> — many said it was "for adults." <strong>Twitter/X</strong> was used by 25% of the group.</p>
+<p>Teenagers spend an average of <strong>3.5 hours per day</strong> on social media. They use it mainly to watch videos (80%), chat with friends (75%), listen to music (60%), and share photos (55%). Only 20% said they use it to read the news.</p>
+<p>When asked about the <strong>problems</strong> with social media, 45% mentioned spending too much time online, 38% said they saw negative or false information, and 30% reported feeling pressure to look perfect in photos.</p>
+<p>Despite the problems, 70% of teenagers said social media helps them stay connected with friends and family.</p>
+</div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">PREPARATION — Match the platform with the percentage.</div>
+<div style="font-size:14px;line-height:2.2;margin-left:10px">
+<p>Instagram &nbsp;&nbsp;&nbsp; 25%</p>
+<p>TikTok &nbsp;&nbsp;&nbsp; 65%</p>
+<p>YouTube &nbsp;&nbsp;&nbsp; 72%</p>
+<p>Facebook &nbsp;&nbsp;&nbsp; 68%</p>
+<p>Twitter/X &nbsp;&nbsp;&nbsp; 30%</p>
+</div>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> Instagram 72% · TikTok 68% · YouTube 65% · Facebook 30% · Twitter/X 25%</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 1 — True or False?</div>
+<ol style="font-size:14px;line-height:2.4;margin-left:20px">
+<li>TikTok is more popular than Instagram. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Teenagers spend about 3.5 hours a day on social media. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Most teenagers use social media to read the news. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Many teenagers feel pressure to look perfect in photos. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Most teenagers think social media helps them stay connected. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-F (Instagram 72% vs TikTok 68%) · 2-T · 3-F (only 20%) · 4-T (30%) · 5-T (70%)</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 2 — Answer the questions.</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>Which platform do teenagers use most?</li>
+<li>What is the main reason teenagers use social media?</li>
+<li>What percentage mentioned spending too much time online?</li>
+<li>Why do few teenagers use Facebook?</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:8px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-Instagram · 2-Watch videos (80%) · 3-45% · 4-They think it is "for adults"</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 3 — Writing: Your opinion on social media.</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Write 5–7 sentences. What social media do YOU use? How many hours per day? What are the good and bad things about it? Use the text to help you.</p></div>
+</template>
+
+<template id="rpl-2m-05">
+<div class="mhdr ar"><div style="font-size:10px;font-weight:700;letter-spacing:1.5px;opacity:.7;margin-bottom:4px">GUÍA DE REEMPLAZO · IMV · ENGLISH DEPARTMENT</div><div style="font-size:17px;font-weight:700">A Healthy Lifestyle</div></div>
+<button onclick="printGuide('rpl-2m-05','A Healthy Lifestyle — Guía de Reemplazo 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<div class="rpl-badge">LEVEL A2 · 2° MEDIO</div>
+<div class="rpl-reading">
+<h4>📖 Reading: Tips for a Healthy Life</h4>
+<p>Living a healthy lifestyle is not difficult. Small changes in your daily routine can make a big difference. Here are some useful tips:</p>
+<p><strong>1. Eat well.</strong> Try to eat plenty of fruit and vegetables every day. Avoid too much sugar, salt, and processed food. Drink at least 8 glasses of water a day. Eat breakfast — it gives you energy for the morning.</p>
+<p><strong>2. Exercise regularly.</strong> You don't need to go to the gym. Walking, cycling, swimming, or dancing are all excellent forms of exercise. Doctors recommend at least 60 minutes of moderate exercise per day for teenagers.</p>
+<p><strong>3. Sleep enough.</strong> Teenagers need between 8 and 10 hours of sleep per night. Poor sleep affects your concentration, mood, and health. Try to go to bed at the same time every night and avoid screens before sleeping.</p>
+<p><strong>4. Manage stress.</strong> School and exams can be stressful. Talk to someone you trust. Do activities you enjoy: listen to music, read, draw, or spend time outdoors. Deep breathing exercises can also help.</p>
+<p><strong>5. Avoid bad habits.</strong> Don't smoke. Avoid alcohol. These substances damage your body and brain, especially during adolescence.</p>
+</div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">PREPARATION — Match each tip with its category.</div>
+<div style="font-size:14px;line-height:2.2;margin-left:10px">
+<p>"Drink 8 glasses of water" &nbsp;&nbsp;&nbsp;&nbsp; Stress management</p>
+<p>"Go to bed at the same time" &nbsp;&nbsp;&nbsp;&nbsp; Exercise</p>
+<p>"Walk or cycle 60 minutes" &nbsp;&nbsp;&nbsp;&nbsp; Sleep</p>
+<p>"Do activities you enjoy" &nbsp;&nbsp;&nbsp;&nbsp; Nutrition</p>
+</div>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> "Drink 8 glasses" → Nutrition · "Go to bed" → Sleep · "Walk 60 min" → Exercise · "Activities you enjoy" → Stress</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 1 — True or False?</div>
+<ol style="font-size:14px;line-height:2.4;margin-left:20px">
+<li>Teenagers should exercise for at least 60 minutes a day. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>You need a gym membership to exercise. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Teenagers need 8–10 hours of sleep per night. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Looking at your phone helps you sleep better. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Smoking is especially bad for teenagers. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-T · 2-F · 3-T · 4-F · 5-T</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 2 — Complete the sentences.</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px"><em>water &nbsp;·&nbsp; breakfast &nbsp;·&nbsp; sleep &nbsp;·&nbsp; stress &nbsp;·&nbsp; exercise</em></p>
+<ol style="font-size:14px;line-height:2.4;margin-left:20px">
+<li>Drink 8 glasses of ________ per day.</li>
+<li>Always eat ________ — it gives you energy.</li>
+<li>Teenagers need 8–10 hours of ________ per night.</li>
+<li>Deep breathing can help manage ________.</li>
+<li>Walking and swimming are forms of ________.</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-water · 2-breakfast · 3-sleep · 4-stress · 5-exercise</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 3 — Writing: Your healthy lifestyle plan.</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Choose TWO tips from the text. Write 5–6 sentences explaining what you currently do and what you would like to improve in your daily routine.</p>
+<p style="font-size:13px;font-style:italic;color:#2a5a8a">Example: I think I need to sleep more. I usually go to bed at midnight, but the text says I need 8–10 hours...</p></div>
+</template>
+
+<template id="rpl-2m-06">
+<div class="mhdr ar"><div style="font-size:10px;font-weight:700;letter-spacing:1.5px;opacity:.7;margin-bottom:4px">GUÍA DE REEMPLAZO · IMV · ENGLISH DEPARTMENT</div><div style="font-size:17px;font-weight:700">A Movie Review</div></div>
+<button onclick="printGuide('rpl-2m-06','A Movie Review — Guía de Reemplazo 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<div class="rpl-badge">LEVEL A2 · 2° MEDIO</div>
+<div class="rpl-reading">
+<h4>📖 Reading: Film Review — "Into the Blue"</h4>
+<p style="font-size:12px;color:#666;margin-bottom:8px">By Valentina R., Age 16</p>
+<p><strong>Genre:</strong> Adventure / Drama &nbsp;&nbsp; <strong>Director:</strong> Sofía Martín &nbsp;&nbsp; <strong>Rating:</strong> ⭐⭐⭐⭐ (4/5)</p>
+<p><strong>Plot:</strong> "Into the Blue" is a 2023 adventure film. It tells the story of Marco, a 17-year-old boy who discovers an old map in his grandfather's house. The map shows the location of a sunken ship near the coast of Chile. Marco and his two best friends, Ana and Leo, decide to search for the ship during the school holidays. They face many challenges: bad weather, dangerous currents, and a mysterious man who is also looking for the treasure.</p>
+<p><strong>Characters:</strong> The main character, Marco, is brave and intelligent. Ana is the scientist of the group — she knows a lot about the sea and marine life. Leo is funny and always makes the other characters laugh, even in difficult moments.</p>
+<p><strong>What I liked:</strong> The underwater scenes are beautiful and very realistic. The friendship between the three characters is moving and believable. The ending is surprising!</p>
+<p><strong>What I didn't like:</strong> The film is a little slow in the middle. Some scenes are too long.</p>
+<p><strong>Recommendation:</strong> I recommend this film to teenagers who like adventure and nature. It is available on streaming platforms.</p>
+</div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">PREPARATION — Match the character with the description.</div>
+<div style="font-size:14px;line-height:2.2;margin-left:10px">
+<p>Marco &nbsp;&nbsp;&nbsp;&nbsp; He is funny and makes people laugh.</p>
+<p>Ana &nbsp;&nbsp;&nbsp;&nbsp; She knows a lot about the sea.</p>
+<p>Leo &nbsp;&nbsp;&nbsp;&nbsp; He finds an old map in his grandfather's house.</p>
+</div>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> Marco → finds the map · Ana → knows about the sea · Leo → funny</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 1 — True or False?</div>
+<ol style="font-size:14px;line-height:2.4;margin-left:20px">
+<li>Marco finds the map in his parents' house. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>The film is set in Chile. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>The reviewer gave the film 5 stars. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>The reviewer liked the underwater scenes. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>The reviewer thought the film was too slow at the end. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-F (grandfather's) · 2-T · 3-F (4/5) · 4-T · 5-F (in the middle)</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 2 — Answer the questions.</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>What do Marco and his friends look for?</li>
+<li>Who else is looking for the treasure?</li>
+<li>What did the reviewer like most about the film?</li>
+<li>Who is the reviewer? How old is she?</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:8px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-A sunken ship / treasure · 2-A mysterious man · 3-Underwater scenes and the friendship · 4-Valentina R., 16 years old</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 3 — Writing: Review a film you have seen.</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Write a short review (5–7 sentences) of a film or series you know. Include: title, genre, a short plot summary, what you liked, and a recommendation. Use the text as a model.</p></div>
+</template>
+
+<template id="rpl-2m-07">
+<div class="mhdr ar"><div style="font-size:10px;font-weight:700;letter-spacing:1.5px;opacity:.7;margin-bottom:4px">GUÍA DE REEMPLAZO · IMV · ENGLISH DEPARTMENT</div><div style="font-size:17px;font-weight:700">A Job Interview</div></div>
+<button onclick="printGuide('rpl-2m-07','A Job Interview — Guía de Reemplazo 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<div class="rpl-badge">LEVEL A2 · 2° MEDIO</div>
+<div class="rpl-reading">
+<h4>📖 Reading: Interview Tips for Your First Job</h4>
+<p>Getting your first job is exciting. A job interview is your chance to show an employer that you are the right person for the position. Here is some useful advice.</p>
+<p><strong>Before the interview:</strong> Research the company. Find out what they do and what the job involves. Prepare answers to common questions like "Tell me about yourself" and "Why do you want this job?" Prepare your own questions for the interviewer too. Choose smart, clean clothes. Arrive 10 minutes early.</p>
+<p><strong>During the interview:</strong> Shake hands with the interviewer. Make eye contact and smile. Speak clearly and don't rush. Listen carefully to each question before answering. Be honest — don't invent skills or experience you don't have. Use polite language: "Thank you for this opportunity," "I am very interested in this position."</p>
+<p><strong>After the interview:</strong> Send a short thank-you email or message. This shows you are professional and interested. Wait patiently for their answer.</p>
+<p><strong>Common interview questions:</strong></p>
+<ul style="font-size:14px;line-height:2;margin-left:20px;margin-bottom:0">
+<li>"What are your strengths?"</li>
+<li>"What is your biggest weakness?"</li>
+<li>"Do you prefer to work alone or in a team?"</li>
+<li>"Where do you see yourself in five years?"</li></ul>
+</div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">PREPARATION — Match the word with its meaning.</div>
+<ol style="font-size:14px;line-height:2.2;margin-left:20px">
+<li>employer &nbsp;&nbsp;&nbsp; a) fortaleza / punto fuerte</li>
+<li>strength &nbsp;&nbsp;&nbsp; b) jefe / empleador</li>
+<li>weakness &nbsp;&nbsp;&nbsp; c) punto débil</li>
+<li>opportunity &nbsp;&nbsp;&nbsp; d) oportunidad</li>
+<li>rush &nbsp;&nbsp;&nbsp; e) apresurarse</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-b · 2-a · 3-c · 4-d · 5-e</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 1 — True or False?</div>
+<ol style="font-size:14px;line-height:2.4;margin-left:20px">
+<li>You should arrive exactly on time for the interview. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>It is OK to invent skills you don't have. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>You should research the company before the interview. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Sending a thank-you email shows you are professional. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>You should speak quickly to sound confident. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-F (10 minutes early) · 2-F · 3-T · 4-T · 5-F (speak clearly, don't rush)</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 2 — Write a short answer to each question.</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>"Tell me about yourself." (2 sentences)</li>
+<li>"Why do you want this job?" (2 sentences)</li>
+<li>"What is one of your strengths?" (1 sentence)</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:8px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> Respuestas libres — revisa que el estudiante use lenguaje apropiado, presente simple y vocabulario del texto.</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 3 — Writing: Your ideal job.</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Write 5–7 sentences. What job would you like to have in the future? What skills do you already have? What skills do you need to develop? How will you prepare for the interview?</p></div>
+</template>
+
+<template id="rpl-2m-08">
+<div class="mhdr ar"><div style="font-size:10px;font-weight:700;letter-spacing:1.5px;opacity:.7;margin-bottom:4px">GUÍA DE REEMPLAZO · IMV · ENGLISH DEPARTMENT</div><div style="font-size:17px;font-weight:700">Travel Plans</div></div>
+<button onclick="printGuide('rpl-2m-08','Travel Plans — Guía de Reemplazo 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<div class="rpl-badge">LEVEL A2 · 2° MEDIO</div>
+<div class="rpl-reading">
+<h4>📖 Reading: A Summer Travel Plan</h4>
+<p>My name is Pablo and I am 16 years old. This summer my family is going to travel to the south of Chile. We are going to visit Pucón, Puerto Montt, and the Lakes District. Here is our plan:</p>
+<p><strong>Day 1–2 — Pucón:</strong> We are going to stay in a cabin near the lake. We are going to go hiking on the Villarrica volcano trail and swim in the lake. My sister is going to try kayaking for the first time.</p>
+<p><strong>Day 3–4 — Puerto Montt:</strong> We are going to visit the Angelmo fish market and eat fresh seafood. My mum is going to buy local crafts. In the afternoon we are going to take a boat trip to see the fjords.</p>
+<p><strong>Day 5 — Return:</strong> We are going to drive back home. The trip is about 11 hours by car. My dad is going to stop at a local restaurant for lunch on the way back.</p>
+<p>I am very excited about this trip. I love nature and I have never been to Pucón before. My favourite part of the plan is the volcano hike. I am also going to take lots of photos for my Instagram!</p>
+</div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">PREPARATION — Match the place with the activity.</div>
+<div style="font-size:14px;line-height:2.2;margin-left:10px">
+<p>Pucón &nbsp;&nbsp;&nbsp;&nbsp; See the fjords by boat</p>
+<p>Puerto Montt &nbsp;&nbsp;&nbsp;&nbsp; Swim in the lake</p>
+<p>Both places &nbsp;&nbsp;&nbsp;&nbsp; Enjoy nature</p>
+</div>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> Pucón → swim in the lake · Puerto Montt → see fjords · Both → enjoy nature</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 1 — True or False?</div>
+<ol style="font-size:14px;line-height:2.4;margin-left:20px">
+<li>Pablo's family is going to fly to the south. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>They are going to stay in a cabin in Pucón. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Pablo has visited Pucón before. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Pablo's sister is going to try kayaking. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>They will stop to eat on the way home. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-F (by car) · 2-T · 3-F (never been) · 4-T · 5-T</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 2 — Answer the questions.</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>What three places is Pablo's family going to visit?</li>
+<li>What is Pablo's favourite part of the plan?</li>
+<li>What is Pablo's mum going to do in Puerto Montt?</li>
+<li>How long is the drive home?</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:8px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-Pucón, Puerto Montt, Lakes District · 2-The volcano hike · 3-Buy local crafts · 4-About 11 hours</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 3 — Writing: Your dream holiday in Chile.</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Write 5–7 sentences describing a trip you would like to take inside Chile. Use the structure: "I am going to..." Include: destination, accommodation, activities, and food.</p></div>
+</template>
+
+<template id="rpl-2m-09">
+<div class="mhdr ar"><div style="font-size:10px;font-weight:700;letter-spacing:1.5px;opacity:.7;margin-bottom:4px">GUÍA DE REEMPLAZO · IMV · ENGLISH DEPARTMENT</div><div style="font-size:17px;font-weight:700">Environmental Issues</div></div>
+<button onclick="printGuide('rpl-2m-09','Environmental Issues — Guía de Reemplazo 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<div class="rpl-badge">LEVEL A2 · 2° MEDIO</div>
+<div class="rpl-reading">
+<h4>📖 Reading: Our Planet Is in Danger</h4>
+<p>Our planet faces serious <strong>environmental problems</strong>. Understanding these problems is the first step to solving them.</p>
+<p><strong>Climate change</strong> is the biggest threat to our planet. Burning fossil fuels (oil, coal, and gas) releases <strong>greenhouse gases</strong> that trap heat in the atmosphere. This makes temperatures rise. As a result, glaciers melt, sea levels rise, and extreme weather events (floods, droughts, heatwaves) become more frequent.</p>
+<p><strong>Pollution</strong> is another major problem. Air pollution from cars and factories causes health problems. Plastic pollution in the ocean kills marine animals — over 8 million tonnes of plastic enter the ocean every year. In Chile, the coastline and fishing industry are especially affected.</p>
+<p><strong>Deforestation</strong> — cutting down forests — destroys habitats and reduces the trees that absorb CO₂. The Amazon rainforest loses millions of hectares every year.</p>
+<p><strong>What can we do?</strong> We can reduce, reuse, and recycle. We can use public transport or cycle instead of driving. We can eat less meat, save water, and turn off lights. Small actions, multiplied by millions of people, make a real difference.</p>
+</div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">PREPARATION — Match the problem with its cause.</div>
+<div style="font-size:14px;line-height:2.2;margin-left:10px">
+<p>Climate change &nbsp;&nbsp;&nbsp;&nbsp; Cutting down trees</p>
+<p>Plastic pollution &nbsp;&nbsp;&nbsp;&nbsp; Burning fossil fuels</p>
+<p>Deforestation &nbsp;&nbsp;&nbsp;&nbsp; Plastic entering the ocean</p>
+</div>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> Climate change → burning fossil fuels · Plastic pollution → plastic in ocean · Deforestation → cutting trees</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 1 — True or False?</div>
+<ol style="font-size:14px;line-height:2.4;margin-left:20px">
+<li>Greenhouse gases cool the atmosphere. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Over 8 million tonnes of plastic enter the ocean every year. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Deforestation helps trees absorb more CO₂. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Chile's coastline is affected by plastic pollution. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Small individual actions cannot make a difference. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-F (trap heat) · 2-T · 3-F (reduces absorption) · 4-T · 5-F (they can)</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 2 — Complete the sentences.</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px"><em>recycle &nbsp;·&nbsp; fossil fuels &nbsp;·&nbsp; deforestation &nbsp;·&nbsp; marine animals &nbsp;·&nbsp; temperatures</em></p>
+<ol style="font-size:14px;line-height:2.4;margin-left:20px">
+<li>Burning ________ releases greenhouse gases.</li>
+<li>Climate change makes ________ rise.</li>
+<li>Plastic pollution in the ocean kills ________.</li>
+<li>________ destroys natural habitats.</li>
+<li>We should reduce, reuse, and ________.</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-fossil fuels · 2-temperatures · 3-marine animals · 4-Deforestation · 5-recycle</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 3 — Writing: What do YOU do for the environment?</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Write 5–7 sentences. What environmental problem worries you most? What do you already do to help the environment? What could you do more? Use vocabulary from the text.</p></div>
+</template>
+
+<template id="rpl-2m-10">
+<div class="mhdr ar"><div style="font-size:10px;font-weight:700;letter-spacing:1.5px;opacity:.7;margin-bottom:4px">GUÍA DE REEMPLAZO · IMV · ENGLISH DEPARTMENT</div><div style="font-size:17px;font-weight:700">Technology in Daily Life</div></div>
+<button onclick="printGuide('rpl-2m-10','Technology in Daily Life — Guía de Reemplazo 2° Medio')" class="pdf-btn">🖨️ Imprimir guía como PDF</button>
+<div class="rpl-badge">LEVEL A2 · 2° MEDIO</div>
+<div class="rpl-reading">
+<h4>📖 Reading: Technology: How Has It Changed Our Lives?</h4>
+<p>Technology has changed the way we live, work, and communicate. Twenty years ago, most people did not have smartphones. Today, it is difficult to imagine life without them.</p>
+<p><strong>Communication:</strong> We can now send messages, make video calls, and share photos with people on the other side of the world in seconds. Apps like WhatsApp, FaceTime, and Zoom have made long-distance communication easy and affordable. However, some people think we spend too much time on our phones and not enough time talking face to face.</p>
+<p><strong>Education:</strong> Technology has transformed learning. Students can watch lessons online, use educational apps, and access millions of books and articles instantly. During the pandemic, online classes kept schools running. But not all students have good internet access at home, which creates inequality.</p>
+<p><strong>Work:</strong> Many people now work from home using laptops and video conferencing. Online shopping has changed retail — more and more people buy things on the internet instead of going to physical shops. This has affected traditional businesses.</p>
+<p><strong>Health:</strong> Technology helps doctors diagnose diseases and monitor patients. Fitness apps and smartwatches encourage people to exercise and sleep better. However, too much screen time can cause eye problems, poor posture, and sleep difficulties.</p>
+<p>Technology is a powerful tool. The key is to use it wisely.</p>
+</div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">PREPARATION — Match each area with the example from the text.</div>
+<div style="font-size:14px;line-height:2.2;margin-left:10px">
+<p>Communication &nbsp;&nbsp;&nbsp;&nbsp; Online shopping changed retail</p>
+<p>Education &nbsp;&nbsp;&nbsp;&nbsp; Video calls with people worldwide</p>
+<p>Work &nbsp;&nbsp;&nbsp;&nbsp; Students can watch lessons online</p>
+<p>Health &nbsp;&nbsp;&nbsp;&nbsp; Smartwatches encourage exercise</p>
+</div>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> Communication → video calls · Education → lessons online · Work → online shopping · Health → smartwatches</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 1 — True or False?</div>
+<ol style="font-size:14px;line-height:2.4;margin-left:20px">
+<li>Twenty years ago, most people had smartphones. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Online classes helped students during the pandemic. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>All students have equal access to the internet at home. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>Too much screen time can cause sleep problems. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li>
+<li>The text says technology is always bad for us. &nbsp;&nbsp; TRUE &nbsp;/&nbsp; FALSE</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:10px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-F · 2-T · 3-F (inequality) · 4-T · 5-F (it's a tool — use it wisely)</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 2 — Answer the questions.</div>
+<ol style="font-size:14px;line-height:2.5;margin-left:20px">
+<li>Name two apps mentioned for communication.</li>
+<li>What problem does the text mention about internet access?</li>
+<li>What negative effect can too much screen time have?</li>
+<li>What is the main message at the end of the text?</li></ol>
+<div style="background:#e8f0f8;border-radius:6px;padding:7px 12px;margin-top:8px;font-size:12px;color:#2a5a8a"><strong>Respuestas:</strong> 1-WhatsApp / FaceTime / Zoom (any 2) · 2-Not all students have good internet (inequality) · 3-Eye problems, poor posture, sleep difficulties · 4-Technology is a powerful tool — use it wisely</div></div>
+
+<div class="rpl-ex">
+<div class="rpl-ex-title">EXERCISE 3 — Writing: Technology in your life.</div>
+<p style="font-size:13px;color:#555;margin-bottom:8px">Write 5–7 sentences. Which area (communication, education, work, or health) do you think technology has improved most? Give reasons and examples from your own experience.</p>
+<p style="font-size:13px;font-style:italic;color:#2a5a8a">Example: I think technology has improved education the most. I use my phone to watch explanations on YouTube when I don't understand something in class...</p></div>
 </template>
 
 <!-- ═══ NUEVAS GUÍAS 1° MEDIO ═══ -->
