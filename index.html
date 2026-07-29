@@ -168,29 +168,29 @@ main{max-width:1100px;margin:0 auto;padding:36px 16px 80px}
   z-index:900;display:flex;align-items:center;justify-content:center;padding:16px;
   opacity:0;pointer-events:none;transition:opacity .2s ease}
 .mo.open{opacity:1;pointer-events:all}
-.mbox{background:#fff;border-radius:14px;max-width:760px;width:100%;
-  max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(11,31,58,.25);
+.mbox{background:#fff;border-radius:14px;max-width:1440px;width:96vw;
+   max-height:95vh;overflow-y:auto;box-shadow:0 20px 60px rgba(11,31,58,.25);
   transform:translateY(14px);transition:transform .25s ease}
 .mo.open .mbox{transform:translateY(0)}
 .mhdr{position:sticky;top:0;background:var(--navy);color:#fff;
   padding:16px 22px;border-radius:14px 14px 0 0;
   display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
 .mhdr.ag{background:#1a5a30}.mhdr.ap{background:#3a2060}.mhdr.ao{background:#4a3200}
-.mt{font-family:'Playfair Display',serif;font-size:16px;line-height:1.3}
-.ms{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px}
+.mt{font-family:'Playfair Display',serif;font-size:22px;line-height:1.3}
+.ms{font-size:14px;color:rgba(255,255,255,.6);margin-top:3px}
 .mc{background:rgba(255,255,255,.15);border:none;color:#fff;
   width:28px;height:28px;border-radius:50%;font-size:15px;cursor:pointer;
   display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s}
 .mc:hover{background:rgba(255,255,255,.3)}
-.mb{padding:22px 24px;font-size:14px;line-height:1.75;color:var(--text)}
+.mb{padding:30px 38px;font-size:17px;line-height:1.8;color:var(--text)}
 
 /* MODAL CONTENT STYLES */
-.mb h2{font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);margin:22px 0 8px}
+.mb h2{font-family:'Playfair Display',serif;font-size:25px;color:var(--navy);margin:26px 0 10px}
 .mb h2:first-child{margin-top:0}
-.mb h3{font-size:12px;font-weight:700;color:var(--teal);margin:16px 0 6px;text-transform:uppercase;letter-spacing:.4px}
-.mb p{margin-bottom:10px}
+.mb h3{font-size:16px;font-weight:700;color:var(--teal);margin:18px 0 8px;text-transform:uppercase;letter-spacing:.4px}
+.mb p{margin-bottom:12px}
 .mb ul,.mb ol{margin:0 0 12px 20px}
-.mb li{margin-bottom:5px}
+.mb li{margin-bottom:8px}
 
 .apo{background:#fffbf0;border-left:4px solid var(--gold);padding:14px 18px;border-radius:0 8px 8px 0;margin-bottom:20px}
 .apo .at{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#8a6500;margin-bottom:6px}
@@ -214,12 +214,38 @@ main{max-width:1100px;margin:0 auto;padding:36px 16px 80px}
 .ak2{background:#f0faf0;border:1px solid #b5ddb5;border-radius:8px;padding:12px 16px;margin:12px 0}
 .ak2 .akt{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#2d6b2d;margin-bottom:6px}
 .ak2 p,.ak2 li{font-size:12.5px;color:#1e4a1e;margin-bottom:3px}
-.mb table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
-.mb th{background:var(--navy);color:#fff;padding:8px 12px;text-align:left}
-.mb td{padding:7px 12px;border-bottom:1px solid var(--border)}
+.mb table{width:100%;border-collapse:collapse;margin:14px 0;font-size:16px}
+.mb th{background:var(--navy);color:#fff;padding:11px 16px;text-align:left;font-size:16px}
+.mb td{padding:10px 16px;border-bottom:1px solid var(--border)}
 .mb tr:nth-child(even) td{background:#f6f9fc}
 .mb td.eg{font-style:italic;color:var(--teal)}
 .mbadge{display:inline-block;background:linear-gradient(135deg,#8a6500,#c49a20);color:#fff;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:12px;margin-bottom:12px}
+/* PROYECCIÓN — cajas escaladas dentro del modal */
+.mb .apo{padding:16px 22px;margin-bottom:22px}
+.mb .at{font-size:12px}
+.mb .apo p{font-size:15px}
+.mb .hl{padding:15px 20px;font-size:16.5px;margin:16px 0}
+.mb .exb{padding:18px 24px;margin:16px 0}
+.mb .ext{font-size:14px;margin-bottom:13px}
+.mb .exn{width:26px;height:26px;font-size:14px;margin-right:9px}
+.mb .exb ol,.mb .exb ul{font-size:16.5px}
+.mb .exb li{margin-bottom:10px}
+.mb .gb{padding:20px 26px;font-size:16.5px}
+.mb .fm{font-size:16px;padding:9px 18px}
+.mb .mkb{padding:18px 24px;font-size:16px}
+.mb .mkt{font-size:13px}
+.mb .ak2{padding:15px 20px;font-size:15px}
+.mb .akt{font-size:13px}
+.mb .wrong{color:#c0392b;text-decoration:line-through}
+.mb .correct{color:#1a7a3a;font-weight:700}
+/* NAV POR UNIDADES */
+.unit-nav{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 26px;padding-bottom:6px}
+.unit-subbtn{padding:9px 18px;border-radius:10px;border:1.5px solid var(--border);background:#fff;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .18s ease;white-space:nowrap}
+.unit-subbtn:hover{border-color:var(--teal);color:var(--navy)}
+.unit-subbtn.uav{background:var(--navy);color:#fff;border-color:var(--navy)}
+.unit-sec{display:none}
+.unit-sec.uvis{display:block;animation:fup .28s ease}
+.ulabel{font-size:13px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--teal);margin:4px 0 16px;padding-left:2px}
 .empty{text-align:center;padding:40px 20px;color:var(--muted)}
 .tbtn.tlec{border-color:#7a1a1a;color:#7a1a1a}
 .tbtn.tlec.active{background:#7a1a1a;border-color:#7a1a1a}
@@ -345,6 +371,12 @@ function show(id,btn){
   });
   window.scrollTo({top:0,behavior:'smooth'});
 }
+function showUnit(prefix,uid,btn){
+  document.querySelectorAll('.'+prefix+'-ubtn').forEach(b=>b.classList.remove('uav'));
+  btn.classList.add('uav');
+  document.querySelectorAll('.'+prefix+'-usec').forEach(s=>s.classList.toggle('uvis',s.id===uid));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 function openM(card){
   var id=card.getAttribute('data-content');
   var tmpl=document.getElementById(id);
@@ -370,230 +402,393 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeM();});
 <!-- ═══════════ 1° MEDIO ═══════════ -->
 <div class="sec vis" id="sec-1m">
   <div class="sh">📘 1° Medio — Curso Base de Inglés</div>
-
-  <div class="cat">📄 Guías de trabajo — Unidad 1</div>
-  <div class="grid">
-    <div class="card" data-title="Guía N°1 — Greetings &amp; Introductions" data-subtitle="Saludos y presentaciones" data-content="g1m-01">
+  <div class="unit-nav">
+    <button class="unit-subbtn c1m-ubtn uav" onclick="showUnit('c1m','u1m-1',this)">📗 Unidad 1</button>
+    <button class="unit-subbtn c1m-ubtn" onclick="showUnit('c1m','u1m-2',this)">👨‍👩‍👧 Unidad 2</button>
+    <button class="unit-subbtn c1m-ubtn" onclick="showUnit('c1m','u1m-3',this)">🕐 Unidad 3</button>
+    <button class="unit-subbtn c1m-ubtn" onclick="showUnit('c1m','u1m-4',this)">🗺️ Unidad 4</button>
+  </div>
+  <div class="unit-sec c1m-usec uvis" id="u1m-1">
+    <div class="ulabel">📄 Guías de trabajo — Unidad 1: Getting to Know Each Other</div>
+    <div class="grid">
+<div class="card" data-title="Guía N°1 — Greetings &amp; Introductions" data-subtitle="Saludos y presentaciones" data-content="g1m-01">
       <span class="ct cg">Guía 1</span><h3>Greetings &amp; Introductions</h3>
       <p>Saludos formales e informales. Cómo presentarse y responder preguntas básicas.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 1</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card" data-title="Guía N°2 — The Alphabet &amp; Numbers 1–20" data-subtitle="Abecedario y primeros números" data-content="g1m-02">
+<div class="card" data-title="Guía N°2 — The Alphabet &amp; Numbers 1–20" data-subtitle="Abecedario y primeros números" data-content="g1m-02">
       <span class="ct cg">Guía 2</span><h3>The Alphabet &amp; Numbers 1–20</h3>
       <p>El abecedario con pronunciación, números del 1 al 20 y deletreo.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 1</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card" data-title="Guía N°3 — Subject Pronouns" data-subtitle="Pronombres personales sujeto" data-content="g1m-03">
+<div class="card" data-title="Guía N°3 — Subject Pronouns" data-subtitle="Pronombres personales sujeto" data-content="g1m-03">
       <span class="ct cg">Guía 3</span><h3>Subject Pronouns</h3>
       <p>I, you, he, she, it, we, they — usos y diferencias clave con el español.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 2</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card" data-title="Guía N°4 — Verb To Be (Affirmative)" data-subtitle="El verbo ser/estar — afirmativo" data-content="g1m-04">
+<div class="card" data-title="Guía N°4 — Verb To Be (Affirmative)" data-subtitle="El verbo ser/estar — afirmativo" data-content="g1m-04">
       <span class="ct cg">Guía 4</span><h3>Verb To Be — Affirmative</h3>
       <p>El verbo más importante del inglés: conjugación, contracciones y usos.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 2</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card" data-title="Guía N°5 — Verb To Be (Negative &amp; Questions)" data-subtitle="Forma negativa e interrogativa" data-content="g1m-05">
+<div class="card" data-title="Guía N°5 — Verb To Be (Negative &amp; Questions)" data-subtitle="Forma negativa e interrogativa" data-content="g1m-05">
       <span class="ct cg">Guía 5</span><h3>Verb To Be — Negative &amp; Questions</h3>
       <p>Negaciones, preguntas y respuestas cortas con To Be.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 3</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card" data-title="Guía N°6 — Possessive Adjectives" data-subtitle="Adjetivos posesivos" data-content="g1m-06">
-      <span class="ct cg">Guía 6</span><h3>Possessive Adjectives</h3>
-      <p>My, your, his, her, its, our, their — posesión en inglés.</p>
-      <div class="cfoot"><span class="cdate">📅 Semana 3</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
-    </div>
-    <div class="card" data-title="Guía N°7 — Colors &amp; Basic Adjectives" data-subtitle="Colores y adjetivos" data-content="g1m-07">
-      <span class="ct cg">Guía 7</span><h3>Colors &amp; Basic Adjectives</h3>
-      <p>Vocabulario de colores y adjetivos para describir personas y objetos.</p>
-      <div class="cfoot"><span class="cdate">📅 Semana 4</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
-    </div>
-    <div class="card" data-title="Guía N°8 — My Family" data-subtitle="Vocabulario de familia" data-content="g1m-08">
-      <span class="ct cg">Guía 8</span><h3>My Family</h3>
-      <p>Familia nuclear y extendida. Cómo presentar y describir familiares.</p>
-      <div class="cfoot"><span class="cdate">📅 Semana 4</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
-    </div>
-    <div class="card" data-title="Guía N°9 — Days, Months &amp; Seasons" data-subtitle="Días, meses y estaciones" data-content="g1m-09">
+<div class="card" data-title="Guía N°9 — Days, Months &amp; Seasons" data-subtitle="Días, meses y estaciones" data-content="g1m-09">
       <span class="ct cg">Guía 9</span><h3>Days, Months &amp; Seasons</h3>
       <p>Días, meses y estaciones del año. Diferencias hemisferio norte/sur.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 5</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card" data-title="Guía N°10 — Numbers 1–100 &amp; Age" data-subtitle="Números y edades" data-content="g1m-10">
+<div class="card" data-title="Guía N°10 — Numbers 1–100 &amp; Age" data-subtitle="Números y edades" data-content="g1m-10">
       <span class="ct cg">Guía 10</span><h3>Numbers 1–100 &amp; Age</h3>
       <p>Números hasta 100, ordinales, edades y fechas completas en inglés.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 5</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-  </div>
-
-  <div class="cat">📖 Lecturas</div>
-  <div class="grid">
-    <div class="card" data-title="Reading N°1 — The Sea and Its Wonders" data-subtitle="El océano Pacífico e identidad portuaria" data-content="r1m-01">
+    </div>
+    <div class="ulabel" style="margin-top:26px">📖 Lecturas comprensivas</div>
+    <div class="grid">
+<div class="card" data-title="Reading N°1 — The Sea and Its Wonders" data-subtitle="El océano Pacífico e identidad portuaria" data-content="r1m-01">
       <span class="ct cl">Lectura 1</span><h3>The Sea and Its Wonders</h3>
       <p>El océano Pacífico y su importancia para Valparaíso. Nivel A1.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 3</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card" data-title="Reading N°2 — A Day in Valparaíso" data-subtitle="Rutina diaria de un estudiante técnico" data-content="r1m-02">
-      <span class="ct cl">Lectura 2</span><h3>A Day in Valparaíso</h3>
-      <p>La rutina de Matías, estudiante marítimo. Presente simple.</p>
-      <div class="cfoot"><span class="cdate">📅 Semana 4</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
-    </div>
-    <div class="card" data-title="Reading N°3 — Jobs at Sea" data-subtitle="Profesiones del mundo marítimo" data-content="r1m-03">
-      <span class="ct cl">Lectura 3</span><h3>Jobs at Sea</h3>
-      <p>Capitán, oficial, ingeniero, marinero y trabajador portuario.</p>
-      <div class="cfoot"><span class="cdate">📅 Semana 5</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
-    </div>
-    <div class="card" data-title="Reading N°4 — Ocean Animals" data-subtitle="Animales marinos del Pacífico chileno" data-content="r1m-04">
-      <span class="ct cl">Lectura 4</span><h3>Ocean Animals</h3>
-      <p>Ballena azul, pingüino, delfín y lobo marino. Descripción con adjetivos.</p>
-      <div class="cfoot"><span class="cdate">📅 Semana 6</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
-    </div>
-    <div class="card" data-title="Reading N°5 — My School, My Future" data-subtitle="El instituto y las carreras técnicas" data-content="r1m-05">
+<div class="card" data-title="Reading N°5 — My School, My Future" data-subtitle="El instituto y las carreras técnicas" data-content="r1m-05">
       <span class="ct cl">Lectura 5</span><h3>My School, My Future</h3>
       <p>Valentina habla de su primer año en el Instituto Marítimo. Motivacional.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 6</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
+    </div>
   </div>
-
-  <div class="cat">📄 Guías de trabajo — Unidad 2: My Family and Me</div>
-  <div class="grid">
-    <div class="card" data-title="Guía N°11 — Verb To Be: Full Review" data-subtitle="Repaso completo: afirmativo, negativo e interrogativo" data-content="g1m-11">
+  <div class="unit-sec c1m-usec" id="u1m-2">
+    <div class="ulabel">📄 Guías de trabajo — Unidad 2: My Family and Me</div>
+    <div class="grid">
+<div class="card" data-title="Guía N°6 — Possessive Adjectives" data-subtitle="Adjetivos posesivos" data-content="g1m-06">
+      <span class="ct cg">Guía 6</span><h3>Possessive Adjectives</h3>
+      <p>My, your, his, her, its, our, their — posesión en inglés.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 3</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+<div class="card" data-title="Guía N°7 — Colors &amp; Basic Adjectives" data-subtitle="Colores y adjetivos" data-content="g1m-07">
+      <span class="ct cg">Guía 7</span><h3>Colors &amp; Basic Adjectives</h3>
+      <p>Vocabulario de colores y adjetivos para describir personas y objetos.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 4</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+<div class="card" data-title="Guía N°8 — My Family" data-subtitle="Vocabulario de familia" data-content="g1m-08">
+      <span class="ct cg">Guía 8</span><h3>My Family</h3>
+      <p>Familia nuclear y extendida. Cómo presentar y describir familiares.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 4</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+<div class="card" data-title="Guía N°11 — Verb To Be: Full Review" data-subtitle="Repaso completo: afirmativo, negativo e interrogativo" data-content="g1m-11">
       <span class="ct cg">Guía 11</span><h3>Verb To Be — Full Review</h3>
       <p>Consolidación completa del verbo To Be: afirmativo, negativo, interrogativo y respuestas cortas en contexto de familia.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 6</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card" data-title="Guía N°12 — This / That / These / Those" data-subtitle="Demostrativos en inglés" data-content="g1m-12">
+<div class="card" data-title="Guía N°12 — This / That / These / Those" data-subtitle="Demostrativos en inglés" data-content="g1m-12">
       <span class="ct cg">Guía 12</span><h3>Demonstratives</h3>
       <p>This, That, These, Those — singular/plural, cerca/lejos. Uso con objetos cotidianos y miembros de familia.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 7</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card" data-title="Guía N°13 — Have / Has" data-subtitle="Expresar posesión y relaciones" data-content="g1m-13">
+<div class="card" data-title="Guía N°13 — Have / Has" data-subtitle="Expresar posesión y relaciones" data-content="g1m-13">
       <span class="ct cg">Guía 13</span><h3>Have / Has</h3>
       <p>Expresar posesión con have/has. Afirmativo, negativo e interrogativo. Vocabulario de objetos cotidianos.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 7</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card" data-title="Guía N°14 — Apostrophe 's — Possession" data-subtitle="Indicar posesión con apóstrofe" data-content="g1m-14">
+<div class="card" data-title="Guía N°14 — Apostrophe 's — Possession" data-subtitle="Indicar posesión con apóstrofe" data-content="g1m-14">
       <span class="ct cg">Guía 14</span><h3>Apostrophe 's</h3>
       <p>Carlos's book / My sister's name. Posesión con apóstrofe vs. contracción is. Diferencias con el español.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 8</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card" data-title="Guía N°15 — Everyday Objects" data-subtitle="Objetos cotidianos y de la escuela" data-content="g1m-15">
+<div class="card" data-title="Guía N°15 — Everyday Objects" data-subtitle="Objetos cotidianos y de la escuela" data-content="g1m-15">
       <span class="ct cg">Guía 15</span><h3>Everyday Objects</h3>
       <p>Vocabulario de objetos del hogar, la mochila y el aula. This/That + have/has integrados en contexto.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 8</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-  </div>
-
-  <div class="cat">📖 Lecturas — Unidad 2</div>
-  <div class="grid">
-    <div class="card" data-title="Reading N°6 — My Family Tree" data-subtitle="Árbol genealógico y descripción familiar" data-content="r1m-06">
+    </div>
+    <div class="ulabel" style="margin-top:26px">📖 Lecturas comprensivas</div>
+    <div class="grid">
+<div class="card" data-title="Reading N°2 — A Day in Valparaíso" data-subtitle="Rutina diaria de un estudiante técnico" data-content="r1m-02">
+      <span class="ct cl">Lectura 2</span><h3>A Day in Valparaíso</h3>
+      <p>La rutina de Matías, estudiante marítimo. Presente simple.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 4</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+<div class="card" data-title="Reading N°6 — My Family Tree" data-subtitle="Árbol genealógico y descripción familiar" data-content="r1m-06">
       <span class="ct cl">Lectura 6</span><h3>My Family Tree</h3>
       <p>Camila describe su árbol genealógico usando To Be, have/has y posesivos. Nivel A1+.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 7</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card" data-title="Reading N°7 — A Day at Instituto Marítimo" data-subtitle="Objetos, posesión y vida escolar" data-content="r1m-07">
+<div class="card" data-title="Reading N°7 — A Day at Instituto Marítimo" data-subtitle="Objetos, posesión y vida escolar" data-content="r1m-07">
       <span class="ct cl">Lectura 7</span><h3>A Day at IMV</h3>
       <p>Diego describe su día con objetos escolares, pertenencias y su familia usando demostrativos y have/has.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 8</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
+    </div>
+  </div>
+  <div class="unit-sec c1m-usec" id="u1m-3">
+    <div class="ulabel">📄 Guías de trabajo — Unidad 3: My Routine & Daily Life</div>
+    <div class="grid">
+    <div class="card" data-title="Guía N°16 — Present Simple: Daily Routines" data-subtitle="Rutinas diarias y hábitos" data-content="g1m-16">
+      <span class="ct cg">Guía 16</span><h3>Present Simple — Daily Routines</h3>
+      <p>Rutinas y hábitos con I / You / We / They. Verbos de acción cotidianos.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 9</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    <div class="card" data-title="Guía N°17 — Present Simple: Third Person" data-subtitle="He / She / It + -s / -es / -ies" data-content="g1m-17">
+      <span class="ct cg">Guía 17</span><h3>Present Simple — Third Person</h3>
+      <p>Reglas de ortografía para he/she/it: -s, -es, -ies. Verbos irregulares has/does/goes.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 9</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    <div class="card" data-title="Guía N°18 — Present Simple: Negatives & Questions" data-subtitle="don't / doesn't · Do / Does" data-content="g1m-18">
+      <span class="ct cg">Guía 18</span><h3>Present Simple — Negatives & Questions</h3>
+      <p>Forma negativa (don't/doesn't) e interrogativa (Do/Does) con respuestas cortas.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 10</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    <div class="card" data-title="Guía N°19 — Adverbs of Frequency" data-subtitle="always → never · posición" data-content="g1m-19">
+      <span class="ct cg">Guía 19</span><h3>Adverbs of Frequency</h3>
+      <p>Escala de frecuencia y posición del adverbio con el verbo y con To Be.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 10</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    <div class="card" data-title="Guía N°20 — Telling Time & Prepositions of Time" data-subtitle="La hora · at / in / on" data-content="g1m-20">
+      <span class="ct cg">Guía 20</span><h3>Telling Time & Prepositions of Time</h3>
+      <p>Decir la hora y usar las preposiciones de tiempo at / in / on correctamente.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 11</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    </div>
+    <div class="ulabel" style="margin-top:26px">📖 Lecturas comprensivas</div>
+    <div class="grid">
+<div class="card" data-title="Reading N°3 — Jobs at Sea" data-subtitle="Profesiones del mundo marítimo" data-content="r1m-03">
+      <span class="ct cl">Lectura 3</span><h3>Jobs at Sea</h3>
+      <p>Capitán, oficial, ingeniero, marinero y trabajador portuario.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 5</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    <div class="card" data-title="Reading N°8 — A Day in My Life" data-subtitle="Rutina diaria narrada" data-content="r1m-08">
+      <span class="ct cl">Lectura 8</span><h3>A Day in My Life</h3>
+      <p>Andrés describe su rutina diaria usando present simple y adverbios de frecuencia.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 11</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    </div>
+  </div>
+  <div class="unit-sec c1m-usec" id="u1m-4">
+    <div class="ulabel">📄 Guías de trabajo — Unidad 4: My Town and Directions</div>
+    <div class="grid">
+    <div class="card" data-title="Guía N°21 — Places in Town + There is / There are" data-subtitle="Lugares de la ciudad · hay" data-content="g1m-21">
+      <span class="ct cg">Guía 21</span><h3>Places in Town + There is / There are</h3>
+      <p>Vocabulario de lugares y la estructura There is / There are para describir un lugar.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 12</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    <div class="card" data-title="Guía N°22 — There is / are: some / any" data-subtitle="Negativas y preguntas" data-content="g1m-22">
+      <span class="ct cg">Guía 22</span><h3>There is / are — some / any</h3>
+      <p>There is/are en negativo e interrogativo. Uso de some y any.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 12</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    <div class="card" data-title="Guía N°23 — Articles: a / an / the" data-subtitle="Artículos definido e indefinido" data-content="g1m-23">
+      <span class="ct cg">Guía 23</span><h3>Articles — a / an / the</h3>
+      <p>Cuándo usar a, an y the. Sonido vocálico vs consonántico.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 13</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    <div class="card" data-title="Guía N°24 — Prepositions of Place" data-subtitle="in · on · under · next to · behind…" data-content="g1m-24">
+      <span class="ct cg">Guía 24</span><h3>Prepositions of Place</h3>
+      <p>Preposiciones de lugar para describir dónde están los objetos y edificios.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 13</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    <div class="card" data-title="Guía N°25 — Directions, Imperatives & Can" data-subtitle="Cómo dar indicaciones" data-content="g1m-25">
+      <span class="ct cg">Guía 25</span><h3>Directions, Imperatives & Can</h3>
+      <p>Dar direcciones con imperativos (turn left, go straight) y preguntar con Can you…?</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 14</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    </div>
+    <div class="ulabel" style="margin-top:26px">📖 Lecturas comprensivas</div>
+    <div class="grid">
+<div class="card" data-title="Reading N°4 — Ocean Animals" data-subtitle="Animales marinos del Pacífico chileno" data-content="r1m-04">
+      <span class="ct cl">Lectura 4</span><h3>Ocean Animals</h3>
+      <p>Ballena azul, pingüino, delfín y lobo marino. Descripción con adjetivos.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 6</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    <div class="card" data-title="Reading N°9 — Around My Town" data-subtitle="La ciudad · there is/are · direcciones" data-content="r1m-09">
+      <span class="ct cl">Lectura 9</span><h3>Around My Town</h3>
+      <p>Camila describe su barrio: lugares, preposiciones de lugar y cómo llegar.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 14</span><button class="btn" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    </div>
   </div>
 </div>
 
-<!-- ═══════════ 2° MEDIO ═══════════ -->
 <div class="sec" id="sec-2m">
   <div class="sh">📗 2° Medio — Inglés Intermedio</div>
-  <div class="cat">📄 Guías de trabajo — Unidad 1: Feelings &amp; Free Time</div>
-  <div class="grid">
-    <div class="card" data-title="Guía 2M N°1 — Feelings &amp; Moods" data-subtitle="Sentimientos y estados de ánimo" data-content="g2m-01">
+  <div class="unit-nav">
+    <button class="unit-subbtn c2m-ubtn uav" onclick="showUnit('c2m','u2m-1',this)">🎸 Unidad 1</button>
+    <button class="unit-subbtn c2m-ubtn" onclick="showUnit('c2m','u2m-2',this)">💭 Unidad 2</button>
+    <button class="unit-subbtn c2m-ubtn" onclick="showUnit('c2m','u2m-3',this)">📖 Unidad 3</button>
+    <button class="unit-subbtn c2m-ubtn" onclick="showUnit('c2m','u2m-4',this)">💬 Unidad 4</button>
+  </div>
+  <div class="unit-sec c2m-usec uvis" id="u2m-1">
+    <div class="ulabel">📄 Guías de trabajo — Unidad 1: Hobbies and Free Time</div>
+    <div class="grid">
+<div class="card" data-title="Guía 2M N°1 — Feelings &amp; Moods" data-subtitle="Sentimientos y estados de ánimo" data-content="g2m-01">
       <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 1</span><h3>Feelings &amp; Moods</h3>
       <p>Vocabulario completo de emociones positivas y negativas. Cómo expresar cómo te sientes.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 1–2</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card" data-title="Guía 2M N°2 — Hobbies, CAN &amp; Likes" data-subtitle="Pasatiempos, habilidades y preferencias" data-content="g2m-02">
+<div class="card" data-title="Guía 2M N°2 — Hobbies, CAN &amp; Likes" data-subtitle="Pasatiempos, habilidades y preferencias" data-content="g2m-02">
       <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 2</span><h3>Hobbies, CAN &amp; Likes</h3>
       <p>Modal CAN, likes/dislikes con gerunds, actividades de tiempo libre.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 3–4</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card" data-title="Guía 2M N°3 — Adverbs of Frequency &amp; Present Simple" data-subtitle="Frecuencia y rutinas" data-content="g2m-03">
+<div class="card" data-title="Guía 2M N°3 — Adverbs of Frequency &amp; Present Simple" data-subtitle="Frecuencia y rutinas" data-content="g2m-03">
       <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 3</span><h3>Frequency &amp; Present Simple</h3>
       <p>Always, usually, often, sometimes, never. Presente simple para rutinas.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 5–6</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card" data-title="Guía 2M N°4 — Present Continuous" data-subtitle="Acciones en progreso" data-content="g2m-04">
+<div class="card" data-title="Guía 2M N°4 — Present Continuous" data-subtitle="Acciones en progreso" data-content="g2m-04">
       <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 4</span><h3>Present Continuous</h3>
       <p>Acciones que ocurren ahora. Simple vs Continuous. Spelling rules para -ING.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 7–8</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card" data-title="Guía 2M N°5 — Sports &amp; Music" data-subtitle="Deportes e instrumentos músicales" data-content="g2m-05">
+<div class="card" data-title="Guía 2M N°5 — Sports &amp; Music" data-subtitle="Deportes e instrumentos músicales" data-content="g2m-05">
       <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 5</span><h3>Sports &amp; Music</h3>
       <p>Vocabulario de deportes, instrumentos y géneros músicales. Verbos PLAY, GO, DO.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 9–10</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-  </div>
-
-  <div class="cat">📖 Lecturas — Unidad 1</div>
-  <div class="grid">
-    <div class="card" data-title="Reading 2M N°1 — Camila's Hobbies" data-subtitle="Lectura: Pasatiempos y tiempo libre" data-content="r2m-01">
+    </div>
+    <div class="ulabel" style="margin-top:26px">📖 Lecturas comprensivas</div>
+    <div class="grid">
+<div class="card" data-title="Reading 2M N°1 — Camila's Hobbies" data-subtitle="Lectura: Pasatiempos y tiempo libre" data-content="r2m-01">
       <span class="ct" style="background:#fdf3e3;color:#b07a12">Lectura 1</span><h3>Camila's Hobbies</h3>
       <p>Camila describe sus pasatiempos, música favorita y rutina. Presente simple y CAN.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 4</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card" data-title="Reading 2M N°2 — The Maritime Life" data-subtitle="Vida y habilidades marítimas" data-content="r2m-02">
+<div class="card" data-title="Reading 2M N°2 — The Maritime Life" data-subtitle="Vida y habilidades marítimas" data-content="r2m-02">
       <span class="ct" style="background:#fdf3e3;color:#b07a12">Lectura 2</span><h3>The Maritime Life</h3>
       <p>Habilidades de un oficial naval. Present continuous + CAN en contexto profesional.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 8</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card" data-title="Reading 2M N°3 — Music Around the World" data-subtitle="Géneros músicales e identidad cultural" data-content="r2m-03">
+<div class="card" data-title="Reading 2M N°3 — Music Around the World" data-subtitle="Géneros músicales e identidad cultural" data-content="r2m-03">
       <span class="ct" style="background:#fdf3e3;color:#b07a12">Lectura 3</span><h3>Music Around the World</h3>
       <p>Géneros músicales globales. Opiniones, likes/dislikes y presente simple.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 10</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
+    </div>
   </div>
-
-  <div class="cat">📄 Guías de trabajo — Unidad 2: Likes, Opinions &amp; Future Plans</div>
-  <div class="grid">
-    <div class="card" data-title="Guía 2M N°6 — Expressing Opinions &amp; Preferences" data-subtitle="Opiniones y preferencias personales" data-content="g2m-06">
-      <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 6</span><h3>Opinions &amp; Preferences</h3>
-      <p>I think/believe/feel. In my opinión. I prefer. Agree/disagree. Expresar opiniones con evidencia.</p>
-      <div class="cfoot"><span class="cdate">📅 Semana 1–2</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
-    </div>
-    <div class="card" data-title="Guía 2M N°7 — Future Simple: Will" data-subtitle="El futuro simple en inglés" data-content="g2m-07">
-      <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 7</span><h3>Future Simple — Will</h3>
-      <p>Will afirmativo, negativo e interrogativo. Predicciones, promesas y decisiones espontáneas.</p>
-      <div class="cfoot"><span class="cdate">📅 Semana 3–4</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
-    </div>
-    <div class="card" data-title="Guía 2M N°8 — Going To: Definite Plans" data-subtitle="Planes definidos en inglés" data-content="g2m-08">
-      <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 8</span><h3>Going To — Plans</h3>
-      <p>Be + going to + verb. Planes concretos vs. predicciones. Will vs. Going To: diferencias clave.</p>
-      <div class="cfoot"><span class="cdate">📅 Semana 5–6</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
-    </div>
-    <div class="card" data-title="Guía 2M N°9 — Future Continuous" data-subtitle="Acciones en progreso en el futuro" data-content="g2m-09">
-      <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 9</span><h3>Future Continuous</h3>
-      <p>Will be + verb-ing. Acciones que estarán ocurriendo en un momento futuro. Uso profesional y cotidiano.</p>
-      <div class="cfoot"><span class="cdate">📅 Semana 7–8</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
-    </div>
-    <div class="card" data-title="Guía 2M N°10 — Love/Like/Hate + Verb-ing (Deep Review)" data-subtitle="Revisión profunda de gustos con gerundios" data-content="g2m-10">
+  <div class="unit-sec c2m-usec" id="u2m-2">
+    <div class="ulabel">📄 Guías de trabajo — Unidad 2: Likes, Opinions & Future Plans</div>
+    <div class="grid">
+<div class="card" data-title="Guía 2M N°10 — Love/Like/Hate + Verb-ing (Deep Review)" data-subtitle="Revisión profunda de gustos con gerundios" data-content="g2m-10">
       <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 10</span><h3>Likes + Gerunds — Deep Review</h3>
       <p>Revisión completa. Preferencias, planes futuros y opiniones integradas. Escritura extendida.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 9–10</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-  </div>
-
-  <div class="cat">📖 Lecturas — Unidad 2</div>
-  <div class="grid">
-    <div class="card" data-title="Reading 2M N°4 — My Future Plans" data-subtitle="Planes futuros de un estudiante marítimo" data-content="r2m-04">
+<div class="card" data-title="Guía 2M N°6 — Expressing Opinions &amp; Preferences" data-subtitle="Opiniones y preferencias personales" data-content="g2m-06">
+      <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 6</span><h3>Opinions &amp; Preferences</h3>
+      <p>I think/believe/feel. In my opinión. I prefer. Agree/disagree. Expresar opiniones con evidencia.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 1–2</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+<div class="card" data-title="Guía 2M N°7 — Future Simple: Will" data-subtitle="El futuro simple en inglés" data-content="g2m-07">
+      <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 7</span><h3>Future Simple — Will</h3>
+      <p>Will afirmativo, negativo e interrogativo. Predicciones, promesas y decisiones espontáneas.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 3–4</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+<div class="card" data-title="Guía 2M N°8 — Going To: Definite Plans" data-subtitle="Planes definidos en inglés" data-content="g2m-08">
+      <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 8</span><h3>Going To — Plans</h3>
+      <p>Be + going to + verb. Planes concretos vs. predicciones. Will vs. Going To: diferencias clave.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 5–6</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+<div class="card" data-title="Guía 2M N°9 — Future Continuous" data-subtitle="Acciones en progreso en el futuro" data-content="g2m-09">
+      <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 9</span><h3>Future Continuous</h3>
+      <p>Will be + verb-ing. Acciones que estarán ocurriendo en un momento futuro. Uso profesional y cotidiano.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 7–8</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    </div>
+    <div class="ulabel" style="margin-top:26px">📖 Lecturas comprensivas</div>
+    <div class="grid">
+<div class="card" data-title="Reading 2M N°4 — My Future Plans" data-subtitle="Planes futuros de un estudiante marítimo" data-content="r2m-04">
       <span class="ct" style="background:#fdf3e3;color:#b07a12">Lectura 4</span><h3>My Future Plans</h3>
       <p>Andrés describe sus aspiraciones usando will, going to y opiniones. Contexto marítimo-profesional.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 6</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
-    <div class="card" data-title="Reading 2M N°5 — A Survey About Preferences" data-subtitle="Resultados de encuesta de opiniones" data-content="r2m-05">
+<div class="card" data-title="Reading 2M N°5 — A Survey About Preferences" data-subtitle="Resultados de encuesta de opiniones" data-content="r2m-05">
       <span class="ct" style="background:#fdf3e3;color:#b07a12">Lectura 5</span><h3>A Survey About Preferences</h3>
       <p>Texto informativo con resultados de encuesta sobre gustos y planes. Interpretar datos y emitir opiniones.</p>
       <div class="cfoot"><span class="cdate">📅 Semana 10</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
     </div>
+    </div>
+  </div>
+  <div class="unit-sec c2m-usec" id="u2m-3">
+    <div class="ulabel">📄 Guías de trabajo — Unidad 3: Descriptions and Narratives</div>
+    <div class="grid">
+    <div class="card" data-title="Guía 2M N°11 — Descriptive Adjectives" data-subtitle="Personalidad y aspecto físico" data-content="g2m-11">
+      <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 11</span><h3>Descriptive Adjectives</h3>
+      <p>Adjetivos de personalidad y físicos. Orden y uso con To Be y have got.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 9</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    <div class="card" data-title="Guía 2M N°12 — Past Simple: Was / Were" data-subtitle="Pasado del verbo To Be" data-content="g2m-12">
+      <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 12</span><h3>Past Simple — Was / Were</h3>
+      <p>Pasado de To Be: was/were afirmativo, negativo e interrogativo.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 9</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    <div class="card" data-title="Guía 2M N°13 — Past Simple: Regular & Irregular" data-subtitle="Verbos regulares e irregulares" data-content="g2m-13">
+      <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 13</span><h3>Past Simple — Regular & Irregular</h3>
+      <p>Pasado simple: -ed regulares y lista de irregulares. Negativas con didn't.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 10</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    <div class="card" data-title="Guía 2M N°14 — Past Continuous" data-subtitle="Acciones en progreso en el pasado" data-content="g2m-14">
+      <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 14</span><h3>Past Continuous</h3>
+      <p>was/were + verbo-ing. Contraste con past simple (when / while).</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 10</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    <div class="card" data-title="Guía 2M N°15 — Narrative Connectors" data-subtitle="Conectores para narrar" data-content="g2m-15">
+      <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 15</span><h3>Narrative Connectors</h3>
+      <p>First, then, after that, finally… Ordenar y escribir una narración.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 11</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    </div>
+    <div class="ulabel" style="margin-top:26px">📖 Lecturas comprensivas</div>
+    <div class="grid">
+    <div class="card" data-title="Reading 2M N°6 — An Unforgettable Day" data-subtitle="Narración en pasado" data-content="r2m-06">
+      <span class="ct" style="background:#fdf3e3;color:#b07a12">Lectura 6</span><h3>An Unforgettable Day</h3>
+      <p>Diego narra un día inolvidable usando past simple y past continuous.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 11</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    </div>
+  </div>
+  <div class="unit-sec c2m-usec" id="u2m-4">
+    <div class="ulabel">📄 Guías de trabajo — Unidad 4: Everyday Conversations</div>
+    <div class="grid">
+    <div class="card" data-title="Guía 2M N°16 — Questions & Short Answers" data-subtitle="Do / Does + respuestas cortas" data-content="g2m-16">
+      <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 16</span><h3>Questions & Short Answers</h3>
+      <p>Preguntas de sí/no y WH- con Do/Does. Respuestas cortas naturales.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 12</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    <div class="card" data-title="Guía 2M N°17 — Polite Requests: Can / Could" data-subtitle="Pedir cosas con cortesía" data-content="g2m-17">
+      <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 17</span><h3>Polite Requests — Can / Could</h3>
+      <p>Can/Could para pedir y ofrecer con cortesía en conversaciones diarias.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 12</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    <div class="card" data-title="Guía 2M N°18 — Past Simple Questions" data-subtitle="Did + respuestas" data-content="g2m-18">
+      <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 18</span><h3>Past Simple — Questions (Did)</h3>
+      <p>Preguntas en pasado con Did y WH-. Respuestas cortas afirmativas y negativas.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 13</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    <div class="card" data-title="Guía 2M N°19 — Shopping & Money" data-subtitle="Conversaciones de compra" data-content="g2m-19">
+      <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 19</span><h3>Shopping & Money</h3>
+      <p>Vocabulario y diálogos de compras: precios, How much…?, pagar.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 13</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    <div class="card" data-title="Guía 2M N°20 — Present Perfect: Introduction" data-subtitle="have / has + participio" data-content="g2m-20">
+      <span class="ct" style="background:#e8f5ec;color:#2d7a4f">Guía 20</span><h3>Present Perfect — Introduction</h3>
+      <p>Introducción al present perfect: experiencias con ever, never, already, yet.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 14</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    </div>
+    <div class="ulabel" style="margin-top:26px">📖 Lecturas comprensivas</div>
+    <div class="grid">
+    <div class="card" data-title="Reading 2M N°7 — At the Market" data-subtitle="Conversación cotidiana" data-content="r2m-07">
+      <span class="ct" style="background:#fdf3e3;color:#b07a12">Lectura 7</span><h3>At the Market</h3>
+      <p>Diálogo real de compras en el mercado: precios, cortesía y present perfect.</p>
+      <div class="cfoot"><span class="cdate">📅 Semana 14</span><button class="btn" style="background:#2d7a4f" onclick="openM(this.closest('.card'))">Ver material</button></div>
+    </div>
+    </div>
   </div>
 </div>
 
-<!-- ═══════════ VOCABULARIOS 1° MEDIO ═══════════ -->
 <div class="sec" id="sec-v1">
   <div class="sh gv">🔤 Vocabularios 1° Medio</div>
 
@@ -3681,7 +3876,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
 
 <template id="g2m-04">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
-<p>El presente continuo describe acciones que estan ocurriendo ahora mismo. Ejercicios con situaciones del hogar, colegio y vida cotidiana.</p></div>
+<p>El presente continuo describe acciones que están ocurriendo ahora mismo. Ejercicios con situaciones del hogar, colegio y vida cotidiana.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Usar el Presente Continuo para acciones en progreso. Distinguirlo del Presente Simple. Aplicar reglas de -ING. OA1/OA2 — Unidad 1.</div>
 <div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use Present Continuous for actions in progress. Distinguish from Present Simple. Apply -ING spelling rules. OA1/OA2 — Unit 1.</div>
 <h2>Estructura</h2>
@@ -3740,7 +3935,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
 <div class="exb"><div class="ext"><span class="exn">6</span> Completa el texto con Simple o Continuous</div>
 <p>It is Saturday afternoon. My family ___ (relax) at home. My father ___ (read) the newspaper — he always ___ (read) on Saturdays. My mother ___ (cook) in the kitchen. She usually ___ (cook) something special on weekends. My sister ___ (not do) her homework — she ___ (watch) a film on her laptop. I ___ (write) these sentences for my English homework. Right now, everybody ___ (do) something different in our house.</p></div>
 <div class="exb"><div class="ext"><span class="exn">7</span> Describe tu casa ahora mismo</div>
-<p>Escribe 10 oraciones usando Presente Continuo. Que estan haciendo tu y las personas de tu casa en este momento? Incluye 2 negativos y 2 preguntas.</p>
+<p>Escribe 10 oraciones usando Presente Continuo. Qué están haciendo tú y las personas de tu casa en este momento? Incluye 2 negativos y 2 preguntas.</p>
 <p><em>Right now, I am ___. My ___ is ___. Nobody is ___. Is your ___ ___? Yes/No, ___.</em></p></div>
 <div class="ak2"><div class="akt">✅ Respuestas — Act.1</div>
 <p>playing / running / dancing / swimming / studying / making / sitting / writing / listening / stopping / eating / talking</p>
@@ -4284,7 +4479,7 @@ I am writing to ___ (you/your) regarding the cargo manifest. My colleague Ana an
 
 <template id="g1m-12">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
-<p>Los demostrativos indican si algo esta cerca o lejos. Ejercicios con objetos y situaciones del día a día.</p></div>
+<p>Los demostrativos indican si algo está cerca o lejos. Ejercicios con objetos y situaciones del día a día.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Usar this, that, these, those correctamente según distancia y número. OA1 — Unidad 2.</div>
 <div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use demonstratives correctly according to distance and number. OA1 — Unit 2.</div>
 <h2>Demonstratives</h2>
@@ -4457,7 +4652,7 @@ Truco: si 's = is y tiene sentido = contraccion. Si no = posesion.</div>
 <ol><li>El gato de mi abuela es muy viejo. →</li>
 <li>El cuaderno de Diego es azul y verde. →</li>
 <li>Cual es el nombre de tu mejor amigo/a? →</li>
-<li>El bolígrafo de la profesora esta en su escritorio. →</li>
+<li>El bolígrafo de la profesora está en su escritorio. →</li>
 <li>La hermana de Ana es muy simpatica. →</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">6</span> Reescribe usando posesion con 's</div>
 <p>Ej: The book belongs to Carlos. → It is Carlos's book.</p>
@@ -4524,7 +4719,7 @@ Truco: si 's = is y tiene sentido = contraccion. Si no = posesion.</div>
 <li>La mochila de Ana tiene tres bolsillos. cuadra</li>
 <li>Ese es el cargador de mi hermano. cuadra</li>
 <li>Tienes llaves? Si, las tengo aqui. cuadra</li>
-<li>El borrador de la profesora esta en su escritorio. cuadra</li></ol></div>
+<li>El borrador de la profesora está en su escritorio. cuadra</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">6</span> Completa con la palabra correcta</div>
 <p>Elige: This / These / have / has / 's</p>
 <ol><li>___ is my brother ___ backpack. It ___ a football inside.</li>
@@ -4537,6 +4732,591 @@ Truco: si 's = is y tiene sentido = contraccion. Si no = posesion.</div>
 <p>Act.1: This/Those/That/These/That/These</p>
 <p>Act.3: brother's/Ana's/grandmother's/teacher's/mother's/friend's</p>
 <p>Act.4: These are Ana's keys. She HAS them. | This IS my brother's uniform. He DOESN'T have it. | Those ARE my pencil cases. They HAVE pens. | Those ARE the teacher's books. She HAS many. | These headphones ARE my sister's. She DOESN'T use them.</p></div></template>
+<template id="g1m-16">
+<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
+<p>El present simple sirve para hablar de rutinas y hábitos. En esta guía se trabaja con I / You / We / They en situaciones cotidianas de casa y colegio. Apoyo en casa: pregunten "What time do you get up?" o "What do you do after school?".</p></div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar el present simple afirmativo con I/You/We/They para describir rutinas y hábitos diarios. OA1 — Unidad 3.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use present simple affirmative with I/You/We/They to describe daily routines and habits. OA1 — Unit 3.</div>
+<h2>Present Simple — Daily Routines</h2>
+<div class="gb"><strong>Estructura:</strong> Sujeto + verbo (forma base)<br>
+I <strong>get up</strong> at 7 o'clock. · We <strong>have</strong> breakfast together. · They <strong>walk</strong> to school.</div>
+<h3>Verbos de rutina comunes</h3>
+<table><tr><th>Inglés</th><th>Español</th><th>Inglés</th><th>Español</th></tr>
+<tr><td>get up / wake up</td><td>levantarse / despertar</td><td>have lunch</td><td>almorzar</td></tr>
+<tr><td>take a shower</td><td>ducharse</td><td>do homework</td><td>hacer la tarea</td></tr>
+<tr><td>have breakfast</td><td>desayunar</td><td>watch TV</td><td>ver televisión</td></tr>
+<tr><td>brush my teeth</td><td>lavarse los dientes</td><td>go to bed</td><td>ir a la cama</td></tr>
+<tr><td>get dressed</td><td>vestirse</td><td>study</td><td>estudiar</td></tr>
+<tr><td>go to school</td><td>ir al colegio</td><td>play</td><td>jugar</td></tr></table>
+<div class="exb"><div class="ext"><span class="exn">1</span> Completa con el verbo correcto</div>
+<p>Usa: get up · have · go · do · watch · brush</p>
+<ol><li>I ___ up at 6:30 every morning.</li>
+<li>We ___ breakfast in the kitchen.</li>
+<li>My friends and I ___ to school by bus.</li>
+<li>You ___ your homework in the afternoon.</li>
+<li>They ___ TV after dinner.</li>
+<li>I ___ my teeth twice a day.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Ordena tu día — numera del 1 al 8</div>
+<ol><li>___ I have dinner with my family.</li>
+<li>___ I wake up early.</li>
+<li>___ I go to bed.</li>
+<li>___ I take a shower.</li>
+<li>___ I go to school.</li>
+<li>___ I have breakfast.</li>
+<li>___ I do my homework.</li>
+<li>___ I get dressed.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Escribe la hora en que haces cada acción</div>
+<ol><li>I wake up at ___.</li>
+<li>I go to school at ___.</li>
+<li>I have lunch at ___.</li>
+<li>I do my homework at ___.</li>
+<li>I go to bed at ___.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">4</span> Une la acción con el momento del día</div>
+<table><tr><th>Acción</th><th></th><th>Momento</th></tr>
+<tr><td>1. have breakfast</td><td>___</td><td>a. at night</td></tr>
+<tr><td>2. go to school</td><td>___</td><td>b. in the morning</td></tr>
+<tr><td>3. do homework</td><td>___</td><td>c. early in the morning</td></tr>
+<tr><td>4. go to bed</td><td>___</td><td>d. in the afternoon</td></tr></table></div>
+<div class="exb"><div class="ext"><span class="exn">5</span> Traduce al inglés</div>
+<ol><li>Me levanto a las siete. →</li>
+<li>Nosotros desayunamos juntos. →</li>
+<li>Ellos caminan al colegio. →</li>
+<li>Yo hago mi tarea por la tarde. →</li>
+<li>Tú ves televisión después de cenar. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">6</span> Producción guiada</div>
+<p>Escribe 5 oraciones sobre lo que haces cada mañana antes de venir al colegio.</p>
+<p>Modelo: <em>In the morning, I wake up at ___. Then I ___.</em></p></div>
+<div class="exb"><div class="ext"><span class="exn">7</span> Párrafo extendido</div>
+<p>Escribe 8–10 oraciones describiendo tu rutina diaria completa: mañana, tarde y noche. Usa por lo menos 8 verbos distintos de la tabla.</p></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div>
+<p>Act.1: get / have / go / do / watch / brush</p>
+<p>Act.2 (ejemplo): 6-1-8-3-5-2-7-4</p>
+<p>Act.4: 1-b / 2-c / 3-d / 4-a</p>
+<p>Act.5: I get up at seven. / We have breakfast together. / They walk to school. / I do my homework in the afternoon. / You watch TV after dinner.</p></div>
+</template>
+<template id="g1m-17">
+<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
+<p>Cuando hablamos de otra persona (he/she/it) el verbo cambia: se le agrega -s, -es o -ies. Es una de las reglas más importantes del inglés. Apoyo en casa: pídanle que diga qué hace un familiar: "My mother works…", "My brother plays…".</p></div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Aplicar las reglas de tercera persona singular (-s, -es, -ies) en el present simple. OA1 — Unidad 3.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Apply third-person singular spelling rules (-s, -es, -ies) in the present simple. OA1 — Unit 3.</div>
+<h2>Present Simple — Third Person</h2>
+<div class="gb"><strong>Regla:</strong> Con <strong>He / She / It</strong> el verbo lleva -s.<br>
+She <strong>plays</strong> tennis. · He <strong>works</strong> at a shop. · It <strong>rains</strong> a lot.</div>
+<h3>Reglas de ortografía</h3>
+<table><tr><th>Regla</th><th>Ejemplo</th></tr>
+<tr><td>La mayoría: + <strong>s</strong></td><td>play → plays · read → reads · eat → eats</td></tr>
+<tr><td>Termina en -s, -sh, -ch, -x, -o: + <strong>es</strong></td><td>watch → watches · go → goes · do → does</td></tr>
+<tr><td>Consonante + y: y → <strong>ies</strong></td><td>study → studies · carry → carries</td></tr>
+<tr><td>Irregular</td><td>have → has</td></tr></table>
+<div class="exb"><div class="ext"><span class="exn">1</span> Escribe la forma con he/she/it</div>
+<ol><li>play → ___</li><li>watch → ___</li><li>study → ___</li><li>go → ___</li>
+<li>have → ___</li><li>read → ___</li><li>do → ___</li><li>carry → ___</li>
+<li>eat → ___</li><li>fix → ___</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Completa con la forma correcta del verbo</div>
+<ol><li>My mother ___ (work) at a hospital.</li>
+<li>My brother ___ (study) at university.</li>
+<li>My best friend ___ (play) the guitar.</li>
+<li>My grandfather ___ (watch) the news every night.</li>
+<li>My sister ___ (go) to dance class on Fridays.</li>
+<li>My dog ___ (have) a lot of energy.</li>
+<li>The bus ___ (arrive) at eight o'clock.</li>
+<li>My teacher ___ (do) fun activities in class.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Elige la forma correcta</div>
+<ol><li>She (play / plays) volleyball on Mondays.</li>
+<li>My friends (study / studies) English with me.</li>
+<li>He (watch / watches) movies on weekends.</li>
+<li>They (go / goes) to the park every Sunday.</li>
+<li>My father (have / has) an old car.</li>
+<li>It (rain / rains) a lot in winter.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">4</span> Corrige el error</div>
+<ol><li>She go to school by bus. →</li>
+<li>My brother watch TV all day. →</li>
+<li>He study every night. →</li>
+<li>My mother have three sisters. →</li>
+<li>The dog play in the garden. →</li>
+<li>She do her homework early. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">5</span> Traduce al inglés</div>
+<ol><li>Ella juega tenis los sábados. →</li>
+<li>Mi hermano estudia en la universidad. →</li>
+<li>Él ve televisión por la noche. →</li>
+<li>Mi madre tiene un trabajo interesante. →</li>
+<li>Llueve mucho en Valparaíso. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">6</span> Producción guiada</div>
+<p>Escribe 6 oraciones sobre un familiar (madre, padre, hermano/a). Usa he o she y verbos en tercera persona.</p>
+<p>Modelo: <em>My sister ___ (get up) early. She ___ (study) a lot.</em></p></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div>
+<p>Act.1: plays / watches / studies / goes / has / reads / does / carries / eats / fixes</p>
+<p>Act.2: works / studies / plays / watches / goes / has / arrives / does</p>
+<p>Act.3: plays / study / watches / go / has / rains</p>
+<p>Act.4: goes / watches / studies / has / plays / does</p></div>
+</template>
+<template id="g1m-18">
+<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
+<p>Para decir lo que NO hacemos usamos don't / doesn't, y para preguntar usamos Do / Does. Apoyo en casa: háganle preguntas simples: "Do you like…?", "Does your friend play…?".</p></div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Formar oraciones negativas (don't/doesn't) e interrogativas (Do/Does) en present simple con respuestas cortas. OA1 — Unidad 3.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Build negative (don't/doesn't) and interrogative (Do/Does) present simple sentences with short answers. OA1 — Unit 3.</div>
+<h2>Present Simple — Negatives &amp; Questions</h2>
+<table><tr><th>Sujeto</th><th>Negativa</th><th>Pregunta</th><th>Respuesta corta</th></tr>
+<tr><td>I / You / We / They</td><td>don't + verbo</td><td>Do + sujeto + verbo?</td><td>Yes, I do. / No, I don't.</td></tr>
+<tr><td>He / She / It</td><td>doesn't + verbo</td><td>Does + sujeto + verbo?</td><td>Yes, she does. / No, she doesn't.</td></tr></table>
+<div class="mkb"><div class="mkt">⚠️ Error común</div>
+<p>Con doesn't y does el verbo va en <strong>forma base</strong>: <span class="wrong">She doesn't plays</span> → <span class="correct">She doesn't play</span>. <span class="wrong">Does he goes?</span> → <span class="correct">Does he go?</span></p></div>
+<div class="exb"><div class="ext"><span class="exn">1</span> Completa con don't o doesn't</div>
+<ol><li>I ___ like getting up early.</li>
+<li>My brother ___ play football.</li>
+<li>We ___ have class on Sundays.</li>
+<li>She ___ watch horror movies.</li>
+<li>They ___ live near the school.</li>
+<li>My father ___ drink coffee.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Completa con Do o Does</div>
+<ol><li>___ you like pizza?</li>
+<li>___ she study English?</li>
+<li>___ they play video games?</li>
+<li>___ he have a bicycle?</li>
+<li>___ your mother work on Saturdays?</li>
+<li>___ we have homework today?</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Escribe la negativa</div>
+<ol><li>I like Mondays. → I ___</li>
+<li>She plays tennis. → She ___</li>
+<li>They watch TV a lot. → They ___</li>
+<li>He studies French. → He ___</li>
+<li>We go to the beach in winter. → We ___</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">4</span> Escribe la pregunta y respóndela con la verdad</div>
+<ol><li>(you / like / music) ___? → ___</li>
+<li>(your friend / play / an instrument) ___? → ___</li>
+<li>(you / have / a pet) ___? → ___</li>
+<li>(your teacher / speak / Spanish) ___? → ___</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">5</span> Corrige el error</div>
+<ol><li>She don't like fish. →</li>
+<li>Does he plays football? →</li>
+<li>Do she study a lot? →</li>
+<li>They doesn't have class today. →</li>
+<li>Does your sister goes to school? →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">6</span> Traduce al inglés</div>
+<ol><li>No me gusta madrugar. →</li>
+<li>¿Ella estudia inglés? →</li>
+<li>Él no juega fútbol. →</li>
+<li>¿Tienes una mascota? →</li>
+<li>Nosotros no vivimos cerca del colegio. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">7</span> Producción guiada</div>
+<p>Escribe 3 cosas que HACES y 3 cosas que NO HACES en un día normal. Luego escribe 2 preguntas para un compañero.</p></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div>
+<p>Act.1: don't / doesn't / don't / doesn't / don't / doesn't</p>
+<p>Act.2: Do / Does / Do / Does / Does / Do</p>
+<p>Act.3: don't like / doesn't play / don't watch / doesn't study / don't go</p>
+<p>Act.5: doesn't like / Does he play / Does she study / don't have / Does your sister go</p></div>
+</template>
+<template id="g1m-19">
+<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
+<p>Los adverbios de frecuencia (always, usually, sometimes, never…) dicen con qué frecuencia hacemos algo. Apoyo en casa: pregunten "How often do you…?".</p></div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar adverbios de frecuencia y ubicarlos correctamente antes del verbo principal y después de To Be. OA1 — Unidad 3.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use adverbs of frequency and place them correctly before the main verb and after To Be. OA1 — Unit 3.</div>
+<h2>Adverbs of Frequency</h2>
+<table><tr><th>%</th><th>Adverbio</th><th>Español</th></tr>
+<tr><td>100%</td><td>always</td><td>siempre</td></tr>
+<tr><td>90%</td><td>usually</td><td>usualmente</td></tr>
+<tr><td>70%</td><td>often</td><td>a menudo</td></tr>
+<tr><td>50%</td><td>sometimes</td><td>a veces</td></tr>
+<tr><td>10%</td><td>rarely / seldom</td><td>rara vez</td></tr>
+<tr><td>0%</td><td>never</td><td>nunca</td></tr></table>
+<div class="gb"><strong>Posición:</strong><br>
+• ANTES del verbo principal: I <strong>always</strong> do my homework.<br>
+• DESPUÉS del verbo To Be: She is <strong>always</strong> happy.</div>
+<div class="exb"><div class="ext"><span class="exn">1</span> Coloca el adverbio en la posición correcta</div>
+<ol><li>I do my homework. (always) →</li>
+<li>She is late. (never) →</li>
+<li>We go to the beach. (sometimes) →</li>
+<li>He plays football. (usually) →</li>
+<li>They are tired after school. (often) →</li>
+<li>I eat breakfast. (always) →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Escribe una oración verdadera con cada adverbio</div>
+<ol><li>always → </li><li>usually → </li><li>sometimes → </li><li>rarely → </li><li>never → </li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Ordena las palabras</div>
+<ol><li>always / I / at 7 / get up / . →</li>
+<li>never / she / coffee / drinks / . →</li>
+<li>are / usually / they / happy / . →</li>
+<li>sometimes / we / to the cinema / go / . →</li>
+<li>is / often / he / late / . →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">4</span> Responde con How often…?</div>
+<ol><li>How often do you play sports? → I ___</li>
+<li>How often do you watch TV? → I ___</li>
+<li>How often are you late to school? → I ___</li>
+<li>How often do you eat fast food? → I ___</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">5</span> Corrige el error</div>
+<ol><li>I do always my homework. →</li>
+<li>She always is happy. →</li>
+<li>We go never to the park. →</li>
+<li>He is usually not late. (correcta o incorrecta?) →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">6</span> Traduce al inglés</div>
+<ol><li>Siempre desayuno en casa. →</li>
+<li>Ella nunca llega tarde. →</li>
+<li>A veces vamos al cine. →</li>
+<li>Ellos usualmente están cansados. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">7</span> Producción guiada</div>
+<p>Escribe 8 oraciones sobre tus hábitos usando un adverbio de frecuencia diferente en cada una.</p></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div>
+<p>Act.1: I always do my homework. / She is never late. / We sometimes go to the beach. / He usually plays football. / They are often tired after school. / I always eat breakfast.</p>
+<p>Act.3: I always get up at 7. / She never drinks coffee. / They are usually happy. / We sometimes go to the cinema. / He is often late.</p>
+<p>Act.5: I always do my homework. / She is always happy. / We never go to the park. / (correcta)</p></div>
+</template>
+<template id="g1m-20">
+<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
+<p>Aquí se aprende a decir la hora en inglés y a usar las preposiciones de tiempo at / in / on. Apoyo en casa: pregunten "What time is it?" a distintas horas del día.</p></div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Decir la hora en inglés y usar correctamente las preposiciones de tiempo at / in / on. OA1 — Unidad 3.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Tell the time in English and correctly use the prepositions of time at / in / on. OA1 — Unit 3.</div>
+<h2>Telling Time &amp; Prepositions of Time</h2>
+<h3>La hora</h3>
+<table><tr><th>Reloj</th><th>Se dice</th></tr>
+<tr><td>7:00</td><td>It's seven o'clock.</td></tr>
+<tr><td>7:15</td><td>It's a quarter past seven. / seven fifteen.</td></tr>
+<tr><td>7:30</td><td>It's half past seven. / seven thirty.</td></tr>
+<tr><td>7:45</td><td>It's a quarter to eight. / seven forty-five.</td></tr>
+<tr><td>7:10</td><td>It's ten past seven.</td></tr>
+<tr><td>7:50</td><td>It's ten to eight.</td></tr></table>
+<h3>Preposiciones de tiempo</h3>
+<table><tr><th>Preposición</th><th>Se usa con</th><th>Ejemplo</th></tr>
+<tr><td><strong>at</strong></td><td>horas, noche</td><td>at 7 o'clock, at night, at noon</td></tr>
+<tr><td><strong>in</strong></td><td>partes del día, meses, estaciones, años</td><td>in the morning, in July, in winter</td></tr>
+<tr><td><strong>on</strong></td><td>días y fechas</td><td>on Monday, on my birthday</td></tr></table>
+<div class="exb"><div class="ext"><span class="exn">1</span> Escribe la hora en palabras</div>
+<ol><li>3:00 → </li><li>5:30 → </li><li>9:15 → </li><li>11:45 → </li><li>6:10 → </li><li>8:50 → </li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Completa con at / in / on</div>
+<ol><li>I get up ___ 6:30.</li>
+<li>We have English ___ Monday and Wednesday.</li>
+<li>She studies ___ the afternoon.</li>
+<li>My birthday is ___ March.</li>
+<li>They play football ___ Saturdays.</li>
+<li>I go to bed ___ night.</li>
+<li>It's cold ___ winter.</li>
+<li>The class starts ___ 8 o'clock.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Responde con la hora real</div>
+<ol><li>What time do you get up? → I get up at ___.</li>
+<li>What time does school start? → It starts at ___.</li>
+<li>What time do you have lunch? → I have lunch at ___.</li>
+<li>What time do you go to bed? → I go to bed at ___.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">4</span> Elige la preposición correcta</div>
+<ol><li>I have a test (at / on) Friday.</li>
+<li>We travel (in / at) summer.</li>
+<li>The bus arrives (at / in) 7:15.</li>
+<li>My party is (on / in) my birthday.</li>
+<li>She reads (in / on) the evening.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">5</span> Corrige el error</div>
+<ol><li>I get up in 7 o'clock. →</li>
+<li>We have class in Monday. →</li>
+<li>She studies at the morning. →</li>
+<li>My birthday is at July. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">6</span> Traduce al inglés</div>
+<ol><li>Me levanto a las seis y media. →</li>
+<li>Tenemos inglés los lunes. →</li>
+<li>Ella estudia por la tarde. →</li>
+<li>Mi cumpleaños es en marzo. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">7</span> Producción guiada</div>
+<p>Escribe 6 oraciones sobre tu horario, indicando la hora y usando at, in y on al menos una vez cada una.</p></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div>
+<p>Act.2: at / on / in / in / on / at / in / at</p>
+<p>Act.4: on / in / at / on / in</p>
+<p>Act.5: at 7 o'clock / on Monday / in the morning / in July</p></div>
+</template>
+<template id="r1m-08">
+<div class="mbadge">Reading · A1</div>
+<div class="hl">📖 <strong>A Day in My Life</strong> — Lee el texto y responde las preguntas en tu cuaderno con fecha y título.</div>
+<h2>A Day in My Life</h2>
+<p>Hi! My name is Andrés and I am fourteen years old. I live in Playa Ancha, in Valparaíso. This is my normal day.</p>
+<p>I always wake up at half past six. First, I take a shower and get dressed. Then I have breakfast with my mother and my little sister. We usually eat bread with palta and drink tea. I brush my teeth and leave home at a quarter to eight.</p>
+<p>I walk to school with my friend Matías. Classes start at eight o'clock. My favourite subjects are English and history. At one o'clock we have lunch in the school cafeteria. I sometimes play football with my classmates after lunch.</p>
+<p>In the afternoon, I do my homework and help my mother at home. I often listen to music while I study. In the evening, my family has dinner together at half past eight. I rarely watch TV on school days, but I usually read comics before I go to bed at ten o'clock.</p>
+<p>On Saturdays my routine is different. I get up late and I don't do homework in the morning. I sometimes visit my grandparents. I love weekends!</p>
+<div class="exb"><div class="ext"><span class="exn">1</span> Comprehension — Answer in complete sentences</div>
+<ol><li>What time does Andrés wake up?</li>
+<li>Who does he have breakfast with?</li>
+<li>How does he go to school?</li>
+<li>What are his favourite subjects?</li>
+<li>What does he do after lunch sometimes?</li>
+<li>What time does his family have dinner?</li>
+<li>Why is Saturday different?</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> True or False</div>
+<ol><li>___ Andrés lives in Santiago.</li>
+<li>___ He takes a shower in the morning.</li>
+<li>___ He never plays football.</li>
+<li>___ He reads comics before bed.</li>
+<li>___ On Saturdays he gets up early.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Find in the text</div>
+<ol><li>Three action verbs in present simple: ___</li>
+<li>Two adverbs of frequency: ___</li>
+<li>Two time expressions with "at": ___</li></ol></div>
+<div class="ak2"><div class="akt">✅ Answers</div>
+<p>Act.2: F / T / F / T / F</p></div>
+</template>
+<template id="g1m-21">
+<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
+<p>En esta unidad se describe la ciudad. "There is" y "There are" significan "hay". Apoyo en casa: miren juntos su barrio y digan "There is a park", "There are two shops".</p></div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Nombrar lugares de la ciudad y usar There is / There are para describir qué hay en un lugar. OA1 — Unidad 4.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Name places in town and use There is / There are to describe what a place has. OA1 — Unit 4.</div>
+<h2>Places in Town + There is / There are</h2>
+<h3>Places — Lugares</h3>
+<table><tr><th>Inglés</th><th>Español</th><th>Inglés</th><th>Español</th></tr>
+<tr><td>school</td><td>colegio</td><td>hospital</td><td>hospital</td></tr>
+<tr><td>park</td><td>parque</td><td>library</td><td>biblioteca</td></tr>
+<tr><td>supermarket</td><td>supermercado</td><td>bank</td><td>banco</td></tr>
+<tr><td>bakery</td><td>panadería</td><td>square</td><td>plaza</td></tr>
+<tr><td>bus stop</td><td>paradero</td><td>pharmacy</td><td>farmacia</td></tr>
+<tr><td>restaurant</td><td>restaurante</td><td>church</td><td>iglesia</td></tr></table>
+<div class="gb"><strong>There is</strong> (hay – singular): There is a park near my house.<br>
+<strong>There are</strong> (hay – plural): There are two supermarkets on my street.</div>
+<div class="exb"><div class="ext"><span class="exn">1</span> Completa con There is o There are</div>
+<ol><li>___ a hospital in my neighbourhood.</li>
+<li>___ three schools in my town.</li>
+<li>___ a big park near the square.</li>
+<li>___ two bakeries on my street.</li>
+<li>___ a pharmacy next to the bank.</li>
+<li>___ many restaurants in the centre.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Escribe el nombre del lugar</div>
+<ol><li>You buy bread here. → </li>
+<li>You borrow books here. → </li>
+<li>You see a doctor here. → </li>
+<li>You buy food here. → </li>
+<li>You wait for the bus here. → </li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Describe tu barrio — completa</div>
+<ol><li>In my neighbourhood there is ___.</li>
+<li>There are ___.</li>
+<li>Near my house there is ___.</li>
+<li>There isn't ___.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">4</span> Elige la opción correcta</div>
+<ol><li>There (is / are) a library near here.</li>
+<li>There (is / are) five shops on this street.</li>
+<li>There (is / are) a bus stop on the corner.</li>
+<li>There (is / are) two parks in my town.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">5</span> Traduce al inglés</div>
+<ol><li>Hay un parque cerca de mi casa. →</li>
+<li>Hay dos supermercados en mi calle. →</li>
+<li>Hay una farmacia al lado del banco. →</li>
+<li>Hay muchos restaurantes en el centro. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">6</span> Producción guiada</div>
+<p>Escribe 6 oraciones describiendo tu barrio. Usa There is y There are, y nombra al menos 5 lugares distintos.</p></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div>
+<p>Act.1: There is / There are / There is / There are / There is / There are</p>
+<p>Act.2: bakery / library / hospital / supermarket / bus stop</p>
+<p>Act.4: is / are / is / are</p></div>
+</template>
+<template id="g1m-22">
+<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
+<p>Aquí se practica la forma negativa e interrogativa de There is/are y el uso de some (algunos) y any (algún/ninguno). Apoyo en casa: pregunten "Is there a…?", "Are there any…?".</p></div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar There is/are en negativo e interrogativo, y distinguir some y any. OA1 — Unidad 4.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use There is/are in negative and question forms, and distinguish some and any. OA1 — Unit 4.</div>
+<h2>There is / are — some / any</h2>
+<table><tr><th>Forma</th><th>Singular</th><th>Plural</th></tr>
+<tr><td>Afirmativa</td><td>There is a park.</td><td>There are some shops.</td></tr>
+<tr><td>Negativa</td><td>There isn't a park.</td><td>There aren't any shops.</td></tr>
+<tr><td>Pregunta</td><td>Is there a park?</td><td>Are there any shops?</td></tr></table>
+<div class="gb"><strong>some</strong> → en afirmativas (some shops).<br><strong>any</strong> → en negativas y preguntas (any shops).</div>
+<div class="exb"><div class="ext"><span class="exn">1</span> Completa con some o any</div>
+<ol><li>There are ___ restaurants near the square.</li>
+<li>There aren't ___ banks on my street.</li>
+<li>Are there ___ parks in your town?</li>
+<li>There is ___ bread on the table.</li>
+<li>There isn't ___ milk in the fridge.</li>
+<li>Are there ___ students in the library?</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Escribe la forma negativa</div>
+<ol><li>There is a hospital here. → There ___</li>
+<li>There are some shops. → There ___ any shops.</li>
+<li>There is a park near my house. → There ___</li>
+<li>There are three schools. → There ___ any schools.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Escribe la pregunta</div>
+<ol><li>(a library / here) → ___?</li>
+<li>(any restaurants / in the centre) → ___?</li>
+<li>(a bus stop / on this street) → ___?</li>
+<li>(any parks / in your town) → ___?</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">4</span> Responde las preguntas sobre tu barrio</div>
+<ol><li>Is there a supermarket near your house? → Yes/No, ___</li>
+<li>Are there any parks in your town? → Yes/No, ___</li>
+<li>Is there a hospital in your neighbourhood? → Yes/No, ___</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">5</span> Corrige el error</div>
+<ol><li>There are any shops here. →</li>
+<li>Is there any park? (singular) →</li>
+<li>There isn't some milk. →</li>
+<li>Are there some students? →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">6</span> Traduce al inglés</div>
+<ol><li>No hay bancos en mi calle. →</li>
+<li>¿Hay algún parque en tu ciudad? →</li>
+<li>Hay algunos restaurantes cerca. →</li>
+<li>¿Hay un hospital aquí? →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">7</span> Producción guiada</div>
+<p>Escribe 3 cosas que HAY y 3 que NO HAY en tu barrio, más 2 preguntas para un compañero.</p></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div>
+<p>Act.1: some / any / any / some / any / any</p>
+<p>Act.2: isn't a hospital here / aren't / isn't a park near my house / aren't</p>
+<p>Act.5: There aren't any shops / Is there a park / There isn't any milk / Are there any students</p></div>
+</template>
+<template id="g1m-23">
+<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
+<p>Los artículos a / an / the son pequeñas palabras pero muy importantes. Apoyo en casa: señalen objetos y pregunten "a or an?".</p></div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar los artículos a, an y the según el sonido inicial y el contexto. OA1 — Unidad 4.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use the articles a, an and the according to the initial sound and context. OA1 — Unit 4.</div>
+<h2>Articles — a / an / the</h2>
+<table><tr><th>Artículo</th><th>Uso</th><th>Ejemplo</th></tr>
+<tr><td><strong>a</strong></td><td>singular, sonido consonante</td><td>a park, a school, a house</td></tr>
+<tr><td><strong>an</strong></td><td>singular, sonido vocal (a,e,i,o,u)</td><td>an apple, an hour, an umbrella</td></tr>
+<tr><td><strong>the</strong></td><td>algo específico o ya mencionado</td><td>the park near my house</td></tr></table>
+<div class="mkb"><div class="mkt">⚠️ Recuerda</div>
+<p>a/an se usan solo en singular. Con plural o algo específico usamos the o nada: <span class="correct">the shops</span>, <span class="correct">shops</span>.</p></div>
+<div class="exb"><div class="ext"><span class="exn">1</span> Completa con a o an</div>
+<ol><li>___ apple</li><li>___ school</li><li>___ hospital</li><li>___ egg</li>
+<li>___ umbrella</li><li>___ bakery</li><li>___ hour</li><li>___ orange</li>
+<li>___ bank</li><li>___ idea</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Completa con a / an / the</div>
+<ol><li>There is ___ park near my house. ___ park is very big.</li>
+<li>I have ___ apple and ___ banana.</li>
+<li>She lives in ___ old house.</li>
+<li>Can you close ___ door, please?</li>
+<li>My father is ___ engineer.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> ¿a, an o nada (—)?</div>
+<ol><li>I like ___ music.</li>
+<li>There are ___ shops on my street.</li>
+<li>She is ___ teacher.</li>
+<li>We have ___ English class today.</li>
+<li>They are ___ students.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">4</span> Corrige el error</div>
+<ol><li>I have a umbrella. →</li>
+<li>She is a teacher very good. →</li>
+<li>There is an park. →</li>
+<li>He eats a apple. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">5</span> Traduce al inglés</div>
+<ol><li>Hay un parque cerca. →</li>
+<li>Tengo una manzana. →</li>
+<li>Ella vive en una casa antigua. →</li>
+<li>Mi padre es ingeniero. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">6</span> Producción guiada</div>
+<p>Escribe 6 oraciones sobre objetos y lugares usando a, an y the correctamente.</p></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div>
+<p>Act.1: an / a / a / an / an / a / an / an / a / an</p>
+<p>Act.2: a…The / an…a / an / the / an</p>
+<p>Act.3: — / — / a / an / —</p>
+<p>Act.4: an umbrella / a very good teacher / a park / an apple</p></div>
+</template>
+<template id="g1m-24">
+<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
+<p>Las preposiciones de lugar dicen DÓNDE está algo (in, on, under, next to…). Apoyo en casa: coloquen objetos y pregunten "Where is the pen?".</p></div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar preposiciones de lugar para describir la ubicación de objetos y edificios. OA1 — Unidad 4.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use prepositions of place to describe where objects and buildings are. OA1 — Unit 4.</div>
+<h2>Prepositions of Place</h2>
+<table><tr><th>Preposición</th><th>Español</th><th>Ejemplo</th></tr>
+<tr><td>in</td><td>dentro de / en</td><td>The book is in the bag.</td></tr>
+<tr><td>on</td><td>sobre / encima</td><td>The pen is on the table.</td></tr>
+<tr><td>under</td><td>debajo de</td><td>The ball is under the chair.</td></tr>
+<tr><td>next to</td><td>al lado de</td><td>The bank is next to the school.</td></tr>
+<tr><td>behind</td><td>detrás de</td><td>The park is behind the church.</td></tr>
+<tr><td>in front of</td><td>frente a</td><td>The bus stop is in front of my house.</td></tr>
+<tr><td>between</td><td>entre</td><td>The shop is between the bank and the café.</td></tr>
+<tr><td>near</td><td>cerca de</td><td>The hospital is near the square.</td></tr></table>
+<div class="exb"><div class="ext"><span class="exn">1</span> Completa con la preposición correcta</div>
+<ol><li>The cat is ___ the table. (encima)</li>
+<li>The keys are ___ the bag. (dentro)</li>
+<li>The ball is ___ the bed. (debajo)</li>
+<li>The bank is ___ the school. (al lado)</li>
+<li>The car is ___ the house. (frente a)</li>
+<li>The park is ___ the school and the church. (entre)</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Mira y responde — Where is it?</div>
+<p>(Imagina una sala) The teacher is in front of the class. The board is behind the teacher. Your bag is under your chair. Your book is on your desk.</p>
+<ol><li>Where is the teacher? →</li>
+<li>Where is the board? →</li>
+<li>Where is your bag? →</li>
+<li>Where is your book? →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Elige la preposición correcta</div>
+<ol><li>The pharmacy is (next to / under) the supermarket.</li>
+<li>The pen is (on / behind) the notebook.</li>
+<li>The dog is (in / on) the garden.</li>
+<li>The bus stop is (between / under) the bank and the bakery.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">4</span> Describe tu sala de clases — 4 oraciones</div>
+<ol><li>The board is ___.</li><li>My chair is ___.</li>
+<li>The door is ___.</li><li>My friend sits ___.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">5</span> Traduce al inglés</div>
+<ol><li>El libro está sobre la mesa. →</li>
+<li>El banco está al lado del colegio. →</li>
+<li>La pelota está debajo de la silla. →</li>
+<li>El paradero está frente a mi casa. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">6</span> Producción guiada</div>
+<p>Dibuja tu barrio y escribe 6 oraciones ubicando los lugares con preposiciones de lugar.</p></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div>
+<p>Act.1: on / in / under / next to / in front of / between</p>
+<p>Act.3: next to / on / in / between</p></div>
+</template>
+<template id="g1m-25">
+<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
+<p>Aquí se aprende a dar direcciones (turn left, go straight) usando imperativos y a pedir ayuda con Can. Apoyo en casa: practiquen dar indicaciones para llegar a un lugar conocido.</p></div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Dar y pedir direcciones usando imperativos y la estructura Can you…? OA1 — Unidad 4.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Give and ask for directions using imperatives and the structure Can you…? OA1 — Unit 4.</div>
+<h2>Directions, Imperatives &amp; Can</h2>
+<table><tr><th>Inglés</th><th>Español</th></tr>
+<tr><td>Go straight (on / ahead)</td><td>Sigue derecho</td></tr>
+<tr><td>Turn left / Turn right</td><td>Dobla a la izquierda / derecha</td></tr>
+<tr><td>Take the first / second street</td><td>Toma la primera / segunda calle</td></tr>
+<tr><td>Go past the …</td><td>Pasa el / la …</td></tr>
+<tr><td>It's on your left / right</td><td>Está a tu izquierda / derecha</td></tr>
+<tr><td>Stop at the corner</td><td>Detente en la esquina</td></tr></table>
+<div class="gb"><strong>Imperativo:</strong> verbo en forma base, sin sujeto. Turn left. Go straight. Don't turn right.<br>
+<strong>Pedir ayuda:</strong> Excuse me, can you help me? · How do I get to the park?</div>
+<div class="exb"><div class="ext"><span class="exn">1</span> Traduce las indicaciones</div>
+<ol><li>Sigue derecho. →</li>
+<li>Dobla a la izquierda. →</li>
+<li>Toma la primera calle. →</li>
+<li>Está a tu derecha. →</li>
+<li>Detente en la esquina. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Completa el diálogo</div>
+<p>A: Excuse me, how do I ___ to the library?<br>
+B: ___ straight on, then ___ left. The library is ___ your right.<br>
+A: Thank you! · B: You're ___.</p></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Escribe el imperativo (afirmativo o negativo)</div>
+<ol><li>(open) ___ the door, please.</li>
+<li>(not run) ___ in the classroom.</li>
+<li>(turn) ___ right at the corner.</li>
+<li>(not be) ___ late.</li>
+<li>(listen) ___ to the teacher.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">4</span> Ordena la conversación (1–4)</div>
+<ol><li>___ Turn right and it's on your left.</li>
+<li>___ Excuse me, where is the supermarket?</li>
+<li>___ Thank you very much!</li>
+<li>___ Go straight on for two blocks.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">5</span> Escribe con Can you…?</div>
+<ol><li>(help me) → Can you ___?</li>
+<li>(repeat that) → Can you ___?</li>
+<li>(show me the way) → Can you ___?</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">6</span> Producción guiada</div>
+<p>Escribe las indicaciones para llegar desde el colegio a tu casa (5–6 pasos). Usa imperativos.</p></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div>
+<p>Act.1: Go straight. / Turn left. / Take the first street. / It's on your right. / Stop at the corner.</p>
+<p>Act.2: get / Go / turn / on / welcome</p>
+<p>Act.3: Open / Don't run / Turn / Don't be / Listen</p>
+<p>Act.4: 3 / 1 / 4 / 2</p></div>
+</template>
+<template id="r1m-09">
+<div class="mbadge">Reading · A1</div>
+<div class="hl">📖 <strong>Around My Town</strong> — Lee y responde en tu cuaderno con fecha y título.</div>
+<h2>Around My Town</h2>
+<p>Hello! My name is Camila and I live in Cerro Alegre, in Valparaíso. I love my neighbourhood because there are many interesting places.</p>
+<p>Near my house there is a small square with colourful houses. Next to the square there is a bakery. The bread there is delicious! In front of the bakery there is a bus stop, so it is easy to travel.</p>
+<p>There is a library between the school and the church. I often study there in the afternoon. There are two cafés on my street, but there aren't any big supermarkets. For food, my mother goes to the market near the port.</p>
+<p>To get to my school, you go straight on Templeman Street, then you turn left. The school is on your right, behind a beautiful old church. It only takes ten minutes to walk.</p>
+<p>My favourite place is the mirador (viewpoint). It is at the top of the hill, next to a famous mural. From there you can see the whole bay. I always take my friends there when they visit me. I really love my town!</p>
+<div class="exb"><div class="ext"><span class="exn">1</span> Comprehension — Answer in complete sentences</div>
+<ol><li>Where does Camila live?</li>
+<li>What is next to the square?</li>
+<li>Where is the library?</li>
+<li>Are there any big supermarkets on her street?</li>
+<li>How do you get to her school?</li>
+<li>What is her favourite place and why?</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> True or False</div>
+<ol><li>___ There is a bakery next to the square.</li>
+<li>___ There are three cafés on her street.</li>
+<li>___ The school is behind a church.</li>
+<li>___ The viewpoint is at the bottom of the hill.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Find in the text</div>
+<ol><li>Three prepositions of place: ___</li>
+<li>One example of "there is" and one of "there are": ___</li>
+<li>Two directions (imperatives): ___</li></ol></div>
+<div class="ak2"><div class="akt">✅ Answers</div>
+<p>Act.2: T / F / T / F</p></div>
+</template>
+
 
 <template id="r1m-06">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Lectura sobre un árbol genealogico usando el vocabulario completo de familia.</p></div>
@@ -4854,6 +5634,549 @@ Usa: I think / In my opinión / I believe / I agree / I disagree / I prefer... t
 <div class="ak2"><div class="akt">Respuestas Act.3</div>
 <p>will be / am going to learn / will be preparing / I'll lend / will never stop / will be sleeping</p>
 <p>Act.4: playing / will go / am going to study / will be sailing / In my opinión, it is wrong. / prefer summer TO winter</p></div></template>
+<template id="g2m-11">
+<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
+<p>En esta unidad se describen personas y se cuentan historias. Aquí se trabajan adjetivos de personalidad y aspecto físico. Apoyo en casa: describan juntos a familiares o personajes.</p></div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar adjetivos de personalidad y físicos para describir personas con To Be y have got. OA2 — Unidad 3.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use personality and physical adjectives to describe people with To Be and have got. OA2 — Unit 3.</div>
+<h2>Descriptive Adjectives</h2>
+<h3>Personality — Personalidad</h3>
+<table><tr><th>Inglés</th><th>Español</th><th>Inglés</th><th>Español</th></tr>
+<tr><td>friendly</td><td>amigable</td><td>shy</td><td>tímido/a</td></tr>
+<tr><td>kind</td><td>amable</td><td>funny</td><td>gracioso/a</td></tr>
+<tr><td>hard-working</td><td>trabajador/a</td><td>lazy</td><td>flojo/a</td></tr>
+<tr><td>generous</td><td>generoso/a</td><td>selfish</td><td>egoísta</td></tr>
+<tr><td>brave</td><td>valiente</td><td>honest</td><td>honesto/a</td></tr></table>
+<h3>Physical — Físico</h3>
+<table><tr><th>Inglés</th><th>Español</th><th>Inglés</th><th>Español</th></tr>
+<tr><td>tall / short</td><td>alto / bajo</td><td>slim</td><td>delgado/a</td></tr>
+<tr><td>long / short hair</td><td>pelo largo / corto</td><td>curly / straight hair</td><td>pelo rizado / liso</td></tr>
+<tr><td>blue / brown eyes</td><td>ojos azules / marrones</td><td>young / old</td><td>joven / mayor</td></tr></table>
+<div class="gb"><strong>To Be:</strong> She <strong>is</strong> tall and friendly.<br>
+<strong>Have/Has got:</strong> He <strong>has got</strong> short curly hair and brown eyes.</div>
+<div class="exb"><div class="ext"><span class="exn">1</span> Clasifica: personalidad (P) o físico (F)</div>
+<ol><li>___ tall</li><li>___ friendly</li><li>___ curly hair</li><li>___ hard-working</li>
+<li>___ blue eyes</li><li>___ shy</li><li>___ slim</li><li>___ generous</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Completa con is / are / has got / have got</div>
+<ol><li>My best friend ___ very funny.</li>
+<li>She ___ long straight hair.</li>
+<li>They ___ friendly and kind.</li>
+<li>My brother ___ brown eyes.</li>
+<li>I ___ tall and slim.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Escribe el opuesto</div>
+<ol><li>tall → </li><li>lazy → </li><li>generous → </li><li>short hair → </li><li>shy → </li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">4</span> Describe a estas personas</div>
+<ol><li>Your best friend (personality + physical): </li>
+<li>A family member: </li>
+<li>Your favourite singer or actor: </li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">5</span> Corrige el error</div>
+<ol><li>She have got blue eyes. →</li>
+<li>He is got tall. →</li>
+<li>They has got curly hair. →</li>
+<li>My friend are funny. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">6</span> Traduce al inglés</div>
+<ol><li>Ella es amable y trabajadora. →</li>
+<li>Él tiene el pelo corto y rizado. →</li>
+<li>Mis amigos son graciosos y generosos. →</li>
+<li>Yo tengo los ojos marrones. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">7</span> Producción extendida</div>
+<p>Escribe un párrafo de 8 oraciones describiendo a una persona que admiras (aspecto físico y personalidad).</p></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div>
+<p>Act.1: F/P/F/P/F/P/F/P</p>
+<p>Act.2: is / has got / are / has got / am</p>
+<p>Act.3: short / hard-working / selfish / long hair / confident/outgoing</p>
+<p>Act.5: has got / is tall / have got / is funny</p></div>
+</template>
+<template id="g2m-12">
+<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
+<p>Was y were son el pasado del verbo To Be (era/estaba). Apoyo en casa: pregunten "Where were you yesterday?", "How was your day?".</p></div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar was/were en pasado afirmativo, negativo e interrogativo. OA2 — Unidad 3.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use was/were in past affirmative, negative and interrogative forms. OA2 — Unit 3.</div>
+<h2>Past Simple — Was / Were</h2>
+<table><tr><th>Sujeto</th><th>Afirmativa</th><th>Negativa</th><th>Pregunta</th></tr>
+<tr><td>I / He / She / It</td><td>was</td><td>wasn't</td><td>Was I/he/she…?</td></tr>
+<tr><td>You / We / They</td><td>were</td><td>weren't</td><td>Were you/we/they…?</td></tr></table>
+<div class="exb"><div class="ext"><span class="exn">1</span> Completa con was o were</div>
+<ol><li>I ___ at home yesterday.</li>
+<li>They ___ very happy at the party.</li>
+<li>She ___ tired after school.</li>
+<li>We ___ in the same class last year.</li>
+<li>The weather ___ terrible on Sunday.</li>
+<li>You ___ late this morning.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Escribe la forma negativa</div>
+<ol><li>I was at school. → I ___</li>
+<li>They were happy. → They ___</li>
+<li>She was late. → She ___</li>
+<li>We were tired. → We ___</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Escribe la pregunta y respóndela</div>
+<ol><li>(you / at home / yesterday) ___? → Yes/No, ___</li>
+<li>(the film / good) ___? → Yes/No, ___</li>
+<li>(they / at the party) ___? → Yes/No, ___</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">4</span> Completa el texto</div>
+<p>Last Saturday I ___ at the beach with my family. The weather ___ sunny and the water ___ cold. My parents ___ happy. My little brother ___ scared of the waves, but I ___ not. It ___ a great day!</p></div>
+<div class="exb"><div class="ext"><span class="exn">5</span> Corrige el error</div>
+<ol><li>They was at home. →</li>
+<li>I were tired. →</li>
+<li>Was you at school? →</li>
+<li>She weren't happy. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">6</span> Traduce al inglés</div>
+<ol><li>Yo estaba en casa ayer. →</li>
+<li>Ellos estaban felices. →</li>
+<li>¿Estabas en el colegio? →</li>
+<li>El clima no estaba bueno. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">7</span> Producción guiada</div>
+<p>Escribe 6 oraciones sobre dónde estabas y cómo te sentías la semana pasada, usando was y were.</p></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div>
+<p>Act.1: was / were / was / were / was / were</p>
+<p>Act.2: wasn't at school / weren't happy / wasn't late / weren't tired</p>
+<p>Act.4: was / was / was / were / was / was / was</p>
+<p>Act.5: They were / I was / Were you / She wasn't</p></div>
+</template>
+<template id="g2m-13">
+<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
+<p>El pasado simple se usa para contar acciones terminadas. Los verbos regulares terminan en -ed; los irregulares cambian de forma. Apoyo en casa: pregunten "What did you do yesterday?".</p></div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Formar el pasado simple con verbos regulares (-ed) e irregulares, en afirmativo y negativo. OA2 — Unidad 3.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Form the past simple with regular (-ed) and irregular verbs, affirmative and negative. OA2 — Unit 3.</div>
+<h2>Past Simple — Regular &amp; Irregular</h2>
+<div class="gb"><strong>Regulares:</strong> verbo + -ed → play→played, watch→watched, study→studied.<br>
+<strong>Negativa (todos):</strong> didn't + verbo base → I didn't play.</div>
+<h3>Irregulares frecuentes</h3>
+<table><tr><th>Base</th><th>Pasado</th><th>Base</th><th>Pasado</th></tr>
+<tr><td>go</td><td>went</td><td>have</td><td>had</td></tr>
+<tr><td>see</td><td>saw</td><td>eat</td><td>ate</td></tr>
+<tr><td>do</td><td>did</td><td>make</td><td>made</td></tr>
+<tr><td>get</td><td>got</td><td>buy</td><td>bought</td></tr>
+<tr><td>come</td><td>came</td><td>write</td><td>wrote</td></tr></table>
+<div class="exb"><div class="ext"><span class="exn">1</span> Escribe el pasado (regular o irregular)</div>
+<ol><li>play → </li><li>go → </li><li>study → </li><li>have → </li>
+<li>watch → </li><li>see → </li><li>eat → </li><li>buy → </li>
+<li>walk → </li><li>make → </li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Completa con el pasado del verbo</div>
+<ol><li>Yesterday I ___ (watch) a movie.</li>
+<li>She ___ (go) to the beach last Sunday.</li>
+<li>We ___ (have) a great time at the party.</li>
+<li>They ___ (play) football in the park.</li>
+<li>He ___ (buy) a new phone.</li>
+<li>I ___ (study) English last night.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Escribe la forma negativa</div>
+<ol><li>I played tennis. → I ___</li>
+<li>She went to school. → She ___</li>
+<li>They watched TV. → They ___</li>
+<li>He had breakfast. → He ___</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">4</span> Completa el texto en pasado</div>
+<p>Last weekend my family ___ (go) to Viña del Mar. We ___ (walk) on the beach and ___ (eat) ice cream. My sister ___ (buy) a hat. In the afternoon we ___ (see) a beautiful sunset. I ___ (take) many photos. It ___ (be) a wonderful day.</p></div>
+<div class="exb"><div class="ext"><span class="exn">5</span> Corrige el error</div>
+<ol><li>She goed to the park. →</li>
+<li>I didn't watched TV. →</li>
+<li>They buyed a car. →</li>
+<li>He have a party. (pasado) →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">6</span> Traduce al inglés</div>
+<ol><li>Ayer vi una película. →</li>
+<li>Ella fue a la playa. →</li>
+<li>Nosotros no jugamos fútbol. →</li>
+<li>Ellos compraron un regalo. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">7</span> Producción extendida</div>
+<p>Escribe 8 oraciones sobre lo que hiciste el fin de semana pasado. Usa al menos 4 verbos irregulares.</p></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div>
+<p>Act.1: played / went / studied / had / watched / saw / ate / bought / walked / made</p>
+<p>Act.2: watched / went / had / played / bought / studied</p>
+<p>Act.3: didn't play / didn't go / didn't watch / didn't have</p>
+<p>Act.4: went / walked / ate / bought / saw / took / was</p>
+<p>Act.5: went / didn't watch / bought / had</p></div>
+</template>
+<template id="g2m-14">
+<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
+<p>El pasado continuo describe una acción que estaba ocurriendo en un momento del pasado (estaba haciendo…). Apoyo en casa: pregunten "What were you doing at 8 o'clock last night?".</p></div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar el past continuous (was/were + verbo-ing) y contrastarlo con el past simple usando when/while. OA2 — Unidad 3.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use the past continuous (was/were + verb-ing) and contrast it with past simple using when/while. OA2 — Unit 3.</div>
+<h2>Past Continuous</h2>
+<div class="gb"><strong>Estructura:</strong> was/were + verbo-<strong>ing</strong><br>
+I <strong>was studying</strong> at 8 pm. · They <strong>were playing</strong> football.<br>
+<strong>Contraste:</strong> While I <strong>was watching</strong> TV, the phone <strong>rang</strong>. (continuo + simple)</div>
+<div class="exb"><div class="ext"><span class="exn">1</span> Completa con was/were + verbo-ing</div>
+<ol><li>At 7 pm I ___ (do) my homework.</li>
+<li>They ___ (play) video games all afternoon.</li>
+<li>She ___ (cook) dinner when I arrived.</li>
+<li>We ___ (study) for the test.</li>
+<li>He ___ (sleep) at midnight.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Elige: past simple o past continuous</div>
+<ol><li>While she (studied / was studying), her phone rang.</li>
+<li>I (watched / was watching) TV when you called.</li>
+<li>They (arrived / were arriving) at 9 o'clock.</li>
+<li>We (had / were having) dinner when the lights went out.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Une las dos partes con when o while</div>
+<ol><li>I was walking home ___ it started to rain.</li>
+<li>___ we were sleeping, someone knocked on the door.</li>
+<li>She was reading ___ her brother came in.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">4</span> Escribe la pregunta</div>
+<ol><li>(what / you / do / at 8 pm) → ___?</li>
+<li>(they / study / when you called) → ___?</li>
+<li>(she / sleep / at midnight) → ___?</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">5</span> Corrige el error</div>
+<ol><li>I was play football. →</li>
+<li>They was studying. →</li>
+<li>She were cooking. →</li>
+<li>We was watching a movie. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">6</span> Traduce al inglés</div>
+<ol><li>Yo estaba estudiando a las ocho. →</li>
+<li>Ellos estaban jugando fútbol. →</li>
+<li>Mientras cocinaba, sonó el teléfono. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">7</span> Producción guiada</div>
+<p>Escribe 5 oraciones sobre qué estabas haciendo en distintos momentos de ayer (mañana, tarde, noche).</p></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div>
+<p>Act.1: was doing / were playing / was cooking / were studying / was sleeping</p>
+<p>Act.2: was studying / was watching / arrived / were having</p>
+<p>Act.5: was playing / were studying / was cooking / were watching</p></div>
+</template>
+<template id="g2m-15">
+<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
+<p>Los conectores narrativos (first, then, after that, finally) ayudan a ordenar una historia. Apoyo en casa: pídanle que cuente algo que le pasó usando "first… then… finally".</p></div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar conectores de secuencia para ordenar y escribir una narración en pasado. OA2 — Unidad 3.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use sequence connectors to organise and write a past narrative. OA2 — Unit 3.</div>
+<h2>Narrative Connectors</h2>
+<table><tr><th>Conector</th><th>Español</th><th>Uso</th></tr>
+<tr><td>First / First of all</td><td>Primero</td><td>inicio</td></tr>
+<tr><td>Then / Next</td><td>Luego / Después</td><td>continuar</td></tr>
+<tr><td>After that</td><td>Después de eso</td><td>continuar</td></tr>
+<tr><td>Later</td><td>Más tarde</td><td>continuar</td></tr>
+<tr><td>Suddenly</td><td>De repente</td><td>evento inesperado</td></tr>
+<tr><td>Finally / In the end</td><td>Finalmente / Al final</td><td>cierre</td></tr></table>
+<div class="exb"><div class="ext"><span class="exn">1</span> Ordena la historia (1–5) y subraya los conectores</div>
+<ol><li>___ After that, we had lunch at a restaurant.</li>
+<li>___ First, we woke up early and took the bus.</li>
+<li>___ Finally, we went home very tired but happy.</li>
+<li>___ Then, we walked around the city centre.</li>
+<li>___ Suddenly, it started to rain, so we ran to a café.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Completa con un conector adecuado</div>
+<p>___ (1) I got up and had breakfast. ___ (2) I met my friends at the square. ___ (3) we went to the cinema. ___ (4) it started to rain. ___ (5) we went back home.</p></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Une el conector con su función</div>
+<table><tr><td>1. First</td><td>___</td><td>a. cerrar la historia</td></tr>
+<tr><td>2. Suddenly</td><td>___</td><td>b. empezar</td></tr>
+<tr><td>3. Finally</td><td>___</td><td>c. algo inesperado</td></tr></table></div>
+<div class="exb"><div class="ext"><span class="exn">4</span> Reescribe estas acciones como una historia con conectores</div>
+<p>(wake up / have breakfast / go to school / meet friends / play football / go home)</p>
+<p>First, ___</p></div>
+<div class="exb"><div class="ext"><span class="exn">5</span> Traduce al inglés</div>
+<ol><li>Primero, fuimos al parque. →</li>
+<li>Después de eso, comimos un helado. →</li>
+<li>De repente, empezó a llover. →</li>
+<li>Finalmente, volvimos a casa. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">6</span> Producción extendida</div>
+<p>Escribe una narración de 8–10 oraciones sobre un día especial que viviste. Usa past simple, past continuous y al menos 4 conectores narrativos.</p></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div>
+<p>Act.1: 3 / 1 / 5 / 2 / 4</p>
+<p>Act.2 (ejemplo): First / Then / After that / Suddenly / Finally</p>
+<p>Act.3: 1-b / 2-c / 3-a</p></div>
+</template>
+<template id="r2m-06">
+<div class="mbadge">Reading · A2</div>
+<div class="hl">📖 <strong>An Unforgettable Day</strong> — Lee y responde en tu cuaderno con fecha y título.</div>
+<h2>An Unforgettable Day</h2>
+<p>Last summer, my family and I had an unforgettable day. It was a sunny Saturday in January and we decided to go to the beach in Concón.</p>
+<p>First, we woke up early and packed our things. My mother made sandwiches while my father was preparing the car. Then we drove for about an hour, listening to music and singing.</p>
+<p>When we arrived, the beach was beautiful. My brother and I ran to the water immediately. It was cold, but we didn't care! After that, we built a huge sandcastle and played football with some other kids.</p>
+<p>At noon, while we were eating our sandwiches, a seagull suddenly flew down and stole a piece of bread from my hand! Everyone laughed. It was so funny.</p>
+<p>Later in the afternoon, we watched the sunset. The sky was orange and pink. My father took a family photo. Finally, we went home tired but very happy. I will never forget that perfect day.</p>
+<div class="exb"><div class="ext"><span class="exn">1</span> Comprehension — Answer in complete sentences</div>
+<ol><li>When and where did they go?</li>
+<li>What was the mother doing while the father prepared the car?</li>
+<li>What did the boys do when they arrived?</li>
+<li>What funny thing happened at noon?</li>
+<li>What did they do in the afternoon?</li>
+<li>How did they feel at the end?</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> True or False</div>
+<ol><li>___ It was a rainy day.</li>
+<li>___ They drove for about an hour.</li>
+<li>___ A seagull stole some bread.</li>
+<li>___ They went home sad.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Find in the text</div>
+<ol><li>Three past simple verbs (regular): ___</li>
+<li>Three past simple verbs (irregular): ___</li>
+<li>One example of past continuous: ___</li>
+<li>Four narrative connectors: ___</li></ol></div>
+<div class="ak2"><div class="akt">✅ Answers</div>
+<p>Act.2: F / T / T / F</p></div>
+</template>
+<template id="g2m-16">
+<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
+<p>En esta unidad se practican conversaciones cotidianas. Aquí se repasan las preguntas con Do/Does y las respuestas cortas. Apoyo en casa: hagan pequeñas entrevistas en inglés.</p></div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Formular preguntas de sí/no y con WH- usando Do/Does, y dar respuestas cortas naturales. OA2 — Unidad 4.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Ask yes/no and WH- questions with Do/Does and give natural short answers. OA2 — Unit 4.</div>
+<h2>Questions &amp; Short Answers</h2>
+<table><tr><th>Tipo</th><th>Estructura</th><th>Ejemplo</th></tr>
+<tr><td>Sí/No</td><td>Do/Does + sujeto + verbo?</td><td>Do you like coffee?</td></tr>
+<tr><td>WH-</td><td>WH- + do/does + sujeto + verbo?</td><td>Where do you live?</td></tr>
+<tr><td>Respuesta corta</td><td>Yes/No, + sujeto + do/does(n't)</td><td>Yes, I do. / No, she doesn't.</td></tr></table>
+<h3>WH- words</h3>
+<p>What (qué) · Where (dónde) · When (cuándo) · Who (quién) · Why (por qué) · How (cómo) · How often (con qué frecuencia)</p>
+<div class="exb"><div class="ext"><span class="exn">1</span> Completa con Do o Does</div>
+<ol><li>___ you speak English?</li>
+<li>___ she live near here?</li>
+<li>Where ___ they study?</li>
+<li>What ___ he do on weekends?</li>
+<li>___ your parents work?</li>
+<li>How often ___ you play sports?</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Escribe la respuesta corta</div>
+<ol><li>Do you like pizza? → Yes, ___</li>
+<li>Does she play tennis? → No, ___</li>
+<li>Do they study English? → Yes, ___</li>
+<li>Does he have a car? → No, ___</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Escribe la pregunta para cada respuesta</div>
+<ol><li>___? → I live in Valparaíso.</li>
+<li>___? → She gets up at seven.</li>
+<li>___? → They study because they want good grades.</li>
+<li>___? → He plays football on Saturdays.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">4</span> Ordena las palabras</div>
+<ol><li>you / do / where / study / ? →</li>
+<li>does / what / she / like / ? →</li>
+<li>they / do / how often / travel / ? →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">5</span> Corrige el error</div>
+<ol><li>Where you live? →</li>
+<li>Does she likes music? →</li>
+<li>Do he have a bike? →</li>
+<li>What does you do? →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">6</span> Traduce al inglés</div>
+<ol><li>¿Dónde vives? →</li>
+<li>¿Ella juega tenis? → No, no juega. →</li>
+<li>¿Con qué frecuencia haces deporte? →</li>
+<li>¿Qué le gusta hacer? →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">7</span> Producción guiada</div>
+<p>Escribe 6 preguntas para entrevistar a un compañero sobre su vida diaria y anota sus respuestas.</p></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div>
+<p>Act.1: Do / Does / do / does / Do / do</p>
+<p>Act.2: I do / she doesn't / they do / he doesn't</p>
+<p>Act.5: Where do you live? / Does she like music? / Does he have a bike? / What do you do?</p></div>
+</template>
+<template id="g2m-17">
+<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
+<p>Can y Could sirven para pedir y ofrecer cosas con cortesía. Could es más formal. Apoyo en casa: practiquen pedir favores en inglés: "Can you…?", "Could you…?".</p></div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar Can/Could para hacer peticiones, pedir permiso y ofrecer ayuda con cortesía. OA2 — Unidad 4.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use Can/Could to make requests, ask permission and offer help politely. OA2 — Unit 4.</div>
+<h2>Polite Requests — Can / Could</h2>
+<table><tr><th>Función</th><th>Ejemplo</th><th>Español</th></tr>
+<tr><td>Pedir algo</td><td>Can/Could you help me?</td><td>¿Puedes/Podrías ayudarme?</td></tr>
+<tr><td>Pedir permiso</td><td>Can/Could I open the window?</td><td>¿Puedo/Podría abrir la ventana?</td></tr>
+<tr><td>Ofrecer</td><td>Can I help you?</td><td>¿Puedo ayudarte?</td></tr>
+<tr><td>Responder</td><td>Sure. / Of course. / Sorry, I can't.</td><td>Claro. / Por supuesto. / Lo siento, no puedo.</td></tr></table>
+<div class="gb"><strong>Could</strong> es más formal y cortés que <strong>Can</strong>, pero ambos son correctos. Añade <em>please</em> para más cortesía.</div>
+<div class="exb"><div class="ext"><span class="exn">1</span> Escribe una petición cortés con Can/Could</div>
+<ol><li>(open the door) → </li>
+<li>(pass me the salt) → </li>
+<li>(repeat that) → </li>
+<li>(help me with this exercise) → </li>
+<li>(borrow your pen) → Could I ___?</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Completa el diálogo en una tienda</div>
+<p>Assistant: Good morning! ___ I help you?<br>
+Customer: Yes, ___ you show me that jacket, please?<br>
+Assistant: ___ course. Here you are.<br>
+Customer: Thank you. ___ I try it on?<br>
+Assistant: Sure, the fitting room is over there.</p></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Formal o informal — ¿cuál usarías?</div>
+<ol><li>Pidiendo a tu mejor amigo un lápiz: ___</li>
+<li>Pidiendo a un profesor que repita: ___</li>
+<li>Pidiendo ayuda a un desconocido en la calle: ___</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">4</span> Responde cortésmente (acepta o rechaza)</div>
+<ol><li>Can you help me? → </li>
+<li>Could I borrow your book? → </li>
+<li>Can I sit here? → </li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">5</span> Corrige el error</div>
+<ol><li>Can you to help me? →</li>
+<li>Could you helps me? →</li>
+<li>Can I borrows your pen? →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">6</span> Traduce al inglés</div>
+<ol><li>¿Podrías ayudarme, por favor? →</li>
+<li>¿Puedo abrir la ventana? →</li>
+<li>¿Puedo ayudarte? →</li>
+<li>Lo siento, no puedo. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">7</span> Producción guiada</div>
+<p>Escribe un diálogo de 6 líneas pidiendo ayuda o algo con cortesía (en una tienda, en clase o en la calle).</p></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div>
+<p>Act.2: Can / could / Of / Can</p>
+<p>Act.5: Can you help me? / Could you help me? / Can I borrow your pen?</p></div>
+</template>
+<template id="g2m-18">
+<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
+<p>Para preguntar sobre el pasado usamos Did + verbo base. Apoyo en casa: pregunten "What did you do yesterday?", "Where did you go?".</p></div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Formar preguntas en pasado simple con Did y palabras WH-, y dar respuestas cortas. OA2 — Unidad 4.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Form past simple questions with Did and WH- words, and give short answers. OA2 — Unit 4.</div>
+<h2>Past Simple — Questions (Did)</h2>
+<table><tr><th>Tipo</th><th>Estructura</th><th>Ejemplo</th></tr>
+<tr><td>Sí/No</td><td>Did + sujeto + verbo base?</td><td>Did you go to the party?</td></tr>
+<tr><td>WH-</td><td>WH- + did + sujeto + verbo?</td><td>Where did you go?</td></tr>
+<tr><td>Respuesta corta</td><td>Yes/No, + sujeto + did(n't)</td><td>Yes, I did. / No, I didn't.</td></tr></table>
+<div class="mkb"><div class="mkt">⚠️ Error común</div>
+<p>Después de Did el verbo va en <strong>forma base</strong>: <span class="wrong">Did you went?</span> → <span class="correct">Did you go?</span></p></div>
+<div class="exb"><div class="ext"><span class="exn">1</span> Escribe la pregunta con Did</div>
+<ol><li>(you / watch / the film) → ___?</li>
+<li>(she / go / to school) → ___?</li>
+<li>(they / play / football) → ___?</li>
+<li>(he / buy / a present) → ___?</li>
+<li>(you / have / breakfast) → ___?</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Escribe la respuesta corta</div>
+<ol><li>Did you study yesterday? → Yes, ___</li>
+<li>Did she go to the party? → No, ___</li>
+<li>Did they win the game? → Yes, ___</li>
+<li>Did he call you? → No, ___</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Completa con la palabra WH- correcta</div>
+<ol><li>___ did you go last weekend? → To the beach.</li>
+<li>___ did you do? → I played football.</li>
+<li>___ did they arrive? → At 8 o'clock.</li>
+<li>___ did she travel with? → With her family.</li>
+<li>___ were you late? → Because I missed the bus.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">4</span> Escribe la pregunta para cada respuesta</div>
+<ol><li>___? → I went to the cinema.</li>
+<li>___? → We ate pizza.</li>
+<li>___? → They arrived at nine.</li>
+<li>___? → She travelled to Santiago.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">5</span> Corrige el error</div>
+<ol><li>Did you went to school? →</li>
+<li>Where you did go? →</li>
+<li>Did she bought a gift? →</li>
+<li>What did they ate? →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">6</span> Traduce al inglés</div>
+<ol><li>¿Fuiste a la fiesta? →</li>
+<li>¿Qué hiciste ayer? →</li>
+<li>¿Dónde fueron el fin de semana? →</li>
+<li>No, no estudié. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">7</span> Producción guiada</div>
+<p>Escribe 6 preguntas en pasado para entrevistar a un compañero sobre sus vacaciones o su fin de semana.</p></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div>
+<p>Act.1: Did you watch the film? / Did she go to school? / Did they play football? / Did he buy a present? / Did you have breakfast?</p>
+<p>Act.2: I did / she didn't / they did / he didn't</p>
+<p>Act.3: Where / What / When / Who / Why</p>
+<p>Act.5: Did you go / Where did you go / Did she buy / What did they eat</p></div>
+</template>
+<template id="g2m-19">
+<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
+<p>Aquí se aprende el vocabulario y las frases para comprar cosas. Apoyo en casa: practiquen un diálogo de compra preguntando "How much is it?".</p></div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar vocabulario y expresiones de compra para participar en diálogos cotidianos sobre precios y dinero. OA2 — Unidad 4.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Use shopping vocabulary and expressions to take part in everyday dialogues about prices and money. OA2 — Unit 4.</div>
+<h2>Shopping &amp; Money</h2>
+<table><tr><th>Inglés</th><th>Español</th><th>Inglés</th><th>Español</th></tr>
+<tr><td>How much is it?</td><td>¿Cuánto cuesta?</td><td>How much are they?</td><td>¿Cuánto cuestan?</td></tr>
+<tr><td>It's expensive / cheap</td><td>Es caro / barato</td><td>a discount</td><td>un descuento</td></tr>
+<tr><td>I'd like…</td><td>Quisiera…</td><td>change</td><td>vuelto</td></tr>
+<tr><td>Can I pay by card?</td><td>¿Puedo pagar con tarjeta?</td><td>in cash</td><td>en efectivo</td></tr>
+<tr><td>the price</td><td>el precio</td><td>a receipt</td><td>una boleta</td></tr></table>
+<div class="exb"><div class="ext"><span class="exn">1</span> Completa el diálogo en una tienda</div>
+<p>Shop assistant: Hello! Can I help you?<br>
+Customer: Yes, I'd ___ this T-shirt, please. How ___ is it?<br>
+Assistant: It's $8,000.<br>
+Customer: OK. Can I ___ by card?<br>
+Assistant: Of course. Here is your ___ (boleta). Thank you!</p></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Elige how much is / how much are</div>
+<ol><li>___ this jacket?</li>
+<li>___ these shoes?</li>
+<li>___ that book?</li>
+<li>___ the apples?</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Une la pregunta con la respuesta</div>
+<table><tr><td>1. How much is it?</td><td>___</td><td>a. In cash, please.</td></tr>
+<tr><td>2. Can I help you?</td><td>___</td><td>b. It's $5,000.</td></tr>
+<tr><td>3. How do you want to pay?</td><td>___</td><td>c. Yes, I'd like a coffee.</td></tr></table></div>
+<div class="exb"><div class="ext"><span class="exn">4</span> Ordena el diálogo (1–5)</div>
+<ol><li>___ That's $3,000, please.</li>
+<li>___ Hello, can I help you?</li>
+<li>___ Here you are. Thank you!</li>
+<li>___ Yes, I'd like a bottle of water.</li>
+<li>___ How much is it?</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">5</span> Traduce al inglés</div>
+<ol><li>¿Cuánto cuesta esta polera? →</li>
+<li>Quisiera dos panes, por favor. →</li>
+<li>¿Puedo pagar con tarjeta? →</li>
+<li>Es muy caro. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">6</span> Producción guiada</div>
+<p>Escribe un diálogo de compra de 8 líneas entre un cliente y un vendedor (en una tienda de ropa o un almacén).</p></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div>
+<p>Act.1: like / much / pay / receipt</p>
+<p>Act.2: How much is / How much are / How much is / How much are</p>
+<p>Act.3: 1-b / 2-c / 3-a</p>
+<p>Act.4: 3 / 1 / 5 / 2 / 4</p></div>
+</template>
+<template id="g2m-20">
+<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
+<p>El present perfect (have/has + participio) se usa para hablar de experiencias de vida ("he viajado", "nunca he probado…"). Apoyo en casa: pregunten "Have you ever…?".</p></div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Reconocer y usar el present perfect para hablar de experiencias con ever, never, already y yet. OA2 — Unidad 4.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Recognise and use the present perfect to talk about experiences with ever, never, already and yet. OA2 — Unit 4.</div>
+<h2>Present Perfect — Introduction</h2>
+<div class="gb"><strong>Estructura:</strong> have/has + participio pasado<br>
+I <strong>have visited</strong> Santiago. · She <strong>has never eaten</strong> sushi. · <strong>Have</strong> you <strong>ever</strong> been to the beach?</div>
+<table><tr><th>Palabra</th><th>Uso</th><th>Ejemplo</th></tr>
+<tr><td>ever</td><td>en preguntas</td><td>Have you ever travelled abroad?</td></tr>
+<tr><td>never</td><td>experiencia negativa</td><td>I have never seen snow.</td></tr>
+<tr><td>already</td><td>algo ya hecho</td><td>I have already finished.</td></tr>
+<tr><td>yet</td><td>en preguntas/negativas</td><td>Have you finished yet?</td></tr></table>
+<div class="exb"><div class="ext"><span class="exn">1</span> Completa con have o has</div>
+<ol><li>I ___ visited many cities.</li>
+<li>She ___ never tried Japanese food.</li>
+<li>They ___ already done their homework.</li>
+<li>He ___ seen that film twice.</li>
+<li>We ___ been to Santiago.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Escribe el participio pasado</div>
+<ol><li>go → </li><li>see → </li><li>eat → </li><li>be → </li>
+<li>do → </li><li>visit → </li><li>travel → </li><li>write → </li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Completa con ever, never, already o yet</div>
+<ol><li>Have you ___ been to Argentina?</li>
+<li>I have ___ eaten octopus. I don't like it.</li>
+<li>She has ___ finished her project. Well done!</li>
+<li>Have you done your homework ___?</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">4</span> Escribe la pregunta con Have you ever…?</div>
+<ol><li>(travel abroad) → ___?</li>
+<li>(see a whale) → ___?</li>
+<li>(eat sushi) → ___?</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">5</span> Corrige el error</div>
+<ol><li>I has visited Santiago. →</li>
+<li>She have never eaten sushi. →</li>
+<li>Have you ever went to the beach? →</li>
+<li>They has already finished. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">6</span> Traduce al inglés</div>
+<ol><li>He visitado Santiago. →</li>
+<li>Ella nunca ha comido sushi. →</li>
+<li>¿Has viajado alguna vez al extranjero? →</li>
+<li>Ya he terminado mi tarea. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">7</span> Producción guiada</div>
+<p>Escribe 6 oraciones sobre tus experiencias usando el present perfect con ever, never y already.</p></div>
+<div class="ak2"><div class="akt">✅ Respuestas</div>
+<p>Act.1: have / has / have / has / have</p>
+<p>Act.2: gone/been / seen / eaten / been / done / visited / travelled / written</p>
+<p>Act.3: ever / never / already / yet</p>
+<p>Act.5: I have visited / She has never eaten / Have you ever gone / They have already finished</p></div>
+</template>
+<template id="r2m-07">
+<div class="mbadge">Reading · A2</div>
+<div class="hl">📖 <strong>At the Market</strong> — Lee el diálogo y responde en tu cuaderno con fecha y título.</div>
+<h2>At the Market</h2>
+<p>Sofía and her mother are at the Cardonal market in Valparaíso on a busy Saturday morning.</p>
+<p><strong>Vendor:</strong> Good morning! Can I help you?<br>
+<strong>Sofía:</strong> Yes, please. How much are the tomatoes?<br>
+<strong>Vendor:</strong> They're $1,200 a kilo. They're very fresh today.<br>
+<strong>Sofía:</strong> Great. I'd like two kilos, please. And how much is that watermelon?<br>
+<strong>Vendor:</strong> That one is $3,000. It's sweet and delicious.<br>
+<strong>Mother:</strong> Have you ever tried the strawberries here? They are the best in the city.<br>
+<strong>Sofía:</strong> No, I haven't. Let's buy some!<br>
+<strong>Vendor:</strong> Good choice. So, two kilos of tomatoes, one watermelon and a box of strawberries. That's $8,000.<br>
+<strong>Sofía:</strong> Can I pay by card?<br>
+<strong>Vendor:</strong> Of course. Here is your receipt. Thank you and have a nice day!</p>
+<p>Sofía and her mother left the market happy. They had already bought everything for a delicious fruit salad.</p>
+<div class="exb"><div class="ext"><span class="exn">1</span> Comprehension — Answer in complete sentences</div>
+<ol><li>Where are Sofía and her mother?</li>
+<li>How much are the tomatoes?</li>
+<li>How many kilos of tomatoes does Sofía buy?</li>
+<li>Has Sofía tried the strawberries before?</li>
+<li>How does Sofía pay?</li>
+<li>What are they going to make?</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> True or False</div>
+<ol><li>___ The tomatoes cost $3,000 a kilo.</li>
+<li>___ Sofía buys a watermelon.</li>
+<li>___ She pays in cash.</li>
+<li>___ The total is $8,000.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Find in the text</div>
+<ol><li>Two shopping questions: ___</li>
+<li>One example of present perfect: ___</li>
+<li>Two prices: ___</li></ol></div>
+<div class="ak2"><div class="akt">✅ Answers</div>
+<p>Act.2: F / T / F / T</p></div>
+</template>
+
 
 <template id="r2m-04">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Texto narrativo sobre los planes futuros de un estudiante marítimo. Usa will, going to y future continuous.</p></div>
@@ -5416,6 +6739,81 @@ drop (rule ___): ___ | try (rule ___): ___ | stay (rule ___): ___</p></div>
 <p>Write 10 Have you ever...? questions about maritime experiences, travel, language and school life. Then interview a classmate and write a paragraph summarizing their answers using Present Perfect and Past Simple appropriately:</p>
 <p><em>Have you ever...? Have you ever...? How long have you...?</em></p>
 <p>Report: <em>"[Name] has lived in Valparaíso since... She has never sailed, but she visited... She has studied English for... Last year she..."</em></p></div></template>
+<template id="adv-g06">
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Dominar el pasado del verbo To Be (was/were) en contextos avanzados. OA — Avanzado.</div>
+<div class="hl" style="background:#e8f5f7;border-color:var(--teal)">📌 <strong>Objective (EN):</strong> Master the past of To Be (was/were) in advanced contexts. OA — Advanced.</div>
+<h2>Past Simple: To Be</h2>
+<table><tr><th>Sujeto</th><th>Afirmativa</th><th>Negativa</th><th>Pregunta</th></tr>
+<tr><td>I / He / She / It</td><td>was</td><td>wasn't</td><td>Was…?</td></tr>
+<tr><td>You / We / They</td><td>were</td><td>weren't</td><td>Were…?</td></tr></table>
+<div class="exb"><div class="ext"><span class="exn">1</span> Complete with was / were</div>
+<ol><li>The sailors ___ tired after the long voyage.</li>
+<li>The captain ___ proud of his crew.</li>
+<li>The sea ___ calm in the morning.</li>
+<li>We ___ at the port at dawn.</li>
+<li>The waves ___ enormous during the storm.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Write the negative</div>
+<ol><li>The ship was fast. →</li>
+<li>They were ready. →</li>
+<li>The weather was good. →</li>
+<li>We were afraid. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Write questions and answer</div>
+<ol><li>(the trip / difficult) → ___? →</li>
+<li>(the sailors / experienced) → ___? →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">4</span> Translate</div>
+<ol><li>El mar estaba tranquilo. →</li>
+<li>Los marineros no estaban asustados. →</li>
+<li>¿Estaba el capitán a bordo? →</li></ol></div>
+<div class="ak2"><div class="akt">✅ Answers</div>
+<p>Act.1: were / was / was / were / were</p>
+<p>Act.2: wasn't fast / weren't ready / wasn't good / weren't afraid</p></div>
+</template>
+<template id="adv-r01">
+<div class="mbadge">Reading · A2+</div>
+<div class="hl">📖 <strong>The Port of Valparaíso</strong> — Read and answer in your notebook.</div>
+<h2>The Port of Valparaíso</h2>
+<p>The port of Valparaíso is one of the most important ports on the Pacific coast of South America. For over 200 years, ships from all around the world have arrived here carrying goods, passengers and stories.</p><p>In the 19th century, before the Panama Canal opened in 1914, Valparaíso was a compulsory stop for ships travelling between the Atlantic and the Pacific. Sailors from England, Germany, Italy and many other countries settled in the city, and their influence is still visible in its architecture, its funiculars and its colourful hills.</p><p>Today, the port handles thousands of containers every year and remains a vital part of the Chilean economy. It is also a UNESCO World Heritage Site, admired for its unique historic quarter and its bohemian spirit.</p>
+<div class="exb"><div class="ext"><span class="exn">1</span> Comprehension</div><ol><li>Why was Valparaíso important before 1914?</li><li>Which nationalities settled in the city?</li><li>What is the port used for today?</li><li>Why is Valparaíso a World Heritage Site?</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> True or False</div><ol><li>___ Valparaíso is on the Atlantic coast.</li><li>___ The Panama Canal opened in 1914.</li><li>___ No foreign sailors settled in the city.</li><li>___ The port is a UNESCO World Heritage Site.</li></ol></div>
+<div class="ak2"><div class="akt">✅ Answers</div><p>Act.2: F / T / F / T</p></div>
+</template>
+<template id="adv-r02">
+<div class="mbadge">Reading · B1</div>
+<div class="hl">📖 <strong>Climate Change and the Ocean</strong> — Read and answer in your notebook.</div>
+<h2>Climate Change and the Ocean</h2>
+<p>The ocean plays a crucial role in regulating the planet's climate. It absorbs about a quarter of the carbon dioxide that humans produce and stores enormous amounts of heat. However, this service comes at a cost.</p><p>As the ocean absorbs more carbon dioxide, its water becomes more acidic. This process, known as ocean acidification, threatens shellfish, corals and the entire marine food chain. At the same time, rising temperatures cause sea levels to rise and disrupt marine ecosystems.</p><p>Scientists warn that protecting the ocean is essential for the future of humanity. Reducing emissions, creating marine protected areas and supporting sustainable fishing are some of the actions that can help preserve this vital resource for the next generations.</p>
+<div class="exb"><div class="ext"><span class="exn">1</span> Comprehension</div><ol><li>What percentage of CO2 does the ocean absorb?</li><li>What is ocean acidification?</li><li>What does acidification threaten?</li><li>What actions can help protect the ocean?</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> True or False</div><ol><li>___ The ocean absorbs about a quarter of human CO2.</li><li>___ Acidification helps corals grow.</li><li>___ Rising temperatures make sea levels rise.</li><li>___ Sustainable fishing can help the ocean.</li></ol></div>
+<div class="ak2"><div class="akt">✅ Answers</div><p>Act.2: T / F / T / T</p></div>
+</template>
+<template id="adv-r03">
+<div class="mbadge">Reading · A2+</div>
+<div class="hl">📖 <strong>A Sailor's Life</strong> — Read and answer in your notebook.</div>
+<h2>A Sailor's Life</h2>
+<p>Life at sea has always been demanding. A sailor must be disciplined, brave and hard-working. On a modern cargo ship, the crew works in shifts, day and night, to keep the vessel running safely.</p><p>A typical day begins early. The crew checks the engines, the navigation systems and the cargo. During long voyages, sailors can spend weeks or even months away from their families. Technology now allows them to send messages home, but the sea can still be a lonely place.</p><p>Despite the challenges, many sailors love their job. They travel to distant ports, meet people from different cultures and witness sunrises over the open ocean that few people will ever see.</p>
+<div class="exb"><div class="ext"><span class="exn">1</span> Comprehension</div><ol><li>What qualities does a sailor need?</li><li>How does the crew work on a modern ship?</li><li>What does a typical day begin with?</li><li>What do many sailors enjoy about their job?</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> True or False</div><ol><li>___ Sailors never work at night.</li><li>___ A voyage can last weeks or months.</li><li>___ Sailors can send messages home.</li><li>___ No sailor enjoys life at sea.</li></ol></div>
+<div class="ak2"><div class="akt">✅ Answers</div><p>Act.2: F / T / T / F</p></div>
+</template>
+<template id="adv-r04">
+<div class="mbadge">Reading · B1</div>
+<div class="hl">📖 <strong>Ships of the Future</strong> — Read and answer in your notebook.</div>
+<h2>Ships of the Future</h2>
+<p>The shipping industry is responsible for a significant part of global trade, but also for a considerable amount of pollution. For this reason, engineers around the world are designing the ships of the future.</p><p>Some new vessels use wind power through modern rigid sails, while others run on electric batteries or hydrogen fuel cells that produce no harmful emissions. Autonomous ships, controlled by computers and satellites, are also being tested and could reduce human error at sea.</p><p>These innovations could transform maritime transport into a cleaner and safer industry. For students in technical-maritime education, understanding these technologies today means being prepared for the jobs of tomorrow.</p>
+<div class="exb"><div class="ext"><span class="exn">1</span> Comprehension</div><ol><li>Why is the shipping industry a problem for the environment?</li><li>What power sources do future ships use?</li><li>What are autonomous ships controlled by?</li><li>Why are these technologies important for students?</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> True or False</div><ol><li>___ Shipping causes no pollution.</li><li>___ Some ships use hydrogen fuel cells.</li><li>___ Autonomous ships are controlled by computers and satellites.</li><li>___ These innovations could make shipping cleaner.</li></ol></div>
+<div class="ak2"><div class="akt">✅ Answers</div><p>Act.2: F / T / T / T</p></div>
+</template>
+<template id="adv-r05">
+<div class="mbadge">Reading · A2+</div>
+<div class="hl">📖 <strong>Valparaíso: City of Colour</strong> — Read and answer in your notebook.</div>
+<h2>Valparaíso: City of Colour</h2>
+<p>Valparaíso is famous for its colourful houses that climb up more than forty hills. From the sea, the city looks like a giant painting, with every house a different shade of blue, yellow, green or red.</p><p>The tradition of painting houses in bright colours began long ago. Sailors used to bring leftover paint from the ships, and families used whatever colours were available. Over time, these vivid colours became the identity of the city.</p><p>Today, artists from all over the world come to Valparaíso to paint murals on its walls and staircases. Walking through the hills is like visiting an open-air museum, where art and everyday life mix together in a truly unique way.</p>
+<div class="exb"><div class="ext"><span class="exn">1</span> Comprehension</div><ol><li>How many hills does Valparaíso have?</li><li>Why did the tradition of colourful houses begin?</li><li>Where did the paint originally come from?</li><li>Why is the city like an open-air museum?</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> True or False</div><ol><li>___ The houses are all the same colour.</li><li>___ Sailors brought leftover paint from ships.</li><li>___ Artists paint murals on the walls.</li><li>___ Valparaíso has fewer than ten hills.</li></ol></div>
+<div class="ak2"><div class="akt">✅ Answers</div><p>Act.2: F / T / T / F</p></div>
+</template>
+
 
 <!-- ══ PIE TEMPLATES ══════════════════════════════════════════ -->
 
