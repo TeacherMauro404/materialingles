@@ -289,6 +289,17 @@ main{max-width:1100px;margin:0 auto;padding:36px 16px 80px}
   .tabs{gap:4px}
   .tbtn{padding:6px 12px;font-size:11px}
 }
+
+.eg{background:#eef4fc;border-left:3px solid #5585c8;padding:7px 13px;margin:8px 0;font-size:16px;border-radius:5px;color:#243b57}
+.mb .eg{font-size:16.5px}
+details.ak2{padding:0}
+details.ak2 summary{cursor:pointer;list-style:none;padding:12px 18px;font-weight:800;color:#1f7a44;font-size:15.5px;user-select:none}
+details.ak2 summary::-webkit-details-marker{display:none}
+details.ak2 summary::before{content:"▸ "}
+details.ak2[open] summary::before{content:"▾ "}
+details.ak2 > p{padding:0 18px 4px}
+details.ak2[open]{padding-bottom:12px}
+.mb details.ak2 summary{font-size:16.5px}
 </style>
 </head>
 <body>
@@ -3178,10 +3189,10 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
 <ol><li>___ Hi! What's up?</li><li>___ Good afternoon, sir.</li><li>___ Hello, how are you?</li><li>___ Hey, see you later!</li><li>___ Goodbye, have a nice day.</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">7</span> ✍️ Producción escrita</div>
 <p>Escribe un diálogo de <strong>8 líneas</strong> entre dos personas que se conocen por primera vez. Usa saludos, presentación del nombre, de dónde son y una despedida.<br>Empieza así: <em>A: Hi! My name is ___. What's your name?</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: name / meet / old / fine / from</p>
 <p>Act.2: Good morning / Hi! / See you later / Good evening / Good night</p>
-<p>Act.4: I am 16 years old. / My name is Pedro. / I'm from Viña del Mar. / Good evening!</p></div>
+<p>Act.4: I am 16 years old. / My name is Pedro. / I'm from Viña del Mar. / Good evening!</p></details>
 </template>
 
 <template id="g1m-02">
@@ -3233,9 +3244,9 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
 <ol><li>7 → ___</li><li>13 → ___</li><li>16 → ___</li><li>20 → ___</li><li>11 → ___</li><li>15 → ___</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">7</span> ✍️ Producción escrita</div>
 <p>Escribe tu nombre completo y el de <strong>3 compañeros</strong> deletreados letra por letra en inglés (spelling). Luego escribe los números del 1 al 20 con palabras.<br>Ejemplo: <em>My name is ANA — A-N-A.</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.2: seven / thirteen / five / nineteen / eleven / twenty</p>
-<p>Act.3: eight / eighteen / sixteen / thirteen</p></div>
+<p>Act.3: eight / eighteen / sixteen / thirteen</p></details>
 </template>
 
 <template id="g1m-03">
@@ -3288,9 +3299,9 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
 <ol><li>(He / She) is my mother.</li><li>(We / They) are students.</li><li>(It / He) is a cat.</li><li>(I / You) am from Chile.</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">6</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong>, una con cada pronombre (I, you, he, she, it, we, they). Habla de ti, tu familia y tus amigos.<br>Ejemplo: <em>I am a student. She is my sister…</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: She / We / It / They / He / It</p>
-<p>Act.2: I am a student. / She is from Viña del Mar. / We are in class. / They are sailors. / It is big.</p></div>
+<p>Act.2: I am a student. / She is from Viña del Mar. / We are in class. / They are sailors. / It is big.</p></details>
 </template>
 
 <template id="g1m-04">
@@ -3378,10 +3389,10 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
 
 <div class="exb"><div class="ext"><span class="exn">7</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>10 oraciones afirmativas</strong> con el verbo To Be presentándote a ti y a tu familia (nombres, edad, nacionalidad, cómo son).<br>Empieza: <em>My name is ___. I am ___ years old. I am from Chile…</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: am, am / is, is / are / is / are, is / is, is / is, is / are, are</p>
 <p>Act.2: I'm / She's, her mother's a / We're / They're, it's / He's, he's / You're, you're</p>
-<p>Act.4: I am 15 years OLD. / She IS. / HIS name. / We ARE. / It IS. / They ARE.</p></div></template>
+<p>Act.4: I am 15 years OLD. / She IS. / HIS name. / We ARE. / It IS. / They ARE.</p></details></template>
 
 <template id="g1m-05">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -3431,9 +3442,9 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
 <ol><li>(you / happy) → ___? → Yes, ___</li><li>(she / your sister) → ___? → No, ___</li><li>(they / students) → ___? → Yes, ___</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">7</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>6 oraciones negativas</strong> y <strong>4 preguntas</strong> con To Be sobre tu curso y tus amigos. Luego responde las preguntas.<br>Ejemplo: <em>I am not tired. Are you happy?</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: I'm not from Santiago / I am not from Santiago. She's not 20 / She isn't 20. We're not late / We aren't late. It's not small / It isn't small.</p>
-<p>Act.3: Yes, I am. / Yes, she is. / Yes, they are.</p></div>
+<p>Act.3: Yes, I am. / Yes, she is. / Yes, they are.</p></details>
 </template>
 
 <template id="g1m-06">
@@ -3476,10 +3487,10 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
 <ol><li>She book is on the table. →</li><li>I have a sister. Her name is Ana. (correcta/incorrecta) →</li><li>They house is big. →</li><li>He mother is a nurse. →</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">7</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>10 oraciones</strong> usando adjetivos posesivos (my, your, his, her, its, our, their) sobre las cosas de tu familia.<br>Ejemplo: <em>My father has a car. His car is blue.</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: Its / Her / Our / His / Their / Your</p>
 <p>Act.2: its / It's / its / It's</p>
-<p>Act.3: her work / his keys / our books</p></div>
+<p>Act.3: her work / his keys / our books</p></details>
 </template>
 
 <template id="g1m-07">
@@ -3530,10 +3541,10 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
 <ol><li>car / a / red / is / my → ___</li><li>eyes / blue / has / she → ___</li><li>bag / green / my / is → ___</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">7</span> ✍️ Producción escrita</div>
 <p>Describe <strong>8 objetos</strong> de tu sala o tu casa indicando su color.<br>Ejemplo: <em>My schoolbag is red. The board is green.</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: narrow / cold / dirty / light</p>
 <p>Act.2: I have an orange jacket. / She is an experienced sailor. / We saw big whales.</p>
-<p>Act.3: red, white and blue / light blue / black / orange</p></div>
+<p>Act.3: red, white and blue / light blue / black / orange</p></details>
 </template>
 
 <template id="g1m-08">
@@ -3569,8 +3580,8 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
 <ol><li>Mi abuela es amable. →</li><li>Tengo dos hermanos. →</li><li>Mi tío es profesor. →</li><li>Mis padres son jóvenes. →</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">6</span> ✍️ Producción escrita</div>
 <p>Escribe una plana de <strong>10 a 12 oraciones</strong> presentando a tu familia: quiénes son, cómo se llaman, su edad y una característica de cada uno.<br>Empieza: <em>This is my family. My father's name is ___…</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas — Act. 1</div>
-<p>aunt / cousin / grandmother / only child</p></div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas — Act. 1</summary>
+<p>aunt / cousin / grandmother / only child</p></details>
 </template>
 
 <template id="g1m-09">
@@ -3619,8 +3630,8 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
 <ol><li>What day is it today? →</li><li>When is your birthday? →</li><li>What is your favourite season? →</li><li>What months are in summer in Chile? →</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong> sobre los días, meses y estaciones: tu día favorito, tu mes de cumpleaños, la estación que más te gusta y qué haces.<br>Ejemplo: <em>My favourite day is Saturday. My birthday is in ___.</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
-<p>Act.1: Today is Wednesday. / My birthday is in September. / It's winter in Valparaíso in July. / December is the last month of the year.</p></div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
+<p>Act.1: Today is Wednesday. / My birthday is in September. / It's winter in Valparaíso in July. / December is the last month of the year.</p></details>
 </template>
 
 <template id="g1m-10">
@@ -3661,9 +3672,9 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
 <ol><li>I am ___ (15).</li><li>My mother is ___ (42).</li><li>My grandfather is ___ (70).</li><li>My baby cousin is ___ (2).</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">6</span> ✍️ Producción escrita</div>
 <p>Escribe con palabras (no números) tu edad y la de <strong>5 familiares</strong>, y 5 números que uses a diario.<br>Ejemplo: <em>I am fifteen years old. My mother is forty.</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: twenty-five / forty-three / sixty-seven / one hundred</p>
-<p>Act.3: March 1st / September 18th / December 25th</p></div>
+<p>Act.3: March 1st / September 18th / December 25th</p></details>
 </template>
 
 <!-- LECTURAS 1° MEDIO -->
@@ -3888,9 +3899,9 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
 <p>8-10 oraciones. Incluye: cómo te sientes normalmente, antes de los exámenes, cuando logras algo, con tus amigos y los fines de semana. Usa am/is/are + feel + when/because.</p></div>
 <div class="exb"><div class="ext"><span class="exn">9</span> ✍️ Producción escrita</div>
 <p>Escribe una plana de <strong>10 a 12 oraciones</strong> sobre cómo te sientes en distintas situaciones y por qué, usando conectores (when, because, but).<br>Ejemplo: <em>I feel happy when I play football because it is fun.</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas — Act. 1</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas — Act. 1</summary>
 <p>happy / nervous / tired / grateful / bored / proud / excited / worried / angry / sad</p>
-<p>Act.6: nervous / feels / isn't anything (doble negacion) / excited / tired / worried</p></div></template>
+<p>Act.6: nervous / feels / isn't anything (doble negacion) / excited / tired / worried</p></details></template>
 
 <template id="g2m-02">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -3969,9 +3980,9 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
 <p><em>Q: Can you ___? A: Yes, I can. / No, I can't.</em></p></div>
 <div class="exb"><div class="ext"><span class="exn">9</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>5 cosas que puedes hacer</strong> y <strong>5 que no</strong> con can/can't, más 2 preguntas.<br>Ejemplo: <em>I can play the guitar. I can't drive a car. Can you swim?</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas — Act. 1</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas — Act. 1</summary>
 <p>can / can't / can't / can / can't / can / can't / can</p>
-<p>Act.4: can play / Can you swim? / can play / Can you speak? / cannot drive / Can she sing? / I can't understand</p></div></template>
+<p>Act.4: can play / Can you swim? / can play / Can you speak? / cannot drive / Can she sing? / I can't understand</p></details></template>
 
 <template id="g2m-03">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -4044,10 +4055,10 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
 <p>12-15 oraciones. Incluye mañana, tarde y noche. Usa un adverbio de frecuencia diferente en al menos 8 oraciones. Usa al menos 3 verbos en 3a persona (habla de tu familia).</p></div>
 <div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong> sobre tus hábitos usando un adverbio de frecuencia distinto en cada una.<br>Ejemplo: <em>I usually study at night. I rarely watch TV.</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas — Act.1</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas — Act.1</summary>
 <p>She usually walks. / He is never late. / They often watch TV. / I always eat breakfast. / We sometimes go. / She is rarely happy. / He hardly ever does homework. / I am never bored.</p>
 <p>Act.2: plays/studies/watches/goes/has/carries/teaches/does/tries/fixes</p>
-<p>Act.5: She IS always late. / He STUDIES. / I NEVER eat (no double negative). / Does she GO? / They DON'T like. / He always DOES. / She usually cooks.</p></div></template>
+<p>Act.5: She IS always late. / He STUDIES. / I NEVER eat (no double negative). / Does she GO? / They DON'T like. / He always DOES. / She usually cooks.</p></details></template>
 
 <template id="g2m-04">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -4114,9 +4125,9 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
 <p><em>Right now, I am ___. My ___ is ___. Nobody is ___. Is your ___ ___? Yes/No, ___.</em></p></div>
 <div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita</div>
 <p>Describe qué están haciendo <strong>6 personas</strong> ahora mismo (en tu casa, tu curso) con present continuous.<br>Ejemplo: <em>My mother is cooking. My friends are playing.</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas — Act.1</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas — Act.1</summary>
 <p>playing / running / dancing / swimming / studying / making / sitting / writing / listening / stopping / eating / talking</p>
-<p>Act.4: is playing / am studying / Are they watching? / swimming / I'm not sleeping / What is she doing? / is going</p></div></template>
+<p>Act.4: is playing / am studying / Are they watching? / swimming / I'm not sleeping / What is she doing? / is going</p></details></template>
 
 <template id="g2m-05">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -4187,9 +4198,9 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
 <p>10-12 oraciones. Incluye: deportes que prácticas (PLAY/GO/DO + frecuencia), si puedes tocar un instrumento, tu genero músical favorito, con que frecuencia escuchas música, y si el deporte y la música son importantes para ti y por que.</p></div>
 <div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>10 oraciones</strong> sobre deportes y actividades usando play, go y do correctamente.<br>Ejemplo: <em>I play football. I go swimming. I do martial arts.</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas — Act.1</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas — Act.1</summary>
 <p>play / goes / does / go / play / does / play,play / does,plays / does / go</p>
-<p>Act.2: go swimming / does yoga / play the guitar / go hiking / play football / goes running</p></div></template>
+<p>Act.2: go swimming / does yoga / play the guitar / go hiking / play football / goes running</p></details></template>
 
 <!-- LECTURAS 2° MEDIO -->
 <template id="r2m-01">
@@ -4596,9 +4607,9 @@ I am writing to ___ (you/your) regarding the cargo manifest. My colleague Ana an
 <li>This is a no-phone zone. You ___ use your phone here. (permission no)</li>
 <li>Storms ___ appear without warning in winter. (possibility)</li>
 <li>___ you help me with this exercise? Yes, I ___.</li></ol></div>
-<div class="ak2"><div class="akt">Respuestas Act.1</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>P/C/P/C/P/C/P/C/P/C</p>
-<p>Act.4: Maria's / dog's / brother's / Ana's / teacher's / cat's</p></div></template>
+<p>Act.4: Maria's / dog's / brother's / Ana's / teacher's / cat's</p></details></template>
 
 <template id="g1m-11">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -4655,9 +4666,9 @@ I am writing to ___ (you/your) regarding the cargo manifest. My colleague Ana an
 <p>Incluye: nombre, edad, ciudad, cómo te sientes hoy, asignatura favorita y descripción física de un familiar.</p></div>
 <div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita</div>
 <p>Escribe una plana de <strong>12 oraciones</strong> sobre ti y tu familia mezclando afirmativas, negativas y preguntas con To Be.<br>Empieza: <em>Hello! I am ___. I am not ___. My family is ___…</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas — Act. 1</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas — Act. 1</summary>
 <p>am,is / is,is / are / are,are / is,is / are,are / is,is / are,are</p>
-<p>Act.4: She IS / Yes, I AM. / He IS NOT at home / ARE they / We ARE classmates</p></div>
+<p>Act.4: She IS / Yes, I AM. / He IS NOT at home / ARE they / We ARE classmates</p></details>
 </template>
 
 <template id="g1m-12">
@@ -4723,117 +4734,75 @@ B: Yes! ___ is my backpack. And ___ are my notebooks.</p></div>
 <p>Usa This / That / These / Those. Ej: This is my desk. These are my books...</p></div>
 <div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita</div>
 <p>Imagina que muestras tu casa a un amigo. Escribe <strong>10 oraciones</strong> señalando objetos con this, that, these y those.<br>Ejemplo: <em>This is my room. Those are my books.</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: This/That/These/Those/This/Those/That/These</p>
 <p>Act.2: is/are/is/are/is/are/is/are</p>
-<p>Act.4: These are / That is / This is / Those are / These chairs are / That book is</p></div>
+<p>Act.4: These are / That is / This is / Those are / These chairs are / That book is</p></details>
 </template>
 
-<template id="g1m-13">
-<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
-<p>Have y has significan "tener". Se usan para hablar de la familia, las cosas que poseemos y las características físicas. En esta guía su hijo/a practicará las tres formas (afirmativa, negativa y pregunta) con situaciones de la vida diaria. En casa pueden ayudar preguntando en inglés: <em>"Do you have homework today?"</em> o <em>"How many brothers do you have?"</em>.</p></div>
-<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar have/has en forma afirmativa, negativa e interrogativa para expresar posesión, relaciones familiares y características. OA1 — Unidad 2.</div>
-<div class="hl" style="background:#d3e8ec;border-color:#10707f">📌 <strong>Objective (EN):</strong> Use have/has in affirmative, negative and question forms to express possession, family relationships and characteristics. OA1 — Unit 2.</div>
+<template id="g1m-13"><div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Esta guía enseña <strong>have</strong> y <strong>has</strong> ("tener"). Su hijo/a aprenderá primero la regla, verá ejemplos resueltos y luego practicará. Cada ejercicio parte con un ejemplo. En casa pueden preguntar: <em>How many brothers do you have? Do you have homework today?</em></p></div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar have/has en afirmativa, negativa e interrogativa para expresar posesión, relaciones y características. OA1 — Unidad 2.</div>
+<div class="hl" style="background:#d3e8ec;border-color:#10707f">📌 <strong>Objective (EN):</strong> Use have/has in affirmative, negative and question forms to express possession, relationships and characteristics. OA1 — Unit 2.</div>
 
 <h2>Have / Has</h2>
-<p>El verbo <strong>have</strong> se usa con <strong>I, You, We, They</strong>. Cambia a <strong>has</strong> solo con la tercera persona singular <strong>He, She, It</strong>. Míralo en la tabla:</p>
-<table><tr><th>Sujeto</th><th>Afirmativa</th><th>Negativa</th><th>Pregunta</th></tr>
+<div class="gb"><strong>1. ¿Qué significan?</strong><br>Have y has significan <strong>"tener"</strong>. Se usan para hablar de lo que poseemos, de la familia y de características físicas.<br><br>
+<strong>2. ¿Cuándo uso cada uno?</strong><br>• Uso <strong>have</strong> con <em>I, You, We, They</em> → <em>I <u>have</u> a dog.</em><br>• Uso <strong>has</strong> solo con <em>He, She, It</em> (tercera persona singular) → <em>She <u>has</u> a dog.</em><br><br>
+<strong>3. Regla de oro</strong><br>En la <strong>negativa</strong> y en la <strong>pregunta</strong> siempre vuelve a <strong>have</strong>, nunca has:<br><em>She <u>doesn't have</u>… / <u>Does</u> she <u>have</u>…?</em> (no "doesn't has").</div>
+
+<table><tr><th>Sujeto</th><th>Afirmativa (+)</th><th>Negativa (−)</th><th>Pregunta (?)</th></tr>
 <tr><td>I / You / We / They</td><td>have</td><td>don't have</td><td>Do you have…?</td></tr>
 <tr><td>He / She / It</td><td>has</td><td>doesn't have</td><td>Does she have…?</td></tr></table>
 
-<div class="gb"><strong>¿Cuándo usamos have/has?</strong><br>
-• <strong>Posesión:</strong> I have a bicycle. (Tengo una bicicleta.)<br>
-• <strong>Familia:</strong> She has two sisters. (Ella tiene dos hermanas.)<br>
-• <strong>Características físicas:</strong> He has brown eyes and short hair. (Él tiene ojos marrones y pelo corto.)<br>
-• <strong>Con la edad NO se usa have:</strong> se dice <em>I am 15 years old</em>, no <em>I have 15 years</em>.</div>
+<div class="gb"><strong>Fíjate — usos reales</strong><br>
+• Posesión: <em>I have a new phone.</em> (Tengo un teléfono nuevo.)<br>
+• Familia: <em>She has two sisters.</em> (Ella tiene dos hermanas.)<br>
+• Características: <em>He has brown eyes and short hair.</em> (Él tiene ojos marrones y pelo corto.)<br>
+• ⚠️ Con la edad NO se usa have: se dice <em>I <u>am</u> 15 years old</em> (no "I have 15 years").</div>
 
-<h3>More examples — Más ejemplos</h3>
-<table><tr><th>Inglés</th><th>Español</th></tr>
-<tr><td>I have a big family.</td><td>Tengo una familia grande.</td></tr>
-<tr><td>My brother has a new phone.</td><td>Mi hermano tiene un teléfono nuevo.</td></tr>
-<tr><td>We don't have class on Sunday.</td><td>No tenemos clases el domingo.</td></tr>
-<tr><td>She doesn't have a pet.</td><td>Ella no tiene mascota.</td></tr>
-<tr><td>Do you have a pencil?</td><td>¿Tienes un lápiz?</td></tr>
-<tr><td>Does he have brothers?</td><td>¿Él tiene hermanos?</td></tr></table>
-
-<div class="mkb"><div class="mkt">⚠️ Errores comunes</div>
-<p>• <span class="wrong">She have a cat</span> → <span class="correct">She has a cat</span> (con he/she/it → has).<br>
-• <span class="wrong">He doesn't has a car</span> → <span class="correct">He doesn't have a car</span> (después de doesn't → have).<br>
-• <span class="wrong">Do she have a sister?</span> → <span class="correct">Does she have a sister?</span> (he/she/it → Does).</p></div>
+<div class="mkb"><div class="mkt">⚠️ Errores frecuentes</div>
+<p>• <span class="wrong">She have a cat</span> → <span class="correct">She has a cat</span><br>
+• <span class="wrong">He doesn't has a car</span> → <span class="correct">He doesn't have a car</span><br>
+• <span class="wrong">Do she have a sister?</span> → <span class="correct">Does she have a sister?</span></p></div>
 
 <div class="exb"><div class="ext"><span class="exn">1</span> Completa con have o has</div>
-<ol><li>I ___ two brothers and one sister.</li>
-<li>My mother ___ long dark hair.</li>
-<li>My grandmother ___ a small garden.</li>
-<li>We ___ English class on Monday and Wednesday.</li>
-<li>My best friend ___ a dog named Rocky.</li>
-<li>They ___ a big house near the school.</li>
-<li>My father ___ a bicycle he uses on weekends.</li>
-<li>My sister ___ many friends at her school.</li>
-<li>She ___ blue eyes and short hair.</li>
-<li>Our school ___ two campuses.</li></ol></div>
+<p class="eg">Ej.: My mother ___ long hair. → My mother <strong>has</strong> long hair.</p>
+<ol><li>I ___ two brothers and one sister.</li><li>My grandmother ___ a small garden.</li><li>We ___ English on Monday.</li><li>My best friend ___ a dog.</li><li>They ___ a big house.</li><li>She ___ blue eyes.</li></ol></div>
 
-<div class="exb"><div class="ext"><span class="exn">2</span> Escribe la forma negativa</div>
-<ol><li>I have a pet. → I ___</li>
-<li>She has a sister. → She ___</li>
-<li>They have homework today. → They ___</li>
-<li>He has blue eyes. → He ___</li>
-<li>We have a test on Friday. → We ___</li>
-<li>My cousin has a motorbike. → My cousin ___</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">2</span> Transforma la oración a la forma negativa</div>
+<p class="eg">Ej.: She has a car. → She <strong>doesn't have</strong> a car.</p>
+<ol><li>I have a pet. →</li><li>They have homework today. →</li><li>He has blue eyes. →</li><li>We have a test on Friday. →</li><li>My cousin has a motorbike. →</li></ol></div>
 
-<div class="exb"><div class="ext"><span class="exn">3</span> Escribe la pregunta</div>
-<ol><li>(you / a bicycle) → ___?</li>
-<li>(she / brothers) → ___?</li>
-<li>(they / a big family) → ___?</li>
-<li>(he / a phone) → ___?</li>
-<li>(your school / a library) → ___?</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">3</span> Escribe la pregunta usando los datos entre paréntesis</div>
+<p class="eg">Ej.: (you / a bicycle) → <strong>Do you have</strong> a bicycle?</p>
+<ol><li>(she / brothers) →</li><li>(they / a big family) →</li><li>(he / a phone) →</li><li>(your school / a library) →</li></ol></div>
 
-<div class="exb"><div class="ext"><span class="exn">4</span> Completa con have / has / don't have / doesn't have</div>
-<ol><li>A: Does your brother ___ a car? B: No, he ___. He is only 16.</li>
-<li>A: Do you ___ a ruler? B: Yes, I ___. Here you go!</li>
-<li>She ___ a phone but she ___ a tablet.</li>
-<li>My grandparents ___ a TV but they ___ a computer.</li>
-<li>I ___ three pencils but I ___ an eraser.</li>
-<li>A: Does she ___ glasses? B: Yes, she ___. They are very pretty.</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">4</span> Completa el diálogo con have / has / don't have / doesn't have</div>
+<p class="eg">Ej.: A: Does your brother ___ a car? B: No, he ___. → A: …have a car? B: …doesn't.</p>
+<ol><li>A: Do you ___ a ruler? B: Yes, I ___.</li><li>She ___ a phone but she ___ a tablet.</li><li>My grandparents ___ a TV but they ___ a computer.</li><li>A: Does she ___ glasses? B: Yes, she ___.</li></ol></div>
 
-<div class="exb"><div class="ext"><span class="exn">5</span> Corrige el error</div>
-<ol><li>She have a cat. →</li>
-<li>He don't have a ruler. →</li>
-<li>Do she have a sister? →</li>
-<li>My parents doesn't have a car. →</li>
-<li>Does they have homework? →</li>
-<li>We has a test tomorrow. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">5</span> Corrige el error de cada oración</div>
+<p class="eg">Ej.: She have a cat. → She <strong>has</strong> a cat.</p>
+<ol><li>He don't have a ruler. →</li><li>Do she have a sister? →</li><li>My parents doesn't have a car. →</li><li>We has a test tomorrow. →</li></ol></div>
 
-<div class="exb"><div class="ext"><span class="exn">6</span> Traduce al inglés</div>
-<ol><li>Mi hermano tiene los ojos marrones. →</li>
-<li>¿Tienes un borrador? Sí, tengo uno. →</li>
-<li>Ella no tiene hermanos. →</li>
-<li>¿Tiene él una bicicleta? No, no tiene. →</li>
-<li>Nosotros tenemos prueba el viernes. →</li>
-<li>Mi mejor amigo/a tiene el pelo largo y oscuro. →</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">6</span> Completa el texto con have / has / don't have / doesn't have</div>
+<p class="eg">Ej.: I ___ a big family. → I <strong>have</strong> a big family.</p>
+<p>Hi! I'm Tomás. I ___ (1) two brothers. My father ___ (2) a small shop. My mother ___ (3) a job at a school. We ___ (4) a cat, but I ___ (5) a dog because my flat is small. My best friend ___ (6) a big garden and we play there.</p></div>
 
-<div class="exb"><div class="ext"><span class="exn">7</span> Completa el texto con have / has / don't have / doesn't have</div>
-<p>Hi! My name is Tomás. I ___ (1) a big family. I ___ (2) two brothers and one sister. My father ___ (3) a small shop in the centre. My mother ___ (4) a job at a school; she is a teacher. We ___ (5) a pet — it is a cat called Michi. My little sister ___ (6) a bicycle, but I ___ (7) one because it is broken. At school I ___ (8) many friends. My best friend ___ (9) a big dog. We ___ (10) a lot of fun together!</p></div>
+<div class="exb"><div class="ext"><span class="exn">7</span> Traduce al inglés</div>
+<p class="eg">Ej.: Tengo dos hermanos. → I <strong>have</strong> two brothers.</p>
+<ol><li>Mi hermano tiene los ojos marrones. →</li><li>Ella no tiene hermanos. →</li><li>¿Tiene él una bicicleta? →</li><li>Mi mejor amigo/a tiene el pelo largo. →</li></ol></div>
 
-<div class="exb"><div class="ext"><span class="exn">8</span> Completa las preguntas y responde con la verdad</div>
-<ol><li>___ you ___ a pet at home? → Yes/No, ___</li>
-<li>___ your teacher ___ glasses? → Yes/No, ___</li>
-<li>___ your school ___ a cafeteria? → Yes/No, ___</li>
-<li>___ your best friend ___ a sibling? → Yes/No, ___</li>
-<li>___ you ___ homework today? → Yes/No, ___</li></ol></div>
+<div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita — Escribe una plana en tu cuaderno</div>
+<p class="eg">Ej. de inicio: <em>My name is ___. I have a big family. I have two brothers…</em></p>
+<p>Escribe <strong>10 a 12 oraciones</strong> sobre tu familia y lo que tienen. Usa have y has, con al menos <strong>2 negativas</strong> y <strong>2 preguntas</strong>. Incluye: cuántos hermanos tienes, qué hay en tu casa, una característica física de un familiar y una mascota (o por qué no tienes).</p></div>
 
-<div class="exb"><div class="ext"><span class="exn">9</span> ✍️ Producción escrita — Escribe una plana en tu cuaderno</div>
-<p>Escribe un texto de <strong>10 a 12 oraciones</strong> sobre tu familia y las cosas que tienen. Usa have y has, e incluye al menos <strong>2 oraciones negativas</strong> y <strong>2 preguntas</strong>.</p>
-<p>Incluye: cuántos hermanos tienes · qué tiene tu casa · una característica física de un familiar · una mascota (o por qué no tienes) · algo que tú tienes y algo que no tienes.</p>
-<p>Empieza así: <em>My name is ___. I have a ___ family. I have ___…</em></p></div>
-
-<div class="ak2"><div class="akt">✅ Respuestas</div>
-<p><strong>Act.1:</strong> have / has / has / have / has / have / has / has / has / has</p>
-<p><strong>Act.2:</strong> don't have / doesn't have / don't have / doesn't have / don't have / doesn't have</p>
-<p><strong>Act.3:</strong> Do you have a bicycle? / Does she have brothers? / Do they have a big family? / Does he have a phone? / Does your school have a library?</p>
-<p><strong>Act.4:</strong> have…doesn't / have…do / has…doesn't have / have…don't have / have…don't have / have…does</p>
-<p><strong>Act.5:</strong> has / doesn't have / Does she have / don't have / Do they have / have</p>
-<p><strong>Act.7:</strong> have / have / has / has / have / has / don't have / have / has / have</p></div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
+<p><strong>1:</strong> have / has / have / has / have / has</p>
+<p><strong>2:</strong> don't have / don't have / doesn't have / don't have / doesn't have</p>
+<p><strong>3:</strong> Does she have brothers? / Do they have a big family? / Does he have a phone? / Does your school have a library?</p>
+<p><strong>4:</strong> have…do / has…doesn't have / have…don't have / have…does</p>
+<p><strong>5:</strong> doesn't have / Does she have / don't have / have</p>
+<p><strong>6:</strong> have / has / has / have / don't have / has</p></details>
 </template>
 
 <template id="g1m-14">
@@ -4896,9 +4865,9 @@ Truco: si 's = is y tiene sentido = contraccion. Si no = posesion.</div>
 <div class="exb"><div class="ext"><span class="exn">7</span> Escribe 8 oraciones sobre pertenencias de tu familia usando 's</div></div>
 <div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>10 oraciones</strong> usando el genitivo sajón (apostrophe 's) sobre las cosas de tu familia y amigos.<br>Ejemplo: <em>This is my sister's phone. That is Diego's bike.</em></p></div>
-<div class="ak2"><div class="akt">✅ Act.1</div>
+<details class="ak2"><summary class="akt">✅ Act.1</summary>
 <p>P/C/P/C/P/C/P/C/P/C</p>
-<p>Act.4: Maria's / dog's / brother's / Ana's / cat's / teacher's</p></div>
+<p>Act.4: Maria's / dog's / brother's / Ana's / cat's / teacher's</p></details>
 </template>
 
 <template id="g1m-15">
@@ -4966,10 +4935,10 @@ Truco: si 's = is y tiene sentido = contraccion. Si no = posesion.</div>
 <p>Mínimo 8 oraciones. Usa: This/These/That/Those + have/has + 's + negativos.</p></div>
 <div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita</div>
 <p>Describe qué hay en tu mochila y en tu escritorio. Escribe <strong>10 oraciones</strong> con los objetos cotidianos y sus colores.<br>Ejemplo: <em>In my schoolbag there is a pencil case. I have two books.</em></p></div>
-<div class="ak2"><div class="akt">Respuestas</div>
+<details class="ak2"><summary class="akt">Respuestas</summary>
 <p>Act.1: This/Those/That/These/That/These</p>
 <p>Act.3: brother's/Ana's/grandmother's/teacher's/mother's/friend's</p>
-<p>Act.4: These are Ana's keys. She HAS them. | This IS my brother's uniform. He DOESN'T have it. | Those ARE my pencil cases. They HAVE pens. | Those ARE the teacher's books. She HAS many. | These headphones ARE my sister's. She DOESN'T use them.</p></div></template>
+<p>Act.4: These are Ana's keys. She HAS them. | This IS my brother's uniform. He DOESN'T have it. | Those ARE my pencil cases. They HAVE pens. | Those ARE the teacher's books. She HAS many. | These headphones ARE my sister's. She DOESN'T use them.</p></details></template>
 <template id="g1m-16">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
 <p>El present simple sirve para hablar de rutinas y hábitos. En esta guía se trabaja con I / You / We / They en situaciones cotidianas de casa y colegio. Apoyo en casa: pregunten "What time do you get up?" o "What do you do after school?".</p></div>
@@ -5028,11 +4997,11 @@ I <strong>get up</strong> at 7 o'clock. · We <strong>have</strong> breakfast to
 <p>Escribe 8–10 oraciones describiendo tu rutina diaria completa: mañana, tarde y noche. Usa por lo menos 8 verbos distintos de la tabla.</p></div>
 <div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita</div>
 <p>Escribe una plana de <strong>10 a 12 oraciones</strong> describiendo tu rutina diaria completa (mañana, tarde y noche) con la hora de cada acción.<br>Empieza: <em>Every day I get up at ___. Then I ___…</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: get / have / go / do / watch / brush</p>
 <p>Act.2 (ejemplo): 6-1-8-3-5-2-7-4</p>
 <p>Act.4: 1-b / 2-c / 3-d / 4-a</p>
-<p>Act.5: I get up at seven. / We have breakfast together. / They walk to school. / I do my homework in the afternoon. / You watch TV after dinner.</p></div>
+<p>Act.5: I get up at seven. / We have breakfast together. / They walk to school. / I do my homework in the afternoon. / You watch TV after dinner.</p></details>
 </template>
 <template id="g1m-17">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -5086,11 +5055,11 @@ She <strong>plays</strong> tennis. · He <strong>works</strong> at a shop. · It
 <p>Modelo: <em>My sister ___ (get up) early. She ___ (study) a lot.</em></p></div>
 <div class="exb"><div class="ext"><span class="exn">7</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>10 oraciones</strong> sobre la rutina de un familiar o amigo usando he/she y verbos en tercera persona (-s/-es/-ies).<br>Ejemplo: <em>My mother works at a hospital. She gets up early.</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: plays / watches / studies / goes / has / reads / does / carries / eats / fixes</p>
 <p>Act.2: works / studies / plays / watches / goes / has / arrives / does</p>
 <p>Act.3: plays / study / watches / go / has / rains</p>
-<p>Act.4: goes / watches / studies / has / plays / does</p></div>
+<p>Act.4: goes / watches / studies / has / plays / does</p></details>
 </template>
 <template id="g1m-18">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -5146,11 +5115,11 @@ She <strong>plays</strong> tennis. · He <strong>works</strong> at a shop. · It
 <p>Escribe 3 cosas que HACES y 3 cosas que NO HACES en un día normal. Luego escribe 2 preguntas para un compañero.</p></div>
 <div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>5 cosas que haces</strong> y <strong>5 que no haces</strong> normalmente, y 3 preguntas para un compañero.<br>Ejemplo: <em>I don't drink coffee. Do you play sports?</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: don't / doesn't / don't / doesn't / don't / doesn't</p>
 <p>Act.2: Do / Does / Do / Does / Does / Do</p>
 <p>Act.3: don't like / doesn't play / don't watch / doesn't study / don't go</p>
-<p>Act.5: doesn't like / Does he play / Does she study / don't have / Does your sister go</p></div>
+<p>Act.5: doesn't like / Does he play / Does she study / don't have / Does your sister go</p></details>
 </template>
 <template id="g1m-19">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -5202,10 +5171,10 @@ She <strong>plays</strong> tennis. · He <strong>works</strong> at a shop. · It
 <p>Escribe 8 oraciones sobre tus hábitos usando un adverbio de frecuencia diferente en cada una.</p></div>
 <div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong> sobre tus hábitos usando un adverbio de frecuencia distinto en cada una.<br>Ejemplo: <em>I always do my homework. I never arrive late.</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: I always do my homework. / She is never late. / We sometimes go to the beach. / He usually plays football. / They are often tired after school. / I always eat breakfast.</p>
 <p>Act.3: I always get up at 7. / She never drinks coffee. / They are usually happy. / We sometimes go to the cinema. / He is often late.</p>
-<p>Act.5: I always do my homework. / She is always happy. / We never go to the park. / (correcta)</p></div>
+<p>Act.5: I always do my homework. / She is always happy. / We never go to the park. / (correcta)</p></details>
 </template>
 <template id="g1m-20">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -5264,10 +5233,10 @@ She <strong>plays</strong> tennis. · He <strong>works</strong> at a shop. · It
 <p>Escribe 6 oraciones sobre tu horario, indicando la hora y usando at, in y on al menos una vez cada una.</p></div>
 <div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita</div>
 <p>Escribe tu horario de un día: <strong>8 oraciones</strong> indicando la hora y usando at, in y on.<br>Ejemplo: <em>I get up at half past six. I have English on Monday.</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.2: at / on / in / in / on / at / in / at</p>
 <p>Act.4: on / in / at / on / in</p>
-<p>Act.5: at 7 o'clock / on Monday / in the morning / in July</p></div>
+<p>Act.5: at 7 o'clock / on Monday / in the morning / in July</p></details>
 </template>
 <template id="r1m-08">
 <div class="mbadge">Reading · A1</div>
@@ -5296,8 +5265,8 @@ She <strong>plays</strong> tennis. · He <strong>works</strong> at a shop. · It
 <ol><li>Three action verbs in present simple: ___</li>
 <li>Two adverbs of frequency: ___</li>
 <li>Two time expressions with "at": ___</li></ol></div>
-<div class="ak2"><div class="akt">✅ Answers</div>
-<p>Act.2: F / T / F / T / F</p></div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
+<p>Act.2: F / T / F / T / F</p></details>
 </template>
 <template id="g1m-21">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -5347,10 +5316,10 @@ She <strong>plays</strong> tennis. · He <strong>works</strong> at a shop. · It
 <p>Escribe 6 oraciones describiendo tu barrio. Usa There is y There are, y nombra al menos 5 lugares distintos.</p></div>
 <div class="exb"><div class="ext"><span class="exn">7</span> ✍️ Producción escrita</div>
 <p>Describe tu barrio en <strong>10 oraciones</strong> usando There is y There are y al menos 6 lugares distintos.<br>Empieza: <em>In my neighbourhood there is a ___. There are ___…</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: There is / There are / There is / There are / There is / There are</p>
 <p>Act.2: bakery / library / hospital / supermarket / bus stop</p>
-<p>Act.4: is / are / is / are</p></div>
+<p>Act.4: is / are / is / are</p></details>
 </template>
 <template id="g1m-22">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -5398,10 +5367,10 @@ She <strong>plays</strong> tennis. · He <strong>works</strong> at a shop. · It
 <p>Escribe 3 cosas que HAY y 3 que NO HAY en tu barrio, más 2 preguntas para un compañero.</p></div>
 <div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>10 oraciones</strong> sobre lo que hay y no hay en tu barrio usando some, any, isn't y aren't, más 2 preguntas.<br>Ejemplo: <em>There are some shops. There aren't any parks.</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: some / any / any / some / any / any</p>
 <p>Act.2: isn't a hospital here / aren't / isn't a park near my house / aren't</p>
-<p>Act.5: There aren't any shops / Is there a park / There isn't any milk / Are there any students</p></div>
+<p>Act.5: There aren't any shops / Is there a park / There isn't any milk / Are there any students</p></details>
 </template>
 <template id="g1m-23">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -5447,11 +5416,11 @@ She <strong>plays</strong> tennis. · He <strong>works</strong> at a shop. · It
 <p>Escribe 6 oraciones sobre objetos y lugares usando a, an y the correctamente.</p></div>
 <div class="exb"><div class="ext"><span class="exn">7</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>10 oraciones</strong> sobre objetos y lugares usando a, an y the correctamente.<br>Ejemplo: <em>I have an apple and a sandwich. The apple is red.</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: an / a / a / an / an / a / an / an / a / an</p>
 <p>Act.2: a…The / an…a / an / the / an</p>
 <p>Act.3: — / — / a / an / —</p>
-<p>Act.4: an umbrella / a very good teacher / a park / an apple</p></div>
+<p>Act.4: an umbrella / a very good teacher / a park / an apple</p></details>
 </template>
 <template id="g1m-24">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -5500,9 +5469,9 @@ She <strong>plays</strong> tennis. · He <strong>works</strong> at a shop. · It
 <p>Dibuja tu barrio y escribe 6 oraciones ubicando los lugares con preposiciones de lugar.</p></div>
 <div class="exb"><div class="ext"><span class="exn">7</span> ✍️ Producción escrita</div>
 <p>Describe tu sala de clases o tu pieza en <strong>8 oraciones</strong> ubicando los objetos con preposiciones de lugar.<br>Ejemplo: <em>The board is in front of the desks. My bag is under the chair.</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: on / in / under / next to / in front of / between</p>
-<p>Act.3: next to / on / in / between</p></div>
+<p>Act.3: next to / on / in / between</p></details>
 </template>
 <template id="g1m-25">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -5548,11 +5517,11 @@ A: Thank you! · B: You're ___.</p></div>
 <p>Escribe las indicaciones para llegar desde el colegio a tu casa (5–6 pasos). Usa imperativos.</p></div>
 <div class="exb"><div class="ext"><span class="exn">7</span> ✍️ Producción escrita</div>
 <p>Escribe las indicaciones para llegar desde el colegio a un lugar conocido (<strong>6 pasos</strong>) usando imperativos.<br>Ejemplo: <em>Go straight on. Turn left at the corner…</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: Go straight. / Turn left. / Take the first street. / It's on your right. / Stop at the corner.</p>
 <p>Act.2: get / Go / turn / on / welcome</p>
 <p>Act.3: Open / Don't run / Turn / Don't be / Listen</p>
-<p>Act.4: 3 / 1 / 4 / 2</p></div>
+<p>Act.4: 3 / 1 / 4 / 2</p></details>
 </template>
 <template id="g1m-26">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -5612,11 +5581,11 @@ A: Thank you! · B: You're ___.</p></div>
 <li>How are you today? →</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita</div>
 <p>Escribe una entrevista de <strong>8 preguntas y respuestas</strong> para conocer a un compañero nuevo. Usa al menos 5 palabras WH- distintas.<br>Empieza: <em>A: What's your name? B: My name is ___…</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p><strong>Act.1:</strong> What / Where / How / When / Why / Who</p>
 <p><strong>Act.2:</strong> What is your name? / Where are you from? / How old are you? / Who is she?</p>
 <p><strong>Act.4:</strong> 1-c / 2-a / 3-b / 4-d</p>
-<p><strong>Act.5:</strong> What is your name? / Where are you from? / How old are you? / Who is she?</p></div>
+<p><strong>Act.5:</strong> What is your name? / Where are you from? / How old are you? / Who is she?</p></details>
 </template>
 <template id="g1m-27">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Aprender los países y nacionalidades permite a su hijo/a decir de dónde es y de dónde vienen otras personas. En casa pueden preguntar: Where are you from? I'm from Chile. I'm Chilean.</p></div>
@@ -5635,7 +5604,7 @@ A: Thank you! · B: You're ___.</p></div>
 <p>Hi! I'm Marco. I ___ (1) from Italy, so I am ___ (2). My friend Ana is ___ (3) Chile; she is ___ (4). We ___ (5) students.</p></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong> presentando a 4 personas famosas: de dónde son y su nacionalidad. Ejemplo: <em>Messi is from Argentina. He is Argentinian.</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> Chilean / Brazilian / Japanese / Peruvian / French</p><p><strong>2:</strong> am / are / from / are</p><p><strong>4:</strong> am / Italian / from / Chilean / are</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> Chilean / Brazilian / Japanese / Peruvian / French</p><p><strong>2:</strong> am / are / from / are</p><p><strong>4:</strong> am / Italian / from / Chilean / are</p></details></template>
 <template id="g1m-28">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Su hijo/a practicará dar y pedir datos personales en inglés (nombre, edad, correo, teléfono), útil para presentarse y completar formularios.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Pedir y dar información personal (nombre, edad, correo, teléfono) con preguntas WH- y To Be. OA1 — Unidad 1.</div>
@@ -5653,7 +5622,7 @@ A: Thank you! · B: You're ___.</p></div>
 <ol><li>¿Cómo te llamas? →</li><li>¿Cuántos años tienes? →</li><li>¿Cuál es tu número de teléfono? →</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Completa una ficha personal y luego escríbela en <strong>6 oraciones</strong>: nombre, edad, ciudad, colegio, correo y un dato más. Empieza: <em>My name is ___. I am ___ years old…</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> 1-c / 2-a / 3-b</p><p><strong>2:</strong> What's your name? / How old are you? / What's your phone number?</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> 1-c / 2-a / 3-b</p><p><strong>2:</strong> What's your name? / How old are you? / What's your phone number?</p></details></template>
 <template id="g1m-29">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Vocabulario de mascotas y animales combinado con have/has para decir qué mascotas tenemos. En casa: Do you have a pet? I have a dog.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Nombrar mascotas y animales comunes y decir qué mascotas se tienen con have/has. OA1 — Unidad 2.</div>
@@ -5672,7 +5641,7 @@ A: Thank you! · B: You're ___.</p></div>
 <p>My name is Tomás. I ___ (1) a pet. It is a ___ (2, perro). My sister ___ (3) a cat. We love our ___ (4, mascotas).</p></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong> sobre las mascotas de tu familia o las que te gustaría tener, usando have y has. Incluye una pregunta.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> have / has / has / have / have</p><p><strong>4:</strong> have / dog / has / pets</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> have / has / has / have / have</p><p><strong>4:</strong> have / dog / has / pets</p></details></template>
 <template id="g1m-30">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Su hijo/a aprenderá a describir el aspecto físico de una persona combinando To Be (soy/es) y have got (tiene). En casa: She has got long hair. He is tall.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Describir el aspecto físico de las personas con To Be y have got + adjetivos. OA1 — Unidad 2.</div>
@@ -5690,7 +5659,7 @@ A: Thank you! · B: You're ___.</p></div>
 <p>Escribe 3 oraciones para describir a tu profesor/a o a un familiar usando is y has got.</p></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Describe a tu mejor amigo/a en <strong>8 oraciones</strong>: estatura, edad, pelo, ojos y personalidad. Empieza: <em>My best friend is ___. He/She has got ___…</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> is / has got / has got / is / have got</p><p><strong>2:</strong> old / blue / short</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> is / has got / has got / is / have got</p><p><strong>2:</strong> old / blue / short</p></details></template>
 <template id="g1m-31">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Vocabulario de las acciones de la rutina diaria (levantarse, ducharse, desayunar). Es la base para describir el día en inglés.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Nombrar las acciones de la rutina diaria y usarlas en oraciones de Present Simple. OA1 — Unidad 3.</div>
@@ -5708,7 +5677,7 @@ A: Thank you! · B: You're ___.</p></div>
 <ol><li>Me levanto a las siete. →</li><li>Ella desayuna. →</li><li>Voy al colegio. →</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe tu rutina de la mañana en <strong>8 oraciones</strong> en orden, con la hora de cada acción. Empieza: <em>I get up at ___. Then I ___…</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> 3/1/4/5/6/2</p><p><strong>2:</strong> get / take / have / brush</p><p><strong>3:</strong> gets up early / has lunch / does homework</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> 3/1/4/5/6/2</p><p><strong>2:</strong> get / take / have / brush</p><p><strong>3:</strong> gets up early / has lunch / does homework</p></details></template>
 <template id="g1m-32">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Vocabulario de las asignaturas y del horario escolar, útil para hablar del día en el colegio y de gustos.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Nombrar las asignaturas y hablar del horario escolar usando Present Simple y preposiciones de tiempo. OA1 — Unidad 3.</div>
@@ -5726,7 +5695,7 @@ A: Thank you! · B: You're ___.</p></div>
 <ol><li>Tengo Matemática el martes. →</li><li>Mi asignatura favorita es Inglés. →</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe tu horario de un día en <strong>6 oraciones</strong>: qué asignaturas tienes y a qué hora. Añade cuál es tu favorita y por qué.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> Maths / P.E. / History / Art</p><p><strong>2:</strong> on / at / in</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> Maths / P.E. / History / Art</p><p><strong>2:</strong> on / at / in</p></details></template>
 <template id="g1m-33">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Vocabulario de las tareas del hogar combinado con adverbios de frecuencia para decir con qué frecuencia se hacen.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Nombrar las tareas del hogar y decir con qué frecuencia se realizan usando adverbios de frecuencia. OA1 — Unidad 3.</div>
@@ -5744,7 +5713,7 @@ A: Thank you! · B: You're ___.</p></div>
 <ol><li>What chores do you do at home?</li><li>What chore do you hate?</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong> sobre las tareas que haces en casa y con qué frecuencia, usando un adverbio distinto en cada una.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> wash / make / clean</p><p><strong>2:</strong> I always wash the dishes. / I never cook dinner. / She usually cleans her room.</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> wash / make / clean</p><p><strong>2:</strong> I always wash the dishes. / I never cook dinner. / She usually cleans her room.</p></details></template>
 <template id="g1m-34">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Vocabulario de actividades de tiempo libre para hablar de gustos y de la rutina de fin de semana.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Nombrar actividades de tiempo libre y hablar de ellas con Present Simple y adverbios de frecuencia. OA1 — Unidad 3.</div>
@@ -5762,7 +5731,7 @@ A: Thank you! · B: You're ___.</p></div>
 <ol><li>What do you do in your free time?</li><li>What is your favourite weekend activity?</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong> sobre lo que haces en tu tiempo libre entre semana y los fines de semana, usando adverbios de frecuencia.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> listen / play / hang</p><p><strong>2:</strong> don't watch TV every day / doesn't read comics</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> listen / play / hang</p><p><strong>2:</strong> don't watch TV every day / doesn't read comics</p></details></template>
 <template id="g1m-35">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Los pronombres objeto (me, him, her, it, us, them) reemplazan al objeto de la oración y evitan repetir nombres. En casa: I love her. Call me!</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Usar los pronombres objeto (me, you, him, her, it, us, them) para reemplazar el objeto de la oración. OA1 — Unidad 3.</div>
@@ -5780,7 +5749,7 @@ A: Thank you! · B: You're ___.</p></div>
 <ol><li>I love my sister. → I love ___.</li><li>We watch the film. → We watch ___.</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong> sobre personas y cosas que te gustan o conoces, usando pronombres objeto (me, him, her, us, them, it).</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> her / him / us / them / it</p><p><strong>2:</strong> He / her / They / me</p><p><strong>4:</strong> her / it</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> her / him / us / them / it</p><p><strong>2:</strong> He / her / They / me</p><p><strong>4:</strong> her / it</p></details></template>
 <template id="g1m-36">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Vocabulario de los lugares de la ciudad, base para describir el barrio y pedir direcciones.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Nombrar lugares de la ciudad y decir qué hay en el barrio con There is/are. OA1 — Unidad 4.</div>
@@ -5798,7 +5767,7 @@ A: Thank you! · B: You're ___.</p></div>
 <ol><li>Escribe 3 lugares que hay cerca de tu casa.</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Describe tu barrio en <strong>8 oraciones</strong> usando There is y There are con al menos 6 lugares distintos.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> library / supermarket / park / hospital</p><p><strong>2:</strong> There is / There are / There is</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> library / supermarket / park / hospital</p><p><strong>2:</strong> There is / There are / There is</p></details></template>
 <template id="g1m-37">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Vocabulario de tiendas y lo que se compra en cada una. En casa: Where can I buy bread? At the bakery.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Nombrar tiendas y lo que se compra en ellas usando can para posibilidad. OA1 — Unidad 4.</div>
@@ -5816,7 +5785,7 @@ A: Thank you! · B: You're ___.</p></div>
 <ol><li>Escribe 3 cosas que compras cerca de tu casa y dónde.</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe un diálogo de <strong>8 líneas</strong> en una tienda: preguntar dónde comprar algo y responder. Usa can y los nombres de las tiendas.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> bakery / pharmacy / butcher's / bookshop</p><p><strong>2:</strong> can / can't</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> bakery / pharmacy / butcher's / bookshop</p><p><strong>2:</strong> can / can't</p></details></template>
 <template id="g1m-38">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Frases para pedir y dar direcciones en la calle. En casa pueden practicar: Excuse me, where is the park? Go straight on.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Pedir y dar direcciones usando imperativos y preposiciones de lugar. OA1 — Unidad 4.</div>
@@ -5834,7 +5803,7 @@ A: Thank you! · B: You're ___.</p></div>
 <ol><li>Escribe cómo llegar de tu casa al colegio (3 pasos).</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe las indicaciones para ir desde el colegio a un lugar conocido en <strong>6 pasos</strong> con imperativos. Empieza: <em>Go out of the school and turn ___…</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> Go…turn / next / Excuse</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> Go…turn / next / Excuse</p></details></template>
 <template id="g1m-39">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Las preposiciones de movimiento indican hacia dónde va algo (into, out of, across, along). Se usan mucho al dar direcciones.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Usar preposiciones de movimiento para describir desplazamientos y direcciones. OA1 — Unidad 4.</div>
@@ -5852,7 +5821,7 @@ A: Thank you! · B: You're ___.</p></div>
 <ol><li>Describe un recorrido corto usando 3 preposiciones de movimiento.</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong> describiendo un recorrido por tu barrio usando preposiciones de movimiento (into, out of, across, along, up, down).</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> across / into / along / out of</p><p><strong>2:</strong> into / across / up</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> across / into / along / out of</p><p><strong>2:</strong> into / across / up</p></details></template>
 <template id="g1m-40">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Algunos sustantivos se cuentan (two apples) y otros no (some water). Esto cambia cómo preguntamos cantidades: How many? / How much?</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Distinguir sustantivos contables e incontables y preguntar cantidades con How many/much y some/any. OA1 — Unidad 4.</div>
@@ -5870,7 +5839,7 @@ A: Thank you! · B: You're ___.</p></div>
 <ol><li>¿Cuántas manzanas hay? →</li><li>¿Cuánta agua hay? →</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong> sobre lo que hay en tu cocina, usando some, any, How many y How much con alimentos contables e incontables.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> U/C/U/C/U</p><p><strong>2:</strong> many / much / many / much</p><p><strong>3:</strong> some / any / any</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> U/C/U/C/U</p><p><strong>2:</strong> many / much / many / much</p><p><strong>3:</strong> some / any / any</p></details></template>
 
 
 
@@ -5911,8 +5880,8 @@ A: Thank you! · B: You're ___.</p></div>
 <ol><li>Three prepositions of place: ___</li>
 <li>One example of "there is" and one of "there are": ___</li>
 <li>Two directions (imperatives): ___</li></ol></div>
-<div class="ak2"><div class="akt">✅ Answers</div>
-<p>Act.2: T / F / T / F</p></div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
+<p>Act.2: T / F / T / F</p></details>
 </template>
 
 
@@ -6142,7 +6111,7 @@ Usa: I think / In my opinión / I believe / I agree / I disagree / I prefer... t
 <div class="exb"><div class="ext"><span class="exn">2</span> Write 6 sentences about YOUR plans using going to</div></div>
 <div class="exb"><div class="ext"><span class="exn">3</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>10 planes</strong> reales para este año o el verano usando be going to.<br>Ejemplo: <em>I am going to visit my grandparents. We are going to the beach.</em></p></div>
-<div class="ak2"><div class="akt">✅ Act. 1</div><p>is going to / is going to / will / am going to</p></div>
+<details class="ak2"><summary class="akt">✅ Act. 1</summary><p>is going to / is going to / will / am going to</p></div>
 <div class="exb"><div class="ext"><span class="exn">4</span> Completa con going to (afirmativo, negativo o pregunta)</div>
 <ol><li>I have decided: I ___ (study) medicine next year.</li>
 <li>Look at the sky! It ___ (rain). Take an umbrella.</li>
@@ -6164,7 +6133,7 @@ Usa: I think / In my opinión / I believe / I agree / I disagree / I prefer... t
 <li>Vas a estudiar para el examen? Si, voy a estudiar esta tarde. cuadra</li>
 <li>Ellos van a mudarse a Santiago el próximo mes. cuadra</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">7</span> Escribe 6 planes que tienes para las próximas semanas usando going to</div>
-<p><em>Next week I am going to ___. This weekend I am going to ___. I am not going to ___...</em></p></div></template>
+<p><em>Next week I am going to ___. This weekend I am going to ___. I am not going to ___...</em></p></details></template>
 
 <template id="g2m-09">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>El futuro continuo describe acciones que estarán en progreso en un punto especifico del futuro.</p></div>
@@ -6182,7 +6151,7 @@ Usa: I think / In my opinión / I believe / I agree / I disagree / I prefer... t
 <div class="exb"><div class="ext"><span class="exn">2</span> Write about your future using WILL + GOING TO + WILL BE -ING</div></div>
 <div class="exb"><div class="ext"><span class="exn">3</span> ✍️ Producción escrita</div>
 <p>Describe qué estarás haciendo en <strong>6 momentos futuros</strong> con future continuous.<br>Ejemplo: <em>Tomorrow at 8 I will be studying. Next summer I will be travelling.</em></p></div>
-<div class="ak2"><div class="akt">✅ Act. 1</div><p>will be sailing / will be studying / will be monitoring / will be using</p></div>
+<details class="ak2"><summary class="akt">✅ Act. 1</summary><p>will be sailing / will be studying / will be monitoring / will be using</p></div>
 <div class="exb"><div class="ext"><span class="exn">4</span> Completa con Future Continuous</div>
 <ol><li>This time tomorrow, I ___ (travel) on the bus to school.</li>
 <li>At 8 PM tonight, my family ___ (have) dinner together.</li>
@@ -6197,7 +6166,7 @@ Usa: I think / In my opinión / I believe / I agree / I disagree / I prefer... t
 <li>I think it ___ (be) a great year for our class. (prediccion)</li>
 <li>She ___ (not come) to class tomorrow — she told me. (plan negativo)</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">6</span> Escribe 6 oraciones sobre que estaras haciendo en momentos futuros</div>
-<p><em>This time tomorrow I will be ___. Next Saturday at noon I will be ___. In 5 years I will be ___...</em></p></div></template>
+<p><em>This time tomorrow I will be ___. Next Saturday at noon I will be ___. In 5 years I will be ___...</em></p></details></template>
 
 <template id="g2m-10">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Guía de cierre de la Unidad 2. Integra gustos, opiniones y los tres tiempos futuros.</p></div>
@@ -6218,7 +6187,7 @@ Usa: I think / In my opinión / I believe / I agree / I disagree / I prefer... t
 <p>Include: 3 things you love/hate doing, 2 opinions with reasons, 2 preferences, 3 going to plans, 3 will predictions, 2 will be -ing actions.</p></div>
 <div class="exb"><div class="ext"><span class="exn">3</span> ✍️ Producción escrita</div>
 <p>Escribe una plana de <strong>12 oraciones</strong> sobre tus gustos, opiniones y planes futuros usando like/hate + ing, will y going to.<br>Empieza: <em>I love ___. In the future I will ___. This summer I am going to ___…</em></p></div>
-<div class="ak2"><div class="akt">✅ Act. 1</div><p>playing / will go / am going to study / will be sailing</p></div>
+<details class="ak2"><summary class="akt">✅ Act. 1</summary><p>playing / will go / am going to study / will be sailing</p></div>
 <div class="exb"><div class="ext"><span class="exn">4</span> Completa con la forma correcta del futuro</div>
 <ol><li>I think I ___ (be) a good student if I study harder.</li>
 <li>I have already decided: I ___ (learn) to drive next year.</li>
@@ -6241,12 +6210,8 @@ Usa: I think / In my opinión / I believe / I agree / I disagree / I prefer... t
 <li>Esta hora la próxima semana, estaré viajando en bus. cuadra</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">7</span> Escribe un párrafo integrando todo lo de la unidad (15-20 oraciones)</div>
 <p>Sobre ti mismo. Incluye: 3 cosas que te gustan/odias hacer (+ gerundio), 2 opiniones con razon, 2 preferencias (I prefer...to...), 3 planes (going to), 3 predicciones (will), 2 acciones futuras en progreso (will be -ing).</p></div>
-<div class="ak2"><div class="akt">Respuestas Act.3</div>
-<p>will be / am going to learn / will be preparing / I'll lend / will never stop / will be sleeping</p>
-<p>Act.4: playing / will go / am going to study / will be sailing / In my opinión, it is wrong. / prefer summer TO winter</p></div></template>
-<template id="g2m-11">
-<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
-<p>En esta unidad se describen personas y se cuentan historias. Aquí se trabajan adjetivos de personalidad y aspecto físico. Apoyo en casa: describan juntos a familiares o personajes.</p></div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
+<p>En esta unidad se describen personas y se cuentan historias. Aquí se trabajan adjetivos de personalidad y aspecto físico. Apoyo en casa: describan juntos a familiares o personajes.</p></details>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Usar adjetivos de personalidad y físicos para describir personas con To Be y have got. OA2 — Unidad 3.</div>
 <div class="hl" style="background:#d3e8ec;border-color:#10707f">📌 <strong>Objective (EN):</strong> Use personality and physical adjectives to describe people with To Be and have got. OA2 — Unit 3.</div>
 <h2>Descriptive Adjectives</h2>
@@ -6293,60 +6258,72 @@ Usa: I think / In my opinión / I believe / I agree / I disagree / I prefer... t
 <p>Escribe un párrafo de 8 oraciones describiendo a una persona que admiras (aspecto físico y personalidad).</p></div>
 <div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita</div>
 <p>Escribe un párrafo de <strong>10 oraciones</strong> describiendo a una persona que admiras (físico y personalidad) con To Be y have got.<br>Empieza: <em>The person I admire is ___. He/She is ___ and has got ___…</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: F/P/F/P/F/P/F/P</p>
 <p>Act.2: is / has got / are / has got / am</p>
 <p>Act.3: short / hard-working / selfish / long hair / confident/outgoing</p>
-<p>Act.5: has got / is tall / have got / is funny</p></div>
+<p>Act.5: has got / is tall / have got / is funny</p></details>
 </template>
-<template id="g2m-12">
-<div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
-<p>Was y were son el pasado del verbo To Be (era/estaba). Apoyo en casa: pregunten "Where were you yesterday?", "How was your day?".</p></div>
-<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar was/were en pasado afirmativo, negativo e interrogativo. OA2 — Unidad 3.</div>
+<template id="g2m-12"><div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Esta guía enseña <strong>was</strong> y <strong>were</strong>, el pasado del verbo To Be ("era / estaba / fue / estuvo"). Primero la regla con ejemplos resueltos, luego la práctica. Cada ejercicio parte con un ejemplo. En casa: <em>Where were you yesterday? I was at home.</em></p></div>
+<div class="hl">📌 <strong>Objetivo (ES):</strong> Usar was/were en pasado afirmativo, negativo e interrogativo para describir estados y situaciones pasadas. OA2 — Unidad 3.</div>
 <div class="hl" style="background:#d3e8ec;border-color:#10707f">📌 <strong>Objective (EN):</strong> Use was/were in past affirmative, negative and interrogative forms. OA2 — Unit 3.</div>
-<h2>Past Simple — Was / Were</h2>
-<div class="gb"><strong>Was / Were:</strong> son el pasado del verbo To Be. Usa <em>was</em> con I, He, She, It; y <em>were</em> con You, We, They. Negativa: wasn't / weren't. Pregunta: se invierte el orden → <em>Was he…? Were you…?</em> Significan "era/estaba" o "fue/estuvo".</div>
 
-<table><tr><th>Sujeto</th><th>Afirmativa</th><th>Negativa</th><th>Pregunta</th></tr>
+<h2>Past Simple — Was / Were</h2>
+<div class="gb"><strong>1. ¿Qué son?</strong><br>Son el <strong>pasado del verbo To Be</strong>. Traducen "era, estaba, fue, estuvo" según el contexto.<br><br>
+<strong>2. ¿Cuándo uso cada uno?</strong><br>• <strong>was</strong> con <em>I, He, She, It</em> → <em>I <u>was</u> tired. She <u>was</u> happy.</em><br>• <strong>were</strong> con <em>You, We, They</em> → <em>They <u>were</u> at home.</em><br><br>
+<strong>3. Negativa y pregunta</strong><br>• Negativa: <em>wasn't</em> (was not) / <em>weren't</em> (were not).<br>• Pregunta: se invierte el orden → <em><u>Was</u> he…? <u>Were</u> you…?</em></div>
+
+<table><tr><th>Sujeto</th><th>Afirmativa (+)</th><th>Negativa (−)</th><th>Pregunta (?)</th></tr>
 <tr><td>I / He / She / It</td><td>was</td><td>wasn't</td><td>Was I/he/she…?</td></tr>
 <tr><td>You / We / They</td><td>were</td><td>weren't</td><td>Were you/we/they…?</td></tr></table>
+
+<div class="gb"><strong>Fíjate — palabras de pasado</strong><br>Was/were suelen ir con expresiones de tiempo pasado: <em>yesterday</em> (ayer), <em>last night/week</em> (anoche / la semana pasada), <em>two days ago</em> (hace dos días), <em>in 2020</em>.<br>
+Ej.: <em>I <u>was</u> at the beach <u>yesterday</u>. We <u>were</u> in Santiago <u>last week</u>.</em></div>
+
+<div class="mkb"><div class="mkt">⚠️ Errores frecuentes</div>
+<p>• <span class="wrong">They was at home</span> → <span class="correct">They were at home</span><br>
+• <span class="wrong">I were tired</span> → <span class="correct">I was tired</span><br>
+• <span class="wrong">Was you at school?</span> → <span class="correct">Were you at school?</span></p></div>
+
 <div class="exb"><div class="ext"><span class="exn">1</span> Completa con was o were</div>
-<ol><li>I ___ at home yesterday.</li>
-<li>They ___ very happy at the party.</li>
-<li>She ___ tired after school.</li>
-<li>We ___ in the same class last year.</li>
-<li>The weather ___ terrible on Sunday.</li>
-<li>You ___ late this morning.</li></ol></div>
-<div class="exb"><div class="ext"><span class="exn">2</span> Escribe la forma negativa</div>
-<ol><li>I was at school. → I ___</li>
-<li>They were happy. → They ___</li>
-<li>She was late. → She ___</li>
-<li>We were tired. → We ___</li></ol></div>
-<div class="exb"><div class="ext"><span class="exn">3</span> Escribe la pregunta y respóndela</div>
-<ol><li>(you / at home / yesterday) ___? → Yes/No, ___</li>
-<li>(the film / good) ___? → Yes/No, ___</li>
-<li>(they / at the party) ___? → Yes/No, ___</li></ol></div>
-<div class="exb"><div class="ext"><span class="exn">4</span> Completa el texto</div>
-<p>Last Saturday I ___ at the beach with my family. The weather ___ sunny and the water ___ cold. My parents ___ happy. My little brother ___ scared of the waves, but I ___ not. It ___ a great day!</p></div>
-<div class="exb"><div class="ext"><span class="exn">5</span> Corrige el error</div>
-<ol><li>They was at home. →</li>
-<li>I were tired. →</li>
-<li>Was you at school? →</li>
-<li>She weren't happy. →</li></ol></div>
-<div class="exb"><div class="ext"><span class="exn">6</span> Traduce al inglés</div>
-<ol><li>Yo estaba en casa ayer. →</li>
-<li>Ellos estaban felices. →</li>
-<li>¿Estabas en el colegio? →</li>
-<li>El clima no estaba bueno. →</li></ol></div>
-<div class="exb"><div class="ext"><span class="exn">7</span> Producción guiada</div>
-<p>Escribe 6 oraciones sobre dónde estabas y cómo te sentías la semana pasada, usando was y were.</p></div>
-<div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita</div>
-<p>Escribe <strong>8 oraciones</strong> sobre dónde estabas y cómo te sentías la semana pasada usando was y were.<br>Ejemplo: <em>Last Monday I was at school. My friends were happy.</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
-<p>Act.1: was / were / was / were / was / were</p>
-<p>Act.2: wasn't at school / weren't happy / wasn't late / weren't tired</p>
-<p>Act.4: was / was / was / were / was / was / was</p>
-<p>Act.5: They were / I was / Were you / She wasn't</p></div>
+<p class="eg">Ej.: They ___ very happy. → They <strong>were</strong> very happy.</p>
+<ol><li>I ___ at home yesterday.</li><li>She ___ tired after school.</li><li>We ___ in the same class last year.</li><li>He ___ born in Valparaíso.</li><li>You ___ my best friend at primary school.</li><li>The weather ___ terrible last weekend.</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">2</span> Transforma la oración a la forma negativa</div>
+<p class="eg">Ej.: They were at home. → They <strong>weren't</strong> at home.</p>
+<ol><li>I was tired. →</li><li>She was at the party. →</li><li>We were late. →</li><li>He was happy. →</li><li>You were right. →</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">3</span> Escribe la pregunta y la respuesta corta</div>
+<p class="eg">Ej.: (you / at school) → <strong>Were you</strong> at school? — Yes, I was. / No, I wasn't.</p>
+<ol><li>(she / at home) →</li><li>(they / happy) →</li><li>(he / your teacher) →</li><li>(you / tired) →</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">4</span> Elige la opción correcta</div>
+<p class="eg">Ej.: There (was / were) many people. → There <strong>were</strong> many people.</p>
+<ol><li>My parents (was / were) at work.</li><li>The film (wasn't / weren't) boring.</li><li>(Was / Were) you at the concert?</li><li>My sister (was / were) sick yesterday.</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">5</span> Corrige el error de cada oración</div>
+<p class="eg">Ej.: They was at home. → They <strong>were</strong> at home.</p>
+<ol><li>I were tired. →</li><li>Was you at school? →</li><li>She weren't happy. →</li><li>We was late. →</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">6</span> Completa el texto con was / were / wasn't / weren't</div>
+<p class="eg">Ej.: Last summer I ___ at the beach. → …I <strong>was</strong> at the beach.</p>
+<p>Last weekend ___ (1) great! On Saturday I ___ (2) at my grandparents' house. My cousins ___ (3) there too. The weather ___ (4) sunny, so we ___ (5) in the garden all day. It ___ (6) a boring day at all!</p></div>
+
+<div class="exb"><div class="ext"><span class="exn">7</span> Traduce al inglés</div>
+<p class="eg">Ej.: Yo estaba en casa ayer. → I <strong>was</strong> at home yesterday.</p>
+<ol><li>Ellos estaban felices. →</li><li>¿Estabas en el colegio? →</li><li>El clima no estaba bueno. →</li><li>Nosotros estábamos cansados. →</li></ol></div>
+
+<div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita — Escribe una plana en tu cuaderno</div>
+<p class="eg">Ej. de inicio: <em>Last weekend was great. On Saturday I was at…</em></p>
+<p>Escribe <strong>8 a 10 oraciones</strong> sobre dónde estabas y cómo te sentías la semana pasada (lugares, personas, clima, emociones). Usa was y were, con al menos <strong>2 negativas</strong>.</p></div>
+
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
+<p><strong>1:</strong> was / was / were / was / were / was</p>
+<p><strong>2:</strong> wasn't / wasn't / weren't / wasn't / weren't</p>
+<p><strong>3:</strong> Was she at home? / Were they happy? / Was he your teacher? / Were you tired?</p>
+<p><strong>4:</strong> were / wasn't / Were / was</p>
+<p><strong>5:</strong> I was tired / Were you at school? / She wasn't happy / We were late</p>
+<p><strong>6:</strong> was / was / were / was / were / wasn't</p></details>
 </template>
 <template id="g2m-13">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -6393,12 +6370,12 @@ Usa: I think / In my opinión / I believe / I agree / I disagree / I prefer... t
 <li>Ellos compraron un regalo. →</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">7</span> Producción extendida</div>
 <p>Escribe 8 oraciones sobre lo que hiciste el fin de semana pasado. Usa al menos 4 verbos irregulares.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: played / went / studied / had / watched / saw / ate / bought / walked / made</p>
 <p>Act.2: watched / went / had / played / bought / studied</p>
 <p>Act.3: didn't play / didn't go / didn't watch / didn't have</p>
 <p>Act.4: went / walked / ate / bought / saw / took / was</p>
-<p>Act.5: went / didn't watch / bought / had</p></div>
+<p>Act.5: went / didn't watch / bought / had</p></details>
 </template>
 <template id="g2m-14">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -6441,10 +6418,10 @@ I <strong>was studying</strong> at 8 pm. · They <strong>were playing</strong> f
 <p>Escribe 5 oraciones sobre qué estabas haciendo en distintos momentos de ayer (mañana, tarde, noche).</p></div>
 <div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita</div>
 <p>Describe qué estabas haciendo ayer en <strong>5 momentos</strong> distintos y qué pasó (past continuous + past simple).<br>Ejemplo: <em>While I was studying, my phone rang.</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: was doing / were playing / was cooking / were studying / was sleeping</p>
 <p>Act.2: was studying / was watching / arrived / were having</p>
-<p>Act.5: was playing / were studying / was cooking / were watching</p></div>
+<p>Act.5: was playing / were studying / was cooking / were watching</p></details>
 </template>
 <template id="g2m-15">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -6483,10 +6460,10 @@ I <strong>was studying</strong> at 8 pm. · They <strong>were playing</strong> f
 <li>Finalmente, volvimos a casa. →</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">6</span> Producción extendida</div>
 <p>Escribe una narración de 8–10 oraciones sobre un día especial que viviste. Usa past simple, past continuous y al menos 4 conectores narrativos.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: 3 / 1 / 5 / 2 / 4</p>
 <p>Act.2 (ejemplo): First / Then / After that / Suddenly / Finally</p>
-<p>Act.3: 1-b / 2-c / 3-a</p></div>
+<p>Act.3: 1-b / 2-c / 3-a</p></details>
 </template>
 <template id="r2m-06">
 <div class="mbadge">Reading · A2</div>
@@ -6514,8 +6491,8 @@ I <strong>was studying</strong> at 8 pm. · They <strong>were playing</strong> f
 <li>Three past simple verbs (irregular): ___</li>
 <li>One example of past continuous: ___</li>
 <li>Four narrative connectors: ___</li></ol></div>
-<div class="ak2"><div class="akt">✅ Answers</div>
-<p>Act.2: F / T / T / F</p></div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
+<p>Act.2: F / T / T / F</p></details>
 </template>
 <template id="g2m-16">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -6566,10 +6543,10 @@ I <strong>was studying</strong> at 8 pm. · They <strong>were playing</strong> f
 <p>Escribe 6 preguntas para entrevistar a un compañero sobre su vida diaria y anota sus respuestas.</p></div>
 <div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 preguntas</strong> (sí/no y WH-) para entrevistar a un compañero sobre su vida diaria y anota sus respuestas.<br>Ejemplo: <em>Where do you live? Do you like sports?</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: Do / Does / do / does / Do / do</p>
 <p>Act.2: I do / she doesn't / they do / he doesn't</p>
-<p>Act.5: Where do you live? / Does she like music? / Does he have a bike? / What do you do?</p></div>
+<p>Act.5: Where do you live? / Does she like music? / Does he have a bike? / What do you do?</p></details>
 </template>
 <template id="g2m-17">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -6616,9 +6593,9 @@ Assistant: Sure, the fitting room is over there.</p></div>
 <p>Escribe un diálogo de 6 líneas pidiendo ayuda o algo con cortesía (en una tienda, en clase o en la calle).</p></div>
 <div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita</div>
 <p>Escribe un diálogo de <strong>8 líneas</strong> pidiendo algo con cortesía (en una tienda, en clase o en la calle) usando Can/Could.<br>Ejemplo: <em>Could you help me, please?</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.2: Can / could / Of / Can</p>
-<p>Act.5: Can you help me? / Could you help me? / Can I borrow your pen?</p></div>
+<p>Act.5: Can you help me? / Could you help me? / Can I borrow your pen?</p></details>
 </template>
 <template id="g2m-18">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -6670,11 +6647,11 @@ Assistant: Sure, the fitting room is over there.</p></div>
 <p>Escribe 6 preguntas en pasado para entrevistar a un compañero sobre sus vacaciones o su fin de semana.</p></div>
 <div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 preguntas en pasado</strong> (con Did y WH-) para entrevistar a un compañero sobre su fin de semana o sus vacaciones.<br>Ejemplo: <em>Where did you go? Did you have fun?</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: Did you watch the film? / Did she go to school? / Did they play football? / Did he buy a present? / Did you have breakfast?</p>
 <p>Act.2: I did / she didn't / they did / he didn't</p>
 <p>Act.3: Where / What / When / Who / Why</p>
-<p>Act.5: Did you go / Where did you go / Did she buy / What did they eat</p></div>
+<p>Act.5: Did you go / Where did you go / Did she buy / What did they eat</p></details>
 </template>
 <template id="g2m-19">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -6720,11 +6697,11 @@ Assistant: Of course. Here is your ___ (boleta). Thank you!</p></div>
 <p>Escribe un diálogo de compra de 8 líneas entre un cliente y un vendedor (en una tienda de ropa o un almacén).</p></div>
 <div class="exb"><div class="ext"><span class="exn">7</span> ✍️ Producción escrita</div>
 <p>Escribe un diálogo de compra de <strong>10 líneas</strong> entre cliente y vendedor (ropa o almacén) usando How much…?, precios y formas de pago.<br>Ejemplo: <em>How much is this T-shirt? Can I pay by card?</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: like / much / pay / receipt</p>
 <p>Act.2: How much is / How much are / How much is / How much are</p>
 <p>Act.3: 1-b / 2-c / 3-a</p>
-<p>Act.4: 3 / 1 / 5 / 2 / 4</p></div>
+<p>Act.4: 3 / 1 / 5 / 2 / 4</p></details>
 </template>
 <template id="g2m-20">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -6771,11 +6748,11 @@ I <strong>have visited</strong> Santiago. · She <strong>has never eaten</strong
 <p>Escribe 6 oraciones sobre tus experiencias usando el present perfect con ever, never y already.</p></div>
 <div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong> sobre tus experiencias con present perfect usando ever, never y already.<br>Ejemplo: <em>I have visited Santiago. I have never eaten sushi.</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: have / has / have / has / have</p>
 <p>Act.2: gone/been / seen / eaten / been / done / visited / travelled / written</p>
 <p>Act.3: ever / never / already / yet</p>
-<p>Act.5: I have visited / She has never eaten / Have you ever gone / They have already finished</p></div>
+<p>Act.5: I have visited / She has never eaten / Have you ever gone / They have already finished</p></details>
 </template>
 <template id="g2m-21">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div>
@@ -6830,12 +6807,12 @@ Tercera persona: He/She likeS, enjoyS, loveS + verbo-ing.</div>
 <p>Hi! I'm Valentina. In my free time I love ___ (1, listen) to music and I enjoy ___ (2, dance) hip-hop. I like ___ (3, watch) series, but I don't like ___ (4, study) maths. My brother hates ___ (5, wake) up early, but he likes ___ (6, play) video games all day.</p></div>
 <div class="exb"><div class="ext"><span class="exn">8</span> ✍️ Producción escrita</div>
 <p>Escribe una plana de <strong>10 oraciones</strong> sobre lo que te gusta y no te gusta hacer en tu tiempo libre. Usa love, like, enjoy, don't like y hate + verbo-ing.<br>Empieza: <em>In my free time, I love ___. I also enjoy ___. I don't like ___…</em></p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p><strong>Act.1:</strong> listening / reading / playing / waking / watching / waiting</p>
 <p><strong>Act.2:</strong> I love playing football. / She likes reading. / He hates doing homework. / They enjoy swimming. / We don't like cooking.</p>
 <p><strong>Act.3:</strong> don't like running / doesn't like cooking / don't enjoy studying / doesn't like dancing</p>
 <p><strong>Act.5:</strong> I like playing / She loves dancing / He doesn't like running / They enjoy swimming</p>
-<p><strong>Act.7:</strong> listening / dancing / watching / studying / waking / playing</p></div>
+<p><strong>Act.7:</strong> listening / dancing / watching / studying / waking / playing</p></details>
 </template>
 <template id="g2m-22">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Vocabulario de deportes con los verbos play, go y do, para hablar de las actividades físicas favoritas.</p></div>
@@ -6854,7 +6831,7 @@ Tercera persona: He/She likeS, enjoyS, loveS + verbo-ing.</div>
 <ol><li>What sports can you play?</li><li>What is your favourite sport?</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong> sobre los deportes que practicas y los que puedes/no puedes hacer, usando play, go, do y can.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> play / goes / does / play / go</p><p><strong>2:</strong> can / can't / Can</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> play / goes / does / play / go</p><p><strong>2:</strong> can / can't / Can</p></details></template>
 <template id="g2m-23">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Vocabulario de instrumentos y géneros musicales, para hablar de gustos con can y like + ing.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Nombrar instrumentos y géneros musicales y expresar gustos con can y like + gerundio. OA2 — Unidad 1.</div>
@@ -6872,7 +6849,7 @@ Tercera persona: He/She likeS, enjoyS, loveS + verbo-ing.</div>
 <ol><li>Can you play an instrument?</li><li>What music do you like?</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong> sobre la música: qué instrumentos puedes o quieres tocar y qué géneros te gustan y por qué.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> guitar / piano / drums</p><p><strong>2:</strong> to / the / genre</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> guitar / piano / drums</p><p><strong>2:</strong> to / the / genre</p></details></template>
 <template id="g2m-24">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Vocabulario amplio de pasatiempos para hablar del tiempo libre con like/love/enjoy + gerundio.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Nombrar pasatiempos y hablar de ellos con like/love/enjoy/hate + gerundio. OA2 — Unidad 1.</div>
@@ -6890,7 +6867,7 @@ Tercera persona: He/She likeS, enjoyS, loveS + verbo-ing.</div>
 <ol><li>What are your hobbies?</li><li>What do you hate doing?</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe una plana de <strong>10 oraciones</strong> sobre tus pasatiempos favoritos y los que no te gustan, con like/love/enjoy/hate + gerundio.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> drawing / reading / cooking / singing</p><p><strong>2:</strong> I love dancing. / She enjoys travelling. / We don't like cooking.</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> drawing / reading / cooking / singing</p><p><strong>2:</strong> I love dancing. / She enjoys travelling. / We don't like cooking.</p></details></template>
 <template id="g2m-25">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Su hijo/a aprenderá a diferenciar las acciones habituales (Present Simple) de las que ocurren ahora mismo (Present Continuous).</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Contrastar Present Simple (hábitos) y Present Continuous (acciones en curso) según las palabras clave. OA2 — Unidad 1.</div>
@@ -6908,7 +6885,7 @@ Tercera persona: He/She likeS, enjoyS, loveS + verbo-ing.</div>
 <ol><li>I am play football now. →</li><li>She reading a book. →</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong>: 4 sobre tu rutina (Present Simple) y 4 sobre lo que tú y tu familia están haciendo ahora (Present Continuous).</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> play / is dancing / studies / are watching</p><p><strong>2:</strong> is reading / go / is crying</p><p><strong>4:</strong> I am playing / She is reading</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> play / is dancing / studies / are watching</p><p><strong>2:</strong> is reading / go / is crying</p><p><strong>4:</strong> I am playing / She is reading</p></details></template>
 <template id="g2m-26">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Para decir qué preferimos usamos prefer y would rather. En casa: I prefer tea to coffee. I'd rather stay home.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Expresar preferencias con prefer, would rather y like better. OA2 — Unidad 2.</div>
@@ -6926,7 +6903,7 @@ Tercera persona: He/She likeS, enjoyS, loveS + verbo-ing.</div>
 <ol><li>Do you prefer the city or the countryside? Why?</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong> sobre tus preferencias (comida, música, deportes, planes) usando prefer y would rather.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> to / rather / to</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> to / rather / to</p></details></template>
 <template id="g2m-27">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Su hijo/a aprenderá cuándo usar will (predicciones y decisiones del momento) y going to (planes ya decididos).</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Diferenciar will (predicciones, decisiones espontáneas) y be going to (planes decididos). OA2 — Unidad 2.</div>
@@ -6944,7 +6921,7 @@ Tercera persona: He/She likeS, enjoyS, loveS + verbo-ing.</div>
 <ol><li>I will to help you. →</li><li>She going to travel. →</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong>: 4 predicciones sobre el futuro con will y 4 planes que ya tienes con going to.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> will / am going to / will / are going to</p><p><strong>2:</strong> will / won't</p><p><strong>4:</strong> I will help you / She is going to travel</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> will / am going to / will / are going to</p><p><strong>2:</strong> will / won't</p><p><strong>4:</strong> I will help you / She is going to travel</p></details></template>
 <template id="g2m-28">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Con will también hacemos predicciones, promesas y ofrecimientos. En casa: I'll call you. I promise I won't be late.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Usar will para predicciones, promesas y ofrecimientos, en afirmativa, negativa y pregunta. OA2 — Unidad 2.</div>
@@ -6962,7 +6939,7 @@ Tercera persona: He/She likeS, enjoyS, loveS + verbo-ing.</div>
 <table><tr><td>1. It's heavy.</td><td>a. I'll open it.</td></tr><tr><td>2. It's hot.</td><td>b. I'll carry it.</td></tr><tr><td>3. The window is closed.</td><td>c. I'll open the window.</td></tr></table></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong> con will: 3 predicciones sobre tu futuro, 3 promesas y 2 ofrecimientos para ayudar a alguien.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> won't / will / won't</p><p><strong>4:</strong> 1-b / 2-c / 3-a</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> won't / will / won't</p><p><strong>4:</strong> 1-b / 2-c / 3-a</p></details></template>
 <template id="g2m-29">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>El primer condicional habla de situaciones reales del futuro: si pasa A, pasará B. En casa: If it rains, we will stay home.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Formar oraciones del primer condicional (if + presente, will + verbo) para situaciones futuras posibles. OA2 — Unidad 2.</div>
@@ -6980,7 +6957,7 @@ Tercera persona: He/She likeS, enjoyS, loveS + verbo-ing.</div>
 <ol><li>If I have free time, I ___.</li><li>If it is sunny tomorrow, I ___.</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>6 oraciones</strong> del primer condicional sobre tus planes y consecuencias reales (estudios, salud, tiempo libre).</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> rains…will stay / study…will pass / see…will tell</p><p><strong>2:</strong> 1-b / 2-c / 3-b… (1-b, 2-c, 3-b)</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> rains…will stay / study…will pass / see…will tell</p><p><strong>2:</strong> 1-b / 2-c / 3-b… (1-b, 2-c, 3-b)</p></details></template>
 <template id="g2m-30">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Las expresiones de tiempo futuro (tomorrow, next week, in the future) sitúan las acciones que aún no ocurren.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Usar expresiones de tiempo futuro con will y going to para ubicar acciones en el tiempo. OA2 — Unidad 2.</div>
@@ -6998,7 +6975,7 @@ Tercera persona: He/She likeS, enjoyS, loveS + verbo-ing.</div>
 <ol><li>Escribe 3 planes tuyos con distintas expresiones de tiempo futuro.</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong> sobre tus planes futuros usando una expresión de tiempo distinta en cada una (tomorrow, tonight, next week, soon…).</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> 4/2/1/3</p><p><strong>2:</strong> tonight / next year / soon</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> 4/2/1/3</p><p><strong>2:</strong> tonight / next year / soon</p></details></template>
 <template id="g2m-31">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Vocabulario del clima y las estaciones para describir el tiempo y hablar de las actividades de cada época.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Describir el clima y las estaciones usando It's + adjetivo y vocabulario meteorológico. OA2 — Unidad 3.</div>
@@ -7016,7 +6993,7 @@ Tercera persona: He/She likeS, enjoyS, loveS + verbo-ing.</div>
 <ol><li>What's the weather like today?</li><li>What's your favourite season? Why?</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong> sobre el clima en las cuatro estaciones en tu ciudad y qué actividades haces en cada una.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> sunny / rainy / cloudy</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> sunny / rainy / cloudy</p></details></template>
 <template id="g2m-32">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Los comparativos sirven para comparar dos cosas (más alto que, más interesante que). En casa: My bag is bigger than yours.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Formar y usar adjetivos comparativos para comparar dos elementos con than. OA2 — Unidad 3.</div>
@@ -7034,7 +7011,7 @@ Tercera persona: He/She likeS, enjoyS, loveS + verbo-ing.</div>
 <ol><li>Compara dos ciudades de Chile en una oración.</li><li>Compara dos deportes.</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 comparaciones</strong> entre cosas de tu vida (personas, lugares, materias, objetos) usando comparativos con than.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> faster / bigger / more expensive / better / easier</p><p><strong>2:</strong> bigger / more difficult / taller</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> faster / bigger / more expensive / better / easier</p><p><strong>2:</strong> bigger / more difficult / taller</p></details></template>
 <template id="g2m-33">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Los superlativos indican el extremo dentro de un grupo (el más alto, el mejor). En casa: She is the best student.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Formar y usar adjetivos superlativos para señalar el extremo dentro de un grupo con the. OA2 — Unidad 3.</div>
@@ -7052,7 +7029,7 @@ Tercera persona: He/She likeS, enjoyS, loveS + verbo-ing.</div>
 <ol><li>¿Cuál es la mejor película que has visto? Escribe una oración.</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong> con superlativos sobre tu vida: la mejor materia, el lugar más bonito, el día más feliz, etc.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> the fastest / the biggest / the most expensive / the best / the easiest</p><p><strong>2:</strong> the highest / the most intelligent / the best</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> the fastest / the biggest / the most expensive / the best / the easiest</p><p><strong>2:</strong> the highest / the most intelligent / the best</p></details></template>
 <template id="g2m-34">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Para decir qué había en el pasado usamos There was (singular) y There were (plural). En casa: There was a party. There were many people.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Describir situaciones pasadas con There was/were en afirmativa, negativa y pregunta. OA2 — Unidad 3.</div>
@@ -7070,7 +7047,7 @@ Tercera persona: He/She likeS, enjoyS, loveS + verbo-ing.</div>
 <ol><li>Escribe 2 cosas que había en tu barrio hace años.</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong> describiendo cómo era tu barrio o tu colegio en el pasado usando There was y There were (incluye negativas).</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> was / were / was / were</p><p><strong>2:</strong> There wasn't a park. / There weren't cars.</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> was / were / was / were</p><p><strong>2:</strong> There wasn't a park. / There weren't cars.</p></details></template>
 <template id="g2m-35">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Vocabulario del medioambiente y la naturaleza, base para hablar del cuidado del planeta (conecta con el proyecto ambiental del colegio).</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Nombrar elementos del medioambiente y hablar de su cuidado con should y verbos de acción. OA2 — Unidad 3.</div>
@@ -7088,7 +7065,7 @@ Tercera persona: He/She likeS, enjoyS, loveS + verbo-ing.</div>
 <ol><li>Escribe 2 acciones para cuidar el planeta en tu colegio.</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong> sobre el cuidado del medioambiente usando should y shouldn't y el vocabulario de la guía.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> should / shouldn't / should / shouldn't</p><p><strong>2:</strong> recycling / pollution / save</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> should / shouldn't / should / shouldn't</p><p><strong>2:</strong> recycling / pollution / save</p></details></template>
 <template id="g2m-36">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Vocabulario de salud y frases para la consulta médica. En casa: What's the matter? I have a headache.</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Describir dolencias y dar consejos de salud con have got, should y vocabulario del cuerpo. OA2 — Unidad 4.</div>
@@ -7106,7 +7083,7 @@ Tercera persona: He/She likeS, enjoyS, loveS + verbo-ing.</div>
 <ol><li>Doctor: What's the matter?</li><li>Patient: ___ (I / a fever / have)</li><li>Doctor: You ___ (rest / should)</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe un diálogo de <strong>8 líneas</strong> entre médico y paciente: la dolencia, preguntas y consejos con should.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> headache / stomachache / fever</p><p><strong>2:</strong> should rest / should drink water</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> headache / stomachache / fever</p><p><strong>2:</strong> should rest / should drink water</p></details></template>
 <template id="g2m-37">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Vocabulario de comida y frases para pedir en un restaurante. En casa: I'd like a pizza, please. How much is it?</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Pedir comida en un restaurante usando I'd like, Can I have…? y contables/incontables. OA2 — Unidad 4.</div>
@@ -7124,7 +7101,7 @@ Tercera persona: He/She likeS, enjoyS, loveS + verbo-ing.</div>
 <ol><li>What's your favourite food?</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe un diálogo de <strong>10 líneas</strong> en un restaurante: saludar, pedir comida y bebida, preguntar el precio y pagar.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> some / a / some</p><p><strong>2:</strong> Can I have a pizza? / I'd like some water.</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> some / a / some</p><p><strong>2:</strong> Can I have a pizza? / I'd like some water.</p></details></template>
 <template id="g2m-38">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Para proponer planes usamos Let's, Why don't we…? y Shall we…? En casa: Let's go to the cinema. Why don't we cook?</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Hacer y responder sugerencias con Let's, Why don't we…? y Shall we…?. OA2 — Unidad 4.</div>
@@ -7142,7 +7119,7 @@ Tercera persona: He/She likeS, enjoyS, loveS + verbo-ing.</div>
 <ol><li>Escribe 2 sugerencias para el fin de semana.</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe un diálogo de <strong>8 líneas</strong> planificando un panorama con un amigo, usando Let's, Why don't we y Shall we.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> Let's / Why don't / Shall</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> Let's / Why don't / Shall</p></details></template>
 <template id="g2m-39">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Su hijo/a distinguirá experiencias sin tiempo definido (Present Perfect) de acciones pasadas con tiempo definido (Past Simple).</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Contrastar Present Perfect (experiencias, sin cuándo) y Past Simple (acción terminada con cuándo). OA2 — Unidad 4.</div>
@@ -7160,7 +7137,7 @@ Tercera persona: He/She likeS, enjoyS, loveS + verbo-ing.</div>
 <ol><li>I have seen him yesterday. →</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe <strong>8 oraciones</strong>: 4 experiencias tuyas con Present Perfect (ever/never/already) y 4 acciones pasadas con Past Simple y un tiempo definido.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> visited / has never eaten / went / Have…been</p><p><strong>2:</strong> finished / watched</p><p><strong>4:</strong> I saw him yesterday.</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> visited / has never eaten / went / Have…been</p><p><strong>2:</strong> finished / watched</p><p><strong>4:</strong> I saw him yesterday.</p></details></template>
 <template id="g2m-40">
 <div class="apo"><div class="at">👨‍👩‍👧 Para el apoderado</div><p>Vocabulario de ropa y frases para comprar prendas: tallas, precios y probarse ropa. En casa: Can I try it on? How much is it?</p></div>
 <div class="hl">📌 <strong>Objetivo (ES):</strong> Comprar ropa usando vocabulario de prendas, How much…? y frases de tienda. OA2 — Unidad 4.</div>
@@ -7178,7 +7155,7 @@ Tercera persona: He/She likeS, enjoyS, loveS + verbo-ing.</div>
 <ol><li>Escribe qué ropa llevas hoy (3 prendas).</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">5</span> ✍️ Producción escrita</div>
 <p>Escribe un diálogo de <strong>10 líneas</strong> comprando ropa: saludo, buscar una prenda, talla, probarse, precio y pagar.</p></div>
-<div class="ak2"><div class="akt">✅ Respuestas</div><p><strong>1:</strong> shoes / jacket / dress</p><p><strong>2:</strong> help / looking / size / much</p></div></template>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p><strong>1:</strong> shoes / jacket / dress</p><p><strong>2:</strong> help / looking / size / much</p></details></template>
 
 
 
@@ -7231,8 +7208,8 @@ Tercera persona: He/She likeS, enjoyS, loveS + verbo-ing.</div>
 <ol><li>Two shopping questions: ___</li>
 <li>One example of present perfect: ___</li>
 <li>Two prices: ___</li></ol></div>
-<div class="ak2"><div class="akt">✅ Answers</div>
-<p>Act.2: F / T / F / T</p></div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
+<p>Act.2: F / T / F / T</p></details>
 </template>
 
 
@@ -7822,9 +7799,9 @@ drop (rule ___): ___ | try (rule ___): ___ | stay (rule ___): ___</p></div>
 <ol><li>El mar estaba tranquilo. →</li>
 <li>Los marineros no estaban asustados. →</li>
 <li>¿Estaba el capitán a bordo? →</li></ol></div>
-<div class="ak2"><div class="akt">✅ Answers</div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary>
 <p>Act.1: were / was / was / were / were</p>
-<p>Act.2: wasn't fast / weren't ready / wasn't good / weren't afraid</p></div>
+<p>Act.2: wasn't fast / weren't ready / wasn't good / weren't afraid</p></details>
 </template>
 <template id="adv-r01">
 <div class="mbadge">Reading · A2+</div>
@@ -7833,7 +7810,7 @@ drop (rule ___): ___ | try (rule ___): ___ | stay (rule ___): ___</p></div>
 <p>The port of Valparaíso is one of the most important ports on the Pacific coast of South America. For over 200 years, ships from all around the world have arrived here carrying goods, passengers and stories.</p><p>In the 19th century, before the Panama Canal opened in 1914, Valparaíso was a compulsory stop for ships travelling between the Atlantic and the Pacific. Sailors from England, Germany, Italy and many other countries settled in the city, and their influence is still visible in its architecture, its funiculars and its colourful hills.</p><p>Today, the port handles thousands of containers every year and remains a vital part of the Chilean economy. It is also a UNESCO World Heritage Site, admired for its unique historic quarter and its bohemian spirit.</p>
 <div class="exb"><div class="ext"><span class="exn">1</span> Comprehension</div><ol><li>Why was Valparaíso important before 1914?</li><li>Which nationalities settled in the city?</li><li>What is the port used for today?</li><li>Why is Valparaíso a World Heritage Site?</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">2</span> True or False</div><ol><li>___ Valparaíso is on the Atlantic coast.</li><li>___ The Panama Canal opened in 1914.</li><li>___ No foreign sailors settled in the city.</li><li>___ The port is a UNESCO World Heritage Site.</li></ol></div>
-<div class="ak2"><div class="akt">✅ Answers</div><p>Act.2: F / T / F / T</p></div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p>Act.2: F / T / F / T</p></details>
 </template>
 <template id="adv-r02">
 <div class="mbadge">Reading · B1</div>
@@ -7842,7 +7819,7 @@ drop (rule ___): ___ | try (rule ___): ___ | stay (rule ___): ___</p></div>
 <p>The ocean plays a crucial role in regulating the planet's climate. It absorbs about a quarter of the carbon dioxide that humans produce and stores enormous amounts of heat. However, this service comes at a cost.</p><p>As the ocean absorbs more carbon dioxide, its water becomes more acidic. This process, known as ocean acidification, threatens shellfish, corals and the entire marine food chain. At the same time, rising temperatures cause sea levels to rise and disrupt marine ecosystems.</p><p>Scientists warn that protecting the ocean is essential for the future of humanity. Reducing emissions, creating marine protected areas and supporting sustainable fishing are some of the actions that can help preserve this vital resource for the next generations.</p>
 <div class="exb"><div class="ext"><span class="exn">1</span> Comprehension</div><ol><li>What percentage of CO2 does the ocean absorb?</li><li>What is ocean acidification?</li><li>What does acidification threaten?</li><li>What actions can help protect the ocean?</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">2</span> True or False</div><ol><li>___ The ocean absorbs about a quarter of human CO2.</li><li>___ Acidification helps corals grow.</li><li>___ Rising temperatures make sea levels rise.</li><li>___ Sustainable fishing can help the ocean.</li></ol></div>
-<div class="ak2"><div class="akt">✅ Answers</div><p>Act.2: T / F / T / T</p></div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p>Act.2: T / F / T / T</p></details>
 </template>
 <template id="adv-r03">
 <div class="mbadge">Reading · A2+</div>
@@ -7851,7 +7828,7 @@ drop (rule ___): ___ | try (rule ___): ___ | stay (rule ___): ___</p></div>
 <p>Life at sea has always been demanding. A sailor must be disciplined, brave and hard-working. On a modern cargo ship, the crew works in shifts, day and night, to keep the vessel running safely.</p><p>A typical day begins early. The crew checks the engines, the navigation systems and the cargo. During long voyages, sailors can spend weeks or even months away from their families. Technology now allows them to send messages home, but the sea can still be a lonely place.</p><p>Despite the challenges, many sailors love their job. They travel to distant ports, meet people from different cultures and witness sunrises over the open ocean that few people will ever see.</p>
 <div class="exb"><div class="ext"><span class="exn">1</span> Comprehension</div><ol><li>What qualities does a sailor need?</li><li>How does the crew work on a modern ship?</li><li>What does a typical day begin with?</li><li>What do many sailors enjoy about their job?</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">2</span> True or False</div><ol><li>___ Sailors never work at night.</li><li>___ A voyage can last weeks or months.</li><li>___ Sailors can send messages home.</li><li>___ No sailor enjoys life at sea.</li></ol></div>
-<div class="ak2"><div class="akt">✅ Answers</div><p>Act.2: F / T / T / F</p></div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p>Act.2: F / T / T / F</p></details>
 </template>
 <template id="adv-r04">
 <div class="mbadge">Reading · B1</div>
@@ -7860,7 +7837,7 @@ drop (rule ___): ___ | try (rule ___): ___ | stay (rule ___): ___</p></div>
 <p>The shipping industry is responsible for a significant part of global trade, but also for a considerable amount of pollution. For this reason, engineers around the world are designing the ships of the future.</p><p>Some new vessels use wind power through modern rigid sails, while others run on electric batteries or hydrogen fuel cells that produce no harmful emissions. Autonomous ships, controlled by computers and satellites, are also being tested and could reduce human error at sea.</p><p>These innovations could transform maritime transport into a cleaner and safer industry. For students in technical-maritime education, understanding these technologies today means being prepared for the jobs of tomorrow.</p>
 <div class="exb"><div class="ext"><span class="exn">1</span> Comprehension</div><ol><li>Why is the shipping industry a problem for the environment?</li><li>What power sources do future ships use?</li><li>What are autonomous ships controlled by?</li><li>Why are these technologies important for students?</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">2</span> True or False</div><ol><li>___ Shipping causes no pollution.</li><li>___ Some ships use hydrogen fuel cells.</li><li>___ Autonomous ships are controlled by computers and satellites.</li><li>___ These innovations could make shipping cleaner.</li></ol></div>
-<div class="ak2"><div class="akt">✅ Answers</div><p>Act.2: F / T / T / T</p></div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p>Act.2: F / T / T / T</p></details>
 </template>
 <template id="adv-r05">
 <div class="mbadge">Reading · A2+</div>
@@ -7869,7 +7846,7 @@ drop (rule ___): ___ | try (rule ___): ___ | stay (rule ___): ___</p></div>
 <p>Valparaíso is famous for its colourful houses that climb up more than forty hills. From the sea, the city looks like a giant painting, with every house a different shade of blue, yellow, green or red.</p><p>The tradition of painting houses in bright colours began long ago. Sailors used to bring leftover paint from the ships, and families used whatever colours were available. Over time, these vivid colours became the identity of the city.</p><p>Today, artists from all over the world come to Valparaíso to paint murals on its walls and staircases. Walking through the hills is like visiting an open-air museum, where art and everyday life mix together in a truly unique way.</p>
 <div class="exb"><div class="ext"><span class="exn">1</span> Comprehension</div><ol><li>How many hills does Valparaíso have?</li><li>Why did the tradition of colourful houses begin?</li><li>Where did the paint originally come from?</li><li>Why is the city like an open-air museum?</li></ol></div>
 <div class="exb"><div class="ext"><span class="exn">2</span> True or False</div><ol><li>___ The houses are all the same colour.</li><li>___ Sailors brought leftover paint from ships.</li><li>___ Artists paint murals on the walls.</li><li>___ Valparaíso has fewer than ten hills.</li></ol></div>
-<div class="ak2"><div class="akt">✅ Answers</div><p>Act.2: F / T / T / F</p></div>
+<details class="ak2"><summary class="akt">✅ Ver respuestas</summary><p>Act.2: F / T / T / F</p></details>
 </template>
 
 
