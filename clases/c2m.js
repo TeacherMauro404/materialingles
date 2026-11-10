@@ -264,8 +264,21 @@ lessons:[
   can:["Escribir y pronunciar -ed (/t/, /d/, /ɪd/).","Usar 20 verbos irregulares frecuentes.","Formar negativos y preguntas con did."],
   slides:[
   {t:"warm", title:"What did you do yesterday?", intro:"Di 3 cosas que hiciste ayer. ¿Quién recuerda más?", items:[["Ejemplo","I watched TV, I ate pizza and I went to bed late."]]},
-  {t:"tbl", title:"Regular verbs: -ed", head:["Rule","Example","Pronunciation"], rows:[
-    ["+ ed","work → worked","/t/ worked, washed, watched"],["-e → + d","live → lived","/d/ played, lived, cleaned"],["consonant + y → ied","study → studied","/ɪd/ wanted, visited, needed"],["CVC → double","stop → stopped","/ɪd/ solo después de t / d"]]},
+  {t:"tbl", title:"Regular verbs: spelling of -ed ✏️", head:["Rule / Regla","Examples / Ejemplos"], rows:[
+    ["Most verbs → <b>+ ed</b>","work → work<b>ed</b> · watch → watch<b>ed</b> · visit → visit<b>ed</b> · help → help<b>ed</b>"],
+    ["Ends in <b>-e</b> → <b>+ d</b>","live → live<b>d</b> · dance → dance<b>d</b> · arrive → arrive<b>d</b> · decide → decide<b>d</b>"],
+    ["Consonant + <b>y</b> → <b>-ied</b>","study → stud<b>ied</b> · try → tr<b>ied</b> · carry → carr<b>ied</b> · cry → cr<b>ied</b>"],
+    ["Vowel + <b>y</b> → <b>+ ed</b>","play → play<b>ed</b> · stay → stay<b>ed</b> · enjoy → enjoy<b>ed</b>"],
+    ["1 sílaba consonante-vocal-consonante → <b>doble consonante</b>","stop → sto<b>pp</b>ed · plan → pla<b>nn</b>ed · drop → dro<b>pp</b>ed · (UK) travel → trave<b>ll</b>ed"]],
+    note:"⚠️ Los verbos irregulares no siguen estas reglas: go → went · see → saw · buy → bought (ver la tabla de irregulares)."},
+  {t:"tbl", title:"Pronunciation of -ed: /t/ · /d/ · /ɪd/ 🗣️", head:["Sound","Rule / Regla","Examples / Ejemplos"], rows:[
+    ["<b>/t/</b>","Verbo base termina en sonido <b>sordo</b> /p/ /k/ /s/ /ʃ/ /tʃ/ /f/ — la garganta <b>no vibra</b>","stopped · worked · kissed · washed · watched · laughed · helped · fixed"],
+    ["<b>/d/</b>","Verbo base termina en <b>vocal</b> o sonido <b>sonoro</b> /b/ /g/ /l/ /m/ /n/ /r/ /v/ /z/ — la garganta <b>vibra</b>","played · lived · cleaned · called · opened · arrived · studied · loved"],
+    ["<b>/ɪd/</b>","Verbo base termina en <b>t</b> o <b>d</b> → se agrega <b>una sílaba</b>","want-<b>ed</b> · visit-<b>ed</b> · start-<b>ed</b> · need-<b>ed</b> · decid-<b>ed</b> · wait-<b>ed</b>"]],
+    note:"🖐️ Truco de la garganta: pon la mano en el cuello. ¿Vibra el último sonido? → /d/. ¿No vibra? → /t/. ⚠️ Error típico: decir “work-ED” o “play-ED”: solo los verbos en t / d suman sílaba."},
+  {t:"mcq", title:"Which sound? /t/, /d/ or /ɪd/", intro:"Di el verbo en voz alta antes de elegir 🗣️", items:[
+    ["walked",["/t/","/d/","/ɪd/"],0],["played",["/t/","/d/","/ɪd/"],1],["visited",["/t/","/d/","/ɪd/"],2],
+    ["watched",["/t/","/d/","/ɪd/"],0],["cleaned",["/t/","/d/","/ɪd/"],1],["needed",["/t/","/d/","/ɪd/"],2]]},
   {t:"match", title:"Irregular verbs", pairs:[["go","went"],["have","had"],["see","saw"],["eat","ate"],["buy","bought"],["take","took"],["make","made"],["get","got"]]},
   {t:"tbl", title:"Negative & Questions", head:["","Form","Example"], rows:[
     ["✅","verb + ed / irregular","She <b>visited</b> Chiloé. We <b>went</b> to the port."],["❌","didn't + base verb","She <b>didn't visit</b> Chiloé."],["❓","Did + subject + base verb?","<b>Did</b> you <b>go</b>? — Yes, I did."]],

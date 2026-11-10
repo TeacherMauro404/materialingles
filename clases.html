@@ -82,7 +82,7 @@ main{max-width:1100px;margin:0 auto;padding:28px 16px 80px}
 .stage{flex:1;display:flex;align-items:center;justify-content:center;padding:12px;overflow:hidden;position:relative;min-height:0}
 .slide{background:#fff;width:min(100%,calc((100vh - 150px)*16/9));max-height:100%;aspect-ratio:16/9;border-radius:14px;
   box-shadow:0 20px 60px rgba(0,0,0,.35);overflow:auto;position:relative;display:flex;flex-direction:column;
-  font-size:clamp(14px,1.5vw,23px);animation:sin .3s ease}
+  font-size:calc(clamp(14px,1.5vw,23px) * var(--k,1));animation:sin .3s ease}
 #pres.withnotes .slide{width:min(100%,calc((100vh - 330px)*16/9))}
 @keyframes sin{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
 .pnav{display:flex;align-items:center;justify-content:center;gap:10px;padding:8px;background:#081628;color:#fff;flex-wrap:wrap}
@@ -272,6 +272,41 @@ table.t tr:nth-child(even) td{background:#f6f9fb}
 .menu button:hover{background:#eef3f7}
 .menu hr{border:none;border-top:1px solid #e3e9ef;margin:4px 0}
 
+/* cuaderno (gatito) */
+.nb{display:flex;align-items:center;gap:.8em;margin-top:.7em;background:linear-gradient(135deg,#fff8e7,#fdeccf);border:2px dashed #e0a53a;border-radius:.8em;padding:.45em .9em}
+.nb svg{width:3.6em;height:3.6em;flex-shrink:0;animation:wob 2.4s ease-in-out infinite}
+@keyframes wob{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+.nb b{color:#8a4b00;font-size:1.02em}.nb span{font-size:.82em;color:#6b4a1a}
+/* reglas de la sala */
+.rgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:.5em}
+.rc{background:#f4f8fb;border-radius:.7em;padding:.5em;text-align:center;border:2px solid #dbe6ef}
+.rc .e{font-size:1.9em;line-height:1.15}.rc b{display:block;color:var(--navy);font-size:.92em}.rc span{font-size:.72em;color:#5b6b7c}
+.rc.gm{background:#fff6e0;border-color:var(--gold)}
+.clang{margin-top:.6em;background:#eef6f1;border-radius:.6em;padding:.4em .8em;font-size:.82em}
+.clang b{color:var(--green)}
+.clang .pw{margin:.25em 0 0}.clang .pw button{font-size:.92em;padding:.15em .55em}
+/* repaso */
+.recap{display:grid;grid-template-columns:auto 1fr;gap:1em;align-items:start}
+.recap .big{font-size:4.2em;line-height:1}
+.vchips{display:flex;flex-wrap:wrap;gap:.35em;margin:.4em 0}
+.vchips button{border:2px solid #cbd7e2;background:#fff;border-radius:2em;padding:.15em .7em;cursor:pointer;font-size:.9em;color:var(--navy)}
+.vchips button:hover{border-color:var(--accent)}
+/* pronunciación por grupos */
+.pgroups{display:grid;grid-template-columns:repeat(auto-fit,minmax(9em,1fr));gap:.6em;margin:.4em 0}
+.pg{border:2px solid #d5e1ea;border-radius:.6em;padding:.4em .55em;background:#fbfdfe}
+.pg h4{font-size:1.15em;color:var(--accent);margin:0}.pg small{display:block;font-size:.7em;color:#5b6b7c;line-height:1.3;margin-bottom:.3em}
+.pg .pw{margin:.2em 0}.pg .pw button{font-size:.85em;padding:.12em .5em}
+.steps3{display:flex;gap:.5em;flex-wrap:wrap;margin:.3em 0 .5em}
+.steps3 span{background:var(--navy);color:#fff;border-radius:2em;padding:.15em .8em;font-size:.75em;font-weight:700}
+.psent{list-style:none;margin:.2em 0!important}
+.psent li{background:#f4f8fb;border-radius:.4em;padding:.25em .6em;margin-bottom:.3em;display:flex;gap:.4em;align-items:center}
+/* cierre */
+.exgrid{display:grid;grid-template-columns:1.5fr 1fr;gap:1em}
+.ticket{background:rgba(255,255,255,.08);border:2px dashed rgba(212,168,67,.7);border-radius:.8em;padding:.6em .8em;text-align:center}
+.ticket .e{font-size:3.2em;line-height:1.1}
+.ticket p{font-size:.85em;margin:.3em 0}
+.frame2{background:#f4f8fb;border-radius:.5em;padding:.4em .8em;margin-top:.5em}
+.frame2 div{font-style:italic;color:#0f5568;padding:.1em 0}
 #printArea{display:none}
 @media print{
   @page{size:A4 landscape;margin:8mm}
@@ -284,7 +319,8 @@ table.t tr:nth-child(even) td{background:#f6f9fb}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 @media (max-width:760px){
-  .slide,#pres.withnotes .slide{aspect-ratio:auto;height:100%;font-size:15px;width:100%}
+  .slide,#pres.withnotes .slide{aspect-ratio:auto;height:100%;font-size:calc(15px * var(--k,1));width:100%}
+  .rgrid{grid-template-columns:repeat(2,1fr)}.pgroups{grid-template-columns:1fr}.exgrid{grid-template-columns:1fr}
   .stage{padding:6px;align-items:stretch}
   .cols,.mgrid,.wgrid,.agenda{grid-template-columns:1fr}
   .vgrid{grid-template-columns:repeat(2,1fr)}
@@ -372,6 +408,7 @@ table.t tr:nth-child(even) td{background:#f6f9fb}
 <script src="clases/c2m.js"></script>
 <script src="clases/p1m.js"></script>
 <script src="clases/p2m.js"></script>
+<script src="clases/pron.js"></script>
 <script>
 /* =========================================================
    DATOS
@@ -407,14 +444,16 @@ function spk(t){return '<button class="spk" title="Escuchar" onclick="event.stop
 /* =========================================================
    SECUENCIA DIDÁCTICA
    ========================================================= */
-var RANK={cover:0,obj:1,warm:2,vocab:3,model:4,disc:5,exp:6,tbl:6,pron:7,mcq:8,gap:8,order:8,match:8,tf:8,listen:9,read:9,game:10,speak:11,write:12,sum:13,exit:14,self:15};
-var BASE={cover:0,obj:3,warm:6,vocab:10,model:8,disc:6,exp:5,tbl:5,pron:5,mcq:5,gap:6,order:5,match:4,tf:4,listen:7,read:8,game:10,speak:10,write:10,sum:2,exit:5,self:2};
+var RANK={cover:0,rules:.5,recap:.7,obj:1,warm:2,vocab:3,model:4,disc:5,exp:6,tbl:6,pron:7,mcq:8,gap:8,order:8,match:8,tf:8,listen:9,read:9,game:10,speak:11,write:12,sum:13,exit:14,self:15};
+var BASE={cover:0,rules:2,recap:3,obj:3,warm:6,vocab:10,model:8,disc:6,exp:5,tbl:5,pron:5,mcq:5,gap:6,order:5,match:4,tf:4,listen:7,read:8,game:10,speak:10,write:10,sum:2,exit:5,self:2};
 function stageOf(t){var r=RANK[t];return r<=3?'i':r>=13?'c':'d';}
 var STAGE={i:'Inicio',d:'Desarrollo',c:'Cierre'};
 function phaseOf(t){var r=RANK[t];if(r<=3)return 'Activación';if(r<=7)return 'Presentación';if(r<=9)return 'Práctica guiada';if(r<=12)return 'Producción';return 'Consolidación y evaluación';}
-var TYPE_LABEL={obj:'Objective',warm:'Warm-up',vocab:'Key vocabulary',model:'Model text',disc:'Discover the rule',exp:'Language focus',tbl:'Language focus',pron:'Pronunciation',
+var TYPE_LABEL={rules:'Class rules',recap:'Review',obj:'Objective',warm:'Warm-up',vocab:'Key vocabulary',model:'Model text',disc:'Discover the rule',exp:'Language focus',tbl:'Language focus',pron:'Pronunciation',
   mcq:'Practice',gap:'Practice',order:'Practice',tf:'Practice',match:'Practice',listen:'Listening',read:'Reading',speak:'Speaking',game:'Game',write:'Writing',sum:'Summary',exit:'Exit ticket',self:'Self-assessment'};
 var INSTR={
+  rules:['Remember our class rules.','Recordemos nuestras reglas de la sala.'],
+  recap:['What do you remember from last class?','¿Qué recuerdas de la clase anterior?'],
   warm:['Answer the questions.','Responde las preguntas en voz alta.'],
   vocab:['Listen, repeat and guess the meaning.','Escucha, repite y adivina el significado.'],
   model:['Listen first. Then read and answer.','Primero escucha, luego lee y responde.'],
@@ -437,14 +476,16 @@ var INSTR={
   self:['How well can you do it?','¿Qué tan bien lo logras?']
 };
 var NOTES={
+  rules:'Recuerda las reglas en 1–2 min: lee cada una en inglés y pide al curso que la repita o que un estudiante la explique en español. Destaca la tarjeta de mentalidad de crecimiento: equivocarse es parte de aprender. Señala el lenguaje de sala de clases y exige usarlo durante la clase.',
+  recap:'Activación de lo aprendido la clase anterior: pide a 3–4 estudiantes (🎲 selector) que digan una palabra o una oración con el lenguaje clave. Haz clic en las palabras para escucharlas y repetirlas en coro. Corrige con recast, sin interrumpir.',
   obj:'Lee el objetivo en voz alta y pide a un estudiante que lo explique con sus palabras (en español). Escríbelo en la pizarra para volver a él en el cierre.',
   warm:'Activa conocimientos previos. Modela la primera respuesta tú mismo/a. Acepta respuestas parciales o en español y <b>reformula en inglés correcto</b> (recast) sin corregir explícitamente. Usa el 🎲 selector para dar la palabra.',
   vocab:'Secuencia: 1) clic en la tarjeta → escuchan; 2) repiten en coro, luego por filas, luego 2–3 individuales; 3) adivinan el significado ANTES de mostrarlo; 4) leen el ejemplo. <b>Preguntas de comprobación (CCQ):</b> “Is it a person or a thing?”, “Do you have one?”. Pide copiar las palabras con dibujo.',
   model:'Primera escucha con el texto oculto: solo pregunta general (“Who is speaking? Where are they?”). Segunda escucha con texto visible. Luego las preguntas de comprensión. Puedes leer en parejas (A/B) al final.',
   disc:'Aprendizaje inductivo: deja 1–2 min para que observen en parejas. Haz las preguntas guía y solo después muestra la regla. Si no llegan, da pistas señalando las palabras destacadas.',
-  exp:'Explica brevemente (máx. 5 min) usando los ejemplos. Pide a los estudiantes que copien la regla. Haz 2–3 preguntas de comprobación antes de pasar a la práctica.',
-  tbl:'Recorre la tabla fila por fila con ejemplos orales. Pide que la copien. Comprueba con 2–3 preguntas rápidas a estudiantes elegidos al azar.',
-  pron:'Haz clic en cada palabra: escuchan → repiten en coro → grupos → individual. Exagera el sonido objetivo. Pide marcar la sílaba tónica en el cuaderno.',
+  exp:'Explica brevemente (máx. 5 min) usando los ejemplos. <b>Momento de cuaderno:</b> da 2–3 min para que copien la regla y al menos 2 ejemplos (el gatito ✍️ lo recuerda); circula revisando. Haz 2–3 preguntas de comprobación antes de pasar a la práctica.',
+  tbl:'Recorre la tabla fila por fila con ejemplos orales. <b>Momento de cuaderno:</b> pide que copien la tabla (o una versión resumida) mientras circulas revisando. Comprueba con 2–3 preguntas rápidas a estudiantes elegidos al azar.',
+  pron:'Haz clic en cada palabra: escuchan → repiten en coro → grupos → individual. Luego practican las oraciones en parejas (A lee, B corrige; luego cambian). Exagera el sonido objetivo. Pide marcar la sílaba tónica en el cuaderno.',
   mcq:'Primero resuelven en su cuaderno (2–3 min, en parejas). Luego revisan en plenario haciendo clic. Pide justificar: “Why?” (en español si es necesario).',
   gap:'Resuelven individualmente en el cuaderno y comparan en parejas. Luego un estudiante escribe la respuesta en la pantalla y se presiona ✔ Revisar.',
   order:'Puede hacerse como competencia por equipos. Un estudiante pasa a la pantalla y hace clic en las palabras; el curso valida. Clic en una palabra construida la devuelve.',
@@ -463,15 +504,17 @@ var DUA='<b>Apoyos DUA:</b> vocabulario visual y con audio, instrucciones biling
 
 function buildLesson(lv,ui,li){
   var LV=DATA[lv],U=LV.units[ui],L=U.lessons[li],X=((PLUS[lv]||[])[ui]||[])[li]||{};
-  var list=[{t:'cover'},{t:'obj'}];
+  var list=[{t:'cover'},{t:'rules'},{t:'obj'}];
+  var prev=null;if(li>0)prev=[ui,li-1];else if(ui>0)prev=[ui-1,LV.units[ui-1].lessons.length-1];
+  if(prev){var PL=LV.units[prev[0]].lessons[prev[1]],PX=((PLUS[lv]||[])[prev[0]]||[])[prev[1]]||{};list.push({t:'recap',pl:PL,px:PX});}
   L.slides.forEach(function(s){list.push(s);});
   if(X.vocab)list.push({t:'vocab',items:X.vocab,title:X.vocabTitle});
   if(X.model)list.push({t:'model',m:X.model});
   if(X.disc)list.push({t:'disc',d:X.disc});
-  if(X.pron)list.push({t:'pron',p:X.pron});
+  if(X.pron){var PE=((window.PRONX||{})[lv]||[])[ui];PE=PE&&PE[li]||{};var pp={};for(var k in X.pron)pp[k]=X.pron[k];for(var k2 in PE)pp[k2]=PE[k2];list.push({t:'pron',p:pp});}
   if(X.listen)list.push({t:'listen',items:X.listen.items||X.listen,title:X.listen.title});
   if(X.write)list.push({t:'write',w:X.write});
-  if(!L.slides.some(function(s){return s.t==='sum';}))list.push({t:'sum',items:X.key||L.can});
+  if(!L.slides.some(function(s){return s.t==='sum';}))list.push({t:'sum',items:X.key||L.can,vocab:X.vocab});
   list.push({t:'self'});
   list.forEach(function(s,i){s._i=i;});
   list.sort(function(a,b){return (RANK[a.t]-RANK[b.t])||(a._i-b._i);});
@@ -504,6 +547,22 @@ function renderSlide(s,ctx){
   case 'cover':
     h='<div class="cover"><div class="k">'+ctx.LV.label+' · Unidad '+ctx.U.n+' · Clase '+(ctx.li+1)+'</div><h1>'+L.title+'</h1><div class="s">'+L.tema+
       '</div><div class="m"><span>⚓ Instituto Marítimo de Valparaíso</span><span>⏱ '+(L.min||90)+' min</span><span>🎯 MCER '+CEFR[ctx.lv]+'</span></div></div>';break;
+  case 'rules':
+    var RU=[['👂','Listen to others','Escucho cuando otros hablan'],['✋','Raise your hand','Levanto la mano para hablar'],['📵','Phones away','Celular guardado (salvo indicación)'],
+      ['📓','Notebook ready','Cuaderno y lápiz sobre la mesa'],['🗣️','Try in English','Intento hablar en inglés'],['🤝','Respect & help','Respeto y ayudo a mis compañeros'],['⏰','Be on time','Llego puntual y preparado/a']];
+    h=head(s,'Remember our class rules 📋')+'<div class="sb"><div class="rgrid">'+RU.map(function(r){return '<div class="rc"><div class="e">'+r[0]+'</div><b>'+r[1]+'</b><span>'+r[2]+'</span></div>';}).join('')+
+      '<div class="rc gm"><div class="e">💪</div><b>Mistakes help us learn!</b><span>Equivocarme también es aprender</span></div></div>'+
+      '<div class="clang"><b>💬 Classroom language</b> — úsalo durante la clase:<div class="pw">'+
+      ['Can you repeat, please?','How do you say … in English?','What does … mean?','Can I go to the bathroom?','I don\'t understand.','I\'m finished!'].map(function(x){return '<button onclick="TTS.say(this.textContent.replace(\'🔊 \',\'\'))">🔊 '+x+'</button>';}).join('')+'</div></div></div>';
+    break;
+  case 'recap':
+    var PL=s.pl,PX=s.px;
+    h=head(s,'Remember last class? 🧠')+'<div class="sb"><div class="recap"><div class="big">🧠</div><div>'+
+      '<p><b>Last class:</b> '+PL.title+' <span class="gnote">('+PL.tema+')</span></p>'+
+      (PX.key?'<ul class="can">'+PX.key.map(function(k){return '<li>'+k+'</li>';}).join('')+'</ul>':'')+
+      (PX.vocab?'<p style="margin-top:.4em"><b>Key words</b> — clic para escuchar y repetir:</p><div class="vchips">'+PX.vocab.map(function(v){return '<button onclick="TTS.say(this.getAttribute(\'data-t\'))" data-t="'+esc(strip(v[1]))+'">'+v[0]+' '+v[1]+'</button>';}).join('')+'</div>':'')+
+      '<div class="tip">🙋 <b>Tell your partner:</b> one word and one sentence from last class. / Dile a tu compañero/a una palabra y una oración de la clase anterior.</div></div></div></div>';
+    break;
   case 'obj':
     var m=stageMins(ctx.list),acts={i:[],d:[],c:[]};
     ctx.list.forEach(function(x){if(x.t==='cover'||x.t==='obj')return;var a=TYPE_LABEL[x.t];var k=stageOf(x.t);if(acts[k].indexOf(a)<0)acts[k].push(a);});
@@ -515,7 +574,8 @@ function renderSlide(s,ctx){
     h=head(s,'Let\'s start!')+'<div class="sb">'+(s.intro?'<p>'+s.intro+'</p>':'')+'<ul class="rv">'+
       s.items.map(function(it,i){var q=Array.isArray(it)?it[0]:it,a=Array.isArray(it)?it[1]:'';
         return '<li onclick="this.classList.add(\'shown\')"><span class="n">'+(i+1)+'.</span><span>'+q+'</span>'+(a?'<span class="ans">'+a+'</span>':'')+'</li>';}).join('')+
-      '</ul>'+(s.note?'<div class="tip">'+s.note+'</div>':'')+'</div>';break;
+      '</ul>'+(s.note?'<div class="tip">'+s.note+'</div>':'')+
+      '<div class="steps3" style="margin-top:.7em"><span>💭 Think (30 s)</span><span>👥 Pair — tell your partner</span><span>🙋 Share with the class</span></div></div>';break;
   case 'vocab':
     h=head(s,'Key words')+'<div class="sb"><div class="vgrid">'+s.items.map(function(v){
       return '<div class="vc" onclick="this.classList.add(\'on\');TTS.say(\''+esc(strip(v[1])).replace(/'/g,"\\'")+'\')"><div class="em">'+v[0]+'</div><div class="wd">'+v[1]+'</div><div class="es">'+v[2]+'</div><div class="xs">'+v[3]+' '+spk(v[3])+'</div></div>';}).join('')+
@@ -532,16 +592,20 @@ function renderSlide(s,ctx){
     var D=s.d;
     h=head(s,D.title||'Discover the rule 🔍')+'<div class="sb"><ul class="dex">'+D.ex.map(function(e){return '<li>'+e+' '+spk(e)+'</li>';}).join('')+'</ul>'+
       '<ul class="rv">'+D.q.map(function(it,i){return '<li onclick="this.classList.add(\'shown\')"><span class="n">'+(i+1)+'.</span><span>'+it[0]+'</span><span class="ans">'+it[1]+'</span></li>';}).join('')+'</ul>'+
-      '<div class="drule rule">💡 '+D.rule+'</div><div class="act"><button class="abtn" onclick="this.closest(\'.sb\').classList.add(\'showrule\')">💡 Mostrar regla</button></div></div>';
+      '<div class="drule"><div class="rule">💡 '+D.rule+'</div>'+notebook('Copy the rule in your notebook!','Copia la regla y un ejemplo en tu cuaderno.')+'</div><div class="act"><button class="abtn" onclick="this.closest(\'.sb\').classList.add(\'showrule\')">💡 Mostrar regla</button></div></div>';
     break;
-  case 'exp': h=head(s)+'<div class="sb">'+s.html+'</div>';break;
+  case 'exp': h=head(s)+'<div class="sb">'+s.html+notebook()+'</div>';break;
   case 'tbl':
     h=head(s)+'<div class="sb">'+(s.intro?'<p>'+s.intro+'</p>':'')+'<table class="t"><tr>'+s.head.map(function(x){return '<th>'+x+'</th>';}).join('')+'</tr>'+
-      s.rows.map(function(r){return '<tr>'+r.map(function(x){return '<td>'+x+'</td>';}).join('')+'</tr>';}).join('')+'</table>'+(s.note?'<div class="tip">'+s.note+'</div>':'')+'</div>';break;
+      s.rows.map(function(r){return '<tr>'+r.map(function(x){return '<td>'+x+'</td>';}).join('')+'</tr>';}).join('')+'</table>'+(s.note?'<div class="tip">'+s.note+'</div>':'')+notebook()+'</div>';break;
   case 'pron':
     var Pr=s.p;
-    h=head(s,Pr.title||'Say it right 🗣️')+'<div class="sb"><div class="rule"><b>Focus:</b> '+Pr.focus+'</div><div class="pw">'+
-      Pr.words.map(function(w){var t=Array.isArray(w)?w:[w,w];return '<button onclick="TTS.say(\''+esc(strip(t[1])).replace(/'/g,"\\'")+'\')">🔊 '+t[0]+'</button>';}).join('')+'</div>'+
+    var btn=function(w){var t=Array.isArray(w)?w:[w,w];return '<button onclick="TTS.say(this.getAttribute(\'data-t\'))" data-t="'+esc(strip(t[1]))+'">🔊 '+t[0]+'</button>';};
+    h=head(s,Pr.title||'Say it right 🗣️')+'<div class="sb"><div class="rule"><b>Focus:</b> '+Pr.focus+'</div>'+
+      '<div class="steps3"><span>1 👂 Listen</span><span>2 🗣️ Repeat (class → group → you)</span><span>3 👥 Practise with a partner</span></div>'+
+      (Pr.groups?'<div class="pgroups">'+Pr.groups.map(function(g){return '<div class="pg"><h4>'+g[0]+'</h4><small>'+g[1]+'</small><div class="pw">'+g[2].map(btn).join('')+'</div></div>';}).join('')+'</div>'
+        :'<div class="pw">'+Pr.words.map(btn).join('')+'</div>')+
+      (Pr.sent?'<p style="margin-top:.3em"><b>Now say the sentences:</b></p><ul class="psent">'+Pr.sent.map(function(x){return '<li>'+spk(x)+'<span>'+x+'</span></li>';}).join('')+'</ul>':'')+
       (Pr.tip?'<div class="tip">'+Pr.tip+'</div>':'')+'</div>';break;
   case 'mcq':
     h=head(s,'Choose the correct option')+'<div class="sb">'+(s.intro?'<p>'+s.intro+'</p>':'')+
@@ -591,18 +655,32 @@ function renderSlide(s,ctx){
       (W.frame?'<div class="frame" style="font-size:.88em">'+W.frame.map(function(f){return '<div>'+f+'</div>';}).join('')+'</div>':'')+'</div><div>'+
       '<p><b>Checklist ✔</b></p><ul class="chk">'+(W.check||[]).concat(['Uso mayúscula al inicio y punto al final.']).map(function(c){return '<li>'+c+'</li>';}).join('')+'</ul>'+timer(s.min)+'</div></div></div>';break;
   case 'sum':
-    h=head(s,'Key points')+'<div class="sb"><ul class="can">'+s.items.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul><div class="tip">🧠 Mira el objetivo de la clase: ¿lo logramos?</div></div>';break;
+    h=head(s,'Today we learned… 🌟')+'<div class="sb"><ul class="can">'+s.items.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>'+
+      (s.vocab?'<p><b>Key words:</b></p><div class="vchips">'+s.vocab.map(function(v){return '<button onclick="TTS.say(this.getAttribute(\'data-t\'))" data-t="'+esc(strip(v[1]))+'">'+v[0]+' '+v[1]+'</button>';}).join('')+'</div>':'')+
+      '<div class="tip">🎯 <b>Objetivo:</b> '+L.obj+' — ¿lo logramos?</div>'+notebook('Write: “Today I learned…”','Escribe en tu cuaderno 2 cosas que aprendiste hoy.')+'</div>';break;
   case 'exit':
-    h='<div class="exit">'+head(s,'Exit ticket 🎟️')+'<div class="sb"><ol>'+s.items.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ol>'+
-      (s.home?'<p style="margin-top:.8em"><b>Homework:</b> '+s.home+'</p>':'')+'</div></div>';break;
+    h='<div class="exit">'+head(s,'Exit ticket 🎟️')+'<div class="sb"><div class="exgrid"><div><ol>'+s.items.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ol>'+
+      (s.home?'<p style="margin-top:.8em"><b>📚 Homework:</b> '+s.home+'</p>':'')+'</div><div class="ticket"><div class="e">🎟️✍️</div>'+
+      '<p><b>Write your name, class and answers on a piece of paper.</b></p><p>Escribe tu nombre, curso y respuestas en un papel y entrégalo al salir.</p>'+timer(s.min)+'</div></div></div></div>';break;
   case 'self':
     h=head(s,'How did I do today?')+'<div class="sb self">'+(L.can||[]).map(function(c){return '<div class="row"><span>'+c+'</span>'+
       ['😀','🤔','😵'].map(function(e){return '<button onclick="[].forEach.call(this.parentNode.querySelectorAll(\'button\'),function(b){b.classList.remove(\'sel\')});this.classList.add(\'sel\')">'+e+'</button>';}).join('')+'</div>';}).join('')+
+      '<div class="frame2"><div>💡 Today I learned ___.</div><div>🔁 I need to practise ___.</div><div>⭐ My favourite activity was ___.</div></div>'+
       '<div class="tip">😀 Lo logro solo/a · 🤔 Lo logro con ayuda · 😵 Necesito repasar &nbsp;—&nbsp; <b>Thank you, class! See you next time! 👋</b></div></div>';break;
   default: h='<div class="sb">'+(s.html||'')+'</div>';
   }
   return h;
 }
+var CAT='<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M18 42 L24 8 L46 28 Z" fill="#f2a65a"/><path d="M82 42 L76 8 L54 28 Z" fill="#f2a65a"/>'+
+  '<path d="M23 34 L26 16 L39 28 Z" fill="#ffc6d0"/><path d="M77 34 L74 16 L61 28 Z" fill="#ffc6d0"/><ellipse cx="50" cy="54" rx="36" ry="32" fill="#f2a65a"/>'+
+  '<path d="M38 26 Q50 20 62 26" stroke="#d9823a" stroke-width="3" fill="none"/><path d="M42 32 Q50 28 58 32" stroke="#d9823a" stroke-width="3" fill="none"/>'+
+  '<ellipse cx="37" cy="52" rx="5.5" ry="7" fill="#2b2b2b"/><ellipse cx="63" cy="52" rx="5.5" ry="7" fill="#2b2b2b"/><circle cx="39" cy="49" r="2" fill="#fff"/><circle cx="65" cy="49" r="2" fill="#fff"/>'+
+  '<ellipse cx="27" cy="63" rx="6" ry="3.5" fill="#ff9fb0" opacity=".7"/><ellipse cx="73" cy="63" rx="6" ry="3.5" fill="#ff9fb0" opacity=".7"/>'+
+  '<path d="M46 61 L54 61 L50 66 Z" fill="#e8607a"/><path d="M50 66 Q45 72 41 68 M50 66 Q55 72 59 68" stroke="#5a3a2a" stroke-width="2" fill="none"/>'+
+  '<path d="M14 58 L32 60 M14 66 L32 64 M86 58 L68 60 M86 66 L68 64" stroke="#5a3a2a" stroke-width="1.6"/>'+
+  '<rect x="58" y="78" width="40" height="20" rx="3" fill="#fff" stroke="#1a7a8a" stroke-width="2"/><path d="M62 84 H92 M62 90 H86" stroke="#9ab" stroke-width="1.5"/>'+
+  '<g transform="rotate(-35 60 82)"><rect x="40" y="78" width="30" height="7" rx="1.5" fill="#f4c430"/><path d="M70 78 L78 81.5 L70 85 Z" fill="#f1d3a6"/><path d="M75.5 80.3 L78 81.5 L75.5 82.7Z" fill="#333"/><rect x="36" y="78" width="5" height="7" fill="#e8607a"/></g></svg>';
+function notebook(t,sub){return '<div class="nb">'+CAT+'<div><b>✍️ '+(t||'Copy this in your notebook!')+'</b><br><span>'+(sub||'¡Copia la regla y los ejemplos en tu cuaderno! 📓')+'</span></div></div>';}
 function timer(min){min=min||5;return '<div class="timer" data-min="'+min+'"><span>⏱️</span><span class="tv">'+min+':00</span><button onclick="A.timer(this)">Start</button></div>';}
 
 /* =========================================================
@@ -716,11 +794,16 @@ var P={slides:[],i:0,score:{A:0,B:0},
   close:function(){TTS.stop();document.getElementById('pres').classList.remove('open');document.body.style.overflow='';
     history.replaceState(null,'',location.pathname);if(document.fullscreenElement)document.exitFullscreen();document.getElementById('menu').classList.remove('open');},
   render:function(){TTS.stop();var s=this.slides[this.i],sl=document.getElementById('slide');sl.innerHTML=s.html;sl.scrollTop=0;
-    sl.style.animation='none';void sl.offsetWidth;sl.style.animation='';
+    sl.style.animation='none';void sl.offsetWidth;sl.style.animation='';P.fit(sl,s.t);
     document.getElementById('notes').innerHTML=s.notes;
     document.getElementById('count').textContent=(this.i+1)+' / '+this.slides.length;
     var col={i:'#5b8fd6',d:'#3fa86a',c:'#d9784f'},self=this;
     [].forEach.call(document.querySelectorAll('#prog i'),function(b,k){var st=self.slides[k].stage;b.style.background=k<=self.i?col[st]:'transparent';});},
+  fit:function(sl,t){var k=1;sl.style.setProperty('--k',1);if(t==='cover'||window.innerWidth<=760)return;
+    var over=function(){return sl.scrollHeight>sl.clientHeight+2;};
+    if(over()){while(over()&&k>0.7){k-=0.04;sl.style.setProperty('--k',k.toFixed(2));}return;}
+    while(!over()&&k<1.3){k+=0.04;sl.style.setProperty('--k',k.toFixed(2));}
+    if(over()){k-=0.04;sl.style.setProperty('--k',k.toFixed(2));}},
   go:function(i){if(i<0||i>=this.slides.length)return;this.i=i;this.render();},
   next:function(){this.go(this.i+1);},prev:function(){this.go(this.i-1);},
   fs:function(){var e=document.getElementById('pres');if(!document.fullscreenElement){if(e.requestFullscreen)e.requestFullscreen();}else document.exitFullscreen();},
