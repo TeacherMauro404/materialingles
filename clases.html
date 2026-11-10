@@ -336,7 +336,7 @@ table.t tr:nth-child(even) td{background:#f6f9fb}
   <div class="hdr">
     <div class="hbadge">⚓ Instituto Marítimo de Valparaíso</div>
     <h1>Clases de <span>Inglés</span> — Presentaciones</h1>
-    <p class="hsub">Clases completas de 90 minutos para 1° Medio (A1) y 2° Medio (A2), con secuencia Inicio · Desarrollo · Cierre, audio para listening y pronunciación, actividades autocorregibles y plan de clase imprimible.</p>
+    <p class="hsub">Clases completas de 90 minutos para 1° Medio (A1), 2° Medio (A2), 3° Medio (A2+) y 4° Medio (B1), con secuencia Inicio · Desarrollo · Cierre, audio para listening y pronunciación, actividades autocorregibles y plan de clase imprimible.</p>
     <div class="hlinks"><a href="index.html">🔤 Vocabularios y guías (página original)</a></div>
   </div>
 </header>
@@ -407,7 +407,11 @@ table.t tr:nth-child(even) td{background:#f6f9fb}
 <script src="clases/c1m.js"></script>
 <script src="clases/c2m.js"></script>
 <script src="clases/p1m.js"></script>
+<script src="clases/c3m.js"></script>
+<script src="clases/c4m.js"></script>
 <script src="clases/p2m.js"></script>
+<script src="clases/p3m.js"></script>
+<script src="clases/p4m.js"></script>
 <script src="clases/pron.js"></script>
 <script>
 /* =========================================================
@@ -415,8 +419,8 @@ table.t tr:nth-child(even) td{background:#f6f9fb}
    ========================================================= */
 var DATA = window.CLASES || {};
 var PLUS = window.PLUS || {};
-var LEVELS = [['1m','📘 1° Medio'],['2m','📗 2° Medio']];
-var CEFR = {'1m':'A1 – A1+','2m':'A2'};
+var LEVELS = [['1m','📘 1° Medio'],['2m','📗 2° Medio'],['3m','📙 3° Medio'],['4m','📕 4° Medio']];
+var CEFR = {'1m':'A1 – A1+','2m':'A2','3m':'A2+','4m':'B1'};
 var state = {lv:'1m', u:0};
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 function strip(s){return String(s).replace(/<[^>]+>/g,'').replace(/&nbsp;/g,' ');}
@@ -513,7 +517,10 @@ function buildLesson(lv,ui,li){
   if(X.disc)list.push({t:'disc',d:X.disc});
   if(X.pron){var PE=((window.PRONX||{})[lv]||[])[ui];PE=PE&&PE[li]||{};var pp={};for(var k in X.pron)pp[k]=X.pron[k];for(var k2 in PE)pp[k2]=PE[k2];list.push({t:'pron',p:pp});}
   if(X.listen)list.push({t:'listen',items:X.listen.items||X.listen,title:X.listen.title});
-  if(X.write)list.push({t:'write',w:X.write});
+  if(X.write){var W0={};for(var kw in X.write)W0[kw]=X.write[kw];
+    if(W0.model==='@read'){var rs=L.slides.filter(function(z){return z.t==='read';})[0];W0.model=rs?rs.text:'';}
+    else if(W0.model==='@model'&&X.model){W0.model=X.model.text||X.model.d.map(function(l){return '<b>'+l[0]+':</b> '+l[1];}).join('<br>');}
+    list.push({t:'write',w:W0});}
   if(!L.slides.some(function(s){return s.t==='sum';}))list.push({t:'sum',items:X.key||L.can,vocab:X.vocab});
   list.push({t:'self'});
   list.forEach(function(s,i){s._i=i;});
