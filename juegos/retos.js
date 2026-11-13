@@ -159,6 +159,6 @@ var RT={
   duel:function(i){stopTimer();var ch=CH.cur;CH.duelReveal();var p=0;if(i!=null){p=award(i,ch.pts);sOk();}else sBad();if(i!==S.turn)miss(S.turn);
     logR(i,i!=null,p,{text:'⚔️ '+ch.q.text,cat:{name:'⚔️ Duelo'},ans:ch.q.opts[ch.q.a]});
     $('qaward').innerHTML='<div style="width:100%;text-align:center;font-weight:900;font-size:20px">'+(i!=null?'🏆 '+S.teams[i].name+' gana el duelo (+'+p+')':'Nadie gana el duelo')+'</div><button style="background:var(--yellow);color:#2a1f5c" onclick="RT.next()">▶ Siguiente equipo</button>';},
-  next:function(){stopTimer();S.turn=(S.turn+1)%S.teams.length;this.intro();}
+  next:function(){stopTimer();if(window.countTurn&&countTurn())return;S.turn=(S.turn+1)%S.teams.length;this.intro();}
 };
 CH.duelReveal=function(){var ch=CH.cur;if(!ch||!ch.q)return;markInline(-1,ch.q.a);$('qans').innerHTML='✅ '+esc(ch.q.opts[ch.q.a]);$('qans').classList.add('show');};
