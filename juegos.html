@@ -29,11 +29,25 @@ header p{color:rgba(255,255,255,.75);font-size:15px;max-width:720px;margin:0 aut
 .links a:hover{background:rgba(255,255,255,.22)}
 
 /* BANK TABS */
-.banks{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:18px 0 4px}
-.bank{border:none;border-radius:40px;padding:12px 26px;font-family:'Fredoka',sans-serif;font-size:20px;font-weight:600;color:#fff;background:rgba(255,255,255,.1);transition:all .2s}
-.bank:hover{background:rgba(255,255,255,.2)}
-.bank.on{background:linear-gradient(90deg,var(--pink),var(--violet));box-shadow:0 8px 24px rgba(255,95,162,.4);transform:translateY(-2px)}
-
+.homegrid{display:grid;grid-template-columns:300px 1fr;gap:22px;align-items:start}
+.side{position:sticky;top:12px;max-height:calc(100vh - 24px);overflow:auto;background:rgba(255,255,255,.08);border-radius:22px;padding:14px;backdrop-filter:blur(6px)}
+.side::-webkit-scrollbar{width:6px}.side::-webkit-scrollbar-thumb{background:rgba(255,255,255,.25);border-radius:6px}
+.side h3{font-family:'Fredoka',sans-serif;font-size:15px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:rgba(255,255,255,.65);margin:10px 6px 8px;display:flex;justify-content:space-between}
+.side input{width:100%;border:none;border-radius:30px;padding:9px 14px;font-size:14px;font-weight:700;margin-bottom:6px;color:#2a1f5c}
+.bk{width:100%;display:flex;align-items:center;gap:10px;background:none;border:none;color:#fff;text-align:left;padding:9px 10px;border-radius:14px;transition:background .15s}
+.bk:hover{background:rgba(255,255,255,.12)}
+.bk.on{background:linear-gradient(90deg,var(--pink),var(--violet));box-shadow:0 6px 18px rgba(255,95,162,.35)}
+.bk .ic{font-size:24px;width:32px;text-align:center;flex-shrink:0}
+.bk .tx{flex:1;min-width:0}.bk b{display:block;font-size:15px;font-weight:800;line-height:1.2}
+.bk small{font-size:11.5px;opacity:.75;font-weight:700}
+.bk .go{opacity:0;font-size:14px}.bk:hover .go,.bk.on .go{opacity:1}
+.topic{display:flex;gap:16px;align-items:center;background:linear-gradient(120deg,rgba(255,95,162,.35),rgba(166,107,255,.35),rgba(61,220,255,.25));border-radius:24px;padding:18px 22px}
+.topic .big{font-size:58px;line-height:1}
+.topic h2{font-size:32px;font-weight:700;line-height:1.1}
+.topic p{font-size:14.5px;opacity:.9;margin-top:4px}
+.topic .tag{display:inline-block;background:#fff;color:#2a1f5c;border-radius:30px;padding:3px 12px;font-size:12px;font-weight:900;margin-top:8px;margin-right:6px}
+.gc.off{opacity:.35;filter:grayscale(.6);cursor:not-allowed}
+.gc.off:hover{transform:none}
 /* HOME */
 h2.s{font-size:26px;font-weight:600;margin:24px 0 12px;display:flex;align-items:center;gap:10px}
 h2.s .n{background:var(--yellow);color:#2a1f5c;font-size:16px;width:32px;height:32px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center}
@@ -180,6 +194,7 @@ body.playing #home,body.playing header{display:none}
 @keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#fff;color:#2a1f5c;font-weight:900;padding:12px 22px;border-radius:30px;z-index:99;animation:pop .2s;box-shadow:0 10px 30px rgba(0,0,0,.35)}
 
+@media (max-width:900px){.homegrid{grid-template-columns:1fr}.side{position:static;max-height:340px}}
 @media (max-width:760px){
   .opts{grid-template-columns:1fr}
   .lwrap{grid-template-columns:1fr}
@@ -198,8 +213,10 @@ body.playing #home,body.playing header{display:none}
   </div>
 </header>
 
-<div id="home" class="wrap">
-  <div class="banks" id="bankTabs"></div>
+<div id="home" class="wrap homegrid">
+  <aside class="side" id="side"></aside>
+  <div class="main">
+  <div class="topic" id="topic"></div>
   <h2 class="s"><span class="n">1</span> Elige el juego</h2>
   <div class="games" id="gameList"></div>
 
@@ -220,6 +237,7 @@ body.playing #home,body.playing header{display:none}
     <p class="note" id="gameHelp"></p>
   </div>
   <div class="row" style="justify-content:center;margin:22px 0 40px"><button class="btn big" onclick="start()">▶ ¡Comenzar juego!</button></div>
+  </div>
 </div>
 
 <div id="game">
@@ -239,6 +257,7 @@ body.playing #home,body.playing header{display:none}
 
 <script src="juegos/banco.js"></script>
 <script src="juegos/waswere.js"></script>
+<script src="juegos/grammar.js"></script>
 <script>
 /* ================= ESTADO ================= */
 var EMOJIS=['🦊','🐼','🦁','🐯','🐸','🦄','🐙','🐝','🦋','🐬','🚀','⚡','🌈','🍕','🎸','🌟'];
@@ -256,10 +275,13 @@ var GAMES=[
  {id:'top5',e:'📋',n:'Top 5',d:'Adivinen las 5 respuestas más comunes. Tres errores y el otro equipo puede robar el pozo.',
   h:'El equipo en turno nombra respuestas; el profesor revela las que aparecen en el tablero. Con 3 errores (❌) otro equipo puede robar todo el pozo con una respuesta correcta.'}
 ];
-var BANKS={general:{n:'🌍 Cultura general',cats:window.BANCO,top5:window.TOP5},waswere:{n:'⏳ Was / Were',cats:window.BANCO_WW,top5:window.TOP5_WW}};
+var BANKS={general:{n:'🌍 Cultura general',name:'Cultura general',icon:'🌍',tag:'Todos los cursos',desc:'Geografía, ciencia, historia, deportes, música, Chile y más',cats:window.BANCO,top5:window.TOP5,group:'g'}};
+var GORDER=[];(window.GRAMMAR||[]).forEach(function(t){
+  if(!t){t={id:'waswere',name:'Was / Were',icon:'⏳',tag:'2° Medio',desc:'Pasado del verbo To Be · negativas · preguntas · there was / were',cats:window.BANCO_WW,top5:window.TOP5_WW};}
+  BANKS[t.id]={n:t.icon+' '+t.name,name:t.name,icon:t.icon,tag:t.tag,desc:t.desc,cats:t.cats,top5:t.top5||null,group:'gr'};GORDER.push(t.id);});
 function BK(){return BANKS[S.bank]||BANKS.general;}
 var S={bank:'general',game:'board',teams:[],cats:BANCO.map(function(c){return c.id;}),lv:'all',time:30,turn:0};
-try{var sv=JSON.parse(localStorage.getItem('imv_games')||'null');if(sv){S.teams=sv.teams||[];if(sv.bank&&BANKS[sv.bank])S.bank=sv.bank;S.lv=sv.lv||S.lv;S.time=sv.time||S.time;if(sv.cats&&sv.cats.length)S.cats=sv.cats;}}catch(e){}
+try{var sv=JSON.parse(localStorage.getItem('imv_games')||'null');if(sv){S.teams=sv.teams||[];if(sv.bank)S.bank=sv.bank;S.lv=sv.lv||S.lv;S.time=sv.time||S.time;if(sv.cats&&sv.cats.length)S.cats=sv.cats;}}catch(e){}
 if(S.teams.length<2)S.teams=[{name:'Tigers',emoji:'🐯'},{name:'Unicorns',emoji:'🦄'}];
 function save(){try{localStorage.setItem('imv_games',JSON.stringify({teams:S.teams.map(function(t){return {name:t.name,emoji:t.emoji};}),lv:S.lv,time:S.time,cats:S.cats,bank:S.bank}));}catch(e){}}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
@@ -267,11 +289,21 @@ function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(M
 function $(id){return document.getElementById(id);}
 
 /* ================= HOME ================= */
-function setBank(b){S.bank=b;S.cats=BK().cats.map(function(c){return c.id;});renderHome();}
+function setBank(b){S.bank=b;S.cats=BK().cats.map(function(c){return c.id;});if(S.game==='top5'&&!BK().top5)S.game='board';try{history.replaceState(null,'','#tema='+b);}catch(e){}renderHome();
+  if(window.innerWidth<=900){var t=$('topic');if(t)t.scrollIntoView({behavior:'smooth'});}}
+var FILTER='';
+function bkItem(k){var B=BANKS[k],n=B.cats.reduce(function(a,c){return a+c.q.length;},0);
+  return '<button class="bk'+(S.bank===k?' on':'')+'" onclick="setBank(\''+k+'\')"><span class="ic">'+B.icon+'</span><span class="tx"><b>'+B.name+'</b><small>'+B.tag+' · '+n+' preguntas</small></span><span class="go">▶</span></button>';}
+function renderSide(){var f=FILTER.toLowerCase();var gl=GORDER.filter(function(k){return !f||BANKS[k].name.toLowerCase().indexOf(f)>=0;});
+  $('side').innerHTML='<h3>🌍 General</h3>'+bkItem('general')+'<h3><span>📚 Grammar</span><span>'+GORDER.length+' temas</span></h3>'+
+    '<input id="sideQ" placeholder="🔎 Buscar tema…" value="'+esc(FILTER)+'" oninput="FILTER=this.value;renderSideList()"/><div id="sideList">'+gl.map(bkItem).join('')+'</div>';}
+function renderSideList(){var f=FILTER.toLowerCase();$('sideList').innerHTML=GORDER.filter(function(k){return !f||BANKS[k].name.toLowerCase().indexOf(f)>=0;}).map(bkItem).join('')||'<p class="note">Sin resultados.</p>';}
 function renderHome(){
   if(S.cats.filter(function(id){return BK().cats.some(function(c){return c.id===id;});}).length===0)S.cats=BK().cats.map(function(c){return c.id;});
-  $('bankTabs').innerHTML=Object.keys(BANKS).map(function(k){return '<button class="bank'+(S.bank===k?' on':'')+'" onclick="setBank(\''+k+'\')">'+BANKS[k].n+'</button>';}).join('');
-  $('gameList').innerHTML=GAMES.map(function(g){return '<button class="gc'+(S.game===g.id?' sel':'')+'" onclick="S.game=\''+g.id+'\';renderHome()"><div class="e">'+g.e+'</div><b>'+g.n+'</b><span>'+g.d+'</span></button>';}).join('');
+  if(!$('sideQ'))renderSide();else renderSideList();
+  var B=BK(),nq=B.cats.reduce(function(a,c){return a+c.q.length;},0);
+  $('topic').innerHTML='<div class="big">'+B.icon+'</div><div><h2>'+B.name+'</h2><p>'+B.desc+'</p><span class="tag">'+B.tag+'</span><span class="tag">'+B.cats.length+' categorías · '+nq+' preguntas</span>'+(B.top5?'<span class="tag">Top 5 ✔</span>':'')+'</div>';
+  $('gameList').innerHTML=GAMES.map(function(g){var off=g.id==='top5'&&!BK().top5;return '<button class="gc'+(S.game===g.id?' sel':'')+(off?' off':'')+'" '+(off?'title="Top 5 no está disponible para este tema" onclick="toast(\'Top 5 está disponible en Cultura general y Was / Were\')"':'onclick="S.game=\''+g.id+'\';renderHome()"')+'><div class="e">'+g.e+'</div><b>'+g.n+'</b><span>'+(off?'No disponible en este tema.':g.d)+'</span></button>';}).join('');
   $('teamsEdit').innerHTML=S.teams.map(function(t,i){return '<div class="te" style="border-color:'+COLORS[i]+'"><button class="em" onclick="cycleEmoji('+i+')">'+t.emoji+'</button><input maxlength="22" value="'+esc(t.name)+'" oninput="S.teams['+i+'].name=this.value;save()"/>'+(S.teams.length>2?'<button class="x" onclick="S.teams.splice('+i+',1);renderHome()">✕</button>':'')+'</div>';}).join('');
   var BC=BK().cats;$('catChips').innerHTML='<button class="chip'+(S.cats.length===BC.length?' on':'')+'" onclick="S.cats=S.cats.length===BK().cats.length?[]:BK().cats.map(function(c){return c.id;});renderHome()">✔ Todas</button>'+
     BC.map(function(c){return '<button class="chip'+(S.cats.indexOf(c.id)>=0?' on':'')+'" onclick="toggleCat(\''+c.id+'\')">'+c.icon+' '+c.name+'</button>';}).join('');
@@ -293,7 +325,7 @@ function catsActive(){var c=BK().cats.filter(function(x){return S.cats.indexOf(x
 function pickQ(cat,level){var pool=cat.q.filter(function(q){return (level?q[0]===level:q[0]<=lvMax())&&!USED[cat.id+q[1]];});
   if(!pool.length)pool=cat.q.filter(function(q){return level?q[0]===level:q[0]<=lvMax();});
   if(!pool.length)pool=cat.q;var q=pool[Math.floor(Math.random()*pool.length)];USED[cat.id+q[1]]=1;
-  var idx=q[2].map(function(_,i){return i;});if(idx.length>2)idx=shuffle(idx);
+  var idx=shuffle(q[2].map(function(_,i){return i;}));
   return {cat:cat,lv:q[0],text:q[1],opts:idx.map(function(i){return q[2][i];}),a:idx.indexOf(q[3])};}
 function anyQ(){var c=catsActive();return pickQ(c[Math.floor(Math.random()*c.length)]);}
 
@@ -363,7 +395,7 @@ function teamBtns(fnName,label){return S.teams.map(function(t,i){return '<button
 /* ================= 1. TABLERO ================= */
 var BD={cols:[],used:{},dbl:null,cur:null,
   init:function(){this.cols=shuffle(catsActive()).slice(0,S.teams.length>=4?6:5);this.used={};this.dbl=[Math.floor(Math.random()*this.cols.length),2+Math.floor(Math.random()*3)];this.render();},
-  render:function(){var n=this.cols.length,h='<div class="board" style="grid-template-columns:repeat('+n+',1fr)">';
+  render:function(){var n=this.cols.length,h='<div class="board" style="grid-template-columns:repeat('+n+',minmax(0,1fr))">';
     var CP=[['#ff5fa2','#ff8cc0'],['#3d9bff','#7cbcff'],['#ffb020','#ffcc5c'],['#22c47a','#5fdca4'],['#a66bff','#c49bff'],['#ff7a45','#ffa47c']];
     this.cols.forEach(function(c,i){h+='<div class="bh" style="background:'+CP[i][0]+'"><span class="i">'+c.icon+'</span>'+c.name+'</div>';});
     for(var r=0;r<5;r++)for(var c=0;c<n;c++){var k=c+'-'+r,u=this.used[k];
@@ -491,7 +523,10 @@ function finish(){closeQ();var ord=S.teams.map(function(t,i){return {t:t,i:i,v:S
   $('win').classList.add('open');confetti();sOk();}
 function fs(){if(!document.fullscreenElement){if(document.documentElement.requestFullscreen)document.documentElement.requestFullscreen();}else document.exitFullscreen();}
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&$('mo').classList.contains('open')&&(QC.done||QC.o.mode==='teacher')){/* no cerrar por accidente */}});
+(function(){var m=location.hash.match(/tema=([\w-]+)/);if(m&&BANKS[m[1]]){S.bank=m[1];S.cats=BK().cats.map(function(c){return c.id;});}
+  if(!BANKS[S.bank])S.bank='general';if(S.game==='top5'&&!BK().top5)S.game='board';})();
 renderHome();
+window.addEventListener('hashchange',function(){var m=location.hash.match(/tema=([\w-]+)/);if(m&&BANKS[m[1]]&&m[1]!==S.bank&&!document.body.classList.contains('playing'))setBank(m[1]);});
 </script>
 </body>
 </html>
