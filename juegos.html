@@ -62,6 +62,13 @@ header p{color:rgba(255,255,255,.75);font-size:15px;max-width:720px;margin:0 aut
 .qhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 .bigtimer{font-family:'Fredoka',sans-serif;font-size:44px;font-weight:700;background:#2a1f5c;color:#fff;border-radius:40px;padding:2px 22px;min-width:120px;text-align:center}
 .bigtimer.low{background:var(--bad);animation:pulse .6s infinite}
+.evcard{background:linear-gradient(135deg,#7b2ff7,#f107a3);border-radius:22px;padding:16px;margin:12px auto;max-width:440px;color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.evcard .ee{font-size:58px;line-height:1.1}.evcard .en{font-family:'Fredoka',sans-serif;font-size:28px;font-weight:700}.evcard .ed{font-weight:700;font-size:17px;min-height:22px}
+.evcard.land{animation:evpop .5s ease-out}@keyframes evpop{0%{transform:scale(.7)}60%{transform:scale(1.12)}100%{transform:scale(1)}}
+.evpill{display:inline-block;background:rgba(255,255,255,.18);border-radius:20px;padding:4px 14px;font-weight:800;margin-bottom:6px}
+.itembtn{border:none;border-radius:20px;padding:6px 16px;font-weight:900;font-size:16px;background:#ffd23f;color:#2a1f5c;box-shadow:0 4px 0 rgba(0,0,0,.2);cursor:pointer;margin-left:6px}
+.rsel{margin:8px 0;font-weight:800}.rsel button{border:none;border-radius:14px;padding:6px 14px;margin:0 4px;font-weight:900;font-size:16px;cursor:pointer;background:rgba(255,255,255,.25);color:#fff}.rsel button.on{background:#ffd23f;color:#2a1f5c}
+.stars{text-align:left;display:grid;gap:8px;margin-top:10px}.star{background:rgba(255,255,255,.15);border-radius:14px;padding:10px 14px;font-size:18px}.star span{float:right;color:#ffd23f;font-weight:900}.star.off{opacity:.55}
 .introcard{background:rgba(255,255,255,.1);border-radius:26px;padding:26px;text-align:center;max-width:640px;width:100%}
 .introcard .big{font-size:84px;line-height:1.1}
 .introcard h2{font-size:36px;margin:6px 0}
@@ -318,12 +325,12 @@ body.playing #home,body.playing header,body.playing #tabsWrap{display:none}
 <div class="mo" id="mo"><div class="mbox" id="mbox"></div></div>
 <div class="win" id="win"></div>
 
-<script src="juegos/banco.js?v=202611131530"></script>
-<script src="juegos/waswere.js?v=202611131530"></script>
-<script src="juegos/grammar.js?v=202611131530"></script>
-<script src="juegos/grammar2.js?v=202611131530"></script>
-<script src="juegos/gen.js?v=202611131530"></script>
-<script src="juegos/retos.js?v=202611131530"></script>
+<script src="juegos/banco.js?v=202611131650"></script>
+<script src="juegos/waswere.js?v=202611131650"></script>
+<script src="juegos/grammar.js?v=202611131650"></script>
+<script src="juegos/grammar2.js?v=202611131650"></script>
+<script src="juegos/gen.js?v=202611131650"></script>
+<script src="juegos/retos.js?v=202611131650"></script>
 <script>
 /* ================= ESTADO ================= */
 var EMOJIS=['🦊','🐼','🦁','🐯','🐸','🦄','🐙','🐝','🦋','🐬','🚀','⚡','🌈','🍕','🎸','🌟'];
@@ -342,8 +349,8 @@ var GAMES=[
   h:'Todos los equipos responden a la vez (levantando la mano o con un timbre). El profesor marca al primer equipo con la respuesta correcta y su cohete avanza.'},
  {id:'flash',e:'⚡',n:'Relámpago',d:'Cada equipo tiene 60 segundos para responder todas las preguntas que pueda. ¡Contra el reloj!',
   h:'Por turnos, cada equipo responde la mayor cantidad de preguntas posible en el tiempo elegido, haciendo clic en la alternativa. Cada acierto vale entre 100 y 300 puntos según la dificultad, y 3 aciertos seguidos activan la racha 🔥 (+50%).'},
- {id:'bomb',e:'💣',n:'Bomba',d:'La bomba pasa al siguiente equipo con cada acierto. Si alguien falla, ¡otro equipo puede robar! Que no te explote en las manos.',
-  h:'El equipo que tiene la bomba responde. Si acierta, la bomba pasa al siguiente equipo; si falla, debe responder otra pregunta. La mecha dura un tiempo secreto (30 a 75 s): al explotar, ese equipo pierde 300 puntos y los demás ganan 100.'},
+ {id:'bomb',e:'💣',n:'Bomba Party',d:'¡Estilo fiesta! Monedas por rapidez, eventos sorpresa, ítems, robos y estrellas extra al final. Que no te explote en las manos.',
+  h:'Cada ronda parte con un evento sorpresa (doble puntaje, mecha corta, reversa, pase loco…). El equipo con la bomba responde: si acierta gana monedas según su rapidez (50 a 150) y la bomba pasa; si falla, otro equipo puede robar con una pregunta nueva. Las 🎁 Cajas sorpresa entregan ítems (Escudo, Salto, Reversa, Hielo). Al explotar, ese equipo pierde puntos y los demás ganan. La última ronda vale doble y al final se reparten Estrellas extra (+300).'},
  {id:'top5',e:'📋',n:'Top 5',d:'Adivinen las 5 respuestas más comunes. Tres errores y el otro equipo puede robar el pozo.',
   h:'El equipo en turno nombra respuestas; el profesor revela las que aparecen en el tablero. Con 3 errores (❌) otro equipo puede robar todo el pozo con una respuesta correcta.'}
 ];
@@ -451,7 +458,7 @@ function award(i,pts){var t=S.teams[i];t.streak=(t.streak||0)+1;var b=t.streak>=
 function miss(i){if(i!=null&&S.teams[i])S.teams[i].streak=0;}
 function floatPts(i,txt,neg){var el=document.querySelectorAll('#scoreboard .tm')[i];if(!el)return;var r=el.getBoundingClientRect(),d=document.createElement('div');d.className='fpts'+(neg?' neg':'');d.textContent=txt;
   d.style.left=(r.left+r.width/2)+'px';d.style.top=(r.top+6)+'px';document.body.appendChild(d);setTimeout(function(){d.remove();},1500);}
-function renderScore(){$('scoreboard').innerHTML=S.teams.map(function(t,i){return '<div class="tm'+(i===S.turn?' turn':'')+'" style="border-left:6px solid '+COLORS[i]+'"><span class="em">'+t.emoji+'</span><div><div class="nm">'+esc(t.name)+(S.game==='board'||S.game==='race'||S.game==='retos'?'<span class="key" title="Tecla para pulsar">⌨️'+(i+1)+'</span>':'')+((t.streak||0)>=2?'<span class="fire">🔥'+t.streak+'</span>':'')+'</div><div class="sc">'+fmtScore(t)+'</div></div>'+
+function renderScore(){$('scoreboard').innerHTML=S.teams.map(function(t,i){return '<div class="tm'+(i===S.turn?' turn':'')+'" style="border-left:6px solid '+COLORS[i]+'"><span class="em">'+t.emoji+'</span><div><div class="nm">'+esc(t.name)+(S.game==='board'||S.game==='race'||S.game==='retos'?'<span class="key" title="Tecla para pulsar">⌨️'+(i+1)+'</span>':'')+(S.game==='bomb'&&t.item&&BITEMS[t.item]?'<span class="key" title="'+BITEMS[t.item].n+'">'+BITEMS[t.item].e+'</span>':'')+((t.streak||0)>=2?'<span class="fire">🔥'+t.streak+'</span>':'')+'</div><div class="sc">'+fmtScore(t)+'</div></div>'+
   (S.game==='board'||S.game==='wheel'||S.game==='top5'||S.game==='flash'||S.game==='bomb'||S.game==='retos'?'<div class="pm"><button onclick="addPts('+i+',100)">+</button><button onclick="addPts('+i+',-100)">−</button></div>':'')+'</div>';}).join('');}
 function fmtScore(t){if(S.game==='race')return (t.pos||0)+' / '+RACE.len;if(S.game==='ladder')return LAD.vals[(t.step||0)-1]?LAD.vals[t.step-1].toLocaleString('es-CL'):'0';return t.score.toLocaleString('es-CL');}
 function addPts(i,v){S.teams[i].score+=v;renderScore();}
@@ -667,47 +674,109 @@ var FL={dur:60,iv:null,
     if(!left)confetti();renderScore();}
 };
 
-/* ================= 7. BOMBA ================= */
-var BOMB={iv:null,round:0,
-  init:function(){this.round=0;this.intro();},
-  stop:function(){clearInterval(this.iv);this.iv=null;this.stealOpen=false;},
-  intro:function(){this.stop();this.round++;var t=S.teams[S.turn];
-    $('stage').innerHTML='<div class="introcard"><div class="big">💣</div><h2>Ronda '+this.round+'</h2><p style="font-size:18px">La bomba empieza con '+t.emoji+' <b>'+esc(t.name)+'</b>.<br>Respuesta correcta → la bomba pasa al siguiente equipo. ¡La mecha es secreta!</p>'+
-      '<div class="row" style="justify-content:center;margin-top:16px"><button class="btn big" onclick="BOMB.go()">🔥 ¡Encender la mecha!</button></div></div>';renderScore();},
-  go:function(){this.fuse=30+Math.random()*45;this.t0=Date.now();this.last=0;this.lock=false;this.q();var self=this;this.iv=setInterval(function(){self.tick();},100);},
+/* ================= 7. BOMBA PARTY ================= */
+var BITEMS={
+  shield:{e:'🛡️',n:'Escudo',d:'Si la bomba te explota, no pierdes puntos (se usa solo).'},
+  skip:{e:'⏭️',n:'Salto',d:'Pasa la bomba sin responder.'},
+  rev:{e:'🔄',n:'Reversa',d:'Cambia el sentido y pasa la bomba al equipo anterior.'},
+  ice:{e:'🧊',n:'Hielo',d:'Congela la mecha: +10 segundos.'}
+};
+var BEVENTS=[
+  {id:'x2',e:'💰',n:'Doble o nada',d:'Todos los puntos de esta ronda valen DOBLE.'},
+  {id:'short',e:'⚡',n:'Mecha corta',d:'La mecha dura entre 15 y 30 segundos. ¡Rápido!'},
+  {id:'rev',e:'🔄',n:'Bomba en reversa',d:'La bomba gira al revés: pasa al equipo ANTERIOR.'},
+  {id:'rain',e:'🪙',n:'Lluvia de monedas',d:'Cada acierto entrega +50 monedas extra.'},
+  {id:'gold',e:'👑',n:'Bomba dorada',d:'Explosión gigante: quien la tenga pierde 500, los demás ganan 150.'},
+  {id:'rand',e:'🎲',n:'Pase loco',d:'Con cada acierto la bomba salta a un equipo AL AZAR.'},
+  {id:'boxes',e:'🎁',n:'Fiesta de cajas',d:'La mitad de las preguntas traen Caja sorpresa con un ítem.'},
+  {id:'steal2',e:'🦹',n:'Noche de ladrones',d:'Los robos valen +200 en vez de +100.'}
+];
+var BSTARS=[
+  {k:'fast',e:'⚡',n:'Estrella Rayo',d:'más respuestas en menos de 4 segundos'},
+  {k:'ok',e:'🧠',n:'Estrella Cerebro',d:'más respuestas correctas'},
+  {k:'steals',e:'🦹',n:'Estrella Ladrón',d:'más robos exitosos'},
+  {k:'items',e:'🎁',n:'Estrella Coleccionista',d:'más ítems conseguidos'},
+  {k:'booms',e:'🛡️',n:'Estrella Sobreviviente',d:'menos explosiones',min:true}
+];
+var BOMB={iv:null,round:0,total:5,dir:1,
+  init:function(){this.round=0;this.total=this.total||5;this.st=S.teams.map(function(){return {fast:0,ok:0,steals:0,items:0,booms:0};});
+    S.teams.forEach(function(t){t.item=null;});this.intro();},
+  stop:function(){clearInterval(this.iv);this.iv=null;this.stealOpen=false;clearInterval(this.rl);},
+  last:function(){return this.round>=this.total;},
+  mult:function(){return (this.ev&&this.ev.id==='x2')||this.last()?2:1;},
+  setTotal:function(n){this.total=n;[].forEach.call(document.querySelectorAll('.rsel button'),function(b){b.classList.toggle('on',+b.textContent===n);});},
+  intro:function(){this.stop();this.round++;var t=S.teams[S.turn],self=this,first=this.round===1;
+    var ev=this.last()?{id:'final',e:'🔥',n:'¡RONDA FINAL!',d:'Todo vale DOBLE y la explosión quita 600. ¡Último chance!'}:BEVENTS[Math.floor(Math.random()*BEVENTS.length)];this.ev=ev;
+    $('stage').innerHTML='<div class="introcard"><div class="big">💣</div><h2>Ronda '+this.round+' de '+this.total+'</h2>'+
+      (first?'<div class="rsel">Rondas: '+[3,5,7].map(function(n){return '<button class="'+(n===self.total?'on':'')+'" onclick="BOMB.setTotal('+n+');BOMB.round=0;BOMB.intro()">'+n+'</button>';}).join('')+'</div>':'')+
+      '<div class="evcard" id="evcard"><div class="ee" id="evE">❓</div><div class="en" id="evN">Evento sorpresa…</div><div class="ed" id="evD">&nbsp;</div></div>'+
+      '<p style="font-size:17px">La bomba empieza con '+t.emoji+' <b>'+esc(t.name)+'</b>. Acierta rápido para ganar más monedas 🪙</p>'+
+      '<div class="row" style="justify-content:center;margin-top:12px"><button class="btn big" id="bgo" disabled onclick="BOMB.go()">🔥 ¡Encender la mecha!</button></div></div>';renderScore();
+    var n=0,pool=BEVENTS;this.rl=setInterval(function(){var r=pool[n++%pool.length];var e=$('evE'),nm=$('evN');if(!e){clearInterval(self.rl);return;}e.textContent=r.e;nm.textContent=r.n;tone(500+(n%5)*80,.04);
+      if(n>=14){clearInterval(self.rl);e.textContent=ev.e;nm.textContent=ev.n;$('evD').textContent=ev.d;$('evcard').classList.add('land');$('bgo').disabled=false;tone(784,.15);tone(1047,.3,.12);}},90);},
+  go:function(){clearInterval(this.rl);var ev=this.ev.id;this.dir=ev==='rev'?-1:1;this.fuse=ev==='short'?15+Math.random()*15:30+Math.random()*45;this.t0=Date.now();this.last_=0;this.lock=false;this.q();var self=this;this.iv=setInterval(function(){self.tick();},100);},
   tick:function(){var el=(Date.now()-this.t0)/1000,f=el/this.fuse,now=Date.now();
-    if(now-this.last>Math.max(120,900-800*f)){tone(f>.75?1200:800,.04);this.last=now;}
+    if(now-this.last_>Math.max(120,900-800*f)){tone(f>.75?1200:800,.04);this.last_=now;}
     var b=$('bombEl');if(b)b.className='bomb '+(f<.4?'s1':f<.75?'s2':'s3');if(el>=this.fuse)this.boom();},
-  q:function(){var q=anyQ(),t=S.teams[S.turn];this.cur=q;
-    $('stage').innerHTML='<div style="text-align:center"><span class="bomb s1" id="bombEl">💣</span><div class="holder" style="color:'+COLORS[S.turn]+'">'+t.emoji+' '+esc(t.name)+' tiene la bomba</div></div>'+inlineQ(q,'BOMB.ans');},
-  ans:function(k){if(this.lock||!this.iv)return;this.lock=true;var q=this.cur,ok=k===q.a,self=this;
-    logR(S.turn,ok,0,{text:q.text,cat:q.cat,opts:q.opts,a:q.a});
-    if(ok){markInline(k,q.a);sOk();S.teams[S.turn].streak=(S.teams[S.turn].streak||0)+1;floatPts(S.turn,'💨 ¡Pasa!');
-      setTimeout(function(){if(!self.iv)return;self.lock=false;S.turn=(S.turn+1)%S.teams.length;renderScore();self.q();},500);return;}
-    /* incorrecta: solo se marca la elegida (no se revela la correcta) y se abre el robo */
+  nextHolder:function(){var n=S.teams.length;if(this.ev.id==='rand'&&n>1){var r;do{r=Math.floor(Math.random()*n);}while(r===S.turn);return r;}return (S.turn+this.dir+n)%n;},
+  head:function(txt){var t=S.teams[S.turn],it=t.item&&BITEMS[t.item];
+    return '<div style="text-align:center"><span class="bomb s1" id="bombEl">💣</span><div class="holder" style="color:'+COLORS[S.turn]+'">'+t.emoji+' '+esc(t.name)+' '+txt+'</div>'+
+      '<div class="evpill">'+this.ev.e+' '+this.ev.n+(this.mult()>1?' · x2':'')+(this.dir<0?' · ⬅️':'')+'</div>'+
+      (it&&t.item!=='shield'&&txt.indexOf('tiene')===0?' <button class="itembtn" onclick="BOMB.use()">'+it.e+' Usar '+it.n+'</button>':'')+'</div>';},
+  q:function(){var q=anyQ();this.cur=q;this.qt=Date.now();this.box=Math.random()<(this.ev.id==='boxes'?.5:.18);
+    $('stage').innerHTML=this.head('tiene la bomba')+inlineQ(q,'BOMB.ans',this.box?'<div class="buzz on" style="background:#ff9f1c">🎁 ¡Caja sorpresa! Acierta y gana un ítem</div>':'');},
+  pass:function(to){var self=this;setTimeout(function(){if(!self.iv)return;self.lock=false;S.turn=to;renderScore();self.q();},500);},
+  ans:function(k){if(this.lock||!this.iv||this.stealOpen)return;this.lock=true;var q=this.cur,ok=k===q.a,i=S.turn,secs=(Date.now()-this.qt)/1000;
+    if(ok){markInline(k,q.a);sOk();var sp=Math.max(0,Math.round(10*(1-secs/10)))*10,pts=(50+sp+(this.ev.id==='rain'?50:0))*this.mult();
+      this.st[i].ok++;if(secs<4)this.st[i].fast++;pts=award(i,pts)||pts;logR(i,true,pts,{text:q.text,cat:q.cat,opts:q.opts,a:q.a});
+      if(secs<4)toast('⚡ ¡Rapidísimo! '+secs.toFixed(1)+' s');
+      if(this.box)this.giveItem(i);
+      this.pass(this.nextHolder());return;}
+    logR(i,false,0,{text:q.text,cat:q.cat,opts:q.opts,a:q.a});
     [].forEach.call(document.querySelectorAll('#iopts .op'),function(b){if(+b.getAttribute('data-i')===k)b.classList.add('bad');b.style.pointerEvents='none';});
-    sBad();miss(S.turn);this.stealOffer();},
-  stealOffer:function(){this.stealOpen=true;var h=S.turn,self=this;
+    sBad();miss(i);this.stealOffer();},
+  giveItem:function(i){var ks=Object.keys(BITEMS),k=ks[Math.floor(Math.random()*ks.length)],t=S.teams[i];t.item=k;this.st[i].items++;
+    tone(1047,.1);tone(1319,.1,.1);tone(1568,.25,.2);floatPts(i,BITEMS[k].e+' '+BITEMS[k].n);toast('🎁 '+t.name+' consiguió '+BITEMS[k].e+' '+BITEMS[k].n+': '+BITEMS[k].d);renderScore();},
+  use:function(){if(this.lock||!this.iv||this.stealOpen)return;var t=S.teams[S.turn],k=t.item;if(!k||k==='shield')return;t.item=null;
+    if(k==='ice'){this.t0+=10000;toast('🧊 ¡Mecha congelada! +10 s');tone(1500,.2);renderScore();this.q();return;}
+    this.lock=true;if(k==='rev'){this.dir*=-1;toast('🔄 ¡Reversa! Ahora la bomba va al revés');}else toast('⏭️ ¡Salto! '+t.name+' se libra de la bomba');
+    tone(660,.1);tone(990,.2,.1);renderScore();this.pass(k==='rev'?(S.turn+this.dir+S.teams.length)%S.teams.length:this.nextHolder());},
+  stealVal:function(){return (this.ev.id==='steal2'?200:100)*this.mult();},
+  stealOffer:function(){this.stealOpen=true;var h=S.turn,v=this.stealVal();
     var box=document.createElement('div');box.className='award';box.id='baward';box.style.cssText='background:#fff;border-radius:20px;padding:14px;margin-top:12px;width:min(1000px,100%)';
     box.innerHTML='<div style="width:100%;text-align:center;font-family:Fredoka;font-size:24px;font-weight:600;color:#c9184a">❌ ¡Incorrecto! ⚡ Oportunidad de robo</div>'+
-      '<div style="width:100%;text-align:center;color:#7a6ba8;font-weight:700">El primer equipo que pulse su tecla (o al que le hagas clic) responde una pregunta nueva. Si acierta, gana +100 y '+esc(S.teams[h].name)+' pierde 100. ¡La mecha sigue corriendo!</div>'+
+      '<div style="width:100%;text-align:center;color:#7a6ba8;font-weight:700">El primer equipo que pulse su tecla (o al que le hagas clic) responde una pregunta nueva. Si acierta, gana +'+v+' y '+esc(S.teams[h].name)+' pierde '+v+'. ¡La mecha sigue corriendo!</div>'+
       S.teams.map(function(t,i){return i===h?'':'<button style="background:'+COLORS[i]+'" onclick="BOMB.steal('+i+')">⌨️'+(i+1)+' '+t.emoji+' '+esc(t.name)+'</button>';}).join('')+
       '<button style="background:#555" onclick="BOMB.noSteal()">😶 Nadie</button>';
     $('stage').appendChild(box);},
   steal:function(j){if(!this.stealOpen||!this.iv||j===S.turn||j<0||j>=S.teams.length)return;this.stealOpen=false;this.thief=j;tone(988,.12);tone(1319,.25,.1);
     var q=anyQ(),t=S.teams[j];this.sq=q;this.slock=false;
-    $('stage').innerHTML='<div style="text-align:center"><span class="bomb s1" id="bombEl">💣</span><div class="holder" style="color:'+COLORS[S.turn]+'">'+S.teams[S.turn].emoji+' '+esc(S.teams[S.turn].name)+' sigue con la bomba</div></div>'+
-      inlineQ(q,'BOMB.stealAns','<div class="buzz on" style="background:'+COLORS[j]+'">🦹 '+t.emoji+' '+esc(t.name)+' intenta robar (+100)</div>');},
-  stealAns:function(k){if(this.slock||!this.iv)return;this.slock=true;var q=this.sq,ok=k===q.a,j=this.thief,h=S.turn,self=this;markInline(k,q.a);
-    logR(j,ok,ok?100:0,{text:'🦹 Robo: '+q.text,cat:q.cat,opts:q.opts,a:q.a});
-    if(ok){sOk();S.teams[j].score+=100;S.teams[h].score-=100;renderScore();floatPts(j,'+100 🦹');floatPts(h,'−100',true);}else{sBad();miss(j);}
+    $('stage').innerHTML=this.head('sigue con la bomba')+
+      inlineQ(q,'BOMB.stealAns','<div class="buzz on" style="background:'+COLORS[j]+'">🦹 '+t.emoji+' '+esc(t.name)+' intenta robar (+'+this.stealVal()+')</div>');},
+  stealAns:function(k){if(this.slock||!this.iv)return;this.slock=true;var q=this.sq,ok=k===q.a,j=this.thief,h=S.turn,self=this,v=this.stealVal();markInline(k,q.a);
+    logR(j,ok,ok?v:0,{text:'🦹 Robo: '+q.text,cat:q.cat,opts:q.opts,a:q.a});
+    if(ok){sOk();this.st[j].steals++;S.teams[j].score+=v;S.teams[h].score-=v;renderScore();floatPts(j,'+'+v+' 🦹');floatPts(h,'−'+v,true);}else{sBad();miss(j);}
     setTimeout(function(){if(!self.iv)return;self.lock=false;self.q();},ok?900:1300);},
   noSteal:function(){if(!this.stealOpen)return;this.stealOpen=false;var self=this;setTimeout(function(){if(!self.iv)return;self.lock=false;self.q();},200);},
-  boom:function(){this.stop();var loser=S.turn,self=this;var d=document.createElement('div');d.className='boomfx';d.textContent='💥';document.body.appendChild(d);setTimeout(function(){d.remove();},1300);
-    tone(90,.8);tone(60,1,.1);S.teams.forEach(function(t,i){if(i===loser){t.score-=300;t.streak=0;}else t.score+=100;});renderScore();
-    S.teams.forEach(function(t,i){floatPts(i,i===loser?'−300':'+100',i===loser);});
-    $('stage').innerHTML='<div class="introcard"><div class="big">💥</div><h2>¡BOOM!</h2><p style="font-size:22px">La bomba explotó en manos de '+S.teams[loser].emoji+' <b>'+esc(S.teams[loser].name)+'</b> (−300). Los demás equipos ganan 100.</p>'+
-      '<div class="row" style="justify-content:center;margin-top:14px"><button class="btn big" onclick="S.turn=(S.turn+1)%S.teams.length;BOMB.intro()">🔁 Otra ronda</button><button class="btn sec big" onclick="finish()">🏆 Terminar</button></div></div>';}
+  boom:function(){this.stop();var loser=S.turn,m=this.mult(),gold=this.ev.id==='gold',fin=this.ev.id==='final',L=S.teams[loser];
+    var pen=gold?500:fin?600:300*m,gain=gold?150:100*m,shield=L.item==='shield';
+    var d=document.createElement('div');d.className='boomfx';d.textContent='💥';document.body.appendChild(d);setTimeout(function(){d.remove();},1300);tone(90,.8);tone(60,1,.1);
+    if(shield){L.item=null;}else{this.st[loser].booms++;L.score-=pen;L.streak=0;S.teams.forEach(function(t,i){if(i!==loser)t.score+=gain;});}
+    renderScore();if(!shield)S.teams.forEach(function(t,i){floatPts(i,i===loser?'−'+pen:'+'+gain,i===loser);});else floatPts(loser,'🛡️ ¡Salvado!');
+    var more=!this.last();
+    $('stage').innerHTML='<div class="introcard"><div class="big">💥</div><h2>¡BOOM!</h2><p style="font-size:22px">'+(shield?'La bomba explotó en manos de '+L.emoji+' <b>'+esc(L.name)+'</b>… ¡pero su 🛡️ Escudo lo salvó! Nadie pierde puntos.':
+      'La bomba explotó en manos de '+L.emoji+' <b>'+esc(L.name)+'</b> (−'+pen+'). Los demás equipos ganan '+gain+'.')+'</p>'+
+      '<div class="row" style="justify-content:center;margin-top:14px">'+(more?'<button class="btn big" onclick="S.turn=(S.turn+1)%S.teams.length;BOMB.intro()">▶ Ronda '+(this.round+1)+' de '+this.total+'</button>':'')+
+      '<button class="btn '+(more?'sec ':'')+'big" onclick="BOMB.stars()">⭐ '+(more?'Terminar ya':'Estrellas extra')+'</button></div></div>';},
+  stars:function(){this.stop();var self=this,html='',n=S.teams.length;
+    BSTARS.forEach(function(s){var vals=self.st.map(function(x){return x[s.k];}),best=s.min?Math.min.apply(null,vals):Math.max.apply(null,vals);
+      var win=vals.map(function(v,i){return v===best?i:-1;}).filter(function(i){return i>=0;});
+      if((!s.min&&best<=0)||win.length===n){html+='<div class="star off">'+s.e+' <b>'+s.n+'</b> ('+s.d+'): desierta</div>';return;}
+      win.forEach(function(i){S.teams[i].score+=300;});
+      html+='<div class="star">'+s.e+' <b>'+s.n+'</b> ('+s.d+'): '+win.map(function(i){return S.teams[i].emoji+' '+esc(S.teams[i].name);}).join(', ')+' <span>+300</span></div>';});
+    renderScore();confettiSmall();tone(784,.15);tone(988,.15,.15);tone(1319,.4,.3);
+    $('stage').innerHTML='<div class="introcard" style="max-width:760px"><div class="big">⭐</div><h2>Estrellas extra</h2><div class="stars">'+html+'</div>'+
+      '<div class="row" style="justify-content:center;margin-top:14px"><button class="btn big" onclick="finish()">🏆 Ver ganadores</button></div></div>';}
 };
 
 /* ================= FLUJO ================= */
