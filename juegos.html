@@ -152,6 +152,7 @@ h2.s .n{background:var(--yellow);color:#2a1f5c;font-size:16px;width:32px;height:
 body.playing #game{display:flex}
 body.playing #home,body.playing header,body.playing #tabsWrap{display:none}
 .gbar{display:flex;align-items:center;gap:8px;padding:10px 14px;flex-wrap:wrap}
+.tcount{background:var(--yellow);color:#2a1f5c;border-radius:20px;padding:5px 12px;font-weight:900;font-size:14px;white-space:nowrap}
 .gbar .t{font-family:'Fredoka',sans-serif;font-weight:600;font-size:20px;flex:1;min-width:160px}
 .sb{display:flex;gap:10px;padding:8px 12px 12px;flex-wrap:wrap;justify-content:center}
 .tm{background:rgba(255,255,255,.1);border-radius:18px;padding:7px 12px 7px 9px;display:flex;align-items:center;gap:9px;border:3px solid transparent;min-width:155px;transition:all .25s}
@@ -303,6 +304,8 @@ body.playing #home,body.playing header,body.playing #tabsWrap{display:none}
     <div class="chips" id="catChips"></div>
     <div class="lbl">Dificultad</div>
     <div class="chips" id="lvChips"></div>
+    <div class="lbl">Turnos por equipo</div>
+    <div class="chips" id="tuChips"></div>
     <div class="lbl">Tiempo por pregunta</div>
     <div class="chips" id="tmChips"></div>
     <div class="lbl">Puntaje por rapidez</div>
@@ -316,7 +319,7 @@ body.playing #home,body.playing header,body.playing #tabsWrap{display:none}
 <div id="game">
   <div class="gbar">
     <button class="btn sec" onclick="exitGame()">✕ Salir</button>
-    <div class="t" id="gTitle"></div>
+    <div class="t" id="gTitle"></div><span class="tcount" id="tcount" style="display:none"></span>
     <button class="btn sec" onclick="turnMenu(event)" title="Elegir o pasar el turno">⏭ Turno</button>
     <button class="btn sec" onclick="showResults()">📊 Resultados</button>
     <button class="btn sec" onclick="finish()">🏆 Terminar</button>
@@ -330,12 +333,12 @@ body.playing #home,body.playing header,body.playing #tabsWrap{display:none}
 <div class="mo" id="mo"><div class="mbox" id="mbox"></div></div>
 <div class="win" id="win"></div>
 
-<script src="juegos/banco.js?v=202611131720"></script>
-<script src="juegos/waswere.js?v=202611131720"></script>
-<script src="juegos/grammar.js?v=202611131720"></script>
-<script src="juegos/grammar2.js?v=202611131720"></script>
-<script src="juegos/gen.js?v=202611131720"></script>
-<script src="juegos/retos.js?v=202611131720"></script>
+<script src="juegos/banco.js?v=202611131800"></script>
+<script src="juegos/waswere.js?v=202611131800"></script>
+<script src="juegos/grammar.js?v=202611131800"></script>
+<script src="juegos/grammar2.js?v=202611131800"></script>
+<script src="juegos/gen.js?v=202611131800"></script>
+<script src="juegos/retos.js?v=202611131800"></script>
 <script>
 /* ================= ESTADO ================= */
 var EMOJIS=['🦊','🐼','🦁','🐯','🐸','🦄','🐙','🐝','🦋','🐬','🚀','⚡','🌈','🍕','🎸','🌟'];
@@ -381,9 +384,9 @@ function applyMix(){S.mix=S.mix.filter(function(k,i,a){return BANKS[k]&&k!=='__m
 function mixTab(){var t=S.lastTab||'g1';sideKeys().forEach(function(k){if(S.mix.indexOf(k)<0)S.mix.push(k);});if(S.bank!=='__mix'&&S.mix.indexOf(S.bank)<0&&S.bank)S.mix.unshift(S.bank);applyMix();}
 function clearMix(){S.mix=[];applyMix();}
 var S={bank:'general',game:'board',teams:[],cats:BANCO.map(function(c){return c.id;}),lv:'all',time:30,turn:0,speed:true,mix:[],lastTab:'general',sound:true};var LOG=[];
-try{var sv=JSON.parse(localStorage.getItem('imv_games')||'null');if(sv){S.teams=sv.teams||[];if(sv.bank)S.bank=sv.bank;S.lv=sv.lv||S.lv;S.time=sv.time!=null?sv.time:S.time;if(sv.speed!=null)S.speed=sv.speed;if(sv.sound!=null)S.sound=sv.sound;if(sv.mix)S.mix=sv.mix;if(sv.cats&&sv.cats.length)S.cats=sv.cats;}}catch(e){}
+try{var sv=JSON.parse(localStorage.getItem('imv_games')||'null');if(sv){S.teams=sv.teams||[];if(sv.bank)S.bank=sv.bank;S.lv=sv.lv||S.lv;S.time=sv.time!=null?sv.time:S.time;S.turns=sv.turns||0;if(sv.speed!=null)S.speed=sv.speed;if(sv.sound!=null)S.sound=sv.sound;if(sv.mix)S.mix=sv.mix;if(sv.cats&&sv.cats.length)S.cats=sv.cats;}}catch(e){}
 if(S.teams.length<2)S.teams=[{name:'Tigers',emoji:'🐯'},{name:'Unicorns',emoji:'🦄'}];
-function save(){try{localStorage.setItem('imv_games',JSON.stringify({teams:S.teams.map(function(t){return {name:t.name,emoji:t.emoji};}),lv:S.lv,time:S.time,cats:S.cats,bank:S.bank,speed:S.speed,sound:S.sound,mix:S.mix}));}catch(e){}}
+function save(){try{localStorage.setItem('imv_games',JSON.stringify({teams:S.teams.map(function(t){return {name:t.name,emoji:t.emoji};}),lv:S.lv,time:S.time,turns:S.turns||0,cats:S.cats,bank:S.bank,speed:S.speed,sound:S.sound,mix:S.mix}));}catch(e){}}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
 function $(id){return document.getElementById(id);}
@@ -421,6 +424,8 @@ function renderHome(){
   $('spChips').innerHTML=[[true,'⚡ Sí: responder rápido vale más'],[false,'⏸️ No: puntaje fijo']].map(function(x){return '<button class="chip'+(S.speed===x[0]?' on':'')+'" onclick="S.speed='+x[0]+';renderHome()">'+x[1]+'</button>';}).join('')+
     '<p class="note" style="width:100%;margin-top:6px">En el tablero y la ruleta, una respuesta inmediata vale el 100% y el valor baja hasta el 30% cuando se acaba el tiempo. Requiere elegir un tiempo por pregunta.</p>';
   $('tmChips').innerHTML=[15,20,30,45,60,0].map(function(x){return '<button class="chip'+(S.time===x?' on':'')+'" onclick="S.time='+x+';renderHome()">'+(x?x+' s':'Sin límite')+'</button>';}).join('');
+  $('tuChips').innerHTML=[0,1,2,3,4,5,6,8,10].map(function(x){return '<button class="chip'+((S.turns||0)===x?' on':'')+'" onclick="S.turns='+x+';renderHome()">'+(x?x+(x===1?' turno':' turnos'):'♾️ Libre')+'</button>';}).join('')+
+    '<p class="note" style="width:100%;margin-top:6px">'+turnsNote()+'</p>';
   var g=GAMES.filter(function(x){return x.id===S.game;})[0];$('gameHelp').innerHTML='<b>¿Cómo se juega '+g.n+'?</b> '+g.h;
   save();
 }
@@ -463,7 +468,7 @@ function award(i,pts){var t=S.teams[i];t.streak=(t.streak||0)+1;var b=t.streak>=
 function miss(i){if(i!=null&&S.teams[i])S.teams[i].streak=0;}
 function floatPts(i,txt,neg){var el=document.querySelectorAll('#scoreboard .tm')[i];if(!el)return;var r=el.getBoundingClientRect(),d=document.createElement('div');d.className='fpts'+(neg?' neg':'');d.textContent=txt;
   d.style.left=(r.left+r.width/2)+'px';d.style.top=(r.top+6)+'px';document.body.appendChild(d);setTimeout(function(){d.remove();},1500);}
-function renderScore(){$('scoreboard').innerHTML=S.teams.map(function(t,i){return '<div class="tm'+(i===S.turn?' turn':'')+'" onclick="setTurn('+i+')" title="Clic para darle el turno a este equipo" style="border-left:6px solid '+COLORS[i]+'"><span class="em">'+t.emoji+'</span><div><div class="nm">'+esc(t.name)+(S.game==='board'||S.game==='race'||S.game==='retos'?'<span class="key" title="Tecla para pulsar">⌨️'+(i+1)+'</span>':'')+(S.game==='bomb'&&t.item&&BITEMS[t.item]?'<span class="key" title="'+BITEMS[t.item].n+'">'+BITEMS[t.item].e+'</span>':'')+((t.streak||0)>=2?'<span class="fire">🔥'+t.streak+'</span>':'')+'</div><div class="sc">'+fmtScore(t)+'</div></div>'+
+function renderScore(){renderTC();$('scoreboard').innerHTML=S.teams.map(function(t,i){return '<div class="tm'+(i===S.turn?' turn':'')+'" onclick="setTurn('+i+')" title="Clic para darle el turno a este equipo" style="border-left:6px solid '+COLORS[i]+'"><span class="em">'+t.emoji+'</span><div><div class="nm">'+esc(t.name)+(S.game==='board'||S.game==='race'||S.game==='retos'?'<span class="key" title="Tecla para pulsar">⌨️'+(i+1)+'</span>':'')+(S.game==='bomb'&&t.item&&BITEMS[t.item]?'<span class="key" title="'+BITEMS[t.item].n+'">'+BITEMS[t.item].e+'</span>':'')+((t.streak||0)>=2?'<span class="fire">🔥'+t.streak+'</span>':'')+'</div><div class="sc">'+fmtScore(t)+'</div></div>'+
   (S.game==='board'||S.game==='wheel'||S.game==='top5'||S.game==='flash'||S.game==='bomb'||S.game==='retos'?'<div class="pm"><button onclick="event.stopPropagation();addPts('+i+',100)">+</button><button onclick="event.stopPropagation();addPts('+i+',-100)">−</button></div>':'')+'</div>';}).join('');}
 function fmtScore(t){if(S.game==='race')return (t.pos||0)+' / '+RACE.len;if(S.game==='ladder')return LAD.vals[(t.step||0)-1]?LAD.vals[t.step-1].toLocaleString('es-CL'):'0';return t.score.toLocaleString('es-CL');}
 function addPts(i,v){S.teams[i].score+=v;renderScore();}
@@ -473,12 +478,23 @@ function setTurn(i){if(!S.teams[i])return;var mo=$('mo');$('tmenu')&&$('tmenu').
     S.turn=i;renderScore();var st=$('bstart');if(st)st.innerHTML=S.teams[i].emoji+' <b>'+esc(S.teams[i].name)+'</b>';[].forEach.call(document.querySelectorAll('.bwho .chip'),function(b,k){b.classList.toggle('on',k===i);});return;}
   if(S.game==='flash'&&FL.iv)return;
   S.turn=i;renderScore();if(S.game==='flash')FL.intro();if(S.game==='retos')RT.intro();if(S.game==='ladder')LAD.render();if(S.game==='wheel')WH.info();if(S.game==='top5')T5.render();toast('▶ Turno de '+S.teams[i].name);}
+function menuNext(){var m=$('tmenu');if(m)m.remove();if(S.game==='bomb')setTurn((S.turn+1)%S.teams.length);else nextTurn();}
 function turnMenu(e){e.stopPropagation();var m=$('tmenu');if(m){m.remove();return;}m=document.createElement('div');m.id='tmenu';m.className='tmenu';
   m.innerHTML='<div class="tt">¿A quién le toca?</div>'+S.teams.map(function(t,i){return '<button style="border-left:6px solid '+COLORS[i]+'" class="'+(i===S.turn?'on':'')+'" onclick="setTurn('+i+')">'+t.emoji+' '+esc(t.name)+(i===S.turn?' · ahora':'')+'</button>';}).join('')+
-    '<button onclick="setTurn((S.turn+1)%S.teams.length)">⏭ Siguiente equipo</button><button onclick="var r;do{r=Math.floor(Math.random()*S.teams.length);}while(S.teams.length>1&&r===S.turn);setTurn(r)">🎲 Al azar</button>';
+    '<button onclick="menuNext()">⏭ Siguiente equipo</button><button onclick="var r;do{r=Math.floor(Math.random()*S.teams.length);}while(S.teams.length>1&&r===S.turn);setTurn(r)">🎲 Al azar</button>';
   var r=e.currentTarget.getBoundingClientRect();m.style.top=(r.bottom+6)+'px';m.style.left=Math.max(8,Math.min(window.innerWidth-250,r.left))+'px';document.body.appendChild(m);}
 document.addEventListener('click',function(e){var m=$('tmenu');if(m&&!m.contains(e.target))m.remove();});
-function nextTurn(){if(S.game==='bomb'||(S.game==='flash'&&FL.iv))return;S.turn=(S.turn+1)%S.teams.length;renderScore();if(S.game==='flash')FL.intro();if(S.game==='retos')RT.intro();if(S.game==='ladder')LAD.render();if(S.game==='wheel')WH.info();if(S.game==='top5')T5.render();}
+function turnsNote(){var n=S.turns||0;if(!n)return 'Sin límite: el juego termina cuando tú presionas 🏆 Terminar (o cuando alguien llega a la meta).';
+  var g=S.game;return g==='race'?'Carrera espacial: se harán '+n+' preguntas en total; gana quien llegue más lejos.':g==='flash'?'Relámpago: cada equipo juega '+n+' vez/veces contra el reloj.':g==='bomb'?'Bomba Party: se jugarán '+n+' rondas.':
+    'Cada equipo juega '+n+' turno(s) ('+n*S.teams.length+' en total) y luego se muestran los ganadores automáticamente.';}
+function tcText(){var n=S.turns||0;if(!n||!document.body.classList.contains('playing'))return '';var T=S.teams.length;
+  if(S.game==='race')return '🎤 Pregunta '+Math.min(n,(RACE.qn||0))+' / '+n;if(S.game==='flash')return '🔁 Vuelta '+(FL.round||1)+' / '+n;if(S.game==='bomb')return '';
+  return '🔁 Turno '+Math.min(n*T,(S.tdone||0)+1)+' / '+n*T+' · vuelta '+Math.min(n,Math.floor((S.tdone||0)/T)+1)+' de '+n;}
+function renderTC(){var e=$('tcount');if(!e)return;var t=tcText();e.textContent=t;e.style.display=t?'':'none';}
+function countTurn(){if(!S.turns||S.game==='flash'||S.game==='race'||S.game==='bomb')return false;S.tdone=(S.tdone||0)+1;var tot=S.turns*S.teams.length;renderTC();
+  if(S.tdone>=tot){endTurns();return true;}if(S.tdone===tot-S.teams.length)toast('🔔 ¡Última vuelta! Cada equipo tiene un turno más');return false;}
+function endTurns(){closeQ();FL.stop();toast('🏁 ¡Se acabaron los turnos!');tone(784,.15);tone(1047,.3,.15);setTimeout(finish,1000);}
+function nextTurn(){if(S.game==='bomb'||(S.game==='flash'&&FL.iv))return;if(countTurn())return;S.turn=(S.turn+1)%S.teams.length;renderScore();if(S.game==='flash')FL.intro();if(S.game==='retos')RT.intro();if(S.game==='ladder')LAD.render();if(S.game==='wheel')WH.info();if(S.game==='top5')T5.render();}
 function toast(m){var d=document.createElement('div');d.className='toast';d.textContent=m;document.body.appendChild(d);setTimeout(function(){d.remove();},1800);}
 function confetti(){var em=['🎉','⭐','🎊','💖','🏆','✨'];for(var i=0;i<60;i++){var d=document.createElement('div');d.className='conf';d.textContent=em[i%em.length];d.style.left=Math.random()*100+'vw';d.style.animationDuration=(2+Math.random()*2.5)+'s';d.style.animationDelay=(Math.random()*.8)+'s';document.body.appendChild(d);setTimeout(function(x){x.remove();}.bind(null,d),5200);}}
 
@@ -554,7 +570,7 @@ var BD={cols:[],used:{},dbl:null,cur:null,
     var ch=CH.make(CH.pickType(['order','tf','speak','mime','draw','spell','twister','mystery']));if(ch.pts!=null&&ch.type!=='tf')ch.pts=val;
     var judge=/speak|mime|draw|spell|twister/.test(ch.type);
     var aw=judge?'<div style="width:100%;text-align:center;font-weight:700;color:#7a6ba8">¿Quién lo logró?</div>'+teamBtns('BD.win','✅')+'<button style="background:#555" onclick="BD.win(null)">😶 Nadie</button>':'';
-    CH.inModal(ch,'🎁 RETO SORPRESA · ',aw,function(ok,pts,myst){if(myst){$('qaward').innerHTML='<button style="background:var(--yellow);color:#2a1f5c" onclick="BD.used[BD.cur.k]={t:S.turn};closeQ();S.turn=(S.turn+1)%S.teams.length;BD.render()">▶ Continuar</button>';return;}
+    CH.inModal(ch,'🎁 RETO SORPRESA · ',aw,function(ok,pts,myst){if(myst){$('qaward').innerHTML='<button style="background:var(--yellow);color:#2a1f5c" onclick="BD.used[BD.cur.k]={t:S.turn};closeQ();if(!countTurn()){S.turn=(S.turn+1)%S.teams.length;BD.render();}">▶ Continuar</button>';return;}
       if(ok){self.cur.val=pts||val;$('qaward').innerHTML='<div style="width:100%;text-align:center;font-weight:900">🎉 ¡Logrado!</div><button style="background:'+COLORS[S.turn]+'" onclick="BD.win('+S.turn+')">'+S.teams[S.turn].emoji+' +'+self.cur.val+' pts</button>';}
       else $('qaward').innerHTML='<div style="width:100%;text-align:center;font-weight:700;color:#7a6ba8">¿Otro equipo lo logra?</div>'+teamBtns('BD.win','✅')+'<button style="background:#555" onclick="BD.win(null)">😶 Nadie</button>';});},
   check:function(){if(Object.keys(this.used).length>=this.cols.length*5)setTimeout(function(){toast('¡Tablero completo! Vamos a la pregunta final 🏁');},300);},
@@ -628,12 +644,12 @@ var WH={segs:[],rot:0,mult:1,
 
 /* ================= 4. REGATA ================= */
 var RACE={len:8,
-  init:function(){S.teams.forEach(function(t){t.pos=0;});this.render();},
+  init:function(){this.qn=0;S.teams.forEach(function(t){t.pos=0;});this.render();},
   render:function(){var self=this;var h='<div class="race">'+S.teams.map(function(t,i){var p=(t.pos||0)/self.len*92+4;
       return '<div class="lane"><div class="ln" style="color:'+COLORS[i]+'">'+t.emoji+' '+esc(t.name)+'</div><div class="track"><div class="wave"></div><div class="boat" style="left:'+p+'%">🚀</div></div><div class="goal">🏁</div></div>';}).join('')+
     '</div><div class="row"><span style="opacity:.8">Meta:</span>'+[6,8,10,12].map(function(n){return '<button class="chip'+(self.len===n?' on':'')+'" onclick="RACE.len='+n+';RACE.render()">'+n+' casillas</button>';}).join('')+
-    '</div><button class="btn big" onclick="RACE.ask()">🎤 Siguiente pregunta</button>';$('stage').innerHTML=h;renderScore();},
-  ask:function(){var q=anyQ();askQ(q,{mode:'teacher',label:'¡El primero que responda bien!',awardHtml:function(){return '<div style="width:100%;text-align:center;font-weight:700;opacity:.85">¿Qué equipo respondió primero y bien?</div>'+teamBtns('RACE.move','🚀')+'<button style="background:#7a2a2a" onclick="buzzFail()">❌ Falló el que pulsó</button><button style="background:#555" onclick="closeQ()">😶 Nadie</button><div style="width:100%;text-align:center;font-size:12px;color:#7a6ba8">⌨️ Teclas 1–'+S.teams.length+' para pulsar</div>';}});},
+    '</div><button class="btn big" onclick="RACE.ask()">'+(S.turns&&(this.qn||0)>=S.turns?'🏁 Ver resultado final':'🎤 Siguiente pregunta')+'</button>';$('stage').innerHTML=h;renderScore();},
+  ask:function(){if(S.turns&&(this.qn||0)>=S.turns){endTurns();return;}this.qn=(this.qn||0)+1;renderTC();if(S.turns&&this.qn===S.turns)toast('🔔 ¡Última pregunta!');var q=anyQ();askQ(q,{mode:'teacher',label:'¡El primero que responda bien!',awardHtml:function(){return '<div style="width:100%;text-align:center;font-weight:700;opacity:.85">¿Qué equipo respondió primero y bien?</div>'+teamBtns('RACE.move','🚀')+'<button style="background:#7a2a2a" onclick="buzzFail()">❌ Falló el que pulsó</button><button style="background:#555" onclick="closeQ()">😶 Nadie</button><div style="width:100%;text-align:center;font-size:12px;color:#7a6ba8">⌨️ Teclas 1–'+S.teams.length+' para pulsar</div>';}});},
   move:function(i){logR(i,true,0);var t=S.teams[i];t.streak=(t.streak||0)+1;floatPts(i,'🚀 +1');t.pos=Math.min(this.len,(t.pos||0)+1);sOk();closeQ();this.render();
     if(t.pos>=this.len){confetti();setTimeout(finish,900);}}
 };
@@ -659,7 +675,7 @@ var T5={list:[],i:-1,rev:[],strikes:0,pot:0,steal:false,
   strike:function(){this.strikes++;sBad();var d=document.createElement('div');d.className='bigx';d.textContent='✖';document.body.appendChild(d);setTimeout(function(){d.remove();},900);
     if(this.strikes>=3){this.steal=true;toast('⚡ 3 errores: los otros equipos pueden robar con UNA respuesta');}this.render();},
   showAll:function(){this.rev=[1,1,1,1,1];this.render();},
-  give:function(i){logR(i,true,this.pot,{text:this.list[this.i][0],cat:{name:'Top 5'},ans:this.rev.filter(function(x){return x;}).length+'/5 respuestas'});S.teams[i].score+=this.pot;toast('🏆 +'+this.pot+' para '+S.teams[i].name);sOk();this.pot=0;S.turn=(S.turn+1)%S.teams.length;this.next();}
+  give:function(i){logR(i,true,this.pot,{text:this.list[this.i][0],cat:{name:'Top 5'},ans:this.rev.filter(function(x){return x;}).length+'/5 respuestas'});S.teams[i].score+=this.pot;toast('🏆 +'+this.pot+' para '+S.teams[i].name);sOk();this.pot=0;if(countTurn())return;S.turn=(S.turn+1)%S.teams.length;this.next();}
 };
 
 /* ================= 6. RELÁMPAGO ================= */
@@ -668,7 +684,7 @@ function inlineQ(q,fn,extra){var L='ABCD';return '<div class="qcard">'+(extra||'
   q.opts.map(function(x,i){return '<button class="op" data-i="'+i+'" onclick="'+fn+'('+i+')"><span class="l">'+L[i]+'</span>'+esc(x)+'</button>';}).join('')+'</div></div>';}
 function markInline(k,a){[].forEach.call(document.querySelectorAll('#iopts .op'),function(b){var i=+b.getAttribute('data-i');if(i===a)b.classList.add('ok');else if(i===k)b.classList.add('bad');else b.classList.add('dim');});}
 var FL={dur:60,iv:null,
-  init:function(){S.teams.forEach(function(t){t.flash=null;});this.intro();},
+  init:function(){this.round=1;S.teams.forEach(function(t){t.flash=null;});this.intro();},
   stop:function(){clearInterval(this.iv);this.iv=null;},
   intro:function(){this.stop();var t=S.teams[S.turn],self=this,done=S.teams.filter(function(x){return x.flash;}).length;
     $('stage').innerHTML='<div class="introcard"><div class="big">'+t.emoji+'</div><h2>Turno de '+esc(t.name)+'</h2><p style="opacity:.85">Respondan todas las preguntas que puedan en <b>'+this.dur+' segundos</b>. Cada acierto vale entre 100 y 300 puntos; 3 seguidos activan la racha 🔥.</p>'+
@@ -685,6 +701,7 @@ var FL={dur:60,iv:null,
     setTimeout(function(){self.lock=false;if(self.iv)self.q();},ok?450:1100);},
   end:function(){this.stop();var t=S.teams[S.turn];t.flash={ok:this.ok,n:this.n};tone(330,.4);tone(262,.6,.3);
     var left=S.teams.filter(function(x){return !x.flash;}).length;
+    if(!left&&S.turns&&(this.round||1)<S.turns){this.round=(this.round||1)+1;S.teams.forEach(function(x){x.flash=null;});left=S.teams.length;toast('🔁 ¡Vuelta '+this.round+' de '+S.turns+'!');}
     $('stage').innerHTML='<div class="introcard"><div class="big">⏰</div><h2>¡Tiempo!</h2><p style="font-size:22px">'+t.emoji+' <b>'+esc(t.name)+'</b>: '+this.ok+' correctas de '+this.n+' · '+t.score.toLocaleString('es-CL')+' pts</p>'+
       '<div class="row" style="justify-content:center;margin-top:14px">'+(left?'<button class="btn big" onclick="S.turn=(S.turn+1)%S.teams.length;FL.intro()">▶ Siguiente equipo</button>':'<button class="btn big" onclick="finish()">🏆 Ver ganadores</button>')+'</div></div>';
     if(!left)confetti();renderScore();}
@@ -715,7 +732,7 @@ var BSTARS=[
   {k:'booms',e:'🛡️',n:'Estrella Sobreviviente',d:'menos explosiones',min:true}
 ];
 var BOMB={iv:null,round:0,total:5,dir:1,
-  init:function(){this.round=0;this.total=this.total||5;this.st=S.teams.map(function(){return {fast:0,ok:0,steals:0,items:0,booms:0};});
+  init:function(){this.round=0;this.total=S.turns||this.total||5;this.st=S.teams.map(function(){return {fast:0,ok:0,steals:0,items:0,booms:0};});
     S.teams.forEach(function(t){t.item=null;});this.intro();},
   stop:function(){clearInterval(this.iv);this.iv=null;this.stealOpen=false;clearInterval(this.rl);},
   last:function(){return this.round>=this.total;},
@@ -799,7 +816,7 @@ var BOMB={iv:null,round:0,total:5,dir:1,
 
 /* ================= FLUJO ================= */
 function start(){if(S.teams.some(function(t){return !t.name.trim();})){alert('Escribe un nombre para cada equipo.');return;}
-  S.teams.forEach(function(t){t.score=0;});S.turn=0;USED={};LOG=[];save();
+  S.teams.forEach(function(t){t.score=0;});S.turn=0;S.tdone=0;USED={};LOG=[];save();
   document.body.classList.add('playing');var g=GAMES.filter(function(x){return x.id===S.game;})[0];$('gTitle').textContent=g.e+' '+g.n+' · '+BK().n;window.scrollTo(0,0);
   S.teams.forEach(function(t){t.streak=0;});$('sndBtn').textContent=S.sound?'🔊':'🔇';
   ({board:BD,ladder:LAD,wheel:WH,race:RACE,top5:T5,flash:FL,bomb:BOMB,retos:RT})[S.game].init();}
