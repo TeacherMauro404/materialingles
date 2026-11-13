@@ -69,6 +69,51 @@ window.BANCO_WW = [
   [4,"How many students ___ there in the class?",["was","were"],1],
   [5,"There ___ a teacher and two students in the room.",["was","were"],0],
   [5,"There ___ some money on the table.",["was","were"],0]]}
+,
+{ id:"w7", name:"Yesterday & Last…", icon:"📅", q:[
+  [1,"I ___ at school yesterday.",["was","were"],0],
+  [1,"We ___ at the beach last Saturday.",["was","were"],1],
+  [2,"It ___ very hot last summer.",["was","were"],0],
+  [2,"My cousins ___ in Viña last week.",["was","were"],1],
+  [3,"Two days ago, the sea ___ very rough.",["was","were"],0],
+  [3,"Last night the streets ___ empty.",["was","were"],1],
+  [4,"Which is correct?",["I was sick yesterday.","I am sick yesterday.","I were sick yesterday.","I sick was yesterday."],0],
+  [4,"Which is correct?",["They were at the port last night.","They are at the port last night.","They was at the port last night.","They at the port were last night."],0],
+  [5,"In 1906 there ___ a big earthquake in Valparaíso.",["was","were"],0],
+  [5,"When I was a child, my favourite toys ___ cars.",["was","were"],1]]},
+{ id:"w8", name:"WH- Questions", icon:"🧭", q:[
+  [1,"Where ___ you yesterday? — At home.",["was","were"],1],
+  [1,"How ___ your weekend? — Great!",["was","were"],0],
+  [2,"Who ___ your first teacher?",["was","were"],0],
+  [2,"Why ___ you late this morning?",["was","were"],1],
+  [3,"What time ___ the party?",["was","were"],0],
+  [3,"How many people ___ at the concert?",["was","were"],1],
+  [4,"Choose the correct question:",["Where were your parents last night?","Where was your parents last night?","Where your parents were last night?","Where did your parents were last night?"],0],
+  [4,"'How was the film?' — Choose the best answer:",["It was amazing!","It were amazing!","Yes, it was.","It is amazing yesterday."],0],
+  [5,"Choose the correct question:",["What was the weather like in Chiloé?","What were the weather like in Chiloé?","How was the weather like in Chiloé?","What did the weather was like in Chiloé?"],0],
+  [5,"'Who was with you?' — Choose the best answer:",["My sister was.","My sister were.","Yes, she was.","My sister did."],0]]},
+{ id:"w9", name:"Was / Were or Did?", icon:"⚖️", q:[
+  [1,"I ___ tired yesterday.",["was","did"],0],
+  [1,"___ you go to the party?",["Did","Were"],0],
+  [2,"___ you at the party?",["Were","Did"],0],
+  [2,"She ___ like the film.",["didn't","wasn't"],0],
+  [3,"The film ___ very good.",["wasn't","didn't"],0],
+  [3,"___ they happy with the results?",["Were","Did"],0],
+  [4,"Choose the correct sentence:",["We didn't go to school because we were sick.","We weren't go to school because we were sick.","We didn't go to school because we did sick.","We wasn't go to school because we were sick."],0],
+  [4,"Choose the correct question:",["Did you see the whale?","Were you see the whale?","Was you see the whale?","Did you saw the whale?"],0],
+  [5,"Choose the correct question:",["Were you born in Valparaíso?","Did you born in Valparaíso?","Was you born in Valparaíso?","Are you born in Valparaíso?"],0],
+  [5,"Choose the correct sentence:",["It was raining, so we didn't swim.","It did raining, so we weren't swim.","It was rain, so we didn't swim.","It were raining, so we didn't swim."],0]]},
+{ id:"w10", name:"Born & Ages", icon:"🎂", q:[
+  [1,"I ___ born in 2010.",["was","were"],0],
+  [1,"My twin brothers ___ born in May.",["was","were"],1],
+  [2,"Where ___ you born?",["was","were"],1],
+  [2,"When I ___ ten, I lived in Quilpué.",["was","were"],0],
+  [3,"Choose the correct one:",["I was born in Chile.","I born in Chile.","I am born in Chile.","I were born in Chile."],0],
+  [3,"When we ___ children, we played in the street.",["was","were"],1],
+  [4,"Pablo Neruda ___ born in Parral in 1904.",["was","were"],0],
+  [4,"How old ___ you when you learned to swim?",["was","were"],1],
+  [5,"Choose the correct question:",["When was your grandmother born?","When did your grandmother born?","When were your grandmother born?","When your grandmother was born?"],0],
+  [5,"Gabriela Mistral and Pablo Neruda ___ both Nobel Prize winners.",["was","were"],1]]}
 ];
 
 window.TOP5_WW = [
