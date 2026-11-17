@@ -115,6 +115,7 @@ header p{color:rgba(255,255,255,.75);font-size:15px;max-width:720px;margin:0 aut
 .topic .big{font-size:58px;line-height:1}
 .topic h2{font-size:32px;font-weight:700;line-height:1.1}
 .topic p{font-size:14.5px;opacity:.9;margin-top:4px}
+.glinks{margin-top:10px;font-size:13.5px;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}.glinks .gl{background:rgba(255,255,255,.14);border-radius:20px;padding:4px 12px}.glinks a{color:#ffd23f;font-weight:800;text-decoration:none}.glinks a:hover{text-decoration:underline}
 .topic .tag{display:inline-block;background:#fff;color:#2a1f5c;border-radius:30px;padding:3px 12px;font-size:12px;font-weight:900;margin-top:8px;margin-right:6px}
 .gc.off{opacity:.35;filter:grayscale(.6);cursor:not-allowed}
 .gc.off:hover{transform:none}
@@ -280,7 +281,7 @@ body.playing #home,body.playing header,body.playing #tabsWrap{display:none}
     <div class="hb">🎮 Inglés IMV</div>
     <h1>Juegos en <span>equipo</span></h1>
     <p>Juegos para proyectar en clases con marcador, cronómetro y audio. Elige el banco de preguntas, el juego y los equipos, ¡y a jugar!</p>
-    <div class="links"><a href="clases.html">🎞️ Presentaciones por clase</a><a href="index.html">🔤 Vocabularios y guías</a></div>
+    <div class="links"><a href="clases.html">🎞️ Presentaciones por clase</a><a href="index.html">🔤 Vocabularios y guías</a><a href="https://teachermauro404.github.io/Guiasingles/" target="_blank" rel="noopener">📄 Guías en PDF</a></div>
   </div>
 </header>
 
@@ -333,12 +334,12 @@ body.playing #home,body.playing header,body.playing #tabsWrap{display:none}
 <div class="mo" id="mo"><div class="mbox" id="mbox"></div></div>
 <div class="win" id="win"></div>
 
-<script src="juegos/banco.js?v=202611131800"></script>
-<script src="juegos/waswere.js?v=202611131800"></script>
-<script src="juegos/grammar.js?v=202611131800"></script>
-<script src="juegos/grammar2.js?v=202611131800"></script>
-<script src="juegos/gen.js?v=202611131800"></script>
-<script src="juegos/retos.js?v=202611131800"></script>
+<script src="juegos/banco.js?v=202611171200"></script>
+<script src="juegos/waswere.js?v=202611171200"></script>
+<script src="juegos/grammar.js?v=202611171200"></script>
+<script src="juegos/grammar2.js?v=202611171200"></script>
+<script src="juegos/gen.js?v=202611171200"></script>
+<script src="juegos/retos.js?v=202611171200"></script>
 <script>
 /* ================= ESTADO ================= */
 var EMOJIS=['🦊','🐼','🦁','🐯','🐸','🦄','🐙','🐝','🦋','🐬','🚀','⚡','🌈','🍕','🎸','🌟'];
@@ -408,13 +409,21 @@ function renderSide(){var t=tabOf(S.bank);
   $('side').innerHTML=t==='general'?'<h3>🌍 Cultura general</h3>'+mb+bkItem('general')+'<p class="note">12 categorías: geografía, ciencia, historia, deportes, música, animales, comida, Chile, el mar, tecnología, arte y cuerpo humano.</p><p class="note">📚 Los temas de gramática están en las pestañas <b>Grammar 1° Medio</b> y <b>Grammar 2° Medio</b>.</p>'
     :'<h3><span>'+(t==='g1'?'📘 1° Medio':'📗 2° Medio')+'</span><span>'+ORDER[t].length+' temas</span></h3>'+mb+'<input id="sideQ" placeholder="🔎 Buscar tema…" value="'+esc(FILTER)+'" oninput="FILTER=this.value;renderSideList()"/><div id="sideList"></div>';
   if(t!=='general')renderSideList();}
+var GUIAS_URL='https://teachermauro404.github.io/Guiasingles/';
+var GUIAS={tobe:['verb-to-be'],pron:['personal-pronouns','possessive-adjectives'],articles:['articles'],plurals:['plural-nouns'],demonst:['demonstratives'],there:['there-is-are'],have:['have-has'],
+  prepplace:['prepositions-place'],preptime:['prepositions-time'],imper:['imperatives'],whq:['question-words'],ps:['present-simple','present-simple-neg'],count:['countable-uncountable','quantifiers'],
+  pc:['present-continuous'],psvpc:['present-simple-vs-continuous'],likes:['likes-gerunds'],adv:['adverbs-frequency'],can:['can'],waswere:['past-was-were'],past:['past-regular','past-irregular','past-neg'],
+  comp:['comparatives','superlatives'],fut:['going-to','will','will-vs-going-to']};
+var GNOM={'verb-to-be':'Verb To Be','personal-pronouns':'Personal Pronouns','possessive-adjectives':'Possessive Adjectives','articles':'Articles a / an / the','plural-nouns':'Plural Nouns','demonstratives':'This / That / These / Those','there-is-are':'There is / There are','have-has':'Have / Has','prepositions-place':'Prepositions of Place','prepositions-time':'Prepositions of Time','imperatives':'Imperatives','question-words':'Question Words','present-simple':'Present Simple','present-simple-neg':'Present Simple: negativo y preguntas','countable-uncountable':'Countable / Uncountable','quantifiers':'Quantifiers','present-continuous':'Present Continuous','present-simple-vs-continuous':'Simple vs Continuous','likes-gerunds':'Likes + gerunds','adverbs-frequency':'Adverbs of Frequency','can':'Can / Can\'t','past-was-were':'Was / Were','past-regular':'Past Simple: regulares','past-irregular':'Past Simple: irregulares','past-neg':'Past Simple: negativo y preguntas','comparatives':'Comparatives','superlatives':'Superlatives','going-to':'Going to','will':'Will','will-vs-going-to':'Will vs Going to'};
+function guideLinks(k){var g=GUIAS[k];if(!g)return '';
+  return '<div class="glinks"><b>📄 Guías de este tema:</b>'+g.map(function(f){var n=GNOM[f]||f;return '<span class="gl"><a href="'+GUIAS_URL+f+'-guia.pdf" target="_blank" rel="noopener">'+n+'</a> · <a href="'+GUIAS_URL+f+'-pauta.pdf" target="_blank" rel="noopener">pauta</a> · <a href="'+GUIAS_URL+f+'-completa.pdf" target="_blank" rel="noopener">con respuestas</a></span>';}).join('')+'</div>';}
 function renderSideList(){var f=FILTER.toLowerCase();if(!$('sideList'))return;$('sideList').innerHTML=sideKeys().filter(function(k){return !f||BANKS[k].name.toLowerCase().indexOf(f)>=0;}).map(bkItem).join('')||'<p class="note">Sin resultados.</p>';}
 function renderHome(){
   if(S.cats.filter(function(id){return BK().cats.some(function(c){return c.id===id;});}).length===0)S.cats=BK().cats.map(function(c){return c.id;});
   renderSide();
   var B=BK(),nq=B.cats.reduce(function(a,c){return a+c.q.length;},0);
   if(S.bank==='__mix'){$('topic').innerHTML='<div class="big">🔀</div><div><h2>'+B.name+'</h2><p>Las preguntas salen de todos estos temas. Haz clic en un tema para quitarlo:</p>'+B.ids.map(function(k){return '<span class="tag x" onclick="toggleMix(\''+k+'\')">'+BANKS[k].icon+' '+BANKS[k].name+' ✕</span>';}).join('')+'<span class="tag">'+B.cats.length+' categorías · '+nq+' preguntas</span></div>';}
-  else $('topic').innerHTML='<div class="big">'+B.icon+'</div><div><h2>'+B.name+'</h2><p>'+B.desc+'</p><span class="tag">'+B.tag+'</span><span class="tag">'+B.cats.length+' categorías · '+nq+' preguntas</span>'+(B.top5?'<span class="tag">Top 5 ✔</span>':'')+'</div>';
+  else $('topic').innerHTML='<div class="big">'+B.icon+'</div><div><h2>'+B.name+'</h2><p>'+B.desc+'</p><span class="tag">'+B.tag+'</span><span class="tag">'+B.cats.length+' categorías · '+nq+' preguntas</span>'+(B.top5?'<span class="tag">Top 5 ✔</span>':'')+guideLinks(S.bank)+'</div>';
   $('gameList').innerHTML=GAMES.map(function(g){var off=g.id==='top5'&&!BK().top5;return '<button class="gc'+(S.game===g.id?' sel':'')+(off?' off':'')+'" '+(off?'title="Top 5 no está disponible para este tema" onclick="toast(\'Top 5 está disponible en Cultura general y Was / Were\')"':'onclick="S.game=\''+g.id+'\';renderHome()"')+'><div class="e">'+g.e+'</div><b>'+g.n+'</b><span>'+(off?'No disponible en este tema.':g.d)+'</span></button>';}).join('');
   $('teamsEdit').innerHTML=S.teams.map(function(t,i){return '<div class="te" style="border-color:'+COLORS[i]+'"><button class="em" onclick="cycleEmoji('+i+')">'+t.emoji+'</button><input maxlength="22" value="'+esc(t.name)+'" oninput="S.teams['+i+'].name=this.value;save()"/>'+(S.teams.length>2?'<button class="x" onclick="S.teams.splice('+i+',1);renderHome()">✕</button>':'')+'</div>';}).join('');
   var BC=BK().cats;if(S.bank==='__mix'){$('catChips').innerHTML=BK().ids.map(function(k){var on=BC.some(function(c){return c.id.indexOf(k+'|')===0&&S.cats.indexOf(c.id)>=0;});
