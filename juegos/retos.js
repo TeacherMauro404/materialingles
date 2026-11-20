@@ -10,8 +10,6 @@ types:{
   order:{i:'🧩',n:'Ordena la oración',pts:200,c:'#ff7a45'},
   tf:{i:'✅❌',n:'Verdadero o falso relámpago',pts:0,c:'#22c47a'},
   speak:{i:'🎤',n:'¡A hablar!',pts:300,c:'#ff5fa2'},
-  mime:{i:'🎭',n:'Mímica',pts:200,c:'#a66bff'},
-  draw:{i:'🎨',n:'Dibuja y adivina',pts:200,c:'#ffb020'},
   spell:{i:'🔤',n:'Deletrea',pts:150,c:'#13c4a3'},
   twister:{i:'😜',n:'Trabalenguas',pts:200,c:'#ff4d8d'},
   duel:{i:'⚔️',n:'Duelo',pts:300,c:'#7b61ff'},
@@ -69,7 +67,7 @@ var CH={cur:null,dbl:{},
         var wr=q[2].filter(function(o,i){return i!==q[3];});var n=s.split(' ').length;if(n>=3&&n<=12&&/^[A-Z]/.test(s))out.push({s:s,wrong:t.replace(/\s*\([^)]*\)/g,'').replace(/^[^A-Za-z_]+/,'').replace('___',wr[0]).replace(/\s+/g,' ').trim(),lv:q[0]});}
       else if(/^Correct it|^Choose the correct|^Which (is|sentence)/.test(t)&&/[.?!]$/.test(a)&&a.split(' ').length>=3&&a.split(' ').length<=12)out.push({s:a,wrong:q[2][(q[3]+1)%q[2].length],lv:q[0]});});});
     return out;},
-  pickType:function(allowed){var a=allowed||['mcq','order','tf','speak','mime','draw','spell','twister','duel','mystery'],w={mcq:3,order:3,tf:2,speak:2,mime:2,draw:1,spell:2,twister:1,duel:2,mystery:1.5};
+  pickType:function(allowed){var a=(allowed||['mcq','order','tf','speak','spell','twister','duel','mystery']).filter(function(x){return x!=='mime'&&x!=='draw';}),w={mcq:3,order:3,tf:2.5,speak:2,spell:2,twister:1.5,duel:2,mystery:1.5};
     if(S.teams.length<2)a=a.filter(function(x){return x!=='duel';});var tot=a.reduce(function(s,x){return s+(w[x]||1);},0),r=Math.random()*tot;
     for(var i=0;i<a.length;i++){r-=w[a[i]]||1;if(r<=0)return a[i];}return a[0];},
   make:function(type){var T=RETOS.types[type],ch={type:type,t:T,time:30};
@@ -141,7 +139,7 @@ var RT={
   init:function(){CH.dbl={};this.intro();},
   intro:function(){var t=S.teams[S.turn];
     $('stage').innerHTML='<div class="introcard"><div class="deck" onclick="RT.draw()"><span>🎲</span></div><h2>Turno de '+t.emoji+' '+esc(t.name)+'</h2>'+(CH.dbl[S.turn]?'<p style="color:var(--yellow);font-weight:900">⭐ ¡Su próximo reto vale el doble!</p>':'')+
-      '<p style="opacity:.85">Saquen una carta: puede ser una pregunta, ordenar una oración, hablar, mímica, dibujar, deletrear, un trabalenguas, un duelo… ¡o una caja misteriosa!</p>'+
+      '<p style="opacity:.85">Saquen una carta: puede ser una pregunta, ordenar una oración, verdadero o falso, hablar, deletrear, un trabalenguas, un duelo… ¡o una caja misteriosa!</p>'+
       '<div class="row" style="justify-content:center;margin-top:12px"><button class="btn big" onclick="RT.draw()">🎴 ¡Sacar reto!</button></div>'+
       '<div class="rtypes">'+Object.keys(RETOS.types).map(function(k){var T=RETOS.types[k];return '<span style="background:'+T.c+'">'+T.i+' '+T.n+'</span>';}).join('')+'</div></div>';renderScore();},
   draw:function(){var self=this;$('stage').innerHTML='<div class="introcard"><div class="deck flipping"><span>🎴</span></div><h2>…</h2></div>';tone(500,.08);tone(700,.08,.1);tone(900,.12,.2);
