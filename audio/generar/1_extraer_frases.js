@@ -1,0 +1,20 @@
+const {chromium}=require('playwright');
+(async()=>{const b=await chromium.launch();const p=await b.newPage();const e=[];p.on('pageerror',x=>e.push(x.message));
+await p.goto('file:///home/user/materialingles/clases.html');await p.waitForTimeout(800);
+const res=await p.evaluate(()=>{
+ const norm=t=>strip(t).replace(/_{2,}/g,' blank ').replace(/\/[^\/\s][^\/]*\//g,' ').replace(/[↗↘|…]/g,' ').replace(/\s+/g,' ').trim();
+ const out={};const add=(t,v)=>{t=norm(t);if(!t)return;const k=(v||0)%2+'|'+t;out[k]=1;};
+ const box=document.createElement('div');document.body.appendChild(box);let nL=0,nS=0;
+ Object.keys(DATA).forEach(lv=>DATA[lv].units.forEach((U,ui)=>U.lessons.forEach((L,li)=>{nL++;
+   buildLesson(lv,ui,li).forEach(s=>{nS++;box.innerHTML=s.html;
+     box.querySelectorAll('[onclick*="TTS.say"]').forEach(el=>{const oc=el.getAttribute('onclick');
+       if(oc.indexOf("getAttribute('data-t')")>=0)add(el.getAttribute('data-t'));
+       else if(oc.indexOf('this.textContent')>=0)add(el.textContent.replace('🔊 ',''));
+       else{const m=oc.match(/TTS\.say\('((?:[^'\\]|\\.)*)'/);if(m)add(m[1].replace(/\\'/g,"'"));else add('??'+oc);}});
+     box.querySelectorAll('.mdl[data-lines]').forEach(m=>{const d=JSON.parse(m.getAttribute('data-lines'));const who=[];d.forEach(x=>{if(who.indexOf(x[0])<0)who.push(x[0]);});d.forEach(x=>add(x[1],who.indexOf(x[0])));});
+     box.querySelectorAll('.vc .wd').forEach(w=>add(w.textContent));
+   });})));
+ return {nL,nS,keys:Object.keys(out)};});
+require('fs').writeFileSync(process.argv[2]+'/tts_texts.json',JSON.stringify(res.keys,null,0));
+const ks=res.keys;console.log('clases',res.nL,'slides',res.nS,'frases',ks.length,'voz1',ks.filter(k=>k[0]==='1').length,'chars',ks.reduce((a,k)=>a+k.length,0),'raras',ks.filter(k=>k.indexOf('??')>=0).length);
+console.log(ks.slice(0,8).join('\n'));console.log(e.join('\n')||'NO ERRORS');await b.close();})();
