@@ -334,12 +334,12 @@ body.playing #home,body.playing header,body.playing #tabsWrap{display:none}
 <div class="mo" id="mo"><div class="mbox" id="mbox"></div></div>
 <div class="win" id="win"></div>
 
-<script src="juegos/banco.js?v=202611171200"></script>
-<script src="juegos/waswere.js?v=202611171200"></script>
-<script src="juegos/grammar.js?v=202611171200"></script>
-<script src="juegos/grammar2.js?v=202611171200"></script>
-<script src="juegos/gen.js?v=202611171200"></script>
-<script src="juegos/retos.js?v=202611171200"></script>
+<script src="juegos/banco.js?v=202611201200"></script>
+<script src="juegos/waswere.js?v=202611201200"></script>
+<script src="juegos/grammar.js?v=202611201200"></script>
+<script src="juegos/grammar2.js?v=202611201200"></script>
+<script src="juegos/gen.js?v=202611201200"></script>
+<script src="juegos/retos.js?v=202611201200"></script>
 <script>
 /* ================= ESTADO ================= */
 var EMOJIS=['🦊','🐼','🦁','🐯','🐸','🦄','🐙','🐝','🦋','🐬','🚀','⚡','🌈','🍕','🎸','🌟'];
@@ -348,8 +348,8 @@ var NAMES=['Tigers','Unicorns','Rockets','Pandas','Lions','Dragons','Stars','Fox
 var GAMES=[
  {id:'board',e:'🎯',n:'Tablero de desafíos',d:'Categorías y puntajes de 100 a 500. Elige una casilla, responde y suma. Incluye casilla ⭐ doble y pregunta final con apuesta.',
   h:'Un equipo elige una casilla; si responde bien suma los puntos (si se equivoca, el profesor puede restarlos o dar la opción de robar a otro equipo). Al final, cada equipo apuesta puntos en la pregunta final.'},
- {id:'retos',e:'🎲',n:'Retos locos',d:'Saquen una carta: ordenar oraciones, hablar, mímica, dibujar, deletrear, trabalenguas, duelos o una caja misteriosa.',
-  h:'Por turnos, cada equipo saca una carta con un reto distinto. Algunos se corrigen solos (preguntas, ordenar oraciones, verdadero o falso relámpago) y en otros decide el profesor (hablar, mímica, dibujo, deletreo, trabalenguas). En los duelos responden dos equipos con sus teclas. La caja misteriosa puede dar premios, quitar puntos o cambiar el marcador.'},
+ {id:'retos',e:'🎲',n:'Retos locos',d:'Saquen una carta: ordenar oraciones, verdadero o falso, hablar, deletrear, trabalenguas, duelos o una caja misteriosa.',
+  h:'Por turnos, cada equipo saca una carta con un reto distinto. Algunos se corrigen solos (preguntas, ordenar oraciones, verdadero o falso relámpago) y en otros decide el profesor (hablar, deletreo, trabalenguas). En los duelos responden dos equipos con sus teclas. La caja misteriosa puede dar premios, quitar puntos o cambiar el marcador.'},
  {id:'ladder',e:'🪜',n:'Escalera al éxito',d:'10 peldaños con dificultad creciente y comodines (50:50, ayuda del curso, +30 s). ¡Llega a la cima!',
   h:'Los equipos juegan por turnos su propia escalera. Respuesta correcta: suben un peldaño. Error: vuelven al último peldaño seguro (5). Cada equipo tiene 3 comodines por juego.'},
  {id:'wheel',e:'🎡',n:'Ruleta de la suerte',d:'Gira la ruleta: te puede tocar una categoría, puntos dobles, un bono o perder el turno.',
@@ -576,7 +576,7 @@ var BD={cols:[],used:{},dbl:null,cur:null,
   lose:function(){var who=QC.buzz!=null?QC.buzz:S.turn;S.teams[who].score-=this.cur.val;logR(who,false,-this.cur.val);sBad();renderScore();floatPts(who,'−'+this.cur.val,true);buzzFail();if(QC.buzz==null&&QC.out.indexOf(who)<0){QC.out.push(who);miss(who);}
     $('qaward').innerHTML='<div style="width:100%;text-align:center;font-weight:700">¿Otro equipo roba?</div>'+teamBtns('BD.win','✅')+'<button style="background:#555" onclick="BD.win(null)">😶 Nadie</button><button style="background:#7a2a2a" onclick="BD.lose()">❌ Otra incorrecta</button>';},
   surprise:function(c,r,val){var self=this;this.cur={k:c+'-'+r,val:val};tone(523,.1);tone(784,.1,.1);tone(1047,.2,.2);toast('🎁 ¡Reto sorpresa!');
-    var ch=CH.make(CH.pickType(['order','tf','speak','mime','draw','spell','twister','mystery']));if(ch.pts!=null&&ch.type!=='tf')ch.pts=val;
+    var ch=CH.make(CH.pickType(['order','tf','speak','spell','twister','mystery']));if(ch.pts!=null&&ch.type!=='tf')ch.pts=val;
     var judge=/speak|mime|draw|spell|twister/.test(ch.type);
     var aw=judge?'<div style="width:100%;text-align:center;font-weight:700;color:#7a6ba8">¿Quién lo logró?</div>'+teamBtns('BD.win','✅')+'<button style="background:#555" onclick="BD.win(null)">😶 Nadie</button>':'';
     CH.inModal(ch,'🎁 RETO SORPRESA · ',aw,function(ok,pts,myst){if(myst){$('qaward').innerHTML='<button style="background:var(--yellow);color:#2a1f5c" onclick="BD.used[BD.cur.k]={t:S.turn};closeQ();if(!countTurn()){S.turn=(S.turn+1)%S.teams.length;BD.render();}">▶ Continuar</button>';return;}
@@ -637,7 +637,7 @@ var WH={segs:[],rot:0,mult:1,
     if(s.t==='pass'){sBad();toast('💨 '+t.name+' pierde el turno');setTimeout(nextTurn,900);return;}
     if(s.t==='x2'){sOk();this.mult=2;this.info();toast('⭐ ¡Gira de nuevo con puntos dobles!');return;}
     if(s.t==='bonus'){sOk();t.score+=200;renderScore();confettiSmall();toast('🎁 +200 para '+t.name);setTimeout(nextTurn,1200);return;}
-    if(s.t==='reto'){var ch=CH.make(CH.pickType(['order','tf','speak','mime','spell','twister','mystery']));if(ch.pts&&ch.type!=='tf')ch.pts=300*this.mult;this.mult=1;var judge=/speak|mime|spell|twister/.test(ch.type);
+    if(s.t==='reto'){var ch=CH.make(CH.pickType(['order','tf','speak','spell','twister','mystery']));if(ch.pts&&ch.type!=='tf')ch.pts=300*this.mult;this.mult=1;var judge=/speak|mime|spell|twister/.test(ch.type);
       CH.inModal(ch,t.emoji+' '+t.name+' · ',judge?'<button style="background:#22c47a" onclick="CH.onAuto(true,CH.cur.pts)">✅ ¡Lo lograron!</button><button style="background:#ff4d6d" onclick="CH.onAuto(false,0)">❌ No</button>':'',
         function(ok,pts,myst){if(myst){$('qaward').innerHTML='<button style="background:var(--yellow);color:#2a1f5c" onclick="closeQ();nextTurn()">▶ Siguiente equipo</button>';return;}stopTimer();
           var p=0;if(ok){p=award(S.turn,pts);sOk();}else{miss(S.turn);sBad();}logR(S.turn,!!ok,p,{text:CH.cur.t.n,cat:{name:'🎲 Reto'},ans:CH.cur.s||CH.cur.w||''});
