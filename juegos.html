@@ -461,7 +461,11 @@ function spreadCats(n){var c=catsActive();if(S.bank!=='__mix')return shuffle(c).
 function anyQ(){var c=catsActive();return pickQ(c[Math.floor(Math.random()*c.length)]);}
 
 /* ================= AUDIO ================= */
-var VO=null;function loadV(){if(!window.speechSynthesis)return;var v=speechSynthesis.getVoices().filter(function(x){return /^en/i.test(x.lang);});VO=v.filter(function(x){return /GB|US/i.test(x.lang);})[0]||v[0]||null;}
+function voiceScore(x){var n=x.name||'',s=0;
+  if(/natural|neural|premium|enhanced|wavenet|journey|studio/i.test(n))s+=60;if(/online/i.test(n))s+=25;if(/google/i.test(n))s+=30;
+  if(/aria|jenny|guy|ava|andrew|emma|brian|sonia|libby|ryan|samantha|daniel|karen|moira|serena|allison|evan|zoe/i.test(n))s+=15;
+  if(/en[-_]US/i.test(x.lang))s+=8;else if(/en[-_]GB/i.test(x.lang))s+=6;if(/desktop|hazel|george|zira|david|mark|susan|espeak|compact/i.test(n))s-=40;return s;}
+var VO=null;function loadV(){if(!window.speechSynthesis)return;var v=speechSynthesis.getVoices().filter(function(x){return /^en/i.test(x.lang);});v.sort(function(a,b){return voiceScore(b)-voiceScore(a);});VO=v[0]||null;}
 if(window.speechSynthesis){loadV();speechSynthesis.onvoiceschanged=loadV;}
 function say(t){if(!window.speechSynthesis)return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.9;if(VO){u.voice=VO;u.lang=VO.lang;}speechSynthesis.speak(u);}
 function tone(f,d,t0){if(S.sound===false)return;try{var ac=tone.ac||(tone.ac=new (window.AudioContext||window.webkitAudioContext)());var o=ac.createOscillator(),g=ac.createGain();o.type='triangle';o.frequency.value=f;o.connect(g);g.connect(ac.destination);
